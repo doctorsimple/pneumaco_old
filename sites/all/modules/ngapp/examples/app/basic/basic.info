@@ -1,0 +1,12 @@
+name = Basic example
+description = App component for the basic example.
+core = 7.x
+scripts[] = basic.js
+files[] = basic.html
+
+; Information added by Drupal.org packaging script on 2017-11-27
+version = "7.x-1.7"
+core = "7.x"
+project = "ngapp"
+datestamp = "1511797687"
+

@@ -1,0 +1,493 @@
+ 
+<HTML>
+<!-- #BeginTemplate "/Templates/template1.dwt" --> 
+<HEAD>
+<!-- #BeginEditable "doctitle" --> 
+<TITLE>R-S</TITLE>
+<!-- #EndEditable --> 
+<meta http-equiv="Content-Type" content="text/html; charset=">
+</HEAD>
+<BODY BGCOLOR="#999999" text="#003300" link="#660000">
+<div align="center"><!-- #BeginEditable "whole%20thing" --> <font size="3"> 
+  <script><!--
+  function OpenNewWindow(cPicture,nWidth,nHeight,cMessage,nBorder)       
+		{
+ NewWindow=window.open("","NewOne","HEIGHT="+nHeight+",WIDTH="+nWidth+",scrollbars=yes,resizable=no,top=5,left=5");
+        NewWindow.document.write ("<HTML><HEAD>");
+        NewWindow.document.write ("</HEAD>");
+        NewWindow.document.write ("<BODY BGCOLOR='#999999'>");
+        NewWindow.document.write ("<P ALIGN=CENTER>");
+        NewWindow.document.write ("<FONT FACE='Georgia' SIZE='+1'COLOR='#003300'><B>");           
+        NewWindow.document.write (cMessage);
+        NewWindow.document.write ("</B><FONT>");
+        NewWindow.document.write ("<IMG SRC=");
+        NewWindow.document.write (cPicture);
+        NewWindow.document.write (">");
+        NewWindow.document.write ("</P>");
+        NewWindow.document.write ("<bottom><FORM><INPUT TYPE='button'VALUE='Close This Window' onClick='self.close()'>"); 
+        NewWindow.document.write ("</FORM></CENTER></BODY></HTML>");
+        NewWindow.document.write ("</BODY></HTML>");
+        NewWindow.document.close();
+        return false;
+        }
+  
+
+if (!parent.control)
+{window.location="shoppingarea.htm?catalogue_a-c.htm"}
+
+function LineOnForm(plantname,number,price)
+	{ 
+	this.plantname=plantname;
+	this.number=number;
+	this.price=price;
+	}
+var Entries = new Array();
+var countStart=0;
+var Placeholder=0;
+function AddToCart(plantname,number,price)
+	{
+	 Entries[Placeholder]=new LineOnForm(plantname,number,price);
+	 ++Placeholder;
+	 showCart();
+	 }
+
+function ParseArray()
+	{
+	
+	for (x=countStart;x<Entries.length;++x)
+		{
+ 		 parent.control.document.catalogue.qstring.value += Entries[x].plantname;
+		 parent.control.document.catalogue.qstring.value += '-';
+		 parent.control.document.catalogue.qstring.value +=Entries[x].number;
+		 parent.control.document.catalogue.qstring.value +='-';
+		 parent.control.document.catalogue.qstring.value +=Entries[x].price;
+		 parent.control.document.catalogue.qstring.value +='--';
+		 countStart++;
+			}
+	}	
+	
+
+function makeSpace(latinname)
+	{
+		 chopped=latinname.split('+');
+		 n=0;holder='';
+		 while (chopped[n])
+		 	{
+			holder+=(chopped[n]+' ');
+			n++;
+			}
+		 return holder;
+	} 
+ function showCart()
+ 	{
+	ParseArray(Placeholder);
+	var showme="";
+	var args=parent.control.document.catalogue.qstring.value;
+	lines = args.split('--');
+	 for (x=0;(x<((lines.length)-1));++x)
+	 {
+	  parts = lines[x].split('-');
+	  showme+=(makeSpace(parts[1])+"\n")
+	  }
+	 
+	 alert('Your shopping cart contains:\n'+showme+'\nWhen you are ready to place your order, click the submit button to choose a quantity for each item and to enter your shipping and billing information');
+
+				return true;
+	} 
+	
+	
+	
+	//-->
+	</script>
+  </font> 
+  <p><img src="graphics_garden/PIH2.jpg" width="500" height="100"> 
+  <p><font color="#999999">Plant It Herbs - Specializing in Chinese Medicinal 
+    Plants</font> 
+  <p><font color="#999999">n<b><a href="index.htm">Home</a></b><font color="#999999">---</font> 
+    <b><a href="workshops.htm">Workshops</a><font color="#999999">--</font> <a href="mailto:plantit@plantitherbs.com">Contact 
+    Plant It Herbs</a><font color="#999999">---</font> <a href="shoppingarea.htm?order_form.htm">Order 
+    Form</a><font color="#999999">---</font> <a href="links.htm">Links</a></b>g</font> 
+  <p><a href="catalogue_A.htm"><font color="#000066"><b><i>A</i></b></font></a> 
+    <i><b><a href="catalogue_B.htm"><font color="#000066">B</font></a><font color="#000066"> 
+    </font><a href="catalogue_C.htm"><font color="#000066">C</font></a><font color="#000066"> 
+    </font><a href="catalogue_D-G.htm"><font color="#000066">DEFG</font></a> </b></i><font color="#999999"><b><i><a href="catalogue_H-K.htm"><font color="#000066">HIJK</font></a><font color="#000066"> 
+    </font><a href="catalogue_L-N.htm"><font color="#000066">LMN</font></a><font color="#000066"> 
+    </font><a href="catalogue_O-Q.htm"><font color="#000066">OPQ</font></a><font color="#000066"> 
+    </font><a href="catalogue_R-S.htm"><font color="#000066">RS</font></a><font color="#000066"> 
+    </font><a href="catalogue_T-Z.htm"><font color="#000066">TUVWXYZ</font></a></i></b>i</font> 
+  <p><b><font size="+3">2006 Catalogue</font> </b> 
+  <p><b><font size="+3">- R, S -</font> </b> 
+  <form action="order_form.htm" method=GET name=catalogue>
+    <p> <font size="3"> 
+      <input type=hidden name=qstring value=value>
+      </font></p>
+    <p>&nbsp;</p>
+    <p><font size="3" face="Georgia"><i><a name="Rehmannia glutinosa"></a>#10810</i> 
+      </font><font size="3" face="Georgia" color="#000066"><b>Rehmannia glutinosa</b></font><font size="3" face="Georgia">, 
+      sheng di huang, Chinese foxglove root, Scrophulariaceae -<i> Perennial with 
+      purple-green furry leaves and a thick orange tuberous root, it is one of 
+      the 50 most important herbs used in Chinese medicine dating back to the 
+      Han dynasty (206 BC-AD 23); grows in light, moist, neutral to sandy soil 
+      in sun, flowers are purple-brown to reddish yellow and bloom in spring; 
+      fresh and dried roots are said to be used in different ways ranging from 
+      a blood tonic to having antibacterial properties.</i></font></p>
+    <p><b><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_n-z/Rehmannia_glutinosa.jpg',450,450,'Rehmannia glutinosa'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font>Click 
+      for Picture</b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Not available at this 
+      time</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button value="add to shopping cart" onClick="AddToCart(10810,'Rehmannia glutinosa',12.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p align=right><font size="3"><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p>&nbsp;</p>
+    <p><font size="3"><a name="Ricinus communis"></a></font><font size="3" face="Georgia"><i>#10820 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Ricinus communis</b></font><font size="3" face="Georgia">, 
+      bi ma zi, bi ma gen, bi ma ye, castor bean, Euphorbiaceae - <i>Evergreen 
+      shrub with red stems and large toothed leaves, reaching heights of 6-40', 
+      grows in well drained rich soil in sun, it has been cultivated for 6,000 
+      years, all parts of the plant are poisonous; although the oil is said NOT 
+      to contain poison, (which is why people in the west have used castor oil 
+      for a long time); the seeds, roots, oil and leaves are said to be used internally 
+      and externally, skin sores, reduces swelling, clear toxins, free stagnation, 
+      remove undigested food, also used in making crayons, candles, varnishes, 
+      lubricating oils and as an insect repellent for cockroaches.</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $4.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10820,'Ricinus communis',4.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+    <p><font size="3"><a name="Rivia corymbosa"></a></font><font size="3" face="Georgia"><i>#10830 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Rivia corymbosa</b></font><font size="3" face="Georgia">, 
+      snake vine, Convolvulaceae<i> - Sacred medicinal vine used in Mexican healing 
+      practices; sub- tropical plant with acute glabrous leaves and masses of 
+      tubular flowers that can bloom up to twice a year; grow in tropical greenhouse 
+      in rich well-drained soil in sun or part shade. </i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $20.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10830,'Rivia corymbosa',15.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p align=right><font size="3"><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size="3"><a name="Rosa rugosa"></a>&nbsp;<font face="Georgia">#10840 
+      </font></font><font size="3" face="Georgia" color="#000066"><b>Rosa rugosa</b></font><font size="3" face="Georgia">, 
+      mei gui hua, Japanese rose, Rosaceae - <i>Deciduous shrub with prickly stems 
+      and dark green leaves, fragrant purple-pink flowers bloom in summer followed 
+      by red rose hips; grows 3-6' in well drained fertile slightly acid soil 
+      in full sun; flowers and fruit are said to be used for poor appetite and 
+      digestion, promotes movement of qi</i></font></p>
+    <p><b><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_n-z/Rosa_rugosa.jpg',450,450,'Rosa rugosa'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font>Click 
+      for Picture</b></p>
+    <p><font color="#7D0615" size="3" face="Georgia"><i>Plant = $8.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10840,'Rosa rugosa',8.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p align=right>&nbsp;</p>
+    <p><font size="3" face="Georgia" color="#330066"><i><a name="Salix chaenomeloides"></a></i></font><font size="3" face="Georgia" color="#003300"><i>#10850</i></font><font size="3" face="Georgia" color="#FFFF33"><i> 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Salix chaenomeloides</b></font><font size="3" face="Georgia" color="#003300">, 
+      Chinese pussy willow, Salicaceae<i> - Graceful non- invasive shrub with 
+      catkins 1'to 3''long brighten up the winter months; grow in neutral soil 
+      in full sun; inner bark and leaves can be eaten in times of famine. </i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $12.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10850,'Salix chaenomeloides',12.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p><font size="3"><a name="Salvia cavalerei"></a></font><font size="3" face="Georgia"><i>#10860 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Salvia cavalerei</b></font><font size="3" face="Georgia">, 
+      gui zhou shu wei cao, rat's/mouse tail grass, Labiatae<i> - Tender perennial 
+      native to So. China; leaves are oval and soft, foliage turns in the fall, 
+      flowers are blue-purple to purple-red</i></font><font size="3"> </font><font size="3" face="Georgia"><i>and 
+      bloom from July to Sept.; grow in rich well-drained soil in part sun to 
+      shade, taproot is robust; whole plant is said to be used to cool the blood 
+      and relieve toxins, used externally to treat injuries from falls, fractures, 
+      contusions and strains.</i></font></p>
+    <p><b><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_n-z/Salvia_cavalerei.jpg',450,450,'Salvia cavaleriei'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font>Click 
+      for Picture<font size="3" face="Georgia" color="#003300"><i> </i></font></b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $6.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10860,'Salvia cavaleriei',6.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+    <p align=right><font size="3" color="#660000">&nbsp;&nbsp;</font><font size="3"><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size="3"><a name="Salvia miltiorrhiza"></a></font><font size="3" face="Georgia"><i>#10861 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Salvia miltiorrhiza</b></font><font size="3" face="Georgia">, 
+      dan shen, salvia root, Labiatae<i> - Perennial with an erect stem and branched 
+      downy leaves,</i></font><font size="3"> </font><font size="3" face="Georgia"><i>blue-purple 
+      flowers are grouped in clusters and bloom in summer;</i></font><font size="3"> 
+      </font><font size="3" face="Georgia"><i>grow in rich well-drained soil in 
+      sun or part shade, said to be used</i></font><font size="3"> </font><font size="3" face="Georgia"><i>for 
+      irregular menstruation, abdominal pain, irritability and insomnia.</i></font></p>
+    <p><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_n-z/Salvia_miltiorrhiza.jpg',450,450,'Salvia miltiorrhiza'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font><b>Click 
+      for Picture<font size="3" face="Georgia" color="#003300"><i> </i></font></b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $8.50</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10861,'Salvia miltiorrhiza',8.50)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p><font size="3"><a name="Salvia przewalskii"></a></font><font size="3" face="Georgia"><i>#10862 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Salvia przewalskii</b></font><font size="3" face="Georgia">,Gansu 
+      dan shen, Labiatae<i> - Perennial with gray-green densely pubescent leaves, 
+      stems are branched from the base and compact, flowers are deep purple and 
+      bloom in the summer; grow in rich well-drained soil in sun, plants are used 
+      the same as Salvia miltiorrhiza in Gansu province; root are said to remove 
+      blood stagnation, cools the blood to regulate menses, eliminate/relieve 
+      restlessness/ irritation/agitation, flowers for chronic cough, hepatitis.</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $8.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10862,'Salvia prezewalskii',8.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p align=right><font size="3"><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size="3"><a name="Salvia sp."></a><font face="Georgia">#21510 </font></font><font size="3" face="Georgia" color="#000066"><b>Salvia 
+      sp.</b></font><font size="3" face="Georgia">, Labiatae - <i>This stricking 
+      annual grows 3-4', deep red spikes bloom all summer, it's from the original 
+      collection but has yet to be identified, very beautiful.</i></font></p>
+    <p><b><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_n-z/Salvia_sp.jpg',450,450,'Salvia sp.'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font>Click 
+      for Picture<font size="3" face="Georgia" color="#003300"><i> </i></font></b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>not available at this 
+      time </i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(21510,'Salvia sp.',0.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p><font size="3"><a name="Saposhnikovia divaricata"></a></font><font size="3" face="Georgia"><i>#10870 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Saposhnikovia 
+      divaricata</b></font><font size="3" face="Georgia">, fang feng, guard against 
+      wind, Umbelliferae - <i>Hardy perennial with dark green celery like leaves 
+      grows about 12" in well-drained soil in sun, original seed from IMPLAD in 
+      Beijing; tiny white blooms flower in autumn, native to Inner Mongolia and 
+      Hebei it grows in grassland and on slopes; roots are said to alleviate pain, 
+      common cold, headache, dizziness, migraine, rheumatic arthritis. </i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $8.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10870,'Saposhnikovia divaricata',8.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p><font size="3">&nbsp;</font></p>
+    <p><font size="3"><a name="Saxifraga fortunei"></a></font><font size="3" face="Georgia"><i>#10880 
+      </i></font><font size="3" face="Georgia" color="#FFFF33"><b><i> </i></b></font><font size="3" face="Georgia" color="#000066"><b>Saxifraga 
+      fortunei</b></font><font size="3" face="Georgia">, hua zhong hu er cao, 
+      Saxifragaceae<i> - "Hua" means China and "Zhong" means "middle" referring 
+      to the plant being found in Hubei which is in the middle of China; hardy 
+      perennial with dark green oval leaves, makes a perfect ground cover in rich 
+      well drained soil in shade, clears heat and reduces toxins internally and 
+      externally, properties and usage are similar to S. stolonifera, also makes 
+      a nice hanging basket</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $7.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10880,'Saxifraga fortunei',6.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p align=right><font size="3"><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size="3"><a name="Saxifraga stolinifera"></a></font><font size="3" face="Georgia"><i>#10880 
+      </i></font><font size="3" face="Georgia" color="#000066"><b><i>Saxifraga 
+      stolinifera</i></b></font><font size="3" face="Georgia"><i>, hu er cao, 
+      Strawberry begonia, Saxifragaceae - Ground cover hardy perennial has red-green 
+      furry leaves with small white flowers that bloom in spring, often called 
+      "mother of thousands" it also does well in a hanging basket in rich well- 
+      drained soil in part shade or shade; said to be great for ear infections 
+      by using the fresh juice directly into the ear, controls bleeding, removes 
+      toxins, controls pain, insect stings, hemorrhoids.</i></font></p>
+    <p><b><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_n-z/Saxifraga_stolinifera.jpg',450,450,'Saxifraga stolinifera'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font>Click 
+      for Picture<font size="3" face="Georgia" color="#003300"><i> </i></font></b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $7.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10880,'Saxifraga stolinifera',6.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+    <p><font size="3"><a name="Schizonepeta tenuifolia"></a></font><font size="3" face="Georgia"><i>#10890 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Schizonepeta 
+      tenuifolia</b></font><font size="3" face="Georgia">, jing jie, Japanese 
+      catnip, Labiatae/Lamiaceae -<i>One of the most pleasant aromatic plants 
+      I have in the collection; this annual/biannual is erect with small leaves 
+      and inconspicuous flowers that bloom in summer, grows 6-18" in rich, sandy 
+      soil in sun; whole plant is said to be used for the common cold, headache, 
+      fever, sore throat, alleviates itching, scabies, a rare plant to obtain 
+      in the west and important in Chinese medicine.</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $6.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10890,'Schizonepeta tenuifolia',6.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+    <p><font size="3" face="Georgia"><a name="Scrophularia buergeriana"></a>#10900 
+      </font><font size="3" face="Georgia" color="#000066"><b>Scrophularia buergeriana</b></font><font size="3" face="Georgia">, 
+      xuan shen, Scrophulariacea - <i>Perennial with dark green ovate leaves, 
+      flowers are purple and bloom in late summer, grow in moist soil in sun or 
+      part shade; roots are salty and resemble ginseng, roots are said to be used 
+      to nourish the yin, dispels heat, purges fire, removes toxins, cancer, tumors.</i></font></p>
+    <p><b><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_n-z/Scrophularia_buergeriana.jpg',450,450,'Scrophularia buergeriana'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font>Click 
+      for Picture<font size="3" face="Georgia" color="#003300"><i> </i></font></b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $8.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10900,'Scrophularia buergeriana',6.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p align=right><font size="3"><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size="3"><a name="Scrophularia nodosa"></a></font><font size="3" face="Georgia"><i>#10901 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Scrophularia 
+      nodosa</b></font><font size="3" face="Georgia">, common figwort, Scrophulariaceae<i> 
+      - In Europe this plant has long been used for treating skin diseases; a 
+      strong smelling perennial, it has green ovate leaves and small brownish 
+      green flowers that bloom in summer, grow in moist to wet soil in sun or 
+      part shade; whole plant is said to be diuretic, alternative herb that is 
+      mildly laxative, relieves pain and stimulates the liver, internally for 
+      skin diseases, fungal infections, wounds, burns.</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $8.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10901,'Scrophularia nodosa',6.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+    <p align=right><font size="3"><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size="3" color="#660000"><a name="Scutellaria bacalensis"></a></font><font size="3" face="Georgia"><i>#10910 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Scutellaria 
+      baicalensis</b></font><font size="3" face="Georgia">, huang qin, Baikal 
+      skullcap,</font><font size="3"> </font><font size="3" face="Georgia">Labiatae/Lamiaceae 
+      - <i>Low growing perennial that dates back to the Han dynasty (AD25-220); 
+      research in China has found that is greatly improves liver function, one 
+      of the three yellow herbs, this spreading herb grows to 16" in light, well-drained 
+      soil in sun or part shade, can tolerate drought, roots are said to relieve 
+      fever, lower blood pressure, stimulate liver, common cold</i></font></p>
+    <p><b><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_n-z/Scutellaria_bacalensis.jpg',450,450,'Scutellaria baicalensis'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font>Click 
+      for Picture<font size="3" face="Georgia" color="#003300"><i> </i></font></b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $8.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10910,'Scutellaria baicalensis',8.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+    <p align=right><font size="3"><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size="3"><a name="Siegesbeckia sp."></a></font><font size="3" face="Georgia"><i>#10920 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Siegesbeckia 
+      sp.</b></font><font size="3" face="Georgia">, xi xian cao, siegesbeckia, 
+      Compositae<i> - Collected near Golden Temple in Nanjing; an annual which 
+      re-seeds easily, grows to 24" in well-drained soil in sun, leaves are furry 
+      green, tinged with red, flowers are yellow and bloom in fall, top blooms 
+      secrete a sticky substance; whole plant is said to mainly treat wind- damp-heat, 
+      or inflammatory muscle joint pains/conditions, also used to help lower blood 
+      pressure.</i></font></p>
+    <p><b><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_n-z/Siegesbeckia_sp2.jpg',450,450,'Siegesbeckia sp.'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font>Click 
+      for Picture<font size="3" face="Georgia" color="#003300"><i> </i></font></b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $7.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10920,'Siegesbeckia sp.',6.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+    <p><font size="3" color="#660000"><a name="Solandra maxima"></a></font><font size="3" face="Georgia"><i>#10930 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Solandra brachycalyx</b></font><font size="3" face="Georgia">, 
+      Solanaceae<i> - Ethnobotanical plant native to Mexico; clambering tropical 
+      vine with glossy leathery leaves and large chalice-shaped flowers starting 
+      out pure white then turning yellow with red-purple stripes, blooms in December 
+      - February; grow in a tropical greenhouse or Zone 10.</i></font></p>
+    <p><b><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_n-z/Solandra_maxima.jpg',450,450,'Solandra maxima'); return false;"><img src="images_n-z/Solandra_maxima.jpg" width="311" height="216" border="0" align="center "></a></i></b></font>Click 
+      for Picture<font size="3" face="Georgia" color="#003300"><i> </i></font></b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $20.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10940,'Solandra brachycalyx',15.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p align=right><font size="3"><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size="3" color="#660000"><a name="Solanum aculeatissima"></a></font><font size="3" face="Georgia"><i>#10940 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Solanum aculeatissima</b></font><font size="3" face="Georgia">, 
+      ye dian qie, type of nightshade, Solanaceae <i>- Climbing tree with spine 
+      covered leaves make this plant very unusual; a tender perennial, it grows 
+      in well-drained soil in sun or part shade, white flowers bloom and form 
+      round, green speckled fruit that turn yellow when ripe; whole plant is said 
+      to be bitter, neutral, warming and poisonous, it is used for cough with 
+      asthma, pain from blockages, wheezing and panting, wind pipe infections, 
+      stomach pain and pain from wind-damp, injury and trauma.</i></font></p>
+    <p><b><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_n-z/Solanum_aculeatissima.jpg',450,450,'Solanum aculeatissima'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font>Click 
+      for Picture<font size="3" face="Georgia" color="#003300"><i> </i></font></b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $6.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10940,'Solanum aculeatissima',6.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+    <p><font size="3" color="#660000"><a name="Solanum lyatrum"></a></font><font size="3" face="Georgia"><i>#10941 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Solanum lyratum</b></font><font size="3" face="Georgia">, 
+      bai ying, Solanaceae<i> - First recorded in Shen nung pen tsao ching, an 
+      herbaceous perennial vine with hairy leaves and small blue-purple or white 
+      flowers that bloom in summer forming red berries; grow in well drained soil 
+      in sun; stems are said to be used to treat convulsions in infants, branches 
+      and leaves for clearing away heat and cooling the blood, believed to have 
+      anti-cancer properties when decocted with jujube.</i></font></p>
+    <p><b><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_n-z/Solanum_lyatrum.jpg',450,450,'Solanum lyatrum'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font>Click 
+      for Picture<font size="3" face="Georgia" color="#003300"><i> </i></font></b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $6.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10941,'Solanum lyratum',6.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+    <p align=right><font size="3"><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size="3"><a name="Stapelia gigantea"></a><font face="Georgia" color="#003300"><i>#10950</i></font></font><font size="3" face="Georgia" color="#330066"><i> 
+      </i><b>Stapelia gigantea</b><i>,</i></font><font size="3" face="Georgia" color="#003300"> 
+      carrion flower, Asclepiadaceae</font><font size="3" face="Georgia" color="#330066"><i> 
+      - </i></font><font size="3" face="Georgia" color="#003300"><i>Succulent 
+      from low, hilly, rocky terrain growing in tropical Africa; fleshy stems 
+      branch from the bases to form large clumps, star-shaped often fowl smelling 
+      flowers bloom in fall and are pollinated by flies, grow under cover minimum 
+      52 degrees in rich sandy soil in sun, likes mid day shade.</i></font></p>
+    <p><b><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_n-z/Stapelia_asterias.jpg',450,450,'Stapelia gigantea'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font>Click 
+      for Picture<font size="3" face="Georgia" color="#003300"><i> </i></font></b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $10.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10950,'Stapelia gigantea',10.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+  </form>
+  <p></p>
+  <p align="center"><b><a href="index.htm">Home</a></b> <b><a href="links.htm">Links</a></b> 
+    <b> </b><b><a href="workshops.htm">Workshops</a></b></p>
+  <p align="center"><b> <a href="mailto:plantit@plantitherbs.com">Contact Plant 
+    It Herbs</a> </b></p>
+  <p align="center"><b><a href="shoppingarea.htm?order_form.htm">Order Form</a> 
+    </b></p>
+  <p></p>
+  <!-- #EndEditable --> 
+  <p>&nbsp;</p>
+</div>
+</BODY>
+<!-- #EndTemplate -->
+</HTML>

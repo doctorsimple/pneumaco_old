@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<!--This file created 12/29/2000 5:39 PM by Claris Home Page version 3.0-->
+<HEAD>
+   <TITLE>PlantItHerbs - Online Shopping</TITLE>
+	
+
+<script>
+var readme = document.URL;
+
+var redirect = readme.split('?');
+
+function aaargh()
+{
+if (redirect[1])
+{
+mainwindow.location = redirect[1];
+}
+}
+</script>
+</HEAD>
+<FRAMESET ROWS="1,1*" FRAMEBORDER=1 onload="aaargh()">
+<NOFRAMES><BODY BGCOLOR="#FFFFFF">
+<P>You must be using a frames-compatible browser to view this
+page</P>
+</BODY>
+</NOFRAMES>
+   <FRAME SRC="control.htm" NAME=control MARGINWIDTH=0 MARGINHEIGHT=0 FRAMEBORDER=1>
+   <FRAME SRC="placeholder.htm" NAME=mainwindow MARGINWIDTH=0 MARGINHEIGHT=0 FRAMEBORDER=1>
+</FRAMESET>
+</HTML>

@@ -1,0 +1,4 @@
+name = Unit Converter
+core = 7.x
+scripts[] = unitconverter.js
+files[] = unitconverter.html

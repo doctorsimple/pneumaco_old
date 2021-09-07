@@ -1,0 +1,1277 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+   <meta name="Author" content="Russell Alexander">
+   <meta name="Description" content="The complete set of Documentation for Merchant OrderForm v1.5 - WebWare written and produced by RGA">
+   <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+   <meta name="ProgId" content="FrontPage.Editor.Document">
+   <meta name="subject" content="Merchant OrderForm">
+   <meta name="Template" content="C:\MICROSOFT OFFICE\OFFICE\html.dot">
+   <TITLE>Merchant OrderForm v1.5 Documentation</TITLE>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#3333FF" VLINK="#3333FF" ALINK="#FF0000">
+<FONT FACE="Comic Sans MS">
+<b>
+<font size="4">
+Building InputPages for <FONT COLOR="#800000"><I>Merchant Order Form</I></FONT></font></b>
+<font size="-1">
+ version 1.53, 8/15/2000, Updated 9/15/2000</font> </FONT>
+<BR><FONT FACE="Comic Sans MS"><FONT SIZE=-1>Copyright by </FONT><B><FONT SIZE=-2>RGA@IO.COM</FONT></B><FONT SIZE=-1>
+/ <A HREF="http://www.io.com/~rga/scripts">http://www.io.com/~rga/scripts<br>
+</A>Internet Location: <a href="http://www.merchantorderform.com">http://www.merchantorderform.com<br>
+</a>
+Use our web site for <a href="http://www.merchantorderform.com/updates.html">current issues or updates to this product</a>
+ <a href="http://www.merchantorderform.com"><br>
+</a>
+Documentation prepared July 31, 2000.
+</FONT></FONT><p>
+
+<font size="-1" face="Comic Sans MS">
+This file will give you all the details on How to Build Input Pages to submit products to the Merchant OrderForm system.&nbsp; You should be familiar with some of the terms and concepts for making HTML forms.&nbsp; All of Mof's input comes from
+standard web page FORMs that you build.&nbsp;</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+The other documentation files are:</font>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS"><a href="ReadMe.html">ReadMe.html</a>
+ -- Introductory information about Merchant OrderForm</font><li>
+<font size="-1" face="Comic Sans MS"><a href="Installation.html">Installation.html</a>
+ -- Step by step instructions for installing these scripts</font><li>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>BuildingPages.html </b></font>-- 
+<font color="#000080">
+<b>You Are Here</b></font></font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="AboutConfigurations.html">AboutConfigurations.html</a>
+ -- Basics about editing Perl configuration files</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="Configurations1.html">Configurations1.html </a>
+&nbsp; -- Front End settings (Cart and Order Summary)</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="Configurations2.html">Configurations2.html</a>
+ -- Back End settings (Check out and Final invoice)</font><li>
+<font size="-1" face="Comic Sans MS"><a href="Troubleshooting.html">Troubleshooting.html&nbsp;</a>
+&nbsp;-- Information on error messages and troubleshooting</font>
+</ul>
+<p><u>
+<font size="+1" face="Comic Sans MS">
+Shareware statement</font></u>
+
+<font size="-1" face="Comic Sans MS">
+&nbsp;<br>
+<br>
+You are authorized to install, test, and explore your copy of Merchant OrderForm.  When you are satisfied that it will do the job for you, then you are expected to make arrangements for the Shareware fees.&nbsp;</font><p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#000080"><b>Payment arrangements</b></font> @ <a href="http://www.merchantorderform.com/payment.html">http://www.merchantorderform.com/payment.html</a>
+&nbsp;<br>
+<br>
+-- Or you can Send Check or Money Order To:&nbsp;</font><br>
+<br>
+<font size="-1" face="Comic Sans MS">
+        RUSSELL ALEXANDER&nbsp;<br>
+        1904 INVERNESS BLVD.&nbsp;<br>
+        AUSTIN, TEXAS 78745&nbsp;</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+
+
+-- Or you can use </font>
+
+<!-- Begin PayPal Logo -->
+<A HREF="https://secure.paypal.x.com/xclick/business=rga%40io.com&undefined_quantity=1&item_name=Merchant+OrderForm+v1.5&return=http%3A//www.merchantorderform.com/" target="_blank">
+<font size="-1" face="Comic Sans MS">
+Pay Pal</font>
+&nbsp;
+</a>
+<p>
+
+&nbsp;
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9"><FONT SIZE=+1><a name="TableContents"></a>
+Table
+of Contents for this Documentation</FONT></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT FACE="Comic Sans MS"><FONT COLOR="#800000">Merchant
+OrderForm</FONT>
+<B><FONT SIZE=-1>v</FONT></B></FONT>
+ <font size="-1" face="Comic Sans MS">
+ <b>1.53</b></font></TD>
+</TR>
+</TABLE>
+
+&nbsp;
+<ul>
+<li><b>
+<font color="#000080" size="-1" face="Comic Sans MS">
+<a href="#HowWorks">How does Merchant OrderForm work ?<br>
+</a>
+</font></b>
+<font size="-1" face="Comic Sans MS">
+A brief explanation of how cgi scripts do what they do<br>
+Some basics about how html forms work with cgi scripts</font>
+</ul>
+
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>
+<a href="#BuildingStoreFront">Building your Online store</a>
+<br>
+</b>
+</font>Rules for making your HTML Product Input Pages
+</font>
+<p>
+
+
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#HowItWorks">
+Here's how it works</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#MakingNameValues">Making the name=value pairs in your input</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#UnderstandingModes">Understanding Mof's four input modes:</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#Mode1">Mode 1: Rules for Submitting from the Query String or the GET Method:</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#Mode2">Mode 2: Entering a Single Item from anywhere on the Web Site to the MOF cart:</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#Mode3">Mode 3: Making an Order Form Input Page of Checkboxes</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#Mode4">Mode 4: Making an Order Form Input Page with Quantity Boxes and User Input</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#OtherConsiderations">Other Considerations in making input</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#PassImage">How to Pass an Image to the Cart</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#PriceAdjust">
+How to make Price Adjusting product options</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#CheckTable">Make sure you have the correct product input for a particular Mode</a>
+</font>
+</ul>
+</ul>
+<p>
+
+<br>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9"><font size="+1" face="Comic Sans MS"><a name="HowWorks"></a>
+How does Merchant OrderForm work ?</font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<ol>
+<li>
+<font size="-1" face="Comic Sans MS">
+You build input pages made of html form input</font><li>
+<font size="-1" face="Comic Sans MS">
+Your form sends data to the processing scripts</font><li>
+<font size="-1" face="Comic Sans MS">
+The processing scripts sends results back to the browser</font>
+</ol>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+You build FORMs to collect user input and send the whole bag of collected input to a particular processing program by pressing the &quot;submit button. The Forms collecting the user input are made in HTML or with an HTML editor. The CGI program
+processing the input is an independent program, separate from any HTML language, capable of processing what you sent it, and usually sending something back to the browser.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>Web page forms are the beginning piece</b></font>.&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Forms are built in standard HTML. You can build forms on a Web page with a standard HTML editor, like MS Front Page, or Adobe Page Mill, or you can build them with a plain text editor if you know how to write HTML pages.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Your forms collect information. You can build FORM input using a plain text box, a checkbox, a drop down box, a list box, or radio buttons.&nbsp; When you build your input areas, each input device will have a <b>NAME</b> and <b>VALUE</b> pair
+associated with it.&nbsp; So, if you place a simple text box on your page, you will assign this box a &quot;name=bla-bla&quot; and the &quot;value&quot; of what someone enters into the text box will be collected and sent to the processing script when
+someone click the submit button on your form. Likewise with other input devices, like a checkbox: You give it a &quot;<b>name</b>=checkbox_one&quot;, and a <b>value</b> of &quot;True/False&quot; is collected depending on if the user checked it or
+unchecked it.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+You'll need to read more about HTML, or how to construct FORMS in the help section of your favorite HTML editor to learn the specifics of using each input device you want to use.&nbsp; But they all will function in the way mentioned above: by giving
+each input device a NAME, so the VALUE of that input device can be collected and used.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Here's how the FORMS you build will interact with CGI scripts.&nbsp; In HTML you will define a whole area of your page as a &quot;FORM&quot; input collection area.&nbsp; Within this FORM input area you will put all the input collection devices that
+you want. In HTML you begin the form collection area with:</font></p>
+<p>
+
+<font face="Fixedsys" size="1">
+&lt;FORM .. &gt;</font>
+<font size="-1" face="Comic Sans MS">
+ and you end the area with</font>
+<font face="Fixedsys" size="1">
+ &lt;/FORM&gt;</font>
+<font size="-1" face="Comic Sans MS">
+<br>
+If you are using an HTML editor, then this is done for you under the hood.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+In the beginning &lt;FORM .. &gt; tag you will be declaring two things:</font></p>
+<ol>
+<li>
+<font size="-1" face="Comic Sans MS">
+What &quot;method&quot; to use in submitting all your collected input data.</font><li>
+<font size="-1" face="Comic Sans MS">
+Where to send the whole collection of input collected in your form area, &quot;action&quot;</font>
+</ol>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+So, when you set up the initial FORM area tag, you will define what to do with the collected data, where to send it.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This example says send all the input collected in my form to a program called: 
+<font color="#000080">
+<b>mof.cgi<br>
+</b></font>We also have defined where mof.cgi is located on the world wide web.</font></p>
+<p>
+
+<font face="Fixedsys" size="1">
+&lt;FORM method=POST action=&quot;http://www.domain.com/cgi-bin/mof.cgi&quot;&gt;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+So, your HTML form page has collected some input, and you have told the page to send everything to a processing program located at
+<font color="#000080">
+<b> http://www.domain.com/cgi-bin/mof.cgi</b></font>.&nbsp; So, when the user presses the &quot;Go&quot; or &quot;Submit&quot; button on the form, everything is sent to the program you have addressed in the action attribute.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+CGI programs accept what was sent,&nbsp; processes it in some way, and usually sends something back to the browser that originally sent it information.&nbsp; MOF is written in perl, but one could use other languages to interact with a server's CGI
+(Common gateway interface). The CGI gateway simply provides an interface between some program that exists on the server, and the World Wide Web. The server's web server software is responsible for managing this interface. CGI allows a Web browser to
+contact a program, and the program to talk back to the browser via the World Wide Web. This way you can process something in a real program, rather than have static web pages simply displaying text or animated gif images.</font></p>
+<p>
+
+<br>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="+1" face="Comic Sans MS">
+<a name="BuildingStoreFront"></a>
+Building Your Online Store</font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<P>
+<font size="-1" face="Comic Sans MS">
+Merchant OrderForm was built to be able to accept almost any kind of html FORM input.&nbsp; So whatever kind of form you are creative enough to build, you can probably get Mof to accept it and put it in the cart.&nbsp; You can place a simple 
+<font color="#000080">
+Buy Me</font> button next to a product on your web pages, or you can go all out and put an unlimited number of user input options to define the product being ordered.&nbsp; We have included some Example Input Pages for you to consult.&nbsp;&nbsp;</font><P>
+<font size="-1" face="Comic Sans MS">
+The Example Input Pages are separated into the different ways that Mof is programmed to receive input.&nbsp; There are some specific Rules that you must follow in constructing your forms, and each of the Example Input Pages has notes on the rules for
+that method and mode.&nbsp; You can read the notes on the Example Input Pages and you can also consult the underlying HTML code in the page to see what is happening under the hood.&nbsp;</font><P>&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font color="#000080" size="-1" face="Comic Sans MS">
+<b><a name="HowItWorks"></a>
+Here's how it works:</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+You build html forms, and the <b>name</b>=<b>value</b> pairs for your input tags will contain information about your product(s) submitted to the cart.&nbsp; You must set up the name=value pairs in your product input with specific rules for the
+different types of submissions you want to make.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If you are form challenged, then you can try to copy and past from the Example Input Pages, or pull the Example Input Pages into your HTML editor and work with them that way.&nbsp; You may have some problems pulling them into Front Page.&nbsp; For
+some reason Front Page doesn't do a good job of recognizing the &lt;form&gt; tags already in place.&nbsp; It's as if Front Page didn't build them, then it can't see them.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+The next section outlines the specific rules that must be followed to build Input Pages that Mof is expecting.&nbsp; The following notes have lots of language specific to building HTML FORM input.&nbsp; So, if you get lost then you may need to brush
+up on How To build forms.&nbsp; There are many good tutorials available free on the web.</font></p>
+<p>
+
+&nbsp;</p>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="MakingNameValues"></a>
+Making the name=value pairs in your input</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Except for one of Mof's input modes, the product input that you build will always have &quot;
+<font color="#000080">
+<b>order</b></font>&quot; as the name for the product, and the value of name=&quot;order&quot; will contain a string that defines information about a product.&nbsp; The string containing the product information will have either 5 or 6 pieces of
+information about that product, 
+<font color="#000080">
+<u>depending on the mode you are using</u></font>.&nbsp; Those pieces of information are separated by a delimiter pattern:&nbsp; Mof is already set to recognize the delimiter pattern of 4 minus signs.&nbsp; You can change the delimiter in the
+configuration files if you want, but we know this one is reliable.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+name=&quot;order&quot;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+(6) value=Qty---- Item----Description----Price----ShipCode----Tax<br>
+(5) value=Item----Description----Price----ShipCode----Tax</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#000080" face="Comic Sans MS" size="-1">
+<b>Price</b></font>: is in decimal format, no currency symbols: 
+<font color="#000080">
+<b>12.95</b></font><br>
+<font color="#000080" face="Comic Sans MS" size="-1">
+<b>ShipCode</b></font>: can be weight, or another flag, use plain numbers: 
+<font color="#000080">
+<b>0.12</b></font> is 12/100 of a unit (lb or whatever)<br>
+<font color="#000080" face="Comic Sans MS" size="-1">
+<b>Tax</b></font>: is a simple switch: either on (
+<font color="#000080">
+<b>1</b></font>) or off (
+<font color="#000080">
+<b>0</b></font>).&nbsp; Identifies an item as taxable (1) or not (0)</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: The QUANTITYBOXES mode of input is done a little different.&nbsp; the name=order must be numbered to match any other input associated with that product.&nbsp; We'll cover more about that later.&nbsp; For now, just note that all products,
+except those submitted under the Quantityboxes mode, will always be name=&quot;order&quot;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Use only alpha numeric characters, and don't use any special or fancy characters.&nbsp; You can use the underscore, single hyphen, periods, numbers, decimals, in your input value=&quot;Mof Product Information&quot;.&nbsp;&nbsp;</font></p>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+Don't use any of these characters:<b> ` ! @ # $ % ^ &amp; * ( ) { } / \ &lt; &gt;</b></font><li>
+<font size="-1" face="Comic Sans MS">
+Don't use any Perl special characters, quotes, semicolon, etc.</font><li>
+<font size="-1" face="Comic Sans MS">
+Don't use the&nbsp; <b>|</b> character</font><li>
+<font size="-1" face="Comic Sans MS">
+Don't use the double colon<b> ::</b>&nbsp;&nbsp;</font><li>
+<font size="-1" face="Comic Sans MS">
+Don't use the square bracket characters <b>[</b>&nbsp; or&nbsp;<b> ]</b></font>
+</ul>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+All these characters are reserve characters that MOF assigns special meaning to, so if you put them in your input values then you could confuse MOF.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Don't try to put in any HTML tags in your Input values.&nbsp; HTML tags will not confuse MOF, but it will confuse some browsers like Netscape as MOF attempts to Pass and Parse these characters.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Keep everything on one line, correct your editor if it splits up long lines with line breaks in the html.&nbsp; Some editors like to Tab enormous spaces in the source, and some like to split input value=lines with great white spaces and line breaks.&nbsp;
+This sort of thing can mess up what you are trying to send MOF.</font></p>
+<p>
+
+</p>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="UnderstandingModes"></a>
+Understanding Mof's four input modes:</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Mof is expecting instructions and specific input for different types of products.&nbsp; You instruct Mof how to process the input you are sending it by defining one of four input modes.&nbsp; Mof processes product input differently for each of the
+four different input modes.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+The first input mode is triggered when you send something via the Query String.&nbsp; When Mof finds product information at the Query String level, then it goes to work to sort it out in the simplest way:&nbsp; One product at a time under the
+name=&quot;order&quot; where the value contains all 6 pieces of products information Mof is looking for.&nbsp; If you attempt to submit anything else via the QueryString then Mof will discard it or give you an error.&nbsp; The only other allowed
+piece of information that can be submitted via the QueryString is the ViewCart function.&nbsp; You can call the ViewCart function by a standard hyperlink where the directive &quot;viewcart&quot; is submitted as the only piece of information on the
+QueryString.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+When Mof doesn't find anything on the QueryString, then it proceeds to looking for POST input.&nbsp; At the POST input level there are three modes that will be used to define how Mof processes the input you are sending it.&nbsp; You will pass one of
+three modes as hidden input via the POST action under the 
+<font color="#000080">
+<b>name</b></font>=
+<font color="#000080">
+<b>postmode</b></font> to define which of the three POST modes will be used.&nbsp; Each of the three postmode(s) trigger Mof to process your product input differently, and so the Rules for that mode must be followed when you are making your product
+input.&nbsp; You can see the notes further down with specific Rules for each mode.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If you fail to define what mode you are submitting products under, then Mof will tell you it's Unable to determine the post mode.&nbsp; Mof will also try to check your product input, and in many situations tell you that you don't have all the
+necessary product information if all (5) or all (6) pieces of information are not accurate for a particular POST mode.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Each of the four input modes have Example Pages with notes.<br>
+Each of the four input modes have a Rules Checklist in the next section.<br>
+Here's a brief table to summarize how the four Modes differ:</font></p>
+
+<table border="1" cellpadding="0" cellspacing="0" width="640">
+
+<tr><td width="32%" nowrap bgcolor="#F4F4F4" align="center">
+&nbsp;</td><td width="32%" nowrap bgcolor="#F4F4F4" align="center">
+<font size="-1" face="Comic Sans MS">
+Use this type of input</font></td><td width="98%" nowrap bgcolor="#F4F4F4" align="center">
+<font size="-1" face="Comic Sans MS">
+If you want to do this</font></td></tr>
+
+<tr><td width="32%" nowrap align="center">
+<b>
+<font size="-1" face="Comic Sans MS" color="#000080">
+1</font></b></td><td width="32%" nowrap>
+<font size="-1" face="Comic Sans MS">
+&nbsp;Query String</font></td><td width="98%" nowrap>
+<font size="-1" face="Comic Sans MS" color="#000080">
+&nbsp;Submit one product at a time to the cart<br>
+&nbsp;With no user selected options for the product<br>
+&nbsp;With no quantity input by user</font></td></tr>
+
+<tr><td width="32%" nowrap align="center">
+&nbsp;</td><td width="32%" nowrap>
+<font size="-1" face="Comic Sans MS">
+&nbsp;Query String</font></td><td width="98%" nowrap>
+<font size="-1" face="Comic Sans MS" color="#000080">
+&nbsp;Trigger the ViewCart function<br>
+&nbsp;standard link &lt;a href=&quot;../mof.cgi?viewcart&quot;&gt;</font></td></tr>
+
+<tr><td width="32%" nowrap align="center" bgcolor="#F4F4F4">
+&nbsp;</td><td width="32%" nowrap bgcolor="#F4F4F4" align="center">
+&nbsp;</td><td width="98%" nowrap bgcolor="#F4F4F4" align="center">
+&nbsp;</td></tr>
+
+<tr><td width="32%" bgcolor="#FFFFFF" nowrap align="center">
+<b>
+<font size="-1" face="Comic Sans MS" color="#000080">
+2</font></b></td><td width="32%" bgcolor="#FFFFFF" nowrap>
+<font size="-1" face="Comic Sans MS">
+&nbsp;action=POST<br>
+&nbsp;postmode=SINGLEPOST</font></td><td width="98%" bgcolor="#FFFFFF" nowrap>
+<font size="-1" face="Comic Sans MS" color="#000080">
+&nbsp;Submit one product at a time to the cart<br>
+&nbsp;<b>Allow user selected options</b> for the product&nbsp;<br>
+&nbsp;Allow quantity to be input by customer<br>
+&nbsp;Defaults to 1 quantity if user input is omitted<br>
+&nbsp;Ability to select main product from a DropBox</font></td></tr>
+
+<tr><td width="32%" nowrap align="center" bgcolor="#F4F4F4">
+&nbsp;</td><td width="32%" nowrap bgcolor="#F4F4F4" align="center">
+&nbsp;</td><td width="98%" nowrap bgcolor="#F4F4F4" align="center">
+&nbsp;</td></tr>
+
+<tr><td width="32%" nowrap align="center">
+<b>
+<font color="#000080">
+3</font></b></td><td width="32%" nowrap>
+<font size="-1" face="Comic Sans MS">
+&nbsp;action=POST<br>
+&nbsp;postmode=CHECKBOXES</font></td><td width="98%" nowrap>
+&nbsp;
+<font size="-1" face="Comic Sans MS" color="#000080">
+Provide a list of products by checkboxes<br>
+&nbsp;Submit more than one product at a time<br>
+&nbsp;The customer Checks all products wanted&nbsp;<br>
+&nbsp;With no user selected options for the product<br>
+&nbsp;Submits a default quantity of 1 to the cart for each item checked<br>
+&nbsp;Can also use ListBox or DropBox to select main product</font></td></tr>
+
+<tr><td width="32%" bgcolor="#F4F4F4" nowrap align="center">
+&nbsp;</td><td width="32%" bgcolor="#F4F4F4" nowrap align="center">
+&nbsp;</td><td width="98%" bgcolor="#F4F4F4" nowrap align="center">
+&nbsp;</td></tr>
+
+<tr><td width="32%" bgcolor="#FFFFFF" nowrap align="center">
+<b>
+<font color="#000080">
+4</font></b></td><td width="32%" bgcolor="#FFFFFF" nowrap>
+<font size="-1" face="Comic Sans MS">
+&nbsp;action=POST<br>
+&nbsp;postmode=QUANTITYBOXES</font></td><td width="98%" bgcolor="#FFFFFF" nowrap>
+&nbsp;
+<font size="-1" face="Comic Sans MS" color="#000080">
+Submits one or more products at a time to the cart<br>
+&nbsp;Allows user to input initial quantity for product<br>
+&nbsp;<b>Allows for user selected options </b> for the product(s)<br>
+&nbsp;Allows for use of ListBox or DropBox for Main product&nbsp;</font></td></tr>
+
+</table>
+
+<p>
+
+<br>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: All user selected input that Mof will be looking for must be declared in the
+<font color="#000080">
+<b> mof15.conf</b></font> configuration file.&nbsp; Consult the Configuration.html file for more information on these settings.</font></p>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: Only SINGLEPOST or QUANTITYBOXES mode allows for product option input</font></p>
+<p>
+
+&nbsp;</p>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="Mode1"></a>
+Mode 1: Rules for Submitting from the Query String or the GET Method:</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+See this example page for this type of input: 
+<font color="#800000">
+<b>ExampleSingleInput.html </b></font>- The first examples</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+By using the query string, you can Enter a Single Item into the cart from anywhere on the Web Site to the MOF cart. You can submit using the Form GET tag or an &lt;A HREF&gt; link.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Here are some reminders to consult when building this type of input:</font></p>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+Any $ENV{'QUERY_STRING'} or GET has 6 Fields under the name=order</font><li>
+<font size="-1" face="Comic Sans MS">
+Submit 6 Fields under the value=Qty---- Item----Description----Price----ShipCode----Tax</font><li>
+<font size="-1" face="Comic Sans MS">
+You must include Plus+Seperators+In+This+Input+For+Spaces</font><li>
+<font size="-1" face="Comic Sans MS">
+No validation is needed for this type of input, there is no User Input allowed</font><li>
+<font size="-1" face="Comic Sans MS">
+You cannot use user input for this type of submission.</font><li>
+<font size="-1" face="Comic Sans MS">
+MOF is only set up to process user input from Form POST input.</font><li>
+<font size="-1" face="Comic Sans MS">
+If data is appearing incorrectly in the MOF Cart then Check and Re-check that your input is correctly formatted.</font><li>
+<font size="-1" face="Comic Sans MS">
+There is some limited built in ability for MOF to check ENV{QRY} input for appropriateness and MOF will give you an error message if the format is not followed for name=order value=6 Fields</font>
+</ul>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+The only submission via the Query String that is accepted other than an &quot;order&quot; is for the &quot;viewcart&quot; function. You can place this function anywhere on your site, on any page, either with an image, plain hyperlinked text, or a GET
+button.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Example link to trigger the viewcart function:<br>
+&lt;a href=&quot;/cgi-bin/mof.cgi?viewcart&quot;&gt;View My Cart &lt;/a&gt;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+The Query String must be ?viewcart exactly, and cannot have any value after it.<br>
+You cannot submit the viewcart request from a POST.</font></p>
+<p>
+
+&nbsp;</p>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<b>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<a name="Mode2"></a>
+Mode 2: Entering a Single Item from anywhere on the Web Site to the MOF cart:</font></b></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<b>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Using the </font>
+<font size="-1" face="Comic Sans MS" color="#800000">
+postmode=SINGLEPOST</font> 
+<font size="-1" face="Comic Sans MS" color="#000080">
+Method</font></b>
+<font size="-1" face="Comic Sans MS">
+<br>
+See this example page for this type of input: 
+<font color="#800000">
+<b>ExampleSingleInput.html</b></font> - The second examples</font></p>
+<ul>
+<li>
+<font color="#000080" size="-1" face="Comic Sans MS">
+<b>For the product</b></font><li>
+<font size="-1" face="Comic Sans MS">
+Specify postmode=SINGLEPOST as hidden input for this Form input</font><li>
+<font size="-1" face="Comic Sans MS">
+Using ENV{CONTENT} POST uses 5 Fields under name=order</font><li>
+<font size="-1" face="Comic Sans MS">
+Submit 5 Fields under the value=Item----Description----Price----ShipCode----Tax</font><li>
+<font size="-1" face="Comic Sans MS">
+You do not need to include Plus Separators in your input</font><li>
+<font size="-1" face="Comic Sans MS">
+The quantity will be separate input</font><li>
+<font size="-1" face="Comic Sans MS">
+Use name=quantity either as an input box or as hidden input</font><li>
+<font size="-1" face="Comic Sans MS">
+If you do not include quantity, then MOF will default it to 1</font><li>
+<font size="-1" face="Comic Sans MS">
+You can also use a DropBox with this mode&nbsp;<br>
+See <b>
+<font color="#800000">
+ExampleDropBoxes.html</font></b> - example 1</font>
+</ul>
+<ul>
+<li>
+<font color="#000080" size="-1" face="Comic Sans MS">
+<b>Adding user input to the product</b></font><li>
+<font size="-1" face="Comic Sans MS">
+You must have all user_input options name=whatever declared in the config file <b>
+<font color="#000080">
+mof15.conf</font></b></font><li>
+<font size="-1" face="Comic Sans MS">
+Tell MOF which user_input options name=whatever options are Required Input from user in <b>
+<font color="#000080">
+mof15.conf</font></b></font><li>
+<font size="-1" face="Comic Sans MS">
+If you don't identify which user_input name=whatever are Required then input for that option will not be validated</font><li>
+<font size="-1" face="Comic Sans MS">
+To use validation on a user_input option you must have the selected option value=&quot;&quot; (Null) when the form starts or re-sets</font><li>
+<font size="-1" face="Comic Sans MS">
+Each individual product must have its own set of FORM tags</font>
+</ul>
+<p>
+
+&nbsp;</p>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<b>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<a name="Mode3"></a>
+Mode 3: Making an Order Form Input Page of Checkboxes</font></b></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<b>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Using the </font>
+<font size="-1" face="Comic Sans MS" color="#800000">
+postmode=CHECKBOXES</font> 
+<font size="-1" face="Comic Sans MS" color="#000080">
+Method</font></b>
+<font size="-1" face="Comic Sans MS">
+<br>
+See this example page for this type of input:<b> 
+<font color="#800000">
+ExampleOrderForm.html</font></b> - The first example</font></p>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+This is simple Check an item if you want it layout, no user_options</font><li>
+<font size="-1" face="Comic Sans MS">
+Submit postmode=CHECKBOXES as hidden input within the Form Tags</font><li>
+<font size="-1" face="Comic Sans MS">
+You cannot have user_input options with Checkbox input</font><li>
+<font size="-1" face="Comic Sans MS">
+Each checkbox will be name=order</font><li>
+<font size="-1" face="Comic Sans MS">
+Each checkbox value will have value=6 Fields</font><li>
+<font size="-1" face="Comic Sans MS">
+Submit 6 Fields under the value=Qty---- Item----Description----Price----ShipCode----Tax</font><li>
+<font size="-1" face="Comic Sans MS">
+Quantity is included as part of the 6 Fields inputted for each name=order</font><li>
+<font size="-1" face="Comic Sans MS">
+You can have as many checkboxes under the name=order on the page as you want</font><li>
+<font size="-1" face="Comic Sans MS">
+Checking the box submits the item.</font><li>
+<font size="-1" face="Comic Sans MS">
+You can also use a ListBox or DropBox with checkboxes mode&nbsp;<br>
+See <b>
+<font color="#800000">
+ExampleDropBoxes.html</font></b> - examples 2 and 3</font>
+</ul>
+<p>
+
+&nbsp;</p>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<b>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<a name="Mode4"></a>
+Mode 4: Making an Order Form Input Page with Quantity Boxes and User Input</font></b></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<b>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Using the </font>
+<font size="-1" face="Comic Sans MS" color="#800000">
+postmode=QUANTITYBOXES</font> 
+<font size="-1" face="Comic Sans MS" color="#000080">
+Method</font></b>
+<font size="-1" face="Comic Sans MS">
+<br>
+See this example page for this type of input: <b>
+<font color="#800000">
+ExampleOrderForm.html</font></b> - The second example</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is a more complicated way to build an OrderForm, or sections of OrderForms. It allows for whatever kind of additional options input needed from the user.&nbsp; Submit postmode=QUANTITYBOXES as hidden input within the Form Tags.</font></p>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>For Each Product:</b></font><li>
+<font size="-1" face="Comic Sans MS">
+You must use matched naming conventions for your input for each product</font><li>
+<font size="-1" face="Comic Sans MS">
+Each product is assigned a unique name=orderN, (N is it's unique product number)</font><li>
+<font size="-1" face="Comic Sans MS">
+Submit 5 Fields under the value=Item----Description----Price----ShipCode----Tax</font><li>
+<font size="-1" face="Comic Sans MS">
+You do not need to include Plus Separators in your input</font><li>
+<font size="-1" face="Comic Sans MS">
+For each orderN the value=5 Fields of input</font><li>
+<font size="-1" face="Comic Sans MS">
+The quantity is submitted as a text box name=quantityN</font><li>
+<font size="-1" face="Comic Sans MS">
+The quantityN input is the only way MOF tells that an item is ordered</font><li>
+<font size="-1" face="Comic Sans MS">
+You could submit quantityN as hidden input, but this item would then always show up<br>
+So you probably don't want to do that</font><li>
+<font size="-1" face="Comic Sans MS">
+You can also use a DropBox with this mode&nbsp;<br>
+See <b>
+<font color="#800000">
+ExampleDropBoxes.html</font></b> - example 4</font>
+</ul>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>Adding User Input to A Product:</b></font><li>
+<font size="-1" face="Comic Sans MS">
+You can add as many user_input options to the product as you want; however, you must declare the Root Name for the name=user_item in the config file list in <b>
+<font color="#000080">
+mof15.conf</font></b></font><li>
+<font size="-1" face="Comic Sans MS">
+The actual Form POST input name=user_nameN will be identified by MOF as belonging to a product by the matching product number you use for it</font><li>
+<font size="-1" face="Comic Sans MS">
+Use only the Root Name in the config file to declare it as a user_input option</font><li>
+<font size="-1" face="Comic Sans MS">
+MOF looks for the Root Name and knows how to sort the numbering system to match products to options</font><li>
+<font size="-1" face="Comic Sans MS">
+You must have all user_input options name=whatever declared in the config file <b>
+<font color="#000080">
+mof15.conf</font></b></font><li>
+<font size="-1" face="Comic Sans MS">
+Tell MOF which user_input options name=whatever options are Required Input from user <b>
+<font color="#000080">
+mof15.conf</font></b></font><li>
+<font size="-1" face="Comic Sans MS">
+Again, you use only the Root Name for the name=user_input in the config file <b>
+<font color="#000080">
+mof15.conf</font></b></font><li>
+<font size="-1" face="Comic Sans MS">
+If you don't identify which user_input name=whatever are Required then any input for that option will not be validated</font><li>
+<font size="-1" face="Comic Sans MS">
+To use validation on a user_input option you must have the selected option value=&quot;&quot; (Null) when the form starts or re-sets</font>
+</ul>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+There is some very limited error checking built in and if you do not have your numbering system correct and MOF does not find appropriate product information matched to the quantityN input, then you could get a data processing error message.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<u>Note: make sure your number system matches between products:</u></font><br>
+quantity3, order3, hatsize3, hatcolor3, etc<br>
+quantity4, order4, pictureframe4, framecolor4, printsize4, etc</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<u>Note: you do not have to keep sequential numbering.</u></font>&nbsp;<br>
+MOF will find your information if set up correctly, whenever any quantityN is detected &gt; 0, meaning the customer wants the product. MOF will then begin looking for the orderN that matches, and look through the list of user_input Root Field Names
+for any user_inputN that matches that number product.<br>
+<br>
+This is especially nice, because if you edit the line of products on a particular page, and delete product 15, then you don't need to renumber everything sequentially.&nbsp; You can skip numbers.&nbsp; The ExampleOrderForm.html shows numbers 1, 2, 3,
+4 and 15.&nbsp;</font></p>
+<p>
+
+&nbsp;</p>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<b>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<a name="OtherConsiderations"></a>
+Other Considerations in making input</font></b></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+You cannot mix the CheckBox postmode and the QuantityBox postmode within one form submission. It seemed redundant to allow for checkboxes And Quantity Box input to be mixed, since a quantity of 1 instructs MOF that the item is wanted for the cart,
+and a checkbox performs the same function. So, with QUANTITYBOXES you wouldn't need a checkbox to select the item, but user input to put in the Number of that product desired. The quantity box serves the purpose. So, for that reason, only the
+Quantity Box input postmode allows for User Input Options. It keeps the Check Box input OrderForm simple to plain uses.<br>
+<br>
+You can Target=&quot;Another_Window&quot; in your input, but you should use the exact scheme throughout your Web Site, since some of the Cart Functions will be corrupted if you submit a Target=&quot;Another_Window&quot; for some items, and use the
+default Window for others. The Rule is that ALL submission possibilities must go to the exact same Window, whatever that window is for your Web Site.</font></p>
+<p>
+
+&nbsp;</p>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="PassImage"></a>
+How to Pass an Image to the Cart</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+The way you send an image to the cart is to declare the IMG SRC url as the first part of the description field:<br>
+See this example page for image input: 
+<font color="#800000">
+<b>ExamplePictures.html</b></font></font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+&lt;input type=&quot;hidden&quot;&nbsp;<br>
+name=&quot;order2&quot;&nbsp;<br>
+value=&quot;Work Hat---- 
+<font color="#000080">
+<b>[img align=left hspace=10 src=http://localhost/mof15/workhat.gif width=60 height=60 border=0]</b></font>The Industrial Work Hat----24.99----2----1&quot;&gt;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Send the entire standard HTML IMG SRC tag as the first part of the description field in the value input, except don't use the regular html tag markers &lt;img src=bla bla ..&gt; and don't use any quotation marks, single or double.&nbsp; Substitute
+the left and right square brackets for the regular html &lt; tag identifiers &gt;.&nbsp; Mof will sort this out as an image.&nbsp; You can't use any quotes as you normally do in regular HTML because when Mof passes this value through it's processes,
+then the browser will become confused and try to end your 
+<font color="#000080">
+&lt;name=&quot;order&quot; value=&quot;line here</font><b> 
+<font color="#FF0000">
+&quot;</font></b> 
+<font color="#000080">
+instead of here&quot;&gt;</font></font> 
+<font color="#000080">
+. </font>
+<font size="-1" face="Comic Sans MS">
+You can see there are too many quotes now.</font></p>
+<p>
+<font size="-1" face="Comic Sans MS">
+Mof simply substitutes your bracket beginning and ending tags [&nbsp; and&nbsp; ]&nbsp; with the proper html beginning and ending tags &lt;&nbsp; and&nbsp; &gt; when the browser portion is printed, otherwise all the product input data keeps the [
+brackets ] to enclose any html tags.&nbsp; If you want to put some other simple html tags in the description, then Mof will do the same--turn them into real &lt; html &gt; tags when printing to the browser.&nbsp; I wouldn't get too complicated, but
+you could pass other html tags this way.</font></p>
+<p>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+<b>Important Note</b></font>: If you are installing Mof's back end under SSL, then all the image reference tags should call the SSL location of that image.&nbsp; This will slow down the image appearing in the cart, because you are actually calling
+the image from one of your secure directories, but you must do it this way so that the final invoice (operating under SSL) will have the object referenced from the secure location.&nbsp; IF you identify an image in your product input from standard
+HTTP locations, then when your customer gets to the final invoice, and Mof is ready to display the image, then your customer's browser will tell them that some items on the secure location are not secure.&nbsp; Not a good message to show your
+customers.</font></p>
+<p>
+
+&nbsp;</p>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="PriceAdjust"></a>
+How to make Price Adjusting product options</b></font>
+</TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+You can specify that certain product option(s) input for a particular product are treated as special Price Adjusting Fields.&nbsp; For any of your forms throughout your Store Front and site that you want to do this for, you must:</font></p>
+<ol>
+<li>
+<font size="-1" face="Comic Sans MS">
+Declare all Price Adjusting Fields throughout your site in 
+<font color="#000080">
+<b>mof15.conf</b></font></font><li>
+<font size="-1" face="Comic Sans MS">
+Format all Price Adjusting input in a special way</font>
+</ol>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+You can only use Price Adjusting with the SINGLEPOST or QUANTITYBOXES modes.<br>
+See this example page for SINGLEPOST mode 
+<font color="#800000">
+<b>ExamplePriceAdjust.html</b></font><br>
+See this example page for QUANTITYBOXES mode 
+<font color="#800000">
+<b>ExamplePriceMultiple.html</b></font></font></p>
+<p>
+<font size="-1" face="Comic Sans MS">
+You must follow all rules for each of these modes first.&nbsp; Then for any field you specify in mof15.conf as Price Adjusting Mof will apply special processing rules, which means Mof will be looking for special input.&nbsp; You can use Price
+Adjusting radio buttons, drop lists, list boxes all in combination with regular product options for the same product as we show in our SINGLEPOST example page.&nbsp; You can even set up a very complicated group of products.&nbsp; The product options
+can be mixed with regular input and price adjusting input.&nbsp; The important thing is to adhere to the SINGLEPOST or QUANTITYBOXES input rules first, then format your designated Price Adjusting Fields.</font></p>
+<p>
+<font size="-1" face="Comic Sans MS">
+A price adjusting field looks like this:<br>
+name=&quot;WhatEver&quot;&nbsp;<br>
+value=&quot;Option Description----2.99&quot;</font></p>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+The name &quot;WhatEver&quot; must be declared in</font> 
+<font color="#000080" size="-1" face="Comic Sans MS">
+<b>mof15.conf</b></font>
+<font size="-1" face="Comic Sans MS">
+ in</font> 
+<font FACE="Fixedsys" SIZE="1">
+@field_adjustments</font><li>
+<font size="-1" face="Comic Sans MS">
+This is the only way Mof knows to process the option input differently</font><li>
+<font size="-1" face="Comic Sans MS">
+The value has two elements separated by the default delimiter</font><li>
+<font size="-1" face="Comic Sans MS">
+value=&quot;Option Description----Price&quot; where price is in two decimal format raw number only</font>
+</ul>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+A selection in an option can have no effect in price change, must use zero</font><li>
+<font size="-1" face="Comic Sans MS">
+Example: value=&quot;Option Description----0&quot;</font>
+</ul>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+A selection in an option can increase the base price of the product, use a positive number</font><li>
+<font size="-1" face="Comic Sans MS">
+Example: value=&quot;Option Description----0.25&quot;&nbsp; (A 25 cent increase)</font>
+</ul>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+A selection in an option can decrease the base price of the product, use a negative number</font><li>
+<font size="-1" face="Comic Sans MS">
+Example: value=&quot;Option Description-----2.99&quot;&nbsp; (A $ 2.99 decrease)</font><li>
+<font size="-1" face="Comic Sans MS">
+Note: the subtract example uses 4 hyphens as delimiter and the fifth hyphen as negative</font>
+</ul>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<br>
+Any Field name that Mof sees declared in the&nbsp;</font> 
+<font FACE="Fixedsys" SIZE="1">
+@field_adjustments </font>
+<font size="-1" face="Comic Sans MS">
+array will be treated as having two elements to it.&nbsp; Mof will process the second element of price accordingly, making adjustments to the base price for the product that option is attached to. When all price adjusting options for a given product
+are processed, then Mof will reset the cart price to the newly adjusted price.&nbsp; Mof will also display any price adjustments next to the option data in the invoice description section for that product.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+For the product description section of the cart to look well, you should probably include the Base Price of the initial product in the product description data.&nbsp; That way a Base Price and any Adjusted pricing will show in the description
+details.&nbsp; You don't need to include any price description for the Option input, because Mof will append the price to the Option description.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+You can use the same Field Names for a regular field and a price adjusting field if you want to.&nbsp; Mof will simply ignore any price adjustments in the value for a regular option that was submitted, because the regular options input does not have
+two elements for Mof to work with.&nbsp; While this will work, it's probably a better idea to keep regular and price adjusting Field Names separate.&nbsp; Once you declare a Field name as price adjusting, then it can be used that way throughout your
+site, even with different data as values.&nbsp; Mof only needs to know that it is a special price adjusting field.</font></p>
+<p>
+
+<br>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font color="#000080">
+<b><a name="CheckTable"></a>
+<font size="-1" face="Comic Sans MS">
+Make sure you have the correct product input for a particular Mode</font></b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Either 5 or 6 Fields depending on the Mode you have used.<br>
+Here's a summary table of the Rules<br>
+</font></p>
+
+<table border="1" cellpadding="0" cellspacing="0" width="640">
+
+<tr><td width="161" align="center" nowrap bgcolor="#F4F4F4">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>postmode=</b></font></td><td width="117" align="center" nowrap bgcolor="#F4F4F4">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>name=</b></font></td><td width="108" align="center" nowrap bgcolor="#F4F4F4">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>value= n fields</b></font></td><td width="141" align="center" nowrap bgcolor="#F4F4F4">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>is quantity separate</b></font></td><td width="141" align="center" nowrap bgcolor="#F4F4F4">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>user input allowed</b></font></td></tr>
+
+<tr><td width="161" align="center" bgcolor="#F4F4F4" nowrap>&nbsp;</td><td width="117" align="center" bgcolor="#F4F4F4" nowrap>&nbsp;</td><td width="108" align="center" bgcolor="#F4F4F4" nowrap>&nbsp;</td><td width="141" align="center" bgcolor="#F4F4F4" nowrap>&nbsp;</td><td width="141" align="center" bgcolor="#F4F4F4" nowrap>&nbsp;</td></tr>
+
+<tr><td width="161" align="center" nowrap>
+<font size="-1" face="Comic Sans MS">
+Query String</font></td><td width="117" align="center" nowrap>
+<font size="-1" face="Comic Sans MS" color="#000080">
+order</font></td><td width="108" align="center">
+<font size="-1" face="Comic Sans MS" color="#000080">
+6 Fields</font></td><td width="141" align="center">
+<font size="-1" face="Comic Sans MS" color="#000080">
+No</font></td><td width="141" align="center">
+<font size="-1" face="Comic Sans MS" color="#000080">
+No</font></td></tr>
+
+<tr><td width="161" align="center" bgcolor="#F4F4F4" nowrap>&nbsp;</td><td width="117" align="center" bgcolor="#F4F4F4" nowrap>&nbsp;</td><td width="108" align="center" bgcolor="#F4F4F4" nowrap>&nbsp;</td><td width="141" align="center" bgcolor="#F4F4F4" nowrap>&nbsp;</td><td width="141" align="center" bgcolor="#F4F4F4" nowrap>&nbsp;</td></tr>
+
+<tr><td width="161" align="center" nowrap>
+<font size="-1" face="Comic Sans MS">
+SINGLEPOST</font></td><td width="117" align="center" nowrap>
+<font size="-1" face="Comic Sans MS" color="#000080">
+order</font></td><td width="108" align="center">
+<font size="-1" face="Comic Sans MS" color="#000080">
+&nbsp;5 Fields</font></td><td width="141" align="center">
+<font size="-1" face="Comic Sans MS" color="#000080">
+&nbsp;yes-hidden or input</font></td><td width="141" align="center">
+<font size="-1" face="Comic Sans MS" color="#000080">
+&nbsp;yes</font></td></tr>
+
+<tr><td width="161" align="center" bgcolor="#F4F4F4" nowrap>&nbsp;</td><td width="117" align="center" bgcolor="#F4F4F4" nowrap>&nbsp;</td><td width="108" align="center" bgcolor="#F4F4F4" nowrap>&nbsp;</td><td width="141" align="center" bgcolor="#F4F4F4" nowrap>&nbsp;</td><td width="141" align="center" bgcolor="#F4F4F4" nowrap>&nbsp;</td></tr>
+
+<tr><td width="161" align="center" nowrap>
+<font size="-1" face="Comic Sans MS">
+CHECKBOXES</font></td><td width="117" align="center" nowrap>
+<font size="-1" face="Comic Sans MS" color="#000080">
+order</font></td><td width="108" align="center">
+<font size="-1" face="Comic Sans MS" color="#000080">
+&nbsp;6 Fields</font></td><td width="141" align="center">
+<font size="-1" face="Comic Sans MS" color="#000080">
+No</font></td><td width="141" align="center">
+<font size="-1" face="Comic Sans MS" color="#000080">
+No</font></td></tr>
+
+<tr><td width="161" align="center" bgcolor="#F4F4F4" nowrap>&nbsp;</td><td width="117" align="center" bgcolor="#F4F4F4" nowrap>&nbsp;</td><td width="108" align="center" bgcolor="#F4F4F4" nowrap>&nbsp;</td><td width="141" align="center" bgcolor="#F4F4F4" nowrap>&nbsp;</td><td width="141" align="center" bgcolor="#F4F4F4" nowrap>&nbsp;</td></tr>
+
+<tr><td width="161" align="center" nowrap>
+<font size="-1" face="Comic Sans MS">
+QUANTITYBOXES</font></td><td width="117" align="center" nowrap>
+<font size="-1" face="Comic Sans MS" color="#000080">
+order<b>N</b></font></td><td width="108" align="center">
+<font size="-1" face="Comic Sans MS" color="#000080">
+&nbsp;5 Fields</font></td><td width="141" align="center">
+<font size="-1" face="Comic Sans MS" color="#000080">
+yes &quot;quantity<b>N</b>&quot;</font></td><td width="141" align="center">
+<font size="-1" face="Comic Sans MS" color="#000080">
+yes &quot;user_input<b>N</b>&quot;</font></td></tr>
+</table>
+
+<p>
+
+&nbsp;
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b><br>
+5 Fields Look like this</b></font><br>
+value=&quot;Item Name----Description----Price----ShipCode----TaxCode&quot;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>6 Fields Look like this</b></font><br>
+value=&quot;Quantity----Item Name----Description----Price----ShipCode----TaxCode&quot;<br>
+<br>
+</font></p>
+<hr>
+<P><FONT FACE="Comic Sans MS"><FONT SIZE=-1>Written and produced by </FONT><B><FONT SIZE=-2>RGA@IO.COM</FONT></B><FONT SIZE=-1>
+/ <a HREF="http://www.io.com/~rga/scripts">http://www.io.com/~rga/scripts</a>
+</FONT></FONT>
+<BR><FONT FACE="Comic Sans MS"><FONT COLOR="#000080">What do you <FONT SIZE=+1>want</FONT>
+to order <FONT SIZE=+1>today</FONT>?</FONT></FONT>
+<BR><FONT FACE="Comic Sans MS"><FONT SIZE=-1>Documentation prepared July 31, 2000</FONT></FONT>
+<P><FONT FACE="Comic Sans MS"><FONT SIZE=-1>Thanks for your interest in
+</FONT><I><FONT COLOR="#800000">Merchant
+Order Form</FONT></I><FONT SIZE=-1>
+<B>v1.53 </B></FONT></FONT><FONT FACE="Wingdings"><FONT SIZE=-1>J</FONT></FONT>
+<BR>
+<font color="#808080">
+<FONT FACE="Arial,Helvetica"><b>Explore the Internet - Create the Internet</b></FONT>
+<BR>&nbsp;</font>
+<BR>
+<font size="-1" face="Comic Sans MS">
+These programs are distributed as Trial Ware or Share Ware. You are Welcome to install and test all portions of the programs. The package is not limited in any way and code source is left readable.&nbsp; Please make arrangements for the fee if you
+continue operating it on a Web Site. Feel free to contact me if you need special arrangements for use of MOF v1.53.</font>
+<P>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>For payment arrangements</b></font>: <a href="http://www.merchantorderform.com/payment.html">http://www.merchantorderform.com/payment.html</a>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+For personal web site use: $ 15.00<br>
+For web development (3-10 sites): $ 45.00, includes limited support<br>
+For web development (above 10 sites): $ 150.00, includes limited support<br>
+Note: For Resale or hosting license please contact <a href="mailto:rga@io.com">rga@io.com</a></font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Distribution of these programs and files without owner consent is prohibited. Please contact the authors of this product for any use outside the original registration and user license.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<b>COPYRIGHT NOTICE:</b><br>
+The contents of these programs and scripts are protected under the United States copyright laws as an unpublished work, and is confidential and proprietary to Austin Contract Computing, Inc.&nbsp; Its use or disclosure&nbsp; in whole or in part
+without the expressed written permission of Austin Contract Computing, Inc. is prohibited.&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<b>DISCLAIMER:</b><br>
+By opening and configuring this for your server and application you thereby assume any and all responsibility for the use and outcomes of this program. Please read the documentation on configurations, and test your installation thoroughly.&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Please do not distribute this script, as it is not a free-ware version. Please direct any non registered users of this script to the author's Web Site for details on how to obtain a registered copy of this script.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Web: <a href="http://www.merchantorderform.com/">Merchant OrderForm v1.53<br>
+</a>
+Mail: <a href="mailto:info@merchantorderform.com">info@merchantorderform.com<br>
+</a>
+Austin, Texas<br>
+July 31, 2000</font></p>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;</p>
+<P>
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+</BODY>
+</HTML>

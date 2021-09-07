@@ -1,0 +1,766 @@
+(function() {
+    'use strict';
+
+
+$drupalApp
+    .filter('pluralizer', function() {
+        return function(name) {
+            if (name.indexOf(',') == -1 && name.indexOf('eet') == -1 && name.slice(-1) != 's') {
+                return name + 's';
+            }
+            return name;
+        }
+    })
+    .controller('UnitConverter', ['$scope', '$http', 'pluralizerFilter',  function($scope, $http, pluralizerFilter) {
+
+        var uc = this;
+
+            $scope.unitlist =    [{ id : "AA" , name :  "Ball"},
+                    { id : "AB" , name :  "Bulk Pack"},
+                    { id : "AC" , name :  "Acre"},
+                    { id : "AD" , name :  "Bytes"},
+                    { id : "AF" , name :  "Centigram"},
+                    { id : "AG" , name :  "Angstrom"},
+                    { id : "AH" , name :  "Additional Minutes"},
+                    { id : "AJ" , name :  "Cop"},
+                    { id : "AK" , name :  "Fathom"},
+                    { id : "AM" , name :  "Ampoule"},
+                    { id : "AO" , name :  "Ampere-turn"},
+                    { id : "AQ" , name :  "Anti-hemophilic Factor Units"},
+                    { id : "AR" , name :  "Suppository"},
+                    { id : "AS" , name :  "Assortment"},
+                    { id : "AT" , name :  "Atmosphere"},
+                    { id : "AU" , name :  "Ocular Insert System"},
+                    { id : "AV" , name :  "Capsule"},
+                    { id : "AW" , name :  "Powder-Filled Vial"},
+                    { id : "AX" , name :  "Twenty"},
+                    { id : "AY" , name :  "Assembly"},
+                    { id : "BA" , name :  "Bale"},
+                    { id : "BB" , name :  "Base Box"},
+                    { id : "BC" , name :  "Bucket"},
+                    { id : "BD" , name :  "Bundle"},
+                    { id : "BE" , name :  "Beam"},
+                    { id : "BF" , name :  "Board Feet"},
+                    { id : "BG" , name :  "Bag"},
+                    { id : "BH" , name :  "Brush"},
+                    { id : "BI" , name :  "Bar"},
+                    { id : "BJ" , name :  "Band"},
+                    { id : "BK" , name :  "Book"},
+                    { id : "BL" , name :  "Block"},
+                    { id : "BM" , name :  "Bolt"},
+                    { id : "BN" , name :  "Bulk"},
+                    { id : "BO" , name :  "Bottle"},
+                    { id : "BP" , name :  "100 Board Feet"},
+                    { id : "BQ" , name :  "Brake horse power"},
+                    { id : "BR" , name :  "Barrel"},
+                    { id : "BS" , name :  "Basket"},
+                    { id : "BT" , name :  "Belt"},
+                    { id : "BU" , name :  "Bushel"},
+                    { id : "BV" , name :  "Bushel, Dry Imperial"},
+                    { id : "BW" , name :  "Base Weight"},
+                    { id : "BX" , name :  "Box"},
+                    { id : "BY" , name :  "British Thermal Unit"},
+                    { id : "BZ" , name :  "Million BTU's"},
+                    { id : "B2" , name :  "Bunks"},
+                    { id : "B3" , name :  "Batting Pound"},
+                    { id : "B4" , name :  "Barrel, Imperial"},
+                    { id : "B5" , name :  "Billet"},
+                    { id : "B6" , name :  "Bun"},
+                    { id : "B7" , name :  "Cycles"},
+                    { id : "B8" , name :  "Board"},
+                    { id : "B9" , name :  "Batt"},
+                    { id : "CA" , name :  "Case"},
+                    { id : "CB" , name :  "Carboy"},
+                    { id : "CC" , name :  "Cubic Centimeter"},
+                    { id : "CD" , name :  "Carat"},
+                    { id : "CE" , name :  "Centigrade, Celsius"},
+                    { id : "CF" , name :  "Cubic Feet"},
+                    { id : "CG" , name :  "Card"},
+                    { id : "CH" , name :  "Container"},
+                    { id : "CI" , name :  "Cubic Inches"},
+                    { id : "CJ" , name :  "Cone"},
+                    { id : "CK" , name :  "Connector"},
+                    { id : "CL" , name :  "Cylinder"},
+                    { id : "CM" , name :  "Centimeter"},
+                    { id : "CN" , name :  "Can"},
+                    { id : "CO" , name :  "Cubic Meters (Net)"},
+                    { id : "CP" , name :  "Crate"},
+                    { id : "CQ" , name :  "Cartridge"},
+                    { id : "CR" , name :  "Cubic Meter"},
+                    { id : "CS" , name :  "Cassette"},
+                    { id : "CT" , name :  "Carton"},
+                    { id : "CU" , name :  "Cup"},
+                    { id : "CV" , name :  "Cover"},
+                    { id : "CW" , name :  "Hundred Pounds (CWT)"},
+                    { id : "CX" , name :  "Coil"},
+                    { id : "CY" , name :  "Cubic Yard"},
+                    { id : "CZ" , name :  "Combo"},
+                    { id : "C0" , name :  "Calls"},
+                    { id : "C1" , name :  "Composite Product Pound"},
+                    { id : "C2" , name :  "Carset"},
+                    { id : "C3" , name :  "Centiliter"},
+                    { id : "C4" , name :  "Carload"},
+                    { id : "C5" , name :  "Cost"},
+                    { id : "C6" , name :  "Cell"},
+                    { id : "C7" , name :  "Centipoise (CPS)"},
+                    { id : "C8" , name :  "Cubic Decimeter"},
+                    { id : "C9" , name :  "Coil Group"},
+                    { id : "DA" , name :  "Day"},
+                    { id : "DB" , name :  "Dry Pound"},
+                    { id : "DC" , name :  "Disk (Disc)"},
+                    { id : "DD" , name :  "Degree"},
+                    { id : "DE" , name :  "Deal"},
+                    { id : "DF" , name :  "Dram"},
+                    { id : "DG" , name :  "Decigram"},
+                    { id : "DH" , name :  "Miles"},
+                    { id : "DI" , name :  "Dispenser"},
+                    { id : "DJ" , name :  "Decagram"},
+                    { id : "DK" , name :  "Kilometer"},
+                    { id : "DL" , name :  "Deciliter"},
+                    { id : "DM" , name :  "Decimeter"},
+                    { id : "DN" , name :  "Deci Newton-Meter"},
+                    { id : "DO" , name :  "Dollars , U.S."},
+                    { id : "DP" , name :  "Dozen Pair"},
+                    { id : "DQ" , name :  "Data Records"},
+                    { id : "DR" , name :  "Drum"},
+                    { id : "DS" , name :  "Display"},
+                    { id : "DT" , name :  "Dry Ton"},
+                    { id : "DU" , name :  "Dyne"},
+                    { id : "DW" , name :  "Calendar Days"},
+                    { id : "DY" , name :  "Directory Book"},
+                    { id : "DZ" , name :  "Dozen"},
+                    { id : "D2" , name :  "Share"},
+                    { id : "D3" , name :  "Square Decimeter"},
+                    { id : "D8" , name :  "Draize Score"},
+                    { id : "EA" , name :  "Each"},
+                    { id : "EB" , name :  "Electronic Mail Boxes"},
+                    { id : "ED" , name :  "Inches , Decimal--Nominal"},
+                    { id : "EE" , name :  "Employees"},
+                    { id : "EF" , name :  "Inches , Fraction-Nominal"},
+                    { id : "EG" , name :  "Double-time Hours"},
+                    { id : "EH" , name :  "Knot"},
+                    { id : "EJ" , name :  "Locations"},
+                    { id : "EM" , name :  "Inches , Decimal-Minimum"},
+                    { id : "EP" , name :  "Eleven pack"},
+                    { id : "EQ" , name :  "Equivalent Gallons"},
+                    { id : "EV" , name :  "Envelope"},
+                    { id : "EX" , name :  "Feet , Inches and Fraction"},
+                    { id : "EY" , name :  "Feet , Inches and Decimal"},
+                    { id : "EZ" , name :  "Feet and Decimal"},
+                    { id : "E1" , name :  "Hectometer"},
+                    { id : "E3" , name :  "Inches , Fraction--Average"},
+                    { id : "E4" , name :  "Inches , Fraction--Minimum"},
+                    { id : "E5" , name :  "Inches , Fraction--Actual"},
+                    { id : "E7" , name :  "Inches , Decimal--Average"},
+                    { id : "E8" , name :  "Inches , Decimal--Actual"},
+                    { id : "E9" , name :  "English , (Feet , Inches)"},
+                    { id : "FA" , name :  "Fahrenheit"},
+                    { id : "FB" , name :  "Field"},
+                    { id : "FC" , name :  "1000 Cubic Feet"},
+                    { id : "FE" , name :  "Track Foot"},
+                    { id : "FF" , name :  "Hundred Cubic Meters"},
+                    { id : "FG" , name :  "Transdermal Patch"},
+                    { id : "FH" , name :  "Micromolar"},
+                    { id : "FJ" , name :  "Sizing Factor"},
+                    { id : "FL" , name :  "Flake Ton"},
+                    { id : "FM" , name :  "Million Cubic Feet"},
+                    { id : "FO" , name :  "Fluid Ounce"},
+                    { id : "FT" , name :  "Foot"},
+                    { id : "FZ" , name :  "Fluid Ounce (Imperial)"},
+                    { id : "F2" , name :  "International Unit"},
+                    { id : "F3" , name :  "Equivalent"},
+                    { id : "F4" , name :  "Minim"},
+                    { id : "F5" , name :  "MOL"},
+                    { id : "GA" , name :  "Gallon"},
+                    { id : "GB" , name :  "Gallons/Day"},
+                    { id : "GD" , name :  "Gross Barrels"},
+                    { id : "GG" , name :  "Great Gross (Dozen Gross)"},
+                    { id : "GH" , name :  "Half Gallon"},
+                    { id : "GI" , name :  "Imperial Gallons"},
+                    { id : "GN" , name :  "Gross Gallons"},
+                    { id : "GR" , name :  "Gram"},
+                    { id : "GS" , name :  "Gross"},
+                    { id : "GT" , name :  "Gross Kilogram"},
+                    { id : "GV" , name :  "Gigajoule"},
+                    { id : "GX" , name :  "Grain"},
+                    { id : "GY" , name :  "Gross Yard"},
+                    { id : "GZ" , name :  "Gage Systems"},
+                    { id : "G4" , name :  "Gigabecquerel"},
+                    { id : "G5" , name :  "Gill (Imperial)"},
+                    { id : "G7" , name :  "Microfiche Sheet"},
+                    { id : "HA" , name :  "Hank"},
+                    { id : "HB" , name :  "Hundred Boxes"},
+                    { id : "HC" , name :  "Hundred Count"},
+                    { id : "HD" , name :  "Half Dozen"},
+                    { id : "HE" , name :  "Hundredth of a Carat"},
+                    { id : "HF" , name :  "Hundred Feet"},
+                    { id : "HG" , name :  "Hectogram"},
+                    { id : "HH" , name :  "Hundred Cubic Feet"},
+                    { id : "HI" , name :  "Hundred Sheets"},
+                    { id : "KK" , name :  "100 Kilograms"},
+                    { id : "KL" , name :  "Kilograms/Meter"},
+                    { id : "KQ" , name :  "Kilopascal"},
+                    { id : "KR" , name :  "Kiloroentgen"},
+                    { id : "KT" , name :  "Kit"},
+                    { id : "KU" , name :  "Task"},
+                    { id : "KV" , name :  "Kelvin"},
+                    { id : "K1" , name :  "Kilowatt Demand"},
+                    { id : "K4" , name :  "Kilovolt Amperes"},
+                    { id : "K5" , name :  "Kilovolt Amperes Reactive"},
+                    { id : "K6" , name :  "Kiloliter"},
+                    { id : "K7" , name :  "Kilowatt"},
+                    { id : "LB" , name :  "Pound"},
+                    { id : "LC" , name :  "Linear Centimeter"},
+                    { id : "LE" , name :  "Lite"},
+                    { id : "LF" , name :  "Linear Foot"},
+                    { id : "LG" , name :  "Long Ton"},
+                    { id : "LH" , name :  "Labor Hour"},
+                    { id : "LI" , name :  "Linear Inch"},
+                    { id : "LJ" , name :  "Large Spray"},
+                    { id : "LK" , name :  "Link"},
+                    { id : "LL" , name :  "Lifetime"},
+                    { id : "LM" , name :  "Linear Meter"},
+                    { id : "LN" , name :  "Length"},
+                    { id : "LO" , name :  "Lot"},
+                    { id : "LP" , name :  "Liquid Pound"},
+                    { id : "LR" , name :  "Layer(s)"},
+                    { id : "LS" , name :  "Lump Sum"},
+                    { id : "LT" , name :  "Liter"},
+                    { id : "LY" , name :  "Linear Yard"},
+                    { id : "MA" , name :  "Machine/Unit"},
+                    { id : "MB" , name :  "Millimeter-Nominal"},
+                    { id : "MC" , name :  "Microgram"},
+                    { id : "MD" , name :  "Air Dry Metric Ton"},
+                    { id : "ME" , name :  "Milligram"},
+                    { id : "MG" , name :  "Metric Gross Ton"},
+                    { id : "MH" , name :  "Microns (Micrometers)"},
+                    { id : "MI" , name :  "Metric"},
+                    { id : "MJ" , name :  "Minutes"},
+                    { id : "ML" , name :  "Milliliter"},
+                    { id : "MM" , name :  "Millimeter"},
+                    { id : "MN" , name :  "Metric Net Ton"},
+                    { id : "MO" , name :  "Months"},
+                    { id : "MP" , name :  "Metric Ton"},
+                    { id : "MQ" , name :  "1000 Meter"},
+                    { id : "MR" , name :  "Meter"},
+                    { id : "MS" , name :  "Square Millimeter"},
+                    { id : "MT" , name :  "Metric Long Ton"},
+                    { id : "MU" , name :  "Millicurie"},
+                    { id : "MV" , name :  "Number of Mults"},
+                    { id : "MW" , name :  "Metric Ton Kilograms"},
+                    { id : "MX" , name :  "Mixed"},
+                    { id : "MY" , name :  "Millimeter-Average"},
+                    { id : "MZ" , name :  "Millimeter-minimum"},
+                    { id : "M0" , name :  "Magnetic Tapes"},
+                    { id : "M2" , name :  "Millimeter-Actual"},
+                    { id : "M3" , name :  "Mat"},
+                    { id : "M4" , name :  "Monetary Value"},
+                    { id : "M5" , name :  "Microcurie"},
+                    { id : "M6" , name :  "Millibar"},
+                    { id : "M7" , name :  "Micro Inch"},
+                    { id : "M8" , name :  "Mega Pascals"},
+                    { id : "NB" , name :  "Barge"},
+                    { id : "NC" , name :  "Car"},
+                    { id : "ND" , name :  "Net Barrel"},
+                    { id : "NE" , name :  "Net Liter"},
+                    { id : "NF" , name :  "Messages"},
+                    { id : "NG" , name :  "Net Gallon"},
+                    { id : "NH" , name :  "Message Hour"},
+                    { id : "NI" , name :  "Net Imperial Gallons"},
+                    { id : "NJ" , name :  "Number of Screens"},
+                    { id : "NL" , name :  "Load"},
+                    { id : "NM" , name :  "Nautical Mile"},
+                    { id : "NN" , name :  "Train"},
+                    { id : "NQ" , name :  "Mho"},
+                    { id : "NR" , name :  "Micro Mho"},
+                    { id : "NS" , name :  "Short Ton"},
+                    { id : "NT" , name :  "Trailer"},
+                    { id : "NU" , name :  "Newton-Meter"},
+                    { id : "NV" , name :  "Vehicle"},
+                    { id : "NW" , name :  "Newton"},
+                    { id : "N1" , name :  "Pen Calorie"},
+                    { id : "N2" , name :  "Number of Lines"},
+                    { id : "N3" , name :  "Print Point"},
+                    { id : "N4" , name :  "Pen Gram (Protein)"},
+                    { id : "N6" , name :  "Megahertz"},
+                    { id : "N7" , name :  "Parts"},
+                    { id : "N9" , name :  "Cartridge Needle"},
+                    { id : "OA" , name :  "Panel"},
+                    { id : "OC" , name :  "Billboard"},
+                    { id : "OP" , name :  "Two pack"},
+                    { id : "OT" , name :  "Overtime Hours"},
+                    { id : "OZ" , name :  "Ounce - Av"},
+                    { id : "PA" , name :  "Pail"},
+                    { id : "PB" , name :  "Pair Inches"},
+                    { id : "PC" , name :  "Piece"},
+                    { id : "PD" , name :  "Pad"},
+                    { id : "PE" , name :  "Pounds Equivalent"},
+                    { id : "PF" , name :  "Pallet (Lift)"},
+                    { id : "PG" , name :  "Pounds Gross"},
+                    { id : "PH" , name :  "Pack (PAK)"},
+                    { id : "PI" , name :  "Pitch"},
+                    { id : "PK" , name :  "Package"},
+                    { id : "PL" , name :  "Pallet/Unit Load"},
+                    { id : "PM" , name :  "Pounds-Percentage"},
+                    { id : "PN" , name :  "Pounds Net"},
+                    { id : "PP" , name :  "Plate"},
+                    { id : "PR" , name :  "Pair"},
+                    { id : "PT" , name :  "Pint"},
+                    { id : "PU" , name :  "Mass Pound"},
+                    { id : "PV" , name :  "Half Pint"},
+                    { id : "PX" , name :  "Pint, Imperial"},
+                    { id : "PY" , name :  "Peck, Dry U.S."},
+                    { id : "PZ" , name :  "Peck, Dry Imperial"},
+                    { id : "P0" , name :  "Pages - Electronic"},
+                    { id : "P1" , name :  "Percent"},
+                    { id : "P3" , name :  "Three pack"},
+                    { id : "P4" , name :  "Four-pack"},
+                    { id : "P5" , name :  "Five-pack"},
+                    { id : "P6" , name :  "Six pack"},
+                    { id : "P7" , name :  "Seven pack"},
+                    { id : "P8" , name :  "Eight-pack"},
+                    { id : "P9" , name :  "Nine pack"},
+                    { id : "QA" , name :  "Pages - Facsimile"},
+                    { id : "QB" , name :  "Pages - Hardcopy"},
+                    { id : "QC" , name :  "Channel"},
+                    { id : "QD" , name :  "Quarter Dozen"},
+                    { id : "QE" , name :  "Photograph"},
+                    { id : "QH" , name :  "Quarter Hour"},
+                    { id : "QK" , name :  "Quarter Kilogram"},
+                    { id : "QR" , name :  "Quire"},
+                    { id : "QS" , name :  "Quart, Dry U.S."},
+                    { id : "QT" , name :  "Quart"},
+                    { id : "QU" , name :  "Quart, Imperial"},
+                    { id : "Q1" , name :  "Quarter (Time)"},
+                    { id : "Q2" , name :  "Pint U.S. Dry"},
+                    { id : "Q3" , name :  "Meal"},
+                    { id : "Q4" , name :  "Fifty"},
+                    { id : "Q5" , name :  "Twenty-Five"},
+                    { id : "Q6" , name :  "Thirty-Six"},
+                    { id : "Q7" , name :  "Twenty-Four"},
+                    { id : "RA" , name :  "Rack"},
+                    { id : "RB" , name :  "Radian"},
+                    { id : "RC" , name :  "Rod (area)"},
+                    { id : "RD" , name :  "Rod (length)"},
+                    { id : "RE" , name :  "Reel"},
+                    { id : "RG" , name :  "Ring"},
+                    { id : "RH" , name :  "Running or Operating Hours"},
+                    { id : "RK" , name :  "Roll-Metric Measure"},
+                    { id : "RL" , name :  "Roll"},
+                    { id : "RM" , name :  "Ream"},
+                    { id : "RN" , name :  "Ream-Metric Measure"},
+                    { id : "RO" , name :  "Round"},
+                    { id : "RS" , name :  "Resets"},
+                    { id : "RT" , name :  "Revenue Ton Miles"},
+                    { id : "RU" , name :  "Run"},
+                    { id : "R1" , name :  "Pica"},
+                    { id : "R2" , name :  "Becquerel"},
+                    { id : "R4" , name :  "Calorie"},
+                    { id : "R5" , name :  "Thousands of Dollars"},
+                    { id : "R6" , name :  "Millions of Dollars"},
+                    { id : "R7" , name :  "Billions of Dollars"},
+                    { id : "R8" , name :  "Roentgen Equivalent"},
+                    { id : "R9" , name :  "Thousand Cubic Meters"},
+                    { id : "SA" , name :  "Sandwich"},
+                    { id : "SB" , name :  "Square Mile"},
+                    { id : "SC" , name :  "Square Centimeter"},
+                    { id : "SD" , name :  "Solid Pounds"},
+                    { id : "SE" , name :  "Section"},
+                    { id : "SF" , name :  "Square Foot"},
+                    { id : "SG" , name :  "Segment"},
+                    { id : "SH" , name :  "Sheet"},
+                    { id : "SI" , name :  "Square Inch"},
+                    { id : "SJ" , name :  "Sack"},
+                    { id : "SK" , name :  "Split Tanktruck"},
+                    { id : "SL" , name :  "Sleeve"},
+                    { id : "SM" , name :  "Square Meter"},
+                    { id : "SN" , name :  "Square Rod"},
+                    { id : "SO" , name :  "Spool"},
+                    { id : "SP" , name :  "Shelf Package"},
+                    { id : "SQ" , name :  "Square"},
+                    { id : "SR" , name :  "Strip"},
+                    { id : "SS" , name :  "Sheet-Metric Measure"},
+                    { id : "ST" , name :  "Set"},
+                    { id : "SV" , name :  "Skid"},
+                    { id : "SW" , name :  "Skein"},
+                    { id : "SX" , name :  "Shipment"},
+                    { id : "SY" , name :  "Square Yard"},
+                    { id : "SZ" , name :  "Syringe"},
+                    { id : "S1" , name :  "Semester"},
+                    { id : "S2" , name :  "Trimester"},
+                    { id : "S5" , name :  "Sixty-fourths of an Inch"},
+                    { id : "S6" , name :  "Sessions"},
+                    { id : "S7" , name :  "Storage Units"},
+                    { id : "S8" , name :  "Standard Advertising Units"},
+                    { id : "S9" , name :  "Slip Sheet"},
+                    { id : "TA" , name :  "Tenth Cubic Foot"},
+                    { id : "TB" , name :  "Tube"},
+                    { id : "TC" , name :  "Truckload"},
+                    { id : "TD" , name :  "Therms"},
+                    { id : "TE" , name :  "Tote"},
+                    { id : "TF" , name :  "Ten Square Yards"},
+                    { id : "TG" , name :  "Gross Ton"},
+                    { id : "TH" , name :  "Thousand"},
+                    { id : "TI" , name :  "Thousand Square Inches"},
+                    { id : "TJ" , name :  "Thousand Sq. Centimeters"},
+                    { id : "TK" , name :  "Tank"},
+                    { id : "TL" , name :  "Thousand Feet (Linear)"},
+                    { id : "TM" , name :  "Thousand Feet (Board)"},
+                    { id : "TN" , name :  "Net Ton (2,000 LB)."},
+                    { id : "TO" , name :  "Troy Ounce"},
+                    { id : "TP" , name :  "Ten-pack"},
+                    { id : "TQ" , name :  "Thousand Feet"},
+                    { id : "TR" , name :  "Ten Square Feet"},
+                    { id : "TS" , name :  "Thousand Square Feet"},
+                    { id : "TT" , name :  "Thousand Linear Meters"},
+                    { id : "TU" , name :  "Thousand Linear Yards"},
+                    { id : "TV" , name :  "Thousand Kilograms"},
+                    { id : "TW" , name :  "Thousand Sheets"},
+                    { id : "TX" , name :  "Troy Pound"},
+                    { id : "TY" , name :  "Tray"},
+                    { id : "TZ" , name :  "Thousand Cubic Feet"},
+                    { id : "T1" , name :  "Thousand pounds gross"},
+                    { id : "T2" , name :  "Thousandths of an Inch"},
+                    { id : "T3" , name :  "Thousand Pieces"},
+                    { id : "T4" , name :  "Thousand Bags"},
+                    { id : "T5" , name :  "Thousand Casings"},
+                    { id : "T6" , name :  "Thousand Gallons"},
+                    { id : "T7" , name :  "Thousand Impressions"},
+                    { id : "T8" , name :  "Thousand Linear Inches"},
+                    { id : "T9" , name :  "Thousand Kilowatt Hours"},
+                    { id : "UA" , name :  "Torr"},
+                    { id : "UC" , name :  "Telecommunications Ports"},
+                    { id : "UD" , name :  "Tenth Minutes"},
+                    { id : "UE" , name :  "Tenth Hours"},
+                    { id : "UH" , name :  "Ten Thousand Yards"},
+                    { id : "UL" , name :  "Unitless"},
+                    { id : "UM" , name :  "Million Units"},
+                    { id : "UN" , name :  "Unit"},
+                    { id : "UP" , name :  "Troche"},
+                    { id : "UQ" , name :  "Wafer"},
+                    { id : "UR" , name :  "Application"},
+                    { id : "US" , name :  "Dosage Form"},
+                    { id : "UT" , name :  "Inhalation"},
+                    { id : "UU" , name :  "Lozenge"},
+                    { id : "UV" , name :  "Percent Topical Only"},
+                    { id : "UW" , name :  "Milliequivalent"},
+                    { id : "UX" , name :  "Dram (Minim)"},
+                    { id : "UY" , name :  "Fifty Square Feet"},
+                    { id : "UZ" , name :  "Fifty Count"},
+                    { id : "U1" , name :  "Treatments"},
+                    { id : "U2" , name :  "Tablet"},
+                    { id : "U3" , name :  "Ten"},
+                    { id : "U5" , name :  "Two Hundred Fifty"},
+                    { id : "VC" , name :  "Five Hundred"},
+                    { id : "VI" , name :  "Vial"},
+                    { id : "VP" , name :  "Percent Volume"},
+                    { id : "VR" , name :  "Volt-ampere-reactive"},
+                    { id : "VS" , name :  "Visit"},
+                    { id : "V1" , name :  "Flat"},
+                    { id : "V2" , name :  "Pouch"},
+                    { id : "WB" , name :  "Wet Pound"},
+                    { id : "WD" , name :  "Work Days"},
+                    { id : "WE" , name :  "Wet Ton"},
+                    { id : "WG" , name :  "Wine Gallon"},
+                    { id : "WH" , name :  "Wheel"},
+                    { id : "WK" , name :  "Week"},
+                    { id : "WM" , name :  "Working Months"},
+                    { id : "WP" , name :  "Pennyweight"},
+                    { id : "WR" , name :  "Wrap"},
+                    { id : "WW" , name :  "Milliliters of Water"},
+                    { id : "W2" , name :  "Wet Kilo"},
+                    { id : "X1" , name :  "Chains (Land Survey)"},
+                    { id : "X2" , name :  "Bunch"},
+                    { id : "X3" , name :  "Clove"},
+                    { id : "X4" , name :  "Drop"},
+                    { id : "X5" , name :  "Head"},
+                    { id : "X6" , name :  "Heart"},
+                    { id : "X7" , name :  "Leaf"},
+                    { id : "X8" , name :  "Loaf"},
+                    { id : "X9" , name :  "Portion"},
+                    { id : "YD" , name :  "Yard"},
+                    { id : "YL" , name :  "100 Lineal Yards"},
+                    { id : "YR" , name :  "Years"},
+                    { id : "YT" , name :  "Ten Yards"},
+                    { id : "Y1" , name :  "Slice"},
+                    { id : "Y2" , name :  "Tablespoon"},
+                    { id : "Y3" , name :  "Teaspoon"},
+                    { id : "Y4" , name :  "Tub "},
+                    { id : "ZC" , name :  "Semiannual"},
+                    { id : "ZP" , name :  "Page"},
+                    { id : "ZZ" , name :  "Mutually Defined"},
+                    { id : "Z1" , name :  "Lift Van"},
+                    { id : "Z2" , name :  "Chest"},
+                    { id : "Z3" , name :  "Cask"},
+                    { id : "Z4" , name :  "Hogshead"},
+                    { id : "Z5" , name :  "Lug"},
+                    { id : "Z6" , name :  "Conference Points"},
+                    { id : "01" , name :  "Actual Pounds"},
+                    { id : "02" , name :  "Statute Mile"},
+                    { id : "03" , name :  "Seconds"},
+                    { id : "04" , name :  "Small Spray"},
+                    { id : "05" , name :  "Lifts"},
+                    { id : "06" , name :  "Digits"},
+                    { id : "07" , name :  "Strand"},
+                    { id : "08" , name :  "Heat Lots"},
+                    { id : "09" , name :  "Tire"},
+                    { id : "1A" , name :  "Car Mile"},
+                    { id : "1B" , name :  "Car Count"},
+                    { id : "1C" , name :  "Locomotive Count"},
+                    { id : "1D" , name :  "Caboose Count"},
+                    { id : "1E" , name :  "Empty Car"},
+                    { id : "1F" , name :  "Train Mile"},
+                    { id : "1G" , name :  "Fuel Usage (Gallons)"},
+                    { id : "1H" , name :  "Caboose Mile"},
+                    { id : "1I" , name :  "Fixed Rate"},
+                    { id : "1J" , name :  "Ton Miles"},
+                    { id : "1K" , name :  "Locomotive Mile"},
+                    { id : "1L" , name :  "Total Car Count"},
+                    { id : "1M" , name :  "Total Car Mile"},
+                    { id : "1N" , name :  "Count"},
+                    { id : "1O" , name :  "Season"},
+                    { id : "1P" , name :  "Tank Car"},
+                    { id : "1Q" , name :  "Frames"},
+                    { id : "1R" , name :  "Transactions"},
+                    { id : "1X" , name :  "Quarter Mile"},
+                    { id : "10" , name :  "Group"},
+                    { id : "11" , name :  "Outfit"},
+                    { id : "12" , name :  "Packet"},
+                    { id : "13" , name :  "Ration"},
+                    { id : "14" , name :  "Shot"},
+                    { id : "15" , name :  "Stick"},
+                    { id : "16" , name :  "115 Kilogram Drum"},
+                    { id : "17" , name :  "100 Pound Drum"},
+                    { id : "18" , name :  "55 Gallon Drum"},
+                    { id : "19" , name :  "Tank Truck"},
+                    { id : "2C" , name :  "Roentgen"},
+                    { id : "2G" , name :  "Volts (Alternating Current)"},
+                    { id : "2H" , name :  "Volts (Direct Current)"},
+                    { id : "2N" , name :  "Decibels"},
+                    { id : "2P" , name :  "Kilobyte"},
+                    { id : "2Q" , name :  "Kilobecquerel"},
+                    { id : "2R" , name :  "Kilocurie"},
+                    { id : "2U" , name :  "Megagram"},
+                    { id : "2W" , name :  "Bin"},
+                    { id : "2Y" , name :  "Milliroentgen"},
+                    { id : "2Z" , name :  "Millivolts"},
+                    { id : "20" , name :  "20 Foot Container"},
+                    { id : "21" , name :  "40 Foot Container"},
+                    { id : "24" , name :  "Theoretical Pounds"},
+                    { id : "26" , name :  "Actual Tons"},
+                    { id : "27" , name :  "Theoretical Tons"},
+                    { id : "3B" , name :  "Megajoule"},
+                    { id : "3C" , name :  "Manmonth"},
+                    { id : "31" , name :  "Catchweight"},
+                    { id : "39" , name :  "Basis Points"},
+                    { id : "4A" , name :  "Bobbin"},
+                    { id : "4B" , name :  "Cap"},
+                    { id : "4C" , name :  "Centistokes"},
+                    { id : "4D" , name :  "Curie"},
+                    { id : "4E" , name :  "20-Pack"},
+                    { id : "4F" , name :  "100-Pack"},
+                    { id : "4G" , name :  "Microliter"},
+                    { id : "4H" , name :  "Micrometer"},
+                    { id : "4K" , name :  "Milliamperes"},
+                    { id : "4L" , name :  "Megabyte"},
+                    { id : "4N" , name :  "Megabecquerel"},
+                    { id : "4O" , name :  "Microfarad"},
+                    { id : "4Q" , name :  "Ounce Inch"},
+                    { id : "4R" , name :  "Ounce Foot"},
+                    { id : "4S" , name :  "Pascal"},
+                    { id : "4T" , name :  "Picofarad"},
+                    { id : "44" , name :  "500 Kilogram Bulk Bag"},
+                    { id : "45" , name :  "300 Kilogram Bulk Bag"},
+                    { id : "46" , name :  "25 Kilogram Bulk Bag"},
+                    { id : "47" , name :  "50 Pound Bag"},
+                    { id : "48" , name :  "Bulk Car Load"},
+                    { id : "5B" , name :  "Batch"},
+                    { id : "5E" , name :  "MMSCF/Day"},
+                    { id : "5G" , name :  "Pump"},
+                    { id : "5H" , name :  "Stage"},
+                    { id : "5I" , name :  "Standard Cubic Foot"},
+                    { id : "5J" , name :  "Hydraulic Horse Power"},
+                    { id : "5P" , name :  "Seismic Level"},
+                    { id : "5Q" , name :  "Seismic Line"},
+                    { id : "50" , name :  "Actual Kilograms"},
+                    { id : "51" , name :  "Actual Tonnes"},
+                    { id : "52" , name :  "Credit"},
+                    { id : "53" , name :  "Theoretical Kilogram"},
+                    { id : "54" , name :  "Theoretical Tonne"},
+                    { id : "56" , name :  "Sitas"},
+                    { id : "57" , name :  "Mesh"},
+                    { id : "58" , name :  "Net Kilograms"},
+                    { id : "60" , name :  "Percent Weight"},
+                    { id : "63" , name :  "Failure Rate In Time"},
+                    { id : "65" , name :  "Coulomb"},
+                    { id : "66" , name :  "Oerste"},
+                    { id : "67" , name :  "Siemen"},
+                    { id : "68" , name :  "Ampere"},
+                    { id : "69" , name :  "Test Specific Scale"},
+                    { id : "70" , name :  "Volt"},
+                    { id : "74" , name :  "Milli Pascals"},
+                    { id : "76" , name :  "Gauss"},
+                    { id : "77" , name :  "Mil"},
+                    { id : "78" , name :  "Kilogauss"},
+                    { id : "79" , name :  "Electron Volt"},
+                    { id : "8C" , name :  "Cord"},
+                    { id : "8D" , name :  "Duty"},
+                    { id : "8P" , name :  "Project"},
+                    { id : "8R" , name :  "Program"},
+                    { id : "8S" , name :  "Session"},
+                    { id : "8U" , name :  "Square Kilometer"},
+                    { id : "81" , name :  "Henry"},
+                    { id : "82" , name :  "Ohm"},
+                    { id : "83" , name :  "Farad"},
+                    { id : "85" , name :  "Foot Pound"},
+                    { id : "86" , name :  "Joule"},
+                    { id : "89" , name :  "Poise"},
+                    { id : "90" , name :  "Saybold Universal Second"},
+                    { id : "91" , name :  "Stokes"},
+                    { id : "94" , name :  "Curl Unit"},
+                    { id : "95" , name :  "20,000 Gallon Tankcar"},
+                    { id : "96" , name :  "10,000 Gallon Tankcar"},
+                    { id : "97" , name :  "10 Kilogram Drum"},
+                    { id : "98" , name :  "15 Kilogram Drum"},
+                    { id : "99" , name :  "Watt"}];
+
+            $scope.getNameFromId = function(id) {
+            var row = $scope.unitlist.find( function(u){return u.id == id});
+            return row.name;
+        };
+
+        $scope.addratios = function(e) {
+            console.log(e); //Gets created later based on conditions
+        };
+
+        $scope.resetForm = function() {
+                $scope.showcollectionform = false;
+                $scope.showresults = false;
+                $scope.showanswercallback = false;
+                $scope.firstunit = '';
+                $scope.secondunit = '';
+                $scope.firstunitname = '';
+                $scope.secondunitname  = '';
+                $scope.newratio = '';
+                $scope.answercallbacktext = '';
+        };
+        $scope.resetForm();
+        $scope.changeunitname = function(unit, ordinal) {
+            switch(ordinal) {
+                case 'first' :
+                    $scope.firstunitname = $scope.getNameFromId(unit);
+
+                    break;
+                case 'second' :
+                    $scope.secondunitname = $scope.getNameFromId(unit.id);
+                    break;
+            }
+            $scope.showresults = false;
+        };
+
+
+        uc.updateconversion=function(unit, ratio) {
+            var fetchthis = '/unitconverterservice-update/'+unit+'/'+ratio;
+            $http({
+                method: 'GET',
+                url : fetchthis
+            }).then( function success(response) {
+                    console.log(response);
+                },
+                function failure(error) {
+                    console.log(error);
+                });
+            return true;
+        };
+    uc.findanswer = function() {
+        var firstunit = $scope.firstunit,
+            secondunit = $scope.secondunit.id;
+        var fetchunitone = '/unitconverterservice-check/'+firstunit;
+        var fetchunittwo = '/unitconverterservice-check/'+secondunit;
+
+            if (!firstunit || !secondunit) {
+            return false;
+        };
+
+        var firstunitratio = 0, secondunitratio = 0;
+            $http({
+                    method: 'GET',
+                    url : fetchunitone
+            }).then( function success(response) {
+                    firstunitratio = response.data[0];
+                    $http({
+                            method: 'GET',
+                            url : fetchunittwo
+                    }).then( function success(response) {
+                            secondunitratio= response.data[0];
+
+                                //TODO - make calls async and use promise to execute the following
+                                if (firstunitratio) {
+                                        if (secondunitratio) {
+                                                //both have ratios, show conversion
+                                                $scope.firstunitcount = (firstunitratio / secondunitratio).toFixed(2);
+                                                $scope.showresults = true;
+                                        } else { //create ratio for second unit
+                                            $scope.showcollectionform = true;
+                                            $scope.addratios = function() {
+                                                var newsecondunitratio = firstunitratio / $scope.newratio;
+                                                uc.updateconversion($scope.secondunit.id, newsecondunitratio);
+                                                $scope.showcollectionform = false;
+                                                $scope.showanswercallback = true;
+                                                $scope.answercallbacktext = 'OK, got it. '+ $scope.newratio +' '+ pluralizerFilter($scope.firstunitname) +' in a ' + $scope.secondunitname;
+                                            }
+
+                                        }
+                                } else { //First unit has no ratio
+                                        if (secondunitratio) { //but second unit does, just get first ratio
+                                            $scope.showcollectionform = true;
+                                            $scope.addratios = function() {
+                                                var newfirstunitratio = secondunitratio * $scope.newratio;
+                                                uc.updateconversion($scope.firstunit, newfirstunitratio);
+                                                $scope.showcollectionform = false;
+                                                $scope.showanswercallback = true;
+                                                $scope.answercallbacktext = 'OK, got it. '+ $scope.newratio +' '+ pluralizerFilter($scope.firstunitname) +' in a ' + $scope.secondunitname;
+                                            }
+                                        } else { //Neither unit has a ratio
+                                            $scope.showcollectionform = true;
+                                            $scope.addratios = function() {
+                                                var newsecondunitratio = 1200 / $scope.newratio;
+                                                uc.updateconversion($scope.firstunit, 1200);
+                                                uc.updateconversion($scope.secondunit, newsecondunitratio);
+                                                $scope.showcollectionform = false;
+                                                $scope.showanswercallback = true;
+                                                $scope.answercallbacktext = 'OK, got it. '+ $scope.newratio +' '+ pluralizerFilter($scope.firstunitname) +' in a ' + $scope.secondunitname;
+                                            }
+                                        }
+
+                                }
+
+                    },
+                    function error (error) {
+                            console.log(error);
+                    })
+
+                },
+                function failure(error) {
+                        console.log(error);
+                });
+
+
+
+       }
+
+    }]);
+
+
+function WordCount(str) {
+    if (str) {
+        return str.split(" ").length;
+    }
+    else {
+        return 0;
+    }
+}
+
+
+}());
+

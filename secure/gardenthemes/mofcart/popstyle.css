@@ -1,0 +1,233 @@
+/*   Example CSS styles for Merchant OrderForm cart v2.5 POPUP Templates   */
+/*  GENERAL */		
+
+BODY {
+	background: White;
+	margin-left: 0px;  	
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+
+}
+
+/******* hyperlink and anchor tag styles *******/
+
+a:link, a:visited{
+	color: #005FA9;
+	text-decoration: none;
+}
+
+a:hover{
+ 	color: #9F0024;
+	text-decoration: underline;  
+
+}
+
+FORM { margin-bottom:0; margin-top:0 }
+
+
+
+.ButtonFormat {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 10px;
+	text-align : center;
+	visibility : visible;
+}
+
+/*  OUTPUT TEMPLATES */
+.SectionHeadings {
+	color : #346699;
+	font-family : arial, Helvetica, sans-serif;
+	font-weight : bold;
+	font-size : 12px;
+}
+
+.DefaultText {
+	color : Black;
+	font-family : arial, Helvetica, sans-serif;
+	font-size : 12px;
+}
+
+OL.ValidationLines {
+	color : Red;
+	font-family : arial, Helvetica, sans-serif;
+	font-size : 12px;
+}
+
+.CountdownLine {
+	color : #8B0000;
+	font-family : arial, Helvetica, sans-serif;
+	font-size : 12px;
+}
+
+
+
+/*  JUST ADDED ITEMS */
+/* TABLE OVERALL - JUST ADDED ITEM(S)   */
+TABLE.ItemTable {
+	background : #FFFFF0;
+	color : #8B0000;
+	font-family : arial, Helvetica, sans-serif;
+	font-size : 12px;
+	width : 100%;
+	border : 1px;
+	border-color : #F7F7F7;
+	border-style : solid;
+}
+
+/*  TABLE ROW - JUST ADDED ITEM(S) -  QTY, ITEM, PRICE  */
+TR.aRow {
+}
+
+/*  TABLE ROW - JUST ADDED ITEM(S) -  DESCRIPTION  */
+TR.bRow {
+}
+
+/*  TABLE CELL - JUST ADDED ITEM(S) -  QTY  */
+TD.aQtyCell {
+	color : Black;
+	font-family : arial, Helvetica, sans-serif;
+	font-size : 12px;
+}
+
+/*  TABLE CELL - JUST ADDED ITEM(S) -  ITEM  */
+TD.aItemCell {
+	color : Black;
+	font-family : arial, Helvetica, sans-serif;
+	font-size : 14px;
+	font-style : italic;
+	font-weight : bolder;
+	text-align : left; 
+	background-color : #F7F7F7;
+}
+
+/*  TABLE CELL - JUST ADDED ITEM(S) -  PRICE  */
+TD.aPriceCell {
+	color : Black;
+	font-family : arial, Helvetica, sans-serif;
+	font-size : 12px;
+	text-align : right;
+	background-color : #F7F7F7;
+}
+
+/*  TABLE CELL - JUST ADDED ITEM(S) -  BLANK  */
+TD.bQtyCell {
+	color : Black;
+	font-family : arial, Helvetica, sans-serif;
+	font-size : 12px;	
+}
+
+/*  TABLE CELL - JUST ADDED ITEM(S) -  DESCRIPTION  colspan=2 */
+TD.bDescriptionCell {
+	color : #667583;
+	font-family : arial, Helvetica, sans-serif;
+	font-size : 12px;
+}
+
+
+/*  BULLET <LI> IN DESCRIPTION (IF  makelist ENABLED)   */
+LI.MakeList {
+	color : #708090;
+}
+
+
+
+/*  JUST ADDED TOTALS   ------------------------------------------->   */
+/*  TABLE OVERALL - TOTALS    */
+TABLE.TotalTable {
+	background : White;
+	color : #8B0000;
+	font-family : arial, Helvetica, sans-serif;
+	font-size : 12px;
+	width : 100%;
+	border : 1px;
+	border-color : White;
+	border-style : solid;
+}
+
+/*  TABLE	ROW - JUST ADDED ITEM(S) - TOTAL  */
+TR.cRow {
+}
+
+/*  TABLE CELL - JUST ADDED  - TOTAL TEXT  */
+TD.cText {
+	color : Black;
+	font-family : arial, Helvetica, sans-serif;
+	font-size : 12px;
+	text-align : right;
+	background-color : White;
+}
+
+/*  TABLE CELL - JUST ADDED ITEM(S) - TOTAL PRICE  */
+TD.cPrice {
+	color : Black;
+	font-family : arial, Helvetica, sans-serif;
+	font-size : 12px;
+	text-align : right;
+	background-color : White;
+}
+
+/*  TABLE	ROW - Your current cart summary :  */
+TR.mRow {
+}
+
+/*  TABLE CELL - Your current cart summary :  */
+TD.mText {
+	color : #346699;
+	font-family : arial, Helvetica, sans-serif;
+	font-size : 12px;
+	text-align : right;
+	font-weight : bold;
+	background-color : White;
+}
+
+/*  TABLE CELL - TOTALS HEADER PRICE - BLANK CELL */
+TD.mPrice {
+	background-color : White;
+}
+
+/*  TABLE	ROW - TOTALS  */
+TR.tRow {
+}
+
+/*  TABLE CELL - TOTALS TEXT  */
+TD.tText {
+	color : Black;
+	font-family : arial, Helvetica, sans-serif;
+	font-size : 12px;
+	text-align : right;
+	background-color : White;
+}
+
+/*  TABLE CELL - TOTALS PRICE  */
+TD.tPrice {
+	color : Black;
+	font-family : arial, Helvetica, sans-serif;
+	font-size : 12px;
+	text-align : right;
+	background-color : #F7F7F7;
+}
+
+/*  TABLE	ROW - TOTALS  - DISCOUNT */
+TR.dRow {
+}
+
+/*  TABLE CELL - TOTALS DISCOUTIN TEXT  */
+TD.dText {
+	color : Black;
+	font-family : arial, Helvetica, sans-serif;
+	font-size : 12px;
+	text-align : right;
+	background-color : White;
+}
+
+/*  TABLE CELL - TOTALS - DISCOUNT  - BLANK CELL */
+TD.dPrice {
+	color : Black;
+	font-family : arial, Helvetica, sans-serif;
+	font-size : 12px;
+	text-align : right;
+	background-color : #F7F7F7;
+}
+
+						  

@@ -1,0 +1,516 @@
+ 
+<HTML>
+<!-- #BeginTemplate "/Templates/template1.dwt" --> 
+<HEAD>
+<!-- #BeginEditable "doctitle" --> 
+<TITLE>A</TITLE>
+<!-- #EndEditable --> 
+<meta http-equiv="Content-Type" content="text/html; charset=">
+</HEAD>
+<BODY BGCOLOR="#999999" text="#003300" link="#660000">
+<div align="center"><!-- #BeginEditable "whole%20thing" --> 
+  <script><!--
+  function OpenNewWindow(cPicture,nWidth,nHeight,cMessage,nBorder)       
+		{
+ NewWindow=window.open("","NewOne","HEIGHT="+nHeight+",WIDTH="+nWidth+",scrollbars=yes,resizable=no,top=5,left=5");
+        NewWindow.document.write ("<HTML><HEAD>");
+        NewWindow.document.write ("</HEAD>");
+        NewWindow.document.write ("<BODY BGCOLOR='#999999'>");
+        NewWindow.document.write ("<P ALIGN=CENTER>");
+        NewWindow.document.write ("<FONT FACE='Georgia' SIZE='+1'COLOR='#003300'><B>");           
+        NewWindow.document.write (cMessage);
+        NewWindow.document.write ("</B><FONT>");
+        NewWindow.document.write ("<IMG SRC=");
+        NewWindow.document.write (cPicture);
+        NewWindow.document.write (">");
+        NewWindow.document.write ("</P>");
+        NewWindow.document.write ("<bottom><FORM><INPUT TYPE='button'VALUE='Close This Window' onClick='self.close()'>"); 
+        NewWindow.document.write ("</FORM></CENTER></BODY></HTML>");
+        NewWindow.document.write ("</BODY></HTML>");
+        NewWindow.document.close();
+        return false;
+        }
+  
+
+if (!parent.control)
+{window.location="shoppingarea.htm?catalogue_a-c.htm"}
+
+function LineOnForm(plantname,number,price)
+	{ 
+	this.plantname=plantname;
+	this.number=number;
+	this.price=price;
+	}
+var Entries = new Array();
+var countStart=0;
+var Placeholder=0;
+function AddToCart(plantname,number,price)
+	{
+	 Entries[Placeholder]=new LineOnForm(plantname,number,price);
+	 ++Placeholder;
+	 showCart();
+	 }
+
+function ParseArray()
+	{
+	
+	for (x=countStart;x<Entries.length;++x)
+		{
+ 		 parent.control.document.catalogue.qstring.value += Entries[x].plantname;
+		 parent.control.document.catalogue.qstring.value += '-';
+		 parent.control.document.catalogue.qstring.value +=Entries[x].number;
+		 parent.control.document.catalogue.qstring.value +='-';
+		 parent.control.document.catalogue.qstring.value +=Entries[x].price;
+		 parent.control.document.catalogue.qstring.value +='--';
+		 countStart++;
+			}
+	}	
+	
+
+function makeSpace(latinname)
+	{
+		 chopped=latinname.split('+');
+		 n=0;holder='';
+		 while (chopped[n])
+		 	{
+			holder+=(chopped[n]+' ');
+			n++;
+			}
+		 return holder;
+	} 
+ function showCart()
+ 	{
+	ParseArray(Placeholder);
+	var showme="";
+	var args=parent.control.document.catalogue.qstring.value;
+	lines = args.split('--');
+	 for (x=0;(x<((lines.length)-1));++x)
+	 {
+	  parts = lines[x].split('-');
+	  showme+=(makeSpace(parts[1])+"\n")
+	  }
+	 
+	 alert('Your shopping cart contains:\n'+showme+'\nWhen you are ready to place your order, click the submit button to choose a quantity for each item and to enter your shipping and billing information');
+
+				return true;
+	} 
+	
+	
+	
+	//-->
+	</script>
+  <p><img src="graphics_garden/PIH2.jpg" width="500" height="100"></p>
+  <p><font color="#999999">Plant It Herbs - Specializing in Chinese Medicinal 
+    Plants</font></p>
+  <p><font color="#999999">n<b><a href="index.htm">Home</a></b><font color="#999999">---</font> 
+    <b><a href="workshops.htm">Workshops</a><font color="#999999">-</font> <a href="mailto:plantit@plantitherbs.com">Contact 
+    Plant It Herbs</a><font color="#999999">---</font> <a href="shoppingarea.htm?order_form.htm">Order 
+    Form</a><font color="#999999">---</font> <a href="links.htm">Links</a></b>g</font></p>
+  <p><font color="#999999">h<b><i><a href="catalogue_A.htm"><font color="#000066">A</font></a><font color="#000066"> 
+    </font><a href="catalogue_B.htm"><font color="#000066">B</font></a><font color="#000066"> 
+    </font><a href="catalogue_C.htm"><font color="#000066">C</font></a><font color="#000066"> 
+    </font><a href="catalogue_D-G.htm"><font color="#000066">DEFG</font></a><font color="#000066"> 
+    </font><a href="catalogue_H-K.htm"><font color="#000066">HIJK</font></a><font color="#000066"> 
+    </font><a href="catalogue_L-N.htm"><font color="#000066">LMN</font></a><font color="#000066"> 
+    </font><a href="catalogue_O-Q.htm"><font color="#000066">OPQ</font></a><font color="#000066"> 
+    </font><a href="catalogue_R-S.htm"><font color="#000066">RS</font></a><font color="#000066"> 
+    </font><a href="catalogue_T-Z.htm"><font color="#000066">TUVWXYZ</font></a></i></b>i</font></p>
+  <p><font size="+3"><b>2006 Catalogue</b></font></p>
+  <p><b><font size="+3">- A-</font></b></p>
+  <form action="order_form.htm" method=GET name=catalogue>
+    <p><font face="Georgia"><i><a name="Abutilon theophrasti"></a>#10010 </i></font><font face="Georgia" color="#000066"><b>Abutilon 
+      theophrasti</b></font><font face="Georgia" color="#003300">,<b> </b></font><font face="Georgia">dong 
+      kui zi,velvet leaf, Malvaceae -<i> Lovely annual with oval velvet green 
+      leaves and delicate yellow flowers; seed heads form dried star shape pods, 
+      invasive potential; dried seed pods are said to promote urination, increases 
+      lactation. Cultivated in fields and hillsides and distributed in most parts 
+      of China, grows to 2&#8217; in full sun.</i></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $4.00</i></font></p>
+    <p> 
+      <input type=button name=Button value="add to shopping cart" onClick="AddToCart(10010,'Abutilon theophrasti',4.00)">
+      <input type=submit name=Submit2 value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button22 value="See contents of cart" onClick="showCart()">
+    </p>
+  <p>&nbsp;</p>
+    <p><a name="Achillea sibirica"></a><font face="Georgia"><i>#10020</i></font><font face="Georgia" color="#000066"><i> 
+      </i><b>Achillea sibirica</b></font><font face="Georgia" color="#003300">, 
+      shi cao, alpine </font><font face="Georgia">yarrow, Compositae<i> - Collection 
+      original, fleshy leafed, low growing alpine perennial, white to pink flowers 
+      bloom in summer.; dried arieal part of plant is said to be used as an anti-fungal 
+      and reduces inflammation, relieve/reduces toxins, eases pain, recently used 
+      in Kunming, China to treat injured people after an earthquake. Grows in 
+      grasslands, hillsides, or in thickets and distributed mostly in Northern 
+      China. </i></font></p>
+    <p><font face="Georgia"><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_a-c/Achillea_sibirica.jpg',450,450,'Achillea siberica'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i><b><i> 
+      Click for picture </i></b></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $8.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10020,'Achillea sibirica',8.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p align=right><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></p>
+    <p><a name="Achillea wilsoniana"></a><font face="Georgia"><i>#10021</i></font><font face="Georgia" color="#000066"><b>Achillea 
+      wilsoniana</b></font><font face="Georgia" color="#003300">,</font><font face="Georgia"> 
+      tu yi zhi hao, yarrow,<i> </i>Compositae/Asteraceae<i> - </i><em>Achillea 
+      wilsoniana, tu yi zhi hao, yarrow, Compositae/Asteraceae - Compact perennial 
+      stands 3- 4'; feathery serrated leaves bloomwhite flowers in summer, grows 
+      in well-drained soil in full sun; stalks are used in consulting the I Ching, 
+      said to be used medicinally for colds, menstrual and menopausal complaints, 
+      externally for wounds.</em></font></p>
+    <font color="#FF0000"></font><font color="#FF0000"> </font> 
+    </a><font face="Georgia"><b><i> 
+      <a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_a-c/Achillea_wilsoniana.jpg',450,450,'Achillea wilsoniana'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a>Click 
+      for picture</i></b></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $5.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10021,'Achillea wilsoniana',5.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p>&nbsp;</p>
+    <p><a name="Achyranthes bidentata"></a><font face="Georgia"><i>#10030</i></font><font face="Georgia" color="#000066"><b>Achyranthes 
+      bidentata</b></font><font face="Georgia">, huai niu xi, Ox knee, Amaranthaceae 
+      <i>-</i></font> <font face="Georgia"><em>Grows in disturbed areas along 
+      highways, cultivated on light loamy soil, inconspicuous flowers open on 
+      spikes; first described in Chinese texts in 200 AD; dried root used to invigorate 
+      blood, benefit joints, sore throats, hypertension, traumatic injury and 
+      rheumatic pain, treatment of gonorrhea, amenorrhea.</em></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $4.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10030,'Achyranthes bidentata',4.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p>&nbsp;</p>
+    <p align=right>&nbsp;<a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></p>
+    <p align=right><a name="Adenophora tracheloides"></a><font face="Georgia"><i>#10040</i></font><font face="Georgia" color="#000066"><b>Adenophora 
+      tracheloides</b></font><font face="Georgia">, purple bell flower, Campanulaceae 
+      <i>- Native to West China, perennial with an erect stem and purple-blue, 
+      bell-shaped flowers bloom in late summer; grow in rich, well drained soil 
+      in sun, likes to be moist; invasive potentical remove seed heads; Zone 4-8. 
+      Gan jie geng or sweet jie geng root sow is cold and used to moisten lungs, 
+      clear heat and relieve fire toxicity.</i></font></p>
+    <p><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_a-c/Adenophora_tracheloides.jpg',450,450,'Adenophora tracheloides'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a> 
+      Click for picture</i></b></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $6.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10040,'Adenophora confusa',6.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p><a name="Agastache rugosa"></a><font face="Georgia"><i>#10050 </i></font><font face="Georgia" color="#000066"><b>Agastache 
+      rugosa</b></font><font face="Georgia">, bei huo xiang, Korean mint, Lamiaceae/Labiatae<i> 
+      - Aromatic,<br>
+      short-lived perennial, in my area zone 6 we grow it as an annual; attracts 
+      butterflies, stalk-like purple flower spikes bloom in summer, height 3- 
+      4'; leaves and stems are said to improve appetite and relieve nausea, antibacterial, 
+      fresh/dried leaves and flowers used as a flavoring and delicious tea.</i></font></p>
+    <p><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_a-c/Agastache_rugosa.jpg',450,450,'Agastache rugosa'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a> 
+      Click for picture</i></b></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $5.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10050,'Agastache rugosa',5.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p align=right><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></p>
+    <p><a name="Agrimonia pilosa"></a><font face="Georgia"><i>#10060 </i></font><font face="Georgia" color="#000066"><b>Agrimonia 
+      pilosa</b></font><font face="Georgia">, xian he cao, hairy agrimony, Rosaceae<i> 
+      - Tough, upright perennial with downy leaves and stems, lightly scented 
+      yellow flowers bloom in summer; grows 20" in rich loamy soil in sun to part 
+      shade, will tolerate dry conditions; harvested just before the flowers bloom 
+      the whole plant is said to be used for stomach problems, dysentery and due 
+      to its high content of vitamin K is used to control bleeding.</i></font></p>
+    <p><font face="Georgia"><b><i> <a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_a-c/Agrimonia_pilosa.jpg',450,450,'Agrimonia pilosa'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a>Click 
+      for picture</i></b></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $6.00 </i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10060,'Agrimonia pilosa',6.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p><a name="Allium tuberosum"></a><font face="Georgia"><i>#10070 </i></font><font face="Georgia" color="#000066"><b>Allium 
+      tuberosum</b>,</font><font face="Georgia"> jiu zi, Chinese chives, Liliaceae<i> 
+      - </i></font><em>Perennial cultivated widely as a vegetable, naturalized 
+      in South China; grow in rich, well-drained soil in sun, umbels of sweet-scented 
+      shoots, small white star shaped flowers appear in late summer; chopped leaves 
+      and flowers are added to salads, stir frys, omelets, light garlic flavor, 
+      seeds are said to improve kidney function.</em> </p>
+    <p><font face="Georgia"><b> <a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_a-c/Allium_tuberosum.jpg',450,450,'Allium tuberosum'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a>Click 
+      for picture</b></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $4.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10070,'Allium tuberosum',4.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p align=right><font color="#660000">&nbsp;</font><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></p>
+    <p><a name="Aloe vera"></a><font face="Georgia"><i>#10080 </i></font><font face="Georgia" color="#000066"><b>Aloe 
+      vera</b>,</font><font face="Georgia"> lu hui, Aloe, Liliaceae/Aloeaceae<i> 
+      - Succulent herb with short stems forming dense clumps, grow in well-drained 
+      sandy soil in part shade and allow to dry between watering; said to act 
+      as a purgative, promotes bile flow, heals wounds and burns, antifungal, 
+      stops bleeding, sedative.</i></font></p>
+    <p><font face="Georgia"><b><i> <a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_a-c/Aloe_vera.jpg',450,450,'Aloe vera'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a>Click 
+      for picture</i></b></font></p>
+    <p><i>&nbsp;</i><font face="Georgia" color="#660000"><i>Plant = $6.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10080,'Aloe vera',4.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p>&nbsp;<a name="Alpina katsumadai"></a><font face="Georgia"><i>#10090 </i></font><font face="Georgia" color="#000066"><b>Alpina 
+      katsumadai</b></font><font face="Georgia">, tsao tou kou, Katsumada's galangal, 
+      Zingiberaceae<i> - First recorded in Ming i pieh lu as a superior herb; 
+      rhizomatous tropical perennial has erect stems and long linear leaves, large 
+      fragrant flowers are waxy white; grows in forests, grow in rich, well drained 
+      soil indoors or in Zone 11; dried mature seeds are said to strengthen spleen, 
+      warm stomach and control vomiting</i></font></p>
+    <p>&nbsp;<font face="Georgia" color="#660000"><i>Plant = $12.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10090,'Alpinia katsumadai',10.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p align=right><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></p>
+    <p><a name="Angelica dahurica"></a><font face="Georgia"><i>#10100 </i></font><font face="Georgia" color="#000066"><b>Angelica 
+      dahurica</b></font><font face="Georgia">, bai zhi, angelica root, Umbelliferae<i> 
+      - Perennial with umbrella shaped leaves that reach 4' on a hollow stem;grow 
+      in rich moist soil in sun or part shade; small delicate white flowers bloom 
+      in summer, attracts many beneficial insects; roots are said to open up nasal 
+      passages, headaches, toothaches, alleviates pain, reduces swelling and expels 
+      pus.</i></font></p>
+    <p><font face="Georgia"><b><i> <a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_a-c/Angelica_dahurica.jpg',450,450,'Angelica dahurica'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a>Click 
+      for picture</i></b></font></p>
+    <p>&nbsp;<font face="Georgia" color="#660000"><i>Plant = $8.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10100,'Angelica dahurica',7.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p align=right><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></p>
+    <p align=right>&nbsp;</p>
+    <p><a name="Angelica polymorpha"></a><font face="Georgia">#10101 </font><font face="Georgia" color="#000066"><b>Angelica 
+      polymorpha</b></font><font face="Georgia">, guai qin, turn celery, Umbelliferae 
+      - <i>Large lacy oval perennial with purple tinged stems and wide graceful 
+      leaves, purple tinged white flowers bloom in summer; grow in well drained 
+      soil in sun or part shade, root is acrid/spicy, warm, moves qi and stops 
+      pain, warms digestive organs.</i></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $7.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10101,'Angelica polymorpha',7.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p><font face="Georgia" color="#660000"><i><a name="Angelica pubescens"></a></i></font><font face="Georgia" color="#003300"><i>#10102 
+      </i></font><font face="Georgia" color="#000066"><b>Angelica pubescens</b></font><font face="Georgia" color="#003300">, 
+      du huo, pubescent angelica root<i>,</i> Umbelliferae <i>-Known as Riben 
+      du huo or Japanese du huo this plant grows in Sichuan, China; large tri-lobed 
+      leaves grow on 7' stalks, white flowers bloom in summer; grow in rich soil 
+      in part shade to shade; roots are said to be used to dispel wind-dampness 
+      and alleviates pain, wind-cold-damp painful obstruction in lower back and 
+      legs.</i></font></p>
+    <p><font face="Georgia"><b><i> <a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_a-c/Angelica_pubescens.jpg',450,450,'Angelica pubescens'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a>Click 
+      for picture</i></b></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $8.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10102,'Angelica pubescens',7.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p>&nbsp;</p>
+    <p align=right><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></p>
+    <p><a name="Arctium lappa"></a><font face="Georgia"><i>#10110</i><b><i> </i></b></font><font face="Georgia" color="#000066"><b>Arctium 
+      lappa</b></font><font face="Georgia">, niu bang zi, great burdock, Compositae<i> 
+      - Vigorous biennial grows naturally on roadsides but is also cultivated 
+      for culinary uses as well as medicinal; large alternate leaves on an erect 
+      stem grow 5' in moist, neutral soil in sun or part shade; young leaves are 
+      cleaned and cooked like celery, roots are eaten raw, cooked or in stir frys, 
+      seed is said to be used for the common cold, cough, headache, sore throat 
+      </i></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $4.00 </i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10110,'Arctium lappa',4.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p>&nbsp;</p>
+    <p><a name="Aristolochia trilobata"></a><font face="Georgia"><i>#10120 </i></font><font face="Georgia" color="#000066"><b>Aristolochia 
+      trilobata</b></font><font face="Georgia">, Dutchman's pipe, Aristolochiacea<i> 
+      -Tropical evergreen twiner has dark green trilobed ovate leaves with light 
+      green and brown pitcher shaped flowers; grows in rich well- drained soil 
+      in sun in Zone 10-11 or in a tropical greenhouse, A. debilis and A. contorta 
+      are used in Chinese medicine.</i></font></p>
+    <p><font face="Georgia"><b><i> <a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_a-c/Aristolochia_trilobata.jpg',450,450,'Aristolochia trilobata'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a>Click 
+      for picture</i></b></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $10.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10120,'Aristolochia trilobata',7.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p align=right><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></p>
+    <p>&nbsp;</p>
+    <p><a name="Artemisia annua"></a><font face="Georgia"><i>#10130 </i></font><font face="Georgia" color="#000066"><b>Artemisia 
+      annua</b></font><font face="Georgia">, qing hao, sweet annie, Compositae/Asteraceae<i> 
+      -The fragrance of this herb makes it a favorite; grow in well-drained, neutral 
+      to slightly alkaline soil in sun, fast growing giant annual</i></font> <font face="Georgia"><i>with 
+      tiny yellow flowers and feathery leaves; whole plant is said to be antibacterial 
+      and destroys malarial parasites, lowers fevers, checks bleeding.</i></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $4.00 </i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10130,'Artemisia annua',4.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p>&nbsp;</p>
+    <p><a name="Artemisia argyi"></a><font face="Georgia"><i>#10131 </i></font><font face="Georgia" color="#000066"><b>Artemisia 
+      argyi</b></font><font face="Georgia">, ai ye, mugwort leaf, Compositae/Asteraceae<i> 
+      -Original plant material is from Guangxi, China; the scalloped leaves of 
+      this plant have a lighter green shade with small flowers that bloom in late 
+      summer, grows 4-6' in well-drained soil; in traditional Chinese medicine 
+      this species is the main material used to make moxa which is burned briefly 
+      over the skin to warm acupuncture points.</i></font></p>
+    <p><font face="Georgia"><b><i> <a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_a-c/Artemesia_argyi.jpg',450,450,'Artemisia argyi'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a> 
+      Click for picture</i></b></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $7.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10131,'Artemisia argyi',6.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p align=right><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></p>
+    <p><a name="Artemisia gmelinii"></a><font face="Georgia"><i>#10132</i></font><font face="Georgia" color="#FFFF33"><b><i> 
+      </i></b></font><font face="Georgia" color="#000066"><b>Artemisia gmelinii</b>,</font><font face="Georgia"> 
+      Compositae <i>- Unique hardy perennial with soft looking, fragrant, green-gray 
+      leaves; unlike most artemisia sp. it stays confined to the original planted 
+      area and can be shaped into a shrub; grow in well drained soil in sun or 
+      part shade.</i></font></p>
+    <p><font face="Georgia"><b><i> <a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_a-c/Artemisia_gmelinii.jpg',450,450,'Artemisia gmelinii'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a>Click 
+      for picture</i></b></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $6.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10132,'Artemisia gmelinii',6.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p><a name="Artemisia princeps"></a><font face="Georgia"><i>#10133 </i></font><font face="Georgia" color="#000066"><b>Artemisia 
+      princeps</b></font><font face="Georgia">, kui hao or wu yue ai, artemisia, 
+      Compositae/Asteraceae<i> Perennial plant collected in Japan; grows 3-4' 
+      in well-drained soil in sun, leaves are scalloped and light green, small 
+      flowers bloom in summer; it is used as a substitute for A. argyi and is 
+      said to clear toxins, reduces swelling, stops bleeding, warms channels, 
+      dries dampness </i></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $5.00 </i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10133,'Artemisia princeps',5.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p align=right><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></p>
+    <p><a name="Artemisia selengensis"></a><font face="Georgia"><i>#10134 </i></font><font face="Georgia" color="#000066"><b>Artemisia 
+      selengensis</b></font><font face="Georgia">, luo hao, wormwood,Compositae/Asteraceae<i> 
+      -Tall perennial stands 4-6'; grow in well-drained soil in sun;has delicate 
+      light green leaves, small flowers appear in late summer; the whole herb 
+      is said to be bitter, spicy, warm; lowers rising qi, opens channels and 
+      blockages with pain caused by fullness, post-partum illness, jaundice, internal 
+      injury with bleeding, external injuries, blood stasis with painful swelling 
+      .</i></font></p>
+    <p><font face="Georgia"><b><i> <a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_a-c/Artemisia_selengensis.jpg',450,450,'Artemisia selengensis'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a> 
+      Click for picture</i></b></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $5.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10134,'Artemisia selengensis',5.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p><a name="Artemisia vulgaris"></a><font face="Georgia"><i>#10135 </i></font><font face="Georgia" color="#000066"><b>Artemisia 
+      vulgaris</b></font><font face="Georgia" color="#003333"><b>,</b></font><font face="Georgia"><b> 
+      </b>bei ai, Northern Ai Ye, Compositae<i> - Bushy perennial that grows 4-5' 
+      in well-drained soil in sun,</i></font> <font face="Georgia"><i>red-purple 
+      stems with dark green leaves, small red-brown flowers bloom in late summer; 
+      in traditional Chinese medicine this species is considered secondary after 
+      A. argyi; may be substituted and said to be used to warm acupuncture points, 
+      aromatic</i></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $4.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10135,'Artemisia vulgaris',4.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p align=right><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></p>
+    <p><a name="Aster tataricus"></a><i><font face="Georgia">#10140 </font></i><font face="Georgia" color="#000066"><b>Aster 
+      tataricus</b></font><font face="Georgia" color="#003333"><b>,</b></font><font face="Georgia"> 
+      zi wan, Tatarian aster, Compositae/Asteraceae -</font> <font face="Georgia"><i>Tall 
+      perennial with large oblong leaves grows 5-6' in moist soil in sun or part 
+      shade, purple to blue daisy-like flowers bloom in late summer and fall, 
+      first mentioned in Chinese medical journals in AD 200; roots are said to 
+      help clear up infection, expectorant herb for the bronchial system.</i></font></p>
+    <p><font face="Georgia"><b><i> <a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_a-c/Aster_tataricus.jpg',450,450,'Aster tataricus'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a>Click 
+      for picture</i></b></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $8.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10140,'Aster tataricus',6.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p><a name="Astragalus complanatus"></a><font face="Georgia"><i>#10150 </i></font><font face="Georgia" color="#000066"><b>Astragalus 
+      complanatus</b></font><font face="Georgia" color="#003300">, </font><font face="Georgia">sha 
+      yuan ji li, flattened milkvetch seed, Leguminosae <i>- Original seed is 
+      from IMPLAD in Beijing; a hardy perennial that grows in well-drained sandy 
+      soil in sun; yellow pea flowers bloom in summer followed by long pods, height 
+      10-16"; seeds are said to tonify liver and kidneys, brighten eyes, fortify 
+      yang and benefit essence.</i></font></p>
+    <p><font face="Georgia"><b><i> <a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_a-c/Astragalus_complamatus.jpg',450,450,'Astragalus complanatus'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a>Click 
+      for picture</i></b></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $7.00 </i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10150,'Astragalus complanatus',7.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p align=right><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></p>
+    <p><font color="#330066"><a name="Astragalus membranaceus"></a></font><font face="Georgia"><i>#</i><b><i>10151 
+      </i></b></font><font face="Georgia" color="#000066"><b>Astragalus membranaceus</b></font><font face="Georgia">, 
+      huang qi, milk vetch root, Leguminosae<i> - Important ingredient in traditional 
+      Chinese medicine, this perennial grows in well-drained sandy soil in sun; 
+      harvest spring or fall when plants are 4 yrs. or older; yellow pea blooms 
+      appear in early summer followed by long pods up to 6", height and size 10-16 
+      in.; roots are said to supplement qi of the digestive system and lungs, 
+      tonify the protective qi which can be thought of as comparable to the western 
+      idea of the humoral immune system and may help a person's resistance to 
+      external infections being "caught".</i></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $8.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10151,'Astragalus membranaceus',7.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p>&nbsp;</p>
+  </form>
+  <p align="center"><b><a href="index.htm">Home</a></b> <b><a href="links.htm">Links</a></b> 
+    <b> </b><b><a href="workshops.htm">Workshops</a></b></p>
+  <p align="center"><b> <a href="mailto:plantit@plantitherbs.com">Contact Plant 
+    It Herbs</a> </b></p>
+  <p align="center"><b><a href="shoppingarea.htm?order_form.htm">Order Form</a> 
+    </b></p>
+  <p></P>
+  <!-- #EndEditable --> 
+  <p>&nbsp;</p>
+</div>
+</BODY>
+<!-- #EndTemplate -->
+</HTML>

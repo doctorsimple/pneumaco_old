@@ -1,0 +1,3660 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+   <meta name="Author" content="Russell Alexander">
+   <meta name="Description" content="The complete set of Documentation for Merchant OrderForm v1.5 - WebWare written and produced by RGA">
+   <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+   <meta name="ProgId" content="FrontPage.Editor.Document">
+   <meta name="subject" content="Merchant OrderForm">
+   <meta name="Template" content="C:\MICROSOFT OFFICE\OFFICE\html.dot">
+   <TITLE>Merchant OrderForm v1.5 Documentation</TITLE>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#3333FF" VLINK="#3333FF" ALINK="#FF0000">
+<font size="4" face="Comic Sans MS">
+<b>Configuring the Front End </b></font><font face="Comic Sans MS"><b>
+<font size="4">
+<I><FONT COLOR="#800000">Merchant Order Form</FONT></I></font></b>
+<font size="-1">
+&nbsp; version 1.53, 8/15/2000, Updated 9/15/2000</font></font>
+<BR><FONT FACE="Comic Sans MS"><FONT SIZE=-1>Copyright by </FONT><B><FONT SIZE=-2>RGA@IO.COM</FONT></B><FONT SIZE=-1>
+/ <A HREF="http://www.io.com/~rga/scripts">http://www.io.com/~rga/scripts<br>
+</A>Internet Location: <a href="http://www.merchantorderform.com">http://www.merchantorderform.com<br>
+</a>
+Use our web site for <a href="http://www.merchantorderform.com/updates.html">current issues or updates to this product</a>
+ <a href="http://www.merchantorderform.com"><br>
+</a>
+Documentation prepared July 31, 2000.
+</FONT></FONT><p><font size="-1" face="Comic Sans MS">
+This file will help you deal with the Front End configuration file that governs Merchant OrderForm's behavior for the Cart and Order Summary sections.&nbsp; How much or how little you want it to do can be configured by these settings.&nbsp; If you are completely
+unfamiliar with working in Perl script configuration files, then you should probably read the section<a href="AboutConfigurations.html"> All About Perl Configuration Files </a>
+ before you even get started.</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+The other documentation files are:</font>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS"><a href="ReadMe.html">ReadMe.html</a>
+&nbsp;-- Introductory information about Merchant OrderForm</font><li>
+<font size="-1" face="Comic Sans MS"><a href="Installation.html">Installation.html</a>
+ -- Step by step instructions for installing these scripts</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="BuildingPages.html">BuildingPages.html</a>
+&nbsp;-- All about Building the Input Pages for your Store</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="AboutConfigurations.html">AboutConfigurations.html</a>
+ -- Basics about editing Perl configuration files</font><li>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>Configurations1.html</b></font>
+&nbsp;-- 
+<font color="#000080">
+<b>You Are Here</b></font></font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="Configurations2.html">Configurations2.html</a>
+ -- Back End settings (Check out and Final invoice)</font><li>
+<font size="-1" face="Comic Sans MS"><a href="Troubleshooting.html">Troubleshooting.html</a>
+&nbsp;&nbsp;-- Information on error messages and troubleshooting</font>
+</ul>
+<p>
+
+T<FONT FACE="Comic Sans MS"><FONT SIZE=-1>hanks for your interest in </FONT><I><FONT COLOR="#800000">Merchant
+Order Form</FONT></I><FONT SIZE=-1>
+<B>v1.53.</B>&nbsp;</FONT></FONT>
+<p><font size="-1" face="Comic Sans MS">
+Both configuration files in the package you received are not set like the ones on the demo sites.&nbsp; The demo sites have the full blown set of features enabled.&nbsp; We have tried to enable only the minimum settings necessary for the install, in
+hopes of minimizing complications during your installation.&nbsp; Once you are up and running and have planned your Online Store Front, then you will have a better idea of how you want Merchant OrderForm to behave.&nbsp;&nbsp;</font><p><font size="-1" face="Comic Sans MS">
+ For your reference, we've
+included both of Mof's configuration files as they are running on the demo sites, so you may see what settings give it that behavior.&nbsp; We doubt that anyone would ever run every single feature of Merchant OrderForm as we have done on the demo
+sites. The files are called: demo1.txt and demo2.txt in the docs folder of your package.</font><p>
+<font size="-1" face="Comic Sans MS">
+And relax, you have already set most of the settings you need when you did the installation.&nbsp; While Merchant OrderForm's configuration files are huge for Perl scripts, the typical web developer won't need many of the settings.&nbsp; The bulk of
+the configuration file settings are there to allow programmers to customize Merchant OrderForm.&nbsp; Almost everything from the ground up can be customized in either the configurations or in hidden customizing areas of the script libraries.</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>Tip</b></font>: 
+<font color="#000080">
+We have tried to place the configuration details in question format</font>.&nbsp;&nbsp;<br>
+So, find what you want to do with the configurations and we'll explain that section and how to do it.</font><p><u>
+<font size="+1" face="Comic Sans MS">
+Shareware statement</font></u>
+
+<font size="-1" face="Comic Sans MS">
+&nbsp;<br>
+<br>
+You are authorized to install, test, and explore your copy of Merchant OrderForm.  When you are satisfied that it will do the job for you, then you are expected to make arrangements for the Shareware fees.&nbsp;</font><p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#000080"><b>Payment arrangements</b></font> @ <a href="http://www.merchantorderform.com/payment.html">http://www.merchantorderform.com/payment.html</a>
+&nbsp;<br>
+<br>
+-- Or you can Send Check or Money Order To:&nbsp;</font><br>
+<br>
+<font size="-1" face="Comic Sans MS">
+        RUSSELL ALEXANDER&nbsp;<br>
+        1904 INVERNESS BLVD.&nbsp;<br>
+        AUSTIN, TEXAS 78745&nbsp;</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+
+
+-- Or you can use </font>
+
+<!-- Begin PayPal Logo -->
+<A HREF="https://secure.paypal.x.com/xclick/business=rga%40io.com&undefined_quantity=1&item_name=Merchant+OrderForm+v1.5&return=http%3A//www.merchantorderform.com/" target="_blank">
+<font size="-1" face="Comic Sans MS">
+Pay Pal</font>
+&nbsp;
+</a>
+<p>
+
+&nbsp;
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9"><FONT SIZE=+1><a name="TableContents"></a>
+Table
+of Contents for this Documentation</FONT></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT FACE="Comic Sans MS"><FONT COLOR="#800000">Merchant
+OrderForm</FONT>
+<B><FONT SIZE=-1>v</FONT></B></FONT>
+ <font size="-1" face="Comic Sans MS">
+ <b>1.53</b></font></TD>
+</TR>
+</TABLE>
+
+&nbsp;
+
+<blockquote>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>Front End Settings</b></font> (Cart and Preview Invoice) - <b>mof15.conf<br>
+</b>Find the questions to what you want to do</font>
+<blockquote>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>
+Various file locations, security settings</b></font>
+</blockquote>
+
+<ul type="circle">
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#AllowDomains">How to allow only your domain to use the scripts</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#AllowOnlyPost">How to allow only post input</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#ProgramFileSettings">
+Program file settings and file locations</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#WhereAreTemplates">
+Where are the template file(s) settings</a>
+</font>
+
+
+</ul>
+
+<blockquote>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>
+Some Miscellaneous Settings</b></font>
+</blockquote>
+
+<ul type="circle">
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#MiscellaneousSettings">
+How to change the currency symbol</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#MiscellaneousSettings">
+How to change the weight symbol</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#MiscellaneousSettings">
+How to change the delimiter used</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#MiscellaneousSettings">
+How to set the default email address for error messages</a>
+</font>
+
+
+</ul>
+
+<blockquote>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>
+Changing the cart's behavior</b></font>
+</blockquote>
+
+<ul type="circle">
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#KeepingTheCart">
+How to keep or not keep the cart if a purchase is not completed</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#KeepingShipInfo">
+How to keep or not keep a visitor's shipping information</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#SettingUpOptions">
+How to set up User Selected Input Options for your product(s)</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#PriceAdjustingFields">How to make User Select Input Options Price Adjusting Fields</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#ChangingCartAppearance">
+How to Change colors, fonts,&nbsp; and backgrounds in the cart tables</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#FormatDescription">How to format and color the description and product option area</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#ChangingNavigationMenus">
+How to change the Navigation menus appearing throughout the pages</a>
+</font>
+
+
+</ul>
+
+<blockquote>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>
+Behavior for the Shipping Information Page</b></font>
+</blockquote>
+
+<ul type="circle">
+<li>
+
+<font size="-1" face="Comic Sans MS">
+<a href="#WhatShipInfoAsks">
+How to Change what the Shipping Info page asks for</a>
+</font>
+<li>
+
+<font size="-1" face="Comic Sans MS"><a href="#GettingRidOfShipInfoPage">
+How to get rid of the Shipping Info page altogether</a>
+</font>
+
+
+<li>
+
+<font size="-1" face="Comic Sans MS">
+<a href="#WhatShipFields">
+How to Change what Shipping Address fields display</a>
+</font>
+<li>
+
+<font size="-1" face="Comic Sans MS">
+<a href="#WhatShipFieldsRequired">
+How to Change what Shipping Address fields are required or not</a>
+</font>
+<li>
+
+<font size="-1" face="Comic Sans MS">
+<a href="#ShippingFieldsBox">
+How to Change what the Shipping Address box looks like</a>
+</font>
+<li>
+
+<font size="-1" face="Comic Sans MS">
+<a href="#ShipInfoValidationCues">
+How to Change the validation cues on the Shipping Info Page</a>
+</font>
+<li>
+
+<font size="-1" face="Comic Sans MS">
+<a href="#ShipInfoDropBoxes">
+How to Change the drop box list for Country - State in Shipping Address</a>
+</font>
+
+
+</ul>
+
+<blockquote>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>
+Various computations</b></font>
+</blockquote>
+
+<ul type="circle">
+<li>
+
+<font size="-1" face="Comic Sans MS">
+<a href="#UseDiscount">
+How to configure a default discount</a>
+</font>
+<li>
+
+<font size="-1" face="Comic Sans MS">
+<a href="#UseCoupons">
+How to configure and use the Coupon discount feature</a>
+</font>
+<li>
+
+<font size="-1" face="Comic Sans MS">
+<a href="#WhatCouponsdo">
+What can I do with the coupon discount feature</a>
+</font>
+<li>
+
+<font size="-1" face="Comic Sans MS">
+<a href="#UseHandling">
+How to configure a handling charge</a>
+</font>
+<li>
+
+<font size="-1" face="Comic Sans MS">
+<a href="#InsuranceOptions">
+How to set up the insurance options and computations</a>
+</font>
+<li>
+
+<font size="-1" face="Comic Sans MS">
+<a href="#DefaultShippingComputations">
+How to set the default Shipping computations</a>
+</font>
+<li>
+
+<font size="-1" face="Comic Sans MS">
+<a href="#UseSelectedShipMethods">
+How to set up user selected Shipping Methods and computations</a>
+</font>
+<li>
+
+<font size="-1" face="Comic Sans MS">
+<a href="#TaxComputations">
+How to set up tax computations</a>
+</font>
+
+
+</ul>
+
+</blockquote>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="AllowDomains"></a>
+How to allow only your domain to use the scripts</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Front End configuration file: 
+<font color="#000080">
+<b>mof15.conf<br>
+</b></font></font>SECURITY SETTINGS<br>
+SECURITY SETTINGS</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This setting prevents anyone from outside your domain, your Store Front, your pages from accessing the scripts and processing bogus orders.&nbsp; Some folks want this, some don't care.&nbsp; If this feature is not enabled and set, then it is possible
+for any form anywhere on the web to submit products to carts running under your installation of Mof.&nbsp; This is not a big deal with some merchants, because no damage can occur, just a bogus invoice is produced.&nbsp; The Merchant can usually spot
+this.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If you want to prevent this, then just enable the Allow Domains feature.&nbsp; When the setting is empty then no domain checking occurs.&nbsp; Enable the feature by putting a list of allowable domains that can post to your script.</font></p>
+
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+WHAT DOMAINS ARE ALLOWED TO ACCEPT POST INPUT ?</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Here's an example of enabling this feature</font></p>
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+@ALLOWED_DOMAINS = (<br>
+&nbsp;&nbsp;&nbsp; 'http://www.yourdomain.com',<br>
+&nbsp;&nbsp;&nbsp; 'http://208.124.45.111'<br>
+);</font><p>
+<font size="-1" face="Comic Sans MS">
+You must leave it completely empty to disable the feature</font>
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+@ALLOWED_DOMAINS = ();</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: If you enable this feature in the Front End you should also enable it in the Back End.&nbsp; If you don't enable it in the Back End, then someone could simply process all data up to that point from an unknown location, and submit to the
+Back End process.&nbsp; Again, this will only create a bogus invoice, and can't cause any damage to your site or server.</font>
+<p>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>Adjust your &lt;mofpayment.conf&gt; navigation menu:</b></font><p>
+<font size="-1" face="Comic Sans MS">
+If you are using the Allowed Domains feature, then you may need to make a final adjustment with the menu functions for the back end payment processing.&nbsp; Under some SSL installations, the cgi Reffering_url is not present in the environment when
+mof.cgi is called from a process in 
+<font color="#000080">
+<b>mofpayment.cgi.</b></font>&nbsp; It is not present at the server level of the cgi process, and therefore you will get a Domain Not Allowed message if attempting to use the &quot;Edit Cart&quot; function from the Billing Information page.&nbsp;
+Test this on your installation if you are using the Allowed Domains feature.&nbsp; If this is your case, then you should disable both the top and bottom &quot;Edit Cart&quot; links so they are not available on the Billing Information
+page.&nbsp;&nbsp;</font><p>
+<font size="-1" face="Comic Sans MS">
+Disable the &quot;Edit Cart&quot; buttons only in 
+<font color="#000080">
+<b>mofpayment.conf</b></font></font><br>
+<font face="Fixedsys" size="1">
+# NAVIGATION MENUS IN DYNAMIC PAGES<br>
+# NAVIGATION MENUS IN DYNAMIC PAGES</font><p>
+<font size="-1" face="Comic Sans MS">
+Disable both of these buttons so they do not allow a post back to the cart while on the Billing Information page</font><p>
+<font FACE="Fixedsys" SIZE="1">
+$menu_viewcart_top<br>
+$menu_editcart_bottom</font>
+<p>
+
+<br>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="AllowOnlyPost"></a>
+How to allow only post input</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Front End configuration file: 
+<font color="#000080">
+<b>mof15.conf<br>
+</b></font></font>SECURITY SETTINGS<br>
+SECURITY SETTINGS</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This feature disables Mof from using any GET submissions, except the ViewCart function.&nbsp; If you enable this feature then you are telling Mof to only accept POST submissions for any cart input.&nbsp; This prevents someone from modifying the
+pricing of a product from the URL Query line in their browser.&nbsp; Again, this cannot cause any damage to your site, but someone could simply change the price of a product by editing the URL Query information submitted by the GET environment,
+thereby creating a bogus invoice.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Since the ViewCart function for Mof is submitted via a GET submission, Mof allows only the ViewCart function through.&nbsp; The ViewCart function can only return cart data that is stored on the server.&nbsp; The ViewCart process cannot be edited or
+manipulated.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+DO YOU WANT TO DISALLOW ANY GET SUBMITS ?</p>
+<p>
+
+$POST_ONLY = 0;<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Enable (1) Disable (0) accepting Get input for products</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: When both the Allow Domains feature and the Post Only settings are enabled, then a user would be unable to use your installation of Mof to submit bogus products, or create bogus invoices.</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: If you enable this feature, then make sure that you don't have any product input in your Online Store Front that uses the GET environment for submitting product data.</font><p><br>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="ProgramFileSettings"></a>
+Program file settings and file locations</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Front End configuration file: 
+<font color="#000080">
+<b>mof15.conf<br>
+</b></font></font> FILE SETTINGS - FILE LOCATIONS<br>
+ FILE SETTINGS - FILE LOCATIONS</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is a group of settings that define where the main program files are, and where and how Mof works with the set of scratch files that it uses to store cart data and shipping information data.</font>
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+ WHAT IS THE NAME OF THE MAIN PROCESSING FILE ?</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This identifies the Front End program file.&nbsp; This will always be </font>
+<font face="Fixedsys" size="1">
+mof.cgi</font>
+<font size="-1" face="Comic Sans MS">
+ unless you rename </font>
+<font face="Fixedsys" size="1">
+mof.cgi</font>
+<font size="-1" face="Comic Sans MS">
+ to another name.&nbsp; Then you will need to define that exact filename so Mof can work with itself.&nbsp; An example would be if you have to rename program files to *.pl files to be installed under an NT server.&nbsp; Then you will have to define
+the correct filename in this setting.&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This setting is never an absolute path.&nbsp; It is either just the simple filename or the full URL as this script is accessed via the Web.&nbsp; You should never need a URL pathway here, since the script only references itself in its native
+location.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+ WHAT IS THE NAME OF THE FINAL PAYMENT PROCESSING FILE ?</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This references what the Back End Checkout processing file is called, and where it is located. If both the Front End </font>
+<font face="Fixedsys" size="1">
+mof.cgi</font>
+<font size="-1" face="Comic Sans MS">
+ and the Back End </font>
+<font face="Fixedsys" size="1">
+mofpayment.cgi </font>
+<font size="-1" face="Comic Sans MS">
+are installed under the exact same protocol and location, either HTTP or HTTPS, then you can simply reference the filename, since it can reference itself in its native directory.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If you are installing the Back End under SSL and the Front End is not, then you will need to reference the Full and complete HTTPS.&nbsp; Or, if the Back End </font>
+<font face="Fixedsys" size="1">
+mofpayment.cgi</font>
+<font size="-1" face="Comic Sans MS">
+ will be installed on a separate server than the Front End, then you will need to reference the Full URL to the file.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+ WHERE ARE THE DATA STORAGE FILES LOCATED ?</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This setting identifies the directory where the cart data files are located.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+These locations should have already been set when you went through the installation.&nbsp; If you need to change the location of this directory then you can do it here.&nbsp; We recommend that you keep these directories behind your public web access
+areas.&nbsp; Mof uses this directory to store cart files.&nbsp; Mof doesn't store any sensitive information like credit card numbers at all, so the data in these files is harmless, and they can be placed anywhere you want.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If you are defining this for NT you'll need to end the folder name with </font>
+<font face="Fixedsys" size="1">
+\\</font>
+<font size="-1" face="Comic Sans MS">
+, one </font>
+<font face="Fixedsys" size="1">
+\ </font>
+<font size="-1" face="Comic Sans MS">
+for the folder ending, and one</font>
+<font face="Fixedsys" size="1">
+ \ </font>
+<font size="-1" face="Comic Sans MS">
+as the Perl escape character.&nbsp; For Unix-Linux you must end the directory name with the forward slash </font>
+<font face="Fixedsys" size="1">
+/</font>
+<font size="-1" face="Comic Sans MS">
+.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+These are Full Absolute Pathways only, not an HTTP address.&nbsp; Consult the section in Installation about Absolute Paths if you are unclear how to define these.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+ WHAT FILE EXTENSION IS USED FOR DATA STORAGE FILES ?</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This setting allows you to define any extension you want for your cart data files, in case you want to use a different extension that the one we have defined.</font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+ WHERE ARE THE SHIPPING INFORMATION FILES LOCATED ?</p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This setting identifies the directory where the </font></font>
+<font size="-1" face="Comic Sans MS">
+shipping information </font>
+<font FACE="Fixedsys" SIZE="1">
+<font size="-1" face="Comic Sans MS">
+data files are located.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+These locations should have already been set when you went through the installation.&nbsp; If you need to change the location of this directory then you can do it here.&nbsp; We recommend that you keep these directories behind your public web access
+areas.&nbsp; Mof uses this directory to store cart files.&nbsp; Mof doesn't store any sensitive information like credit card numbers at all, so the data in these files is harmless, and they can be placed anywhere you want.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If you are defining this for NT you'll need to end the folder name with </font>\\
+<font size="-1" face="Comic Sans MS">
+, one </font>\
+<font size="-1" face="Comic Sans MS">
+ for the folder ending, and one </font>\ 
+<font size="-1" face="Comic Sans MS">
+as the Perl escape character.&nbsp; For Unix-Linux you must end the directory name with the forward slash </font>/
+<font size="-1" face="Comic Sans MS">
+.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+These are Full Absolute Pathways only, not an HTTP address.&nbsp; Consult the section in Installation about Absolute Paths if you are unclear how to define these.</font></p>
+<p>
+
+ WHAT FILE EXTENSION IS USED FOR SHIPPING INFO STORAGE FILES ?</p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This setting allows you to define any extension you want for your </font></font>
+<font size="-1" face="Comic Sans MS">
+shipping information </font>
+<font FACE="Fixedsys" SIZE="1">
+<font size="-1" face="Comic Sans MS">
+data files, in case you want to use a different extension that the one we have defined.</font></p>
+</font>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="WhereAreTemplates"></a>
+Where are the template file(s) settings</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Front End configuration file: 
+<font color="#000080">
+<b>mof15.conf<br>
+</b></font></font> OUTPUT TEMPLATES TO USE<br>
+ OUTPUT TEMPLATES TO USE</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is a group of settings that define where the Template files are located for the Front End process. You can customize what the Mof output pages look like to match your web site, call them anything you want, and locate them anywhere.&nbsp;</font> 
+<font size="-1" face="Comic Sans MS">
+You can see more information about Making Templates for your site in the Installation section, under Making Your Own Templates.&nbsp; There's a table there explaining the seven example templates that come in the distribution package, and what they
+do.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: These locations are Absolute pathways only, and never an HTTP URL address.&nbsp; The absolute path should lead all the way down to the actual filename and extension.&nbsp; You should have already set these if you went through the
+Installation instructions.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+ WHERE IS THE MAIN PAGE TEMPLATE ?<br>
+</font>
+<font face="Comic Sans MS" color="#000080" size="-1">
+Viewing items in your cart - The viewcart or add to cart page</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+ WHERE IS THE VALIDATION MESSAGE PAGE TEMPLATE ?<br>
+<font face="Comic Sans MS" color="#000080" size="-1">
+&nbsp;Page with Shipping information, insurance, coupons</font></p>
+<p>
+
+ WHERE IS THE PREVIEW PAGE TEMPLATE ?<br>
+<font face="Comic Sans MS" color="#000080" size="-1">
+&nbsp;Order Summary page: shows all computations for invoice</font></p>
+<p>
+
+ WHERE IS THE PREVIEW INFORMATION TEMPLATE ?<br>
+</font>
+<font face="Comic Sans MS" color="#000080" size="-1">
+User input validation messages: a customer submitted an incomplete request</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+ WHAT IS THE INSERT MARKER NAMED ?</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This setting identifies a marker in your template files that Mof is looking for.&nbsp; Mof inserts its output and results at this marker.&nbsp; So, in building your templates put this marker where the main body of output will be.&nbsp; This marker
+must be in the format of an html comment so that it doesn't show in your output.&nbsp; You can make it anything you want.&nbsp; Just make sure what you define here is exactly what you use as the html marker when making your templates.</font></p>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font color="#000080" size="-1" face="Comic Sans MS">
+<b><a name="MiscellaneousSettings"></a>
+Miscellaneous Settings</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Front End configuration file: 
+<font color="#000080">
+<b>mof15.conf<br>
+</b></font></font> MISCELLANEOUS SETTINGS<br>
+ MISCELLANEOUS SETTINGS</p>
+</font>
+<ul>
+<li><font size="-1" face="Comic Sans MS">
+How to change the currency symbol</font><li><font size="-1" face="Comic Sans MS">
+How to change the weight symbol</font><li><font size="-1" face="Comic Sans MS">
+How to change the delimiter used</font><li><font size="-1" face="Comic Sans MS">
+How to set the default email address for error messages</font>
+</ul>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+ WHAT CURRENCY SYMBOL TO USE ?<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+This currency symbol is used throughout Mof wherever Money is displayed</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+ WHAT WEIGHT SYMBOL TO USE ?<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+This symbol is used throughout Mof if the &quot;weight&quot; system of shipping is use to compute shipping charges.&nbsp;&nbsp;</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+ WHAT DELIMITER TO USE FOR PRODUCT INFORMATION ?<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+This defines what delimiter separates the information for each product.&nbsp; You can define one different than 4 hyphens if you want.&nbsp; Be careful to assign something that is unique and won't get mixed up with other reserved characters and
+symbols that Mof uses.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+ WHAT EMAIL ADDR TO USE FOR ERROR MESSAGES ?<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+This email address is displayed if Mof triggers an Error message during operation.&nbsp; You may want to reserve this email specifically for any error messages.&nbsp; Or it can be your main email address.&nbsp; This email address doesn't have
+anything to do with where the customer or merchant mail is sent.</font></p>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="KeepingTheCart"></a>
+How to keep or not keep the cart if a purchase is not completed<br>
+<a name="KeepingShipInfo"></a>
+How to keep or not keep a visitor's shipping information</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Front End configuration file: 
+<font color="#000080">
+<b>mof15.conf<br>
+</b></font></font> COOKIE SETTINGS<br>
+ COOKIE SETTINGS</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Mof keeps track of a customer's cart contents and their shipping address by making scratch files.&nbsp; Mof knows what scratch files belong to a customer by setting two cookies for that customer.&nbsp; These settings direct Mof how to handle the
+cookies.</font></p>
+
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+ HOW LONG IN HOURS TO HOLD THE CUSTOMER CART CONTENTS ?</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This setting allows for how the cookie will be set for a customer's cart file.&nbsp; If you set it to zero then the cookie referencing a customer's cart file expires when their browser is closed.&nbsp; If you want to keep a reference to a customer's
+cart file so their cart will still be active when they return to your site, then you can set this to the number of <b>hours</b> to hold the cookie.&nbsp; Holding the cookie is equivalent to holding the cart.&nbsp; Holding the reference is equivalent
+to holding the cart.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Set this to 240 to hold cart contents 10 days<br>
+Set this to 8760 to hold cart contents 365 days</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+Note</font>: There are two advantages to holding the cart: (1) if a customer doesn't finalize the order, their items are still in the cart the next time they visit the site.&nbsp; This could even be used with a simple SSI call to a script that checks
+the cookie and lets the customer know they still have un-purchased items in their cart. (2) when customer finalizes the order, with a held cookie, then they can't get redirected to the nocookies message page in the future, which looks a little more professional.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This setting is set to zero in the package distribution.</font></p>
+
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+ALLOW CART DELETE RUNNING UNDER SHARED SSL (Different UID) Unix ONLY</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is a setting appearing directly below the </font>
+<font face="Fixedsys" size="1">
+holdtime_data</font>
+<font size="-1" face="Comic Sans MS">
+ setting for the cart.&nbsp; During your installation and testing leave this set to zero, unless you have enabled the</font>
+<font face="Fixedsys" size="1">
+ delete_cart_final</font>
+<font size="-1" face="Comic Sans MS">
+ setting in 
+<font color="#000080">
+<b>mofpayment.conf</b></font> and you are getting a Data Processing Error message, saying that Mof can't access the data files.</font></p>
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+$set_ssl_chmod = 0;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Set this switch to one to turn on Mof's ability to work under different uid (user Id's), which will fix the problem.&nbsp; You will now be able to run Mof under some shared SSL set ups and use the more professional looking delete_cart_final feature.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+HOW LONG IN HOURS TO HOLD THE PREVIEW INFORMATION ?</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This setting acts the same way as the cart cookie explained above, except it is the reference for holding the Shipping Address information. Mof allows for this to be saved so that a customer doesn't have to keep entering it each time they want to
+Preview the Invoice.&nbsp; Set it to zero to expire the cookie when the browser session closes. You probably would never want to set this one to zero.&nbsp; You should probably set it at least to 100 days or so.&nbsp; The customer always has the
+option to change a Shipping Address, but at least they don't have to keep entering it each time they return to your site to buy something.&nbsp; Remember the setting is in hours.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Set this to 240 to hold preview information file 10 days<br>
+Set this to 8760 to hold preview information file 365 days</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+The package has this setting set to 2400 <b>hours</b>, which is 100 days.</font></p>
+<p>
+
+<font FACE="Fixedsys" SIZE="1"> WHAT PAGE TO SHOW IF BROWSER REJECTS COOKIES ?</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is the location of an information page that Mof will redirect to if it finds problems with a browser's cookies.&nbsp; The page will be triggered if a customer attempt to use the ViewCart function for the cart, but doesn't have a cart yet.&nbsp;
+It could also trigger if someone has cookies disabled in their browser and attempts to use any of the cart functions.&nbsp; Set it to the Full URL for whatever page you want Mof to redirect to.&nbsp; The example cookie redirect page that comes in the
+package is called: 
+<font color="#000080">
+<b>nocookies.html</b></font>.&nbsp; You can customize that file anyway you want.</font></p>
+
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>
+<a name="SettingUpOptions"></a>
+How to set up User Selected Input Options for your product(s)</b></font>
+</TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Front End configuration file: 
+<font color="#000080">
+<b>mof15.conf</b></font></font><font FACE="Fixedsys" SIZE="1"><br>
+ SETTING UP USER INPUT OPTIONS<br>
+ SETTING UP USER INPUT OPTIONS
+</font><p>
+<font size="-1" face="Comic Sans MS">
+You first need all your user input options built on your forms.&nbsp; You can set up an unlimited number of user input options with any product, and an unlimited number of user input FieldNames throughout your site.&nbsp; Some products may use the
+same user input option, for example: Colors for a Hat could be the same FieldName as colors for a shirt.&nbsp; The actual &lt;select&gt; list doesn't need to be the same between different uses of the same FieldName.&nbsp; Mof will collect whatever
+&lt;select&gt; value is sent under that name.</font><p>
+<font size="-1" face="Comic Sans MS">
+You can use checkboxes, radio buttons, list boxes, drop boxes, and text boxes as optional user input for any particular product.&nbsp; All of these input types act by submitting a name=value pair to Mof.&nbsp; You can combine any of the above input
+methods for any given product.&nbsp; The way Mof knows what to look for as optional user input for a product is through the following settings:</font><p>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>1. Declare all your input field names</b></font><p>
+<font size="-1" face="Comic Sans MS">
+First, identify all User Selected Input Option field names that you will be using throughout your Store Front.&nbsp; Gather all the name=&quot;whatever&quot; input names that are used to select product attributes or options.&nbsp; Be careful to list
+the exact names you use as input on your web page forms.&nbsp; These names are case sensitive.&nbsp; See: 
+<font color="#000080">
+<b>ExampleSingleInput.html</b></font> for examples on how you build selection options next to a product.</font><p>
+<font size="-1" face="Comic Sans MS">
+When you have a complete list of all the User Selected Options input names used on your forms, then you need to declare them in the associative array called </font>
+<font FACE="Fixedsys" SIZE="1">
+%product_fields.</font>
+<font size="-1" face="Comic Sans MS">
+&nbsp; This is a simple list of each input name you want Mof to look for in user input for any given product, and a brief description of that option.&nbsp; You must list all possible names that you used throughout the site that Mof may be expected to
+receive.&nbsp; Don't worry that you have lots of names in this list, Mof will combine only those user selected options that are actually submitted with the product.</font><p>
+<font size="-1" face="Comic Sans MS">
+Find this associative array </font>
+<font FACE="Fixedsys" SIZE="1">
+%product_fields </font>
+<font size="-1" face="Comic Sans MS">
+under the following section:</font>
+<font face="Fixedsys" size="1">
+<br>
+ WHAT ARE FIELDNAMES THAT MOF SHOULD LOOK FOR IN USER INPUT ?</font><p>
+<font size="-1" face="Comic Sans MS">
+Set it up to identify all your FieldNames and Descriptions:&nbsp;&nbsp;<br>
+Here's how you would identify the input options that are used in the <b>
+<font color="#000080">
+ExampleSingleInput.html</font></b>.</font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+%product_fields=(<br>
+&nbsp;&nbsp;&nbsp;</font> 
+<font FACE="Fixedsys" SIZE="1">
+'HatColor','Selected Hat Color',<br>
+&nbsp;&nbsp;&nbsp;</font> 
+<font FACE="Fixedsys" SIZE="1">
+'HatSize','Selected Hat Size',<br>
+&nbsp;&nbsp;&nbsp;</font> 
+<font FACE="Fixedsys" SIZE="1">
+'PropellerColor','What Color is your Propeller',<br>
+&nbsp;&nbsp;&nbsp;</font> 
+<font FACE="Fixedsys" SIZE="1">
+'BandType','What Kind of Band'<br>
+);</p>
+</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: If you have constructed pages using the QUANTITYBOXES mode, then all your user option input has names that are numbered.&nbsp; <b>Use only the Root Name in this setting.</b>&nbsp; Mof knows how to look for the numbering scheme, but you
+will confuse it if you include the numbering.&nbsp; The 
+<font color="#000080">
+<b>ExampleOrderForm.html</b></font> -- second example uses the exact user option input names above, but has the numbering system in place.&nbsp; Notice that when we declare these fields in </font>
+<font FACE="Fixedsys" SIZE="1">
+%product_fields</font>
+<font size="-1" face="Comic Sans MS">
+ then we do not need to identify the number.&nbsp; Also, do not list quantity as one of your fields.&nbsp; Mof reserves the fieldnames &quot;quantity&quot; and &quot;order&quot; for special use.</font><p>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>2. Identify any input field names that are required</b></font><p>
+<font size="-1" face="Comic Sans MS">
+Now, you need to identify any of the fields declared above in your list that will be &quot;required,&quot; meaning that if a product is ordered but its options are not selected, then a validation message is triggered.&nbsp; Just simply list the exact
+FieldNames above (not the descriptions) that you want validated.&nbsp; If Mof doesn't see the FieldName in this list, it won't be required input. If you don't want any user input validation then </font>
+<font face="Fixedsys" size="1">
+@field_validation=();</font><p>
+<font size="-1" face="Comic Sans MS">
+Find this array </font>
+<font face="Fixedsys" size="1">
+@field_validation</font>
+<font size="-1" face="Comic Sans MS">
+ under the following section:</font><b>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<br>
+</font></b>
+<font face="Fixedsys" size="1">
+ WHAT ARE FIELDNAMES IN USER INPUT THAT ARE REQUIRED ?</font><p>
+<font size="-1" face="Comic Sans MS">
+Here's what it would look like if all FieldNames declared in step 1 as user input were required input.</font><p>
+<font face="Fixedsys" size="1">
+@field_validation=(<br>
+&nbsp;&nbsp;&nbsp; 'HatColor',<br>
+&nbsp;&nbsp;&nbsp; 'HatSize',<br>
+&nbsp;&nbsp;&nbsp; 'PropellerColor',<br>
+&nbsp;&nbsp;&nbsp; 'BandType'<br>
+			);</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: For validation to work you must have set up your user input drop box options with the initial (or selected) value to Null.&nbsp; To make a Null value simply make value=&quot;&quot;.&nbsp; Do not leave this out or input validation will
+not work properly.&nbsp;&nbsp;</font><p>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>3.&nbsp; <a name="FormatDescription"></a>
+How to format-color the description and product option input</b></font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This area has additional setting in the Mof Front End configuration file: 
+<font color="#000080">
+<b>mof15.conf</b></font></font><font FACE="Fixedsys" SIZE="1"><br>
+ SETTING UP USER INPUT OPTIONS<br>
+ SETTING UP USER INPUT OPTIONS</font></p>
+<p>
+
+<font FACE="Fixedsys" SIZE="1"> WHAT FONT TO USE IN DISPLAYING MISSING FIELD USER INPUT ?</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If MOF finds incomplete user input as configured above, then you can tell the validation message page what font to outline field names and descriptions.&nbsp; Make sure and use both (s)tarting and (e)nding font attributes, otherwise Required field
+names will inherit the format of your validation template.</font></p>
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+ HOW DO YOU WANT USER INPUT TO BE FORMATTED IN &quot;DESCRIPTION&quot; SECTION ?</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+All user input is listed in the &quot;Description&quot; section of the invoices.&nbsp; You can specify if you want user input criteria to appear in a string of text or if you want user input criteria to be listed in a list.&nbsp; Make list formatting
+(1), or make one line (0).&nbsp; The image example below has this feature enabled.&nbsp; If it were disabled than the text below would be formatted in one long line.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+ WHAT FONT ATTRIBUTES TO USE IN DISPLAYING COMBINED DESCRIPTION ?</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+These six settings allow you to set the html formatting for displaying the product options input in the description section.&nbsp; Leave them blank for nothing.&nbsp; Make sure you start and stop them correctly, especially if you are coloring or
+bolding the string(s)&nbsp;</font></p>
+<p>
+
+<img border="0" src="DescriptionCapture.gif" width="309" height="108">
+
+</p>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>Having problems with this section ?</b></font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If you are having problems with input, validation, etc working correctly, then check, re-check, triple-check that field names match in all three places below-- An exact match is required, case sensitive.</font></p>
+<ol>
+<li>
+<font size="-1" face="Comic Sans MS">
+HTML input FieldName(s)</font><li>
+<font face="Fixedsys" size="1">
+%product_fields</font><li>
+<font face="Fixedsys" size="1">
+@field_validation
+</ol>
+</font>
+
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="PriceAdjustingFields"></a>
+How to make User Select Input Options Price Adjusting Fields</b></font>
+</TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Front End configuration file: 
+<font color="#000080">
+<b>mof15.conf</b></font></font><font FACE="Fixedsys" SIZE="1"><br>
+ SETTING UP USER INPUT OPTIONS<br>
+ SETTING UP USER INPUT OPTIONS
+</font>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This setting is used to identify any special Price Adjusting Fields placed throughout your Online Store Front.&nbsp; If you make forms that will require the base price of a given product to be adjusted according to any Product Options selected for
+that product, then you must declare what those Field Names are in this setting.</font><p>
+<font size="-1" face="Comic Sans MS">
+Mof will treat any product option input under the declared Field Name(s) in this setting in a special way.&nbsp; Instead of simply appending the product option input to the product description, Mof will use the data in these special fields to adjust
+the base price of the product, and reset the product price before it enters the cart.</font>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+All you have to do in this setting is declare what fields you want Mof to treat as special Price Adjusting Fields.</font>
+
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+WHAT ARE FIELDNAMES IN USER INPUT THAT ARE PRICE ADJUSTING ?</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Here's the example from our demo site</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+@field_adjustments = (<br>
+&nbsp;&nbsp;&nbsp; 'DrumSkin',<br>
+&nbsp;&nbsp;&nbsp; 'DrumRim',<br>
+&nbsp;&nbsp;&nbsp; 'DrumPrint',<br>
+&nbsp;&nbsp;&nbsp; 'HatSize',<br>
+&nbsp;&nbsp;&nbsp; 'HatColor',<br>
+&nbsp;&nbsp;&nbsp; 'PropellerColor'<br>
+);</p>
+</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: You must still declare all User Input Options for products in the main list referred to in the section <a href="#SettingUpOptions">
+How to set up User Selected Input Options</a>
+ for your product(s).&nbsp; And you must also still use the Validation Required settings for any User Input Options for products if you want a particular field validated.&nbsp; The Main User Input Product Options list and the Validation List work </font>
+<font size="-1" face="Comic Sans MS">
+separately</font>
+<font size="-1" face="Comic Sans MS">
+ from the Price Adjusting list.&nbsp; Here's an overview:</font>
+<ol>
+<li>
+<font face="Fixedsys" size="1">
+%product_fields - </font>
+<font size="-1" face="Comic Sans MS">
+Identifies any Product Options for Mof to look for</font><li>
+<font face="Fixedsys" size="1">
+@field_validation - </font>
+<font size="-1" face="Comic Sans MS">
+Identifies what Fields in</font>
+<font face="Fixedsys" size="1">
+ %product_fields </font>
+<font size="-1" face="Comic Sans MS">
+are required</font><li>
+<font FACE="Fixedsys" SIZE="1">
+@field_adjustments - </font>
+<font size="-1" face="Comic Sans MS">
+Identifies what Fields in</font>
+<font FACE="Fixedsys" SIZE="1">
+ %product_fields </font>
+<font size="-1" face="Comic Sans MS">
+are Price Adjusting</font>
+</ol>
+<p>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: if you declare a product option Field name as Price Adjusting and the input submitted is not contain price adjustment data, then it is okay, Mof will ignore it and treat it as regular input.&nbsp; But, it you submit some product option
+input formatted for Price adjustment, and have not declared its Field Name in the</font> 
+<font FACE="Fixedsys" SIZE="1">
+@field_adjustments </font>
+<font size="-1" face="Comic Sans MS">
+list, then data for that product will be distorted in the cart.</font>
+
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="ChangingCartAppearance"></a>
+How to Change colors, fonts, and backgrounds in the cart tables</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Front End configuration file: 
+<font color="#000080">
+<b>mof15.conf<br>
+</b></font></font> BACKGROUND COLORS - FONT STYLES IN ORDERS TABLES<br>
+ BACKGROUND COLORS - FONT STYLES IN ORDERS TABLES</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This section of settings allows you to format the tables that display products throughout the View Cart and Preview Invoice pages.&nbsp; You can match the color scheme on your site, change fonts, background, even use images as backgrounds.&nbsp;
+There should be an image below of the settings legend, if it doesn't show up, then look for it in the package: called:&nbsp; 
+<font color="#000080">
+<b>TableCapture.gif</b></font></font></p>
+
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+ WHAT FORMATTING TO SHOW IN THE INVOICE TABLE ?</font>
+
+<p>
+
+<img border="0" src="TableCapture.gif" alt="TableCapture.gif" width="607" height="396">
+
+<p>
+<font face="Fixedsys" size="1">
+$tableborder_color<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+contains both the border=1 and color attribute<br>
+This allows you to set overall border attributes like those MSIE dark-light bordercolors.</font><p>
+<font face="Fixedsys" size="1">
+$action_message_bg<br>
+$action_message_bg_preview<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+These two are background settings. You can use an image or just specify a color<br>
+Our example uses image files to make the tab appearance.</font><p>
+<font face="Fixedsys" size="1">
+$returntofont<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+This returns everything to the font you started with in your templates</font>
+
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="ChangingNavigationMenus"></a>
+How to change the Navigation menus appearing throughout the pages</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font FACE="Fixedsys" SIZE="1"><font size="-1" face="Comic Sans MS">
+This is set in the Mof Front End configuration file: 
+<font color="#000080">
+<b>mof15.conf<br>
+</b></font></font> NAVIGATION MENUS IN DYNAMIC PAGES<br>
+ NAVIGATION MENUS IN DYNAMIC PAGES</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This area has settings for all Navigation menus and links on the Front End cart process.&nbsp; You can set any of the functions to show text, submit buttons, or images.&nbsp; Our example installation uses images.&nbsp; You can set each of these
+function with any type of HTML attribute you want.&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+You can set them to display text, images, or buttons. Examples:</font></p>
+<ol>
+<li>
+<font face="Fixedsys" size="1">
+$setting = '&lt;font size=2>Continue Shopping &lt;/font>';</font><li>
+<font FACE="Fixedsys" SIZE="1">
+$setting = &quot;&lt;img src=\&quot;../image.gif\&quot;&gt;&quot;;</font><li>
+<font face="Fixedsys" size="1">
+$setting = &quot;input type=submit value=\&quot;Update Cart\&quot;&gt;&quot;;</font>
+</ol>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Mof manages what function buttons and/or links are displayed for a particular page in the cart process.&nbsp; For example, the &quot;Update Quantities&quot; function is only displayed on the View Cart page; the &quot;Edit Cart&quot; function is only
+displayed on the Order Summary page, and the Shipping Information page; the &quot;Edit Preview&quot; functions and arrows are only displayed from the Order Summary page, and only if preview information is required or stored.&nbsp; You cannot change
+the order that function are displayed in, or which process they are allowed to be displayed in.&nbsp; This is strictly managed by Mof.&nbsp; You shouldn't attempt to re-arrange the order of the functions in the code either, since this order is very
+complex, and must manage all kinds of different form input.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If you want to eliminate any of the buttons for functions, then you can make that setting Null.&nbsp; Mof will not attempt to display a button or function that has a Null value.&nbsp; While this gives you the ability to eliminate functions, be
+careful. You could remove functions that cause a customer to get stuck at some point in the cart process, without a function to proceed, return, update, delete, edit, etc..</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+ WHAT TO DISPLAY IN TOP NAVIGATION SCHEME ?</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Our distribution has these set to text links.&nbsp;</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$menu_previous_top<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Provides a link back to last shopping page, the page you entered the cart from</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$menu_viewcart_top<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Provides the Edit Cart function</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$menu_help_top<br>
+$menu_help_top_url<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Provides the help function and the URL of the help file</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+ HOW TO DISPLAY EDIT BUTTONS/IMAGES FOR PREVIEW INFORMATION</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+These are the Edit Arrows that provide a link back to edit the Shipping information.&nbsp; These Edit functions are only available on the Order Summary page, and display only if Preview info is available</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$menu_edit_preview_top<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+This shows up by the top tab where shipping address is listed</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$menu_edit_preview_summary<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+This shows up to the left of the totals</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+ WHAT TO DO WITH BOTTOM NAVIGATION SCHEME ?</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+These are the settings for the bottom navigation scheme that appear on the View Cart page. Notice our settings point to an image, they could just as well be set to display text, or a submit button.</font>
+
+</p>
+<p><font FACE="Fixedsys" SIZE="1">&nbsp;<img border="0" src="CartCapture.gif" alt="Image is CartCapture.gif" width="446" height="216">
+
+</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+These are the settings for the bottom navigation scheme that appear on the Order Summary page. Notice our settings point to an image, they could just as well be set to display text, or a submit button.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+<img border="0" src="PreviewCapture.gif" alt="Image is PreviewCapture.gif" width="441" height="124">
+
+</p>
+</font>
+
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="WhatShipInfoAsks"></a>
+How to Change what the Shipping Info page asks for</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">This is a very large section in the Mof Front End configuration file: 
+<font color="#000080">
+<b>mof15.conf</b></font></font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+ SETTING UP PREVIEW INFORMATION OPTIONS<br>
+ SETTING UP PREVIEW INFORMATION OPTIONS</font>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+
+Mof uses an intermediate page between the View Cart and Order Summary (preview invoice) page, that we will call the Shipping Information page, because that's what we called it in the example template.&nbsp; Mof uses this intermediate process to
+collect any customer&nbsp; information that would be relevant to creating an accurate Preview of the Invoice: Computations like shipping, tax, insurance, and coupon discounts.&nbsp; The default discount and handling computations do not require any
+customer information other than your configuration settings.</font><p>
+<font size="-1" face="Comic Sans MS">
+This section will explain how Mof attempts to understand what you want this intermediate process to do based on multiple settings for this area of the configuration file.&nbsp; Mof will interpret these settings to determine what you want:</font><p>
+<font size="-1" face="Comic Sans MS">
+The table below lists all the settings that are capable of directing Mof to trigger the intermediate information page. If you have any of these settings enabled, Mof will decide that you need customer information, and therefore, enable the Shipping
+Information page to trigger.&nbsp; These settings are spread out and span the whole section in the Setting up preview options area, and enabling or disabling combinations of these settings will effect whether Mof triggers the Shipping Information
+page or not.&nbsp; When all of the settings in this list are Null, then Mof will not ask for any customer information, and when the customer clicks the &quot;Review Order&quot; button, they will be taken directly to the &quot;Order Summary&quot; page
+(the Preview Invoice page).</font><p>
+<font size="-1" face="Comic Sans MS">
+If Mof sees that you want to do any of the functions in the settings in this table, then it will enable the Shipping Information page.&nbsp; Each of these settings has its own section in this documentation explaining how to work with it.&nbsp; Click
+on the setting in the table to go to that section in the documentation.&nbsp; We've also included examples on different scenarios below the table.</font><p>&nbsp;
+
+<table border="1" cellpadding="2" cellspacing="0" width="604">
+
+<tr><th bgcolor="#000080" nowrap colspan="3">
+<p align="center">
+
+<font size="-1" face="Comic Sans MS" color="#F4F4F4">
+Enabling any of these 9 settings will trigger the intermediate information page</font></th></tr>
+
+<tr><td bgcolor="#F4F4F4" nowrap align="center" colspan="3">&nbsp;</td></tr>
+
+<tr><td bgcolor="#000080" nowrap colspan="3">
+<p align="center">
+
+<font size="-1" face="Comic Sans MS" color="#F4F4F4">
+<b>Anything to do with Shipping Information</b></font></td></tr>
+
+<tr><td bgcolor="#F4F4F4" nowrap align="center" colspan="2">
+<font size="-1" face="Comic Sans MS" color="#000080">
+setting</font></td><td bgcolor="#F4F4F4" nowrap align="center">
+<font size="-1" face="Comic Sans MS" color="#000080">
+how it works to trigger info page</font></td></tr>
+
+<tr><td nowrap align="center">
+<p align="center">
+
+<b>
+<font face="Comic Sans MS" color="#800000" size="3">
+1&nbsp;</font></b></td><td nowrap>
+<font face="Fixedsys" size="1">
+<a href="#WhatShipFields">%shipping_destination_fields</a>
+</font></td><td rowspan="4">
+<font size="-1" face="Comic Sans MS">
+These four settings enable shipping computations in one way or another.&nbsp; If you enable any of these four settings, Mof will think you want shipping or shipping insurance information.&nbsp; The 4 settings work very closely together, and you
+should be clear when disabling or enabling combinations of these 4 shipping settings: Examples below.</font></td></tr>
+
+<tr><td nowrap align="center"><b>
+<font face="Comic Sans MS" color="#800000" size="3">
+2</font></b></td><td nowrap>
+<font face="Fixedsys" size="1">
+<a href="#DefaultShippingComputations">@use_shipping</a>
+</font></td></tr>
+
+<tr><td nowrap align="center">
+<b>
+<font face="Comic Sans MS" color="#800000" size="3">
+3</font></b></td><td nowrap>
+<font face="Fixedsys" size="1">
+<a href="#UseSelectedShipMethods">%use_method</a>
+</font></td></tr>
+
+<tr><td nowrap align="center"><b>
+<font face="Comic Sans MS" color="#800000" size="3">
+4</font></b></td><td nowrap>
+<font face="Fixedsys" size="1">
+<a href="#InsuranceOptions">%use_insurance</a>
+</font></td></tr>
+
+<tr><td nowrap bgcolor="#000080" colspan="3">
+<p align="center">
+
+<font size="-1" face="Comic Sans MS" color="#F4F4F4">
+<b>Using the coupon discount feature</b></font></td></tr>
+
+<tr><td bgcolor="#F4F4F4" nowrap align="center" colspan="2">
+<font size="-1" face="Comic Sans MS" color="#000080">
+setting</font></td><td bgcolor="#F4F4F4" nowrap align="center">
+<font size="-1" face="Comic Sans MS" color="#000080">
+how it works to trigger info page</font></td></tr>
+
+<tr><td nowrap>
+<p align="center">
+
+<b>
+<font face="Comic Sans MS" color="#800000" size="3">
+5</font></b></td><td nowrap>
+<font face="Fixedsys" size="1">
+<a href="#UseCoupons">@use_coupons</a>
+</font></td><td>
+<font size="-1" face="Comic Sans MS">
+If you enable this setting Mof will think you want to use the Coupon discount feature, which requires the customer to enter a valid coupon number on the intermediate information page.&nbsp;</font></td></tr>
+
+<tr><td nowrap bgcolor="#000080" colspan="3">
+<p align="center">
+
+<font size="-1" face="Comic Sans MS" color="#F4F4F4">
+<b>Anything to do with area specific tax computations</b></font></td></tr>
+
+<tr><td bgcolor="#F4F4F4" nowrap align="center" colspan="2">
+<font size="-1" face="Comic Sans MS" color="#000080">
+setting</font></td><td bgcolor="#F4F4F4" nowrap align="center">
+<font size="-1" face="Comic Sans MS" color="#000080">
+how it works to trigger info page</font></td></tr>
+
+<tr><td nowrap align="center"><b>
+<font face="Comic Sans MS" color="#800000" size="3">
+6</font></b></td><td nowrap>
+<font face="Fixedsys" size="1">
+<a href="#TaxComputations">%use_city_tax</a>
+</font></td><td rowspan="4">
+<font size="-1" face="Comic Sans MS">
+If you enable any of these area specific tax computations, then Mof will need input on what the tax area is.&nbsp; These computations use input&nbsp; collected in the shipping information Field(s)</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If you are using shipping information, then you will already have the appropriate Field(s) enabled, because you will likely want the City, State-Prov, Postal Code, and Country.&nbsp; Examples below.</font></td></tr>
+
+<tr><td nowrap align="center"><b>
+<font face="Comic Sans MS" color="#800000" size="3">
+7</font></b></td><td nowrap>
+<font face="Fixedsys" size="1">
+<a href="#TaxComputations">%use_zipcode_tax</a>
+</font></td></tr>
+
+<tr><td nowrap align="center"><b>
+<font face="Comic Sans MS" color="#800000" size="3">
+8</font></b></td><td nowrap>
+<font face="Fixedsys" size="1">
+<a href="#TaxComputations">%use_state_tax</a>
+</font></td></tr>
+
+<tr><td nowrap align="center"><b>
+<font face="Comic Sans MS" color="#800000" size="3">
+9</font></b></td><td nowrap>
+<font face="Fixedsys" size="1">
+<a href="#TaxComputations">%use_country_tax</a>
+</font></td></tr>
+</table>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Important</font>: The thing to understand about these features is that it's possible to make a mistake in the combinations of settings, and how the different settings interact, then not get what you are wanting.&nbsp; Mof will give you what you want
+when you get the interactions of all the 9 settings correct.&nbsp; Here's some examples on the different areas outlines in the table above:</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>Examples of how shipping settings interact</b></font><br>
+</font><b>
+<font face="Comic Sans MS" color="#800000" size="3">
+<br>
+</font></b>
+<font size="-1" face="Comic Sans MS">
+If you enable either of the two shipping computations: the default shipping method </font>
+<font face="Comic Sans MS" color="#800000" size="2">
+(<b>2</b>)</font>
+<font size="-1" face="Comic Sans MS">
+, or the customer selected shipping method</font>
+<font face="Comic Sans MS" color="#800000" size="2">
+ (<b>3</b>)</font>
+<font size="-1" face="Comic Sans MS">
+, then Mof will expect the appropriate shipping Fields enabled in the&nbsp; </font>
+<font face="Fixedsys" size="1">
+%shipping_destination_fields</font>
+<font size="-1" face="Comic Sans MS">
+ </font>
+<font face="Comic Sans MS" color="#800000" size="2">
+(<b>1</b>)</font>
+<font size="-1" face="Comic Sans MS">
+ array.</font><p>
+<font size="-1" face="Comic Sans MS">
+Enabling the </font>
+<font size="-1" face="Comic Sans MS">
+customer selected shipping method</font>
+<font face="Comic Sans MS" color="#800000" size="2">
+ (<b>3</b>)</font>
+<font size="-1" face="Comic Sans MS">
+, always overrides any settings in the default shipping method </font>
+<font face="Comic Sans MS" color="#800000" size="2">
+(<b>2</b>)</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If you want to collect only the shipping address but don't want to compute any shipping charges, then enable both these settings:</font>
+<font face="Fixedsys" size="1">
+<br>
+</font>&nbsp; 
+<font face="Fixedsys" size="1">
+%shipping_destination_fields<br>
+</font>
+<font face="Fixedsys" size="1">
+&nbsp; @use_shipping = (1);</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+To have the Shipping Field(s) display you need at least one of the shipping methods enabled: the default </font>
+<font face="Comic Sans MS" color="#800000" size="2">
+(<b>2</b>) </font>
+<font size="-1" face="Comic Sans MS">
+or customer selected</font>
+<font face="Comic Sans MS" color="#800000" size="2">
+ (<b>3</b>)</font>
+<font size="-1" face="Comic Sans MS">
+ method. You can either have these methods set to compute real shipping charges, or the default method can be set to compute Null, as in the above example.&nbsp; This way you get shipping address info, but never any shipping charges.&nbsp;</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+The insurance option requires that Shipping fields </font>
+<font face="Comic Sans MS" color="#800000" size="2">
+(<b>1</b>) </font>
+<font size="-1" face="Comic Sans MS">
+and at least one method</font>
+<font face="Comic Sans MS" color="#800000" size="2">
+ (<b>2</b>) </font>
+<font size="-1" face="Comic Sans MS">
+or </font>
+<font face="Comic Sans MS" color="#800000" size="2">
+(<b>3</b>) </font>
+<font size="-1" face="Comic Sans MS">
+be enabled.&nbsp; Again you can set the methods to compute real shipping charges or set the default method</font>
+<font face="Comic Sans MS" color="#800000" size="2">
+ (<b>2</b>)</font>
+<font size="-1" face="Comic Sans MS">
+ to compute Null.&nbsp; Shipping insurance won't trigger unless you're actually shipping something.</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Example of using insurance, shipping fields, with real default shipping charges:<br>
+</font>
+<font face="Fixedsys" size="1">
+%shipping_destination_fields = ( define fields );<br>
+%use_insurance = ( define methods, rates<br>
+@use_shipping = ('weight',0.35,0.55,1);</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Example of using insurance, shipping fields, but no shipping charges:<br>
+</font>
+<font face="Fixedsys" size="1">
+%shipping_destination_fields = ( define fields );<br>
+%use_insurance = ( define methods, rates );<br>
+@use_shipping = (1);</font>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+Reminder</font>: We've included the configuration files that are running on our demo sites, which have all options enabled, in case you need real examples of how to build the array definitions in some of these settings.</font>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>Examples of how tax settings interact.</b></font></font><p>
+<font size="-1" face="Comic Sans MS">
+The basic rule is this: If you enable any of the area specific tax computations 
+<font color="#800000">
+(<b>6</b>) (<b>7</b>) (<b>8</b>) (<b>9</b>)</font>, then </font>M
+<font size="-1" face="Comic Sans MS">
+of will trigger the information page and ask for whatever Field(s) are listed in the </font>
+<font face="Fixedsys" size="1">
+ %shipping_destination_fields</font>
+<font size="-1" face="Comic Sans MS">
+<font color="#800000">
+ (<b>1</b>)</font> array.&nbsp; You should have the Field(s) that will be needed to do tax matching enabled in the Shipping Fields 
+<font color="#800000">
+(<b>1</b>)</font> array.</font><p>
+<font size="-1" face="Comic Sans MS">
+If you are collecting Shipping destination addresses, you should already have the needed Field(s) enabled.&nbsp; However, if you only want Tax information and not any Shipping destination address (you're not shipping products), then you'll have to
+enable the Field(s) needed to make any tax computations you set in
+<font color="#800000">
+ (<b>6</b>) (<b>7</b>) (<b>8</b>) (<b>9</b>)</font>.&nbsp; If you configure Mof this way, then Mof will present messages that say &quot;Tax Area&quot; instead of &quot;Shipping Information.&quot;&nbsp; 
+<font color="#FF0000">
+Note</font>: To force Mof to say &quot;Tax Area&quot; instead of &quot;Shipping Info:&quot; you can't have either of the shipping methods 
+<font color="#800000">
+(<b>2</b>) (<b>3</b>) </font>or insurance
+<font color="#800000">
+ (<b>4</b>)</font> enabled, else Mof thinks you are wanting to compute and use shipping data too.</font><p>
+<font size="-1" face="Comic Sans MS">
+Mof will use your settings in
+<font color="#800000">
+ (<b>6</b>) (<b>7</b>) (<b>8</b>) <b>(9</b>) </font>to do area specific tax matching to the customer input for City, State-Prov, PostalCode, or Country.&nbsp; You can enable any or all of these areas to match on.</font><p>
+<font size="-1" face="Comic Sans MS">
+Here's one example: Let's say you don't ship anything, but want to be able to compute a tax on any orders in the Tax Area for six Postal Codes.&nbsp; You must have two settings: configure the tax area to match zip codes 
+<font color="#800000">
+(<b>7</b>)</font> and present the zip code Field so it can be entered by the customer 
+<font color="#800000">
+(<b>1</b>).&nbsp;</font> This example asks for the Postal Code to be entered, and uses tax area settings to compute a 2.5% tax on any zip codes matching our list.</font><p>
+<font size="-1" face="Comic Sans MS">
+Settings
+<font color="#800000">
+ (<b>1</b>)</font> and
+<font color="#800000">
+ (<b>7</b>)</font> in the table above.</font><p>
+<font face="Fixedsys" size="1">
+%shipping_destination_fields = ('Ecom_ShipTo_Postal_PostalCode',4);</font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+%use_zipcode_tax = (<br>
+'78745',0.025,<br>
+'78746',0.025,<br>
+'78747',0.025,<br>
+'78748',0.025,<br>
+'78749',0.025,<br>
+'78750',0.025<br>
+);</p>
+</font>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+The above example shows that you should have at least one Field enabled (1) to use tax matching, or you shouldn't be using any tax matching.&nbsp; You can't match on nothing.&nbsp; You can use the global tax setting, which doesn't require any
+matching, but then you don't need any of the area specific tax settings, since the global tax setting presides.</font>
+
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>Other examples:</b></font><p>
+<font size="-1" face="Comic Sans MS">
+Yes, you can enable only the Coupon Discount feature.&nbsp; You can enable the Coupon Discount and one tax matching area.&nbsp; You can enable only the Shipping area and insurance, with no shipping charges.&nbsp; You can enable a global tax, and
+shipping restricted to only a local area.&nbsp; You can enable shipping areas instead of shipping methods, where the customer selects that shipping area they are in.&nbsp; You can set up any logical combination of the nine settings to collect
+information that may be pertinent to the &quot;Order Summary.&quot;</font><p>
+<font size="-1" face="Comic Sans MS">
+Example: A computer distributor might charge shipping and tax.&nbsp; So only the Postal code is needed from the customer.&nbsp; Configure the Nine settings to ask for only the Postal Code on the Shipping Information page.&nbsp; The customer enters
+the zip code to get an exact &quot;order Summary&quot; with any applicable shipping or tax charges.</font>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="GettingRidOfShipInfoPage"></a>
+How to get rid of the Shipping Info page altogether</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">This is a very large section in the Mof Front End configuration file: 
+<font color="#000080">
+<b>mof15.conf</b></font></font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+ SETTING UP PREVIEW INFORMATION OPTIONS<br>
+ SETTING UP PREVIEW INFORMATION OPTIONS</font>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+Set all the nine settings referred to in the above section to Null.&nbsp; Of course, doing this prevents you from collecting any information for shipping address, shipping computations, shipping methods, insurance, discount coupons, or tax matching
+information.&nbsp; So, you won't be able to make any of those computations, but you will by pass the Shipping Information page completely.&nbsp; The &quot;Order Summary&quot; page will say &quot;ORDER INFO&quot; and not &quot;SHIP TO&quot; on the top
+left tab of the cart.</font><p>
+<font size="-1" face="Comic Sans MS">
+Note: For an explanation of how these nine settings interact see the section above.</font>
+
+<p>
+
+<font face="Fixedsys" size="1">
+%shipping_destination_fields = ();<br>
+@use_shipping</font>
+<font face="Fixedsys" size="1">
+ = ();<br>
+%use_method</font>
+<font face="Fixedsys" size="1">
+ = ();<br>
+%use_insurance</font>
+<font face="Fixedsys" size="1">
+ = ();<br>
+@use_coupons</font>
+<font face="Fixedsys" size="1">
+ = ();<br>
+%use_city_tax</font>
+<font face="Fixedsys" size="1">
+ = ();<br>
+%use_zipcode_tax</font>
+<font face="Fixedsys" size="1">
+ = ();<br>
+%use_state_tax</font>
+<font face="Fixedsys" size="1">
+ = ();<br>
+%use_country_tax</font>
+<font face="Fixedsys" size="1">
+ = ();</font>
+
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="WhatShipFields"></a>
+How to Change what Shipping Address fields display<a name="WhatShipFieldsRequired"><br>
+</a>How to Change what Shipping Address fields are required or not</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">This is a very large section in the Mof Front End configuration file: 
+<font color="#000080">
+<b>mof15.conf</b></font></font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+ SETTING UP PREVIEW INFORMATION OPTIONS<br>
+ SETTING UP PREVIEW INFORMATION OPTIONS</font>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If you are unfamiliar with the exact syntax rules for associative arrays then you can consult the section <a href="AboutConfigurations.html#AssociativeArray">Associative array settings</a>
+</font>
+
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+ WHAT SHIPPING DESTINATION FIELDS TO USE - VALIDATE ?</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This associative array defines what Shipping Fields you will be using, and whether to require a Field or not.&nbsp; Any Field Name in the Master List of Shipping Fields can be used or omitted.&nbsp; The distribution package is pre set with all
+Fields.&nbsp; You may want to omit some.</font></p>
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+'Field Name', [required &gt; 0, not required 0]</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Here's an example:</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+%shipping_destination_fields = (<br>
+&nbsp;&nbsp; 'Ecom_ShipTo_Postal_Name_First',2,<br>
+&nbsp;&nbsp; 'Ecom_ShipTo_Postal_Name_Middle',0<br>
+);</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This defines that two fields will display.&nbsp;&nbsp;<br>
+The First Name Field requires at least 2 characters entered, and the Middle Name Field is not required.</font></p>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+You cannot leave a value Null, it must be 0 zero to display or greater than 0 for length to validate</font><li>
+<font size="-1" face="Comic Sans MS">
+You must remove the name=value pair from the list if you don't want that field to display</font><li>
+<font size="-1" face="Comic Sans MS">
+Put a zero (0) for any Field you will use but not require</font><li>
+<font size="-1" face="Comic Sans MS">
+Put a number value (minimum length of characters required) to require user input for that Field</font>
+<font FACE="Fixedsys" SIZE="1">
+</ul>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>What is the master list of Shipping Info Field Names ?</b></font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+You can have up to 14 Fields for Shipping Destination.&nbsp;<br>
+We are using the 14 [Ship To] Fields in the ECML specs v1.0: <a href="http://www.ecml.org/">http://www.ecml.org/<br>
+</a>
+We substituted &quot;Company&quot; for the ECML &quot;Line3&quot; because they did not have company and we have user feedback that business name is important to customers.</font></p>
+<ol>
+<li>
+<font FACE="Fixedsys" SIZE="1">
+Ecom_ShipTo_Postal_Name_Prefix</font><li>
+<font FACE="Fixedsys" SIZE="1">
+Ecom_ShipTo_Postal_Name_First</font><li>
+<font FACE="Fixedsys" SIZE="1">
+Ecom_ShipTo_Postal_Name_Middle</font><li>
+<font FACE="Fixedsys" SIZE="1">
+Ecom_ShipTo_Postal_Name_Last</font><li>
+<font FACE="Fixedsys" SIZE="1">
+Ecom_ShipTo_Postal_Name_Suffix</font><li>
+<font FACE="Fixedsys" SIZE="1">
+Ecom_ShipTo_Postal_Street_Line1</font><li>
+<font FACE="Fixedsys" SIZE="1">
+Ecom_ShipTo_Postal_Street_Line2</font><li>
+<font FACE="Fixedsys" SIZE="1">
+Ecom_ShipTo_Postal_Company</font><li>
+<font FACE="Fixedsys" SIZE="1">
+Ecom_ShipTo_Postal_City</font><li>
+<font FACE="Fixedsys" SIZE="1">
+Ecom_ShipTo_Postal_StateProv</font><li>
+<font FACE="Fixedsys" SIZE="1">
+Ecom_ShipTo_Postal_PostalCode</font><li>
+<font FACE="Fixedsys" SIZE="1">
+Ecom_ShipTo_Postal_CountryCode</font><li>
+<font FACE="Fixedsys" SIZE="1">
+Ecom_ShipTo_Telecom_Phone_Number</font><li>
+<font FACE="Fixedsys" SIZE="1">
+Ecom_ShipTo_Online_Email</font>
+</ol>
+<p>
+
+&nbsp;</p>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="ShippingFieldsBox"></a>
+How to Change what the Shipping Address box looks like</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Front End configuration file: 
+<font color="#000080">
+<b>mof15.conf<br>
+</b></font></font>
+<font FACE="Fixedsys" SIZE="1">
+ SETTING UP PREVIEW INFORMATION OPTIONS<br>
+ SETTING UP PREVIEW INFORMATION OPTIONS</font>
+
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+ HOW WILL SHIPPING PAGE SECTION HEADINGS AND PAGE TEXT LOOK ?
+<p>
+
+$preview_heading<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Attributes for Shipping Address, Insurance, Method heading on Info page</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$preview_text<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Attributes for any message or text display directly below the headings</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+ HOW WILL THE SHIPPING ADDRESS BOX LOOK ?</p>
+<p>
+
+$font_outside_line<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Attributes for outside line to Shipping Field(s) box</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$font_left_column<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Attributes for table left column in Shipping Field(s) box</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$font_right_column<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Attributes for table right column in Shipping Field(s) box</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$font_preview_titles<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Attributes for Titles in left column of Shipping Field(s) box</font></p>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="ShipInfoValidationCues"></a>
+How to Change the validation cues on the Shipping Info Page</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Front End configuration file: 
+<font color="#000080">
+<b>mof15.conf<br>
+</b></font></font>
+<font FACE="Fixedsys" SIZE="1">
+ SETTING UP PREVIEW INFORMATION OPTIONS<br>
+ SETTING UP PREVIEW INFORMATION OPTIONS</font>
+
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+ WHAT TO DISPLAY FOR VALIDATION CUES ?</font>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+You can use these settings to specify how validation cues appear on the Preview Information page.&nbsp; The examples in the package use:</font></p>
+<ol>
+<li>
+<font size="-1" face="Comic Sans MS">
+Blue Arrow - shows required fields when entering page for first time - Required</font><li>
+<font size="-1" face="Comic Sans MS">
+Red Arrow - shows empty field after form submitted and returned - Missing</font><li>
+<font size="-1" face="Comic Sans MS">
+Question Mark - shows validation problems, no enough characters, etc. - Incomplete</font><li>
+<font size="-1" face="Comic Sans MS">
+Green check Mark - shows if the Field is validated - Okay</font>
+</ol>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+You can use these settings to specify the URL of your own images, or you can put text messages and html attributes.&nbsp; You can disable any or all four of the above validation cues by putting the html &lt;br&gt; attribute as its
+setting.&nbsp;&nbsp; 
+<font color="#FF0000">
+Important</font>:&nbsp; You must at least put the html &lt;br&gt; attribute in each setting or your form table may not display correctly.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$preview_required<br>
+<font size="-1" face="Comic Sans MS" color="#000080">
+shows required fields when entering page for first time - Required</font></p>
+<p>
+
+$preview_okay<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+shows if the Field is validated - Okay</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$preview_missing<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+shows empty field after form submitted and returned - Missing</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$preview_incomplete<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+shows validation problems, no enough characters, etc. - Incomplete</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$preview_message_bg<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+This specifies a background color for the table column where the validation cues appear</font></p>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="ShipInfoDropBoxes"></a>How to Change the drop box list for Country - State in Shipping Address</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Front End configuration file: 
+<font color="#000080">
+<b>mof15.conf<br>
+</b></font></font>
+<font FACE="Fixedsys" SIZE="1">
+ SETTING UP PREVIEW INFORMATION OPTIONS<br>
+ SETTING UP PREVIEW INFORMATION OPTIONS</font>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+These two settings allow you to define files that contain drop box data to display for State-Province or Country in the Shipping Fields form.&nbsp; If you make the setting Null, then a standard text box will display instead of a drop box.&nbsp;
+Please note that eliminating the drop box will make things unreliable if trying to do any Shipping or Tax matching.&nbsp; The best thing to do is modify the list to suite your needs.</font><p>
+<font size="-1" face="Comic Sans MS">
+The package examples </font>
+<font face="Fixedsys" size="1">
+countries.txt</font>
+<font size="-1" face="Comic Sans MS">
+ and </font>
+<font face="Fixedsys" size="1">
+state.txt</font>
+<font size="-1" face="Comic Sans MS">
+ go into your cgi-bin and then we just define the file name for Mof to look for to use in creating the Select Box list(s).&nbsp; You can make these lists from any file, call them anything, locate them anywhere.&nbsp; If you locate them outside the
+native directory Mof is running in, then you'll need to define the exact absolute path for the file(s).</font><p>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>The country Lists</b></font><p>
+<font size="-1" face="Comic Sans MS">
+Our packaged lists for countries are using the 208 countries listed in the USPS tables for Air Shipping, June 2000.&nbsp; This list of countries has long names so they appear with the full country name in all printable areas.&nbsp; We have
+United-States set as the default country to be listed.&nbsp; You can remove the &quot;selected&quot; attribute for United-States if you do not want that.&nbsp; If you don't assign one of the other countries the &quot;selected&quot; attribute, then
+the first country on the list will be the default.&nbsp; We have also included the ISO 3166-1 country lists, which lists 238 countries by their 2 letter country code, if you want to use that list instead.</font><p>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>The State-Province Lists</b></font><p>
+<font size="-1" face="Comic Sans MS">
+Our packaged lists for states-provinces has all US states and Canadian Provinces listed by their 2 letter code.&nbsp; It also has the first value of Null, which is the default selection.&nbsp; This must be left as the first or &quot;selected&quot;
+option if you intend to require this field.&nbsp; The very next option is value=NOTINLIST&gt;.&nbsp; Whenever Mof sees NOTINLIST as the submitted State-Province, then State-Province is not printed.&nbsp; This is to allow an international country to
+be selected and a Not In List selected as State, without showing some meaningless and possible confusing item to your customers printed for the State-Province.&nbsp; You can of course make the text appearing in the actual drop box anything you want,
+but you must keep &quot;NOTINLIST&quot; as the value if you want it to function as a non-printable item in the invoices, cart, mail, etc.</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>
+You can make your own Select Lists if you want</b></font>, you don't have to use our examples.&nbsp;<br>
+Make sure you follow all the Rules for making your own lists.</font>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+Set up the ASCII list files just like you're creating an HTML OPTION list</font><li>
+<font size="-1" face="Comic Sans MS">
+Don't use any periods or special characters in your lists (.&quot;;)</font><li>
+<font size="-1" face="Comic Sans MS">
+You must include the &quot;value=definition&quot; attribute&nbsp;</font><li>
+<font color="#FF0000" size="-1" face="Comic Sans MS">
+Do not enclose anything in quotes</font><li>
+<font size="-1" face="Comic Sans MS">
+If you leave out the value the script cannot match with the info file</font><li>
+<font face="Fixedsys" size="1">
+&lt;option value=Whatever&gt;Anything or Whatever</font><li>
+<font size="-1" face="Comic Sans MS">
+Only include the
+<font color="#000080">
+<b> &lt;option value=WHAT&gt; Anything lines</b></font></font><li>
+<font size="-1" face="Comic Sans MS">
+Don't include the &lt;select&gt;&lt;/select&gt; lines, the script does that</font><li>
+<font size="-1" face="Comic Sans MS">
+Example: </font>
+<font face="Fixedsys" size="1">
+&lt;option selected value=United-States&gt; United States</font><li>
+<font size="-1" face="Comic Sans MS">
+Make sure you put one &lt;option value=WHAT&gt; per LINE in the file(s)</font><li>
+<font size="-1" face="Comic Sans MS">
+You can use the </font>
+<font face="Fixedsys" size="1">
+selected</font>
+<font size="-1" face="Comic Sans MS">
+ attribute or omit it in your files</font><li>
+<font size="-1" face="Comic Sans MS">
+If you use &quot;selected&quot; to default to a specific value, then it must go before the value</font><li>
+<font size="-1" face="Comic Sans MS">
+In other words, don't do this &lt;option value=WHAT 
+<font color="#FF0000">
+selected</font>&gt;. Wrong.</font><li>
+<font size="-1" face="Comic Sans MS">
+Why: because Mof matches on &quot;value=Something<b>&gt;</b>&quot; the right bracket marks the end of string to match</font><li>
+<font size="-1" face="Comic Sans MS">
+Mof is set to recognize value=
+<font color="#000080">
+<b>NOTINLIST</b></font>&gt; as a <b>non printable </b>value, meaning that if NOTINLIST is submitted as the State-Province selected, then Mof will not print it. Someone is outside the scope of the State-Province list, or it is not needed as is the
+case with many international destinations.</font><li>
+<font size="-1" face="Comic Sans MS">
+Also, an HTML parsing rule for these lists, is that you can't use any spaces in your <b>
+<font color="#000080">
+value=Bla-Bla&gt;.&nbsp; </font></b>Note that we used a hyphen in place of a space, as in &quot;United-States&quot;.&nbsp; Substitute any spaces with hyphens.&nbsp; Mof is already set to recognize hyphens and strip them back out when printing that
+value.</font>
+</ul>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+WILL YOU BE USING DROP BOXES OR TEXT BOXES FOR STATE and COUNTRY ?</p>
+<p>
+
+$use_country_list = &quot;countries.txt&quot;;<br>
+$use_state_list = &quot;states.txt&quot;;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: Mof will coordinate your list with any stored Shipping Address information and any stored preview information will override any </font>
+<font face="Fixedsys" size="1">
+selected</font>
+<font size="-1" face="Comic Sans MS">
+ attribute in your list. If preview info does not match anything in your list, then the </font>
+<font face="Fixedsys" size="1">
+selected</font>
+<font size="-1" face="Comic Sans MS">
+ attribute in our list will apply</font></p>
+<p>
+
+&nbsp;</p>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="UseDiscount"></a>
+How to configure a default discount</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Front End configuration file: 
+<font color="#000080">
+<b>mof15.conf</b></font></font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+COMPUTING A PRIMARY DISCOUNT<br>
+COMPUTING A PRIMARY DISCOUNT</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: all discounts are computed from the initial sub total, before any shipping, insurance, tax or other charges are applied</font><p>
+<font size="-1" face="Comic Sans MS">
+There are three ways to use this setting: compute discount by amount of purchase, by quantity of products purchased, or by custom code you write yourself.&nbsp; No user input is required to compute this.&nbsp; Mof computes this discount from the
+settings here. This array has 3 elements to it</font>
+<ol>
+<li>
+<font size="-1" face="Comic Sans MS">
+Method to compute [amount/quantity/custom]</font><li>
+<font size="-1" face="Comic Sans MS">
+Rate applied at each increment</font><li>
+<font size="-1" face="Comic Sans MS">
+Increment (dollar-products) to apply rate</font>
+</ol>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+Syntax:&nbsp;<br>
+@use_discount = ('amount/quantity/custom', rate, increment);<br>
+</p>
+</font>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+If no increment is defined, the default is one (doller/product)</font><li>
+<font size="-1" face="Comic Sans MS">
+That is: x percent per dollar, or x dollars per each product</font><li>
+<font size="-1" face="Comic Sans MS">
+If custom is defined, then all following settings are ignored</font>
+</ul>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>Examples</b></font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+Discount 5% of subtotal (amount) on the penny&nbsp;<br>
+</font>
+<font FACE="Fixedsys" SIZE="1">
+@use_discount = ('amount',0.0005,0.01)</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+Discount 5% of subtotal (amount) default (per dollar)&nbsp;<br>
+</font>
+<font FACE="Fixedsys" SIZE="1">
+@use_discount = ('amount',0.05)</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+Discount 2.5% of subtotal for each $ 100.00 spent<br>
+Note: this example only applies the computation at $ 100 increments</font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+@use_discount = ('amount', 0.025, 100);</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+Discount $ 1.25 for each 10 products purchased<br>
+Note: this example only applies the computation at 10 product increments</font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+@use_discount = ('quantity', 1.25, 10);</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+Don't use a primary discount</font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+@use_discount = ();</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+Defer to custom code for discount</font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+@use_discount = ('custom');</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: if you enable custom computations, you will see our pre installed example.</font></p>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+No discount if &lt; 50 products purchased</font><li>
+<font size="-1" face="Comic Sans MS">
+Discount $ 6.00 if 50 - 99 items purchased</font><li>
+<font size="-1" face="Comic Sans MS">
+Discount $ 9.95 if 100 - 199 items purchased</font><li>
+<font size="-1" face="Comic Sans MS">
+Discount $ 12.50 if 200 - 349 items purchased</font><li>
+<font size="-1" face="Comic Sans MS">
+.. and on with an un even scheme</font>
+</ul>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+For more information on customizing see this documentation on How To Use The Build In Customizing Areas.&nbsp;&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: if this setting isn't set up correctly, the worst that can happen is Mof will compute a zero.&nbsp; Mof is set to compute zeros on anything it sees a setting for, but can't figure out what rules are being sent to it.&nbsp; When zeros are
+computed for a setting, then the item is not added to the overall computation math.&nbsp; Also, if you set an increment that is greater than the initial price or products one actually purchases then obviously no discount will compute, because the
+increment condition has not been satisfied.</font></p>
+
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="UseCoupons"></a>
+How to configure and use the Coupon discount feature</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Front End configuration file: 
+<font color="#000080">
+<b>mof15.conf</b></font></font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+HOW TO ENABLE A COUPON DISCOUNT<br>
+HOW TO ENABLE A COUPON DISCOUNT</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: all discounts are computed from the initial sub total, before any shipping, insurance, tax or other charges are applied</font><p>
+<font size="-1" face="Comic Sans MS">
+This enables the use of a Coupon Discount.&nbsp; User input is required on the Preview Information form so Mof can obtain a coupon number.&nbsp; Coupon codes are numeric only.&nbsp; All your coupon codes will be located in the file defined
+below.&nbsp; There are three settings to make:</font><p>
+<font face="Fixedsys" size="1">
+@use_coupons = ('percent');<br>
+</font>
+<font size="-1" face="Comic Sans MS">
+How should Mof compute the discount: as &quot;percent&quot; or &quot;dollar.&quot;&nbsp;</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>percent</b></font>&nbsp; - the discount rate in the coupon file is treated as a percent multiple, percent of subtotal<br>
+<font color="#000080">
+<b>dollar</b></font> - the discount rate in the coupon file is treated as an actual dollar amount per invoice</font><p>
+<font size="-1" face="Comic Sans MS">
+If Mof finds a matching coupon code, then it takes the discount rate and uses it the way this setting directs.&nbsp; Note: when you make the coupon file, you must use one method throughout the file for Customer discount-- either percent or
+dollar.&nbsp; You can't mix these in one file.</font><br>
+<br>
+<font face="Fixedsys" size="1">
+$coupon_file = 'coupons.txt';<br>
+</font>
+<font size="-1" face="Comic Sans MS">
+What coupon file should Mof use to Check for valid coupons and get rate info ?</font><p>
+<font size="-1" face="Comic Sans MS">
+See the example coupon file for how to set this up.&nbsp; It has three elements per line, each element delimited by the </font>
+<font face="Fixedsys" size="1">
+|</font>
+<font size="-1" face="Comic Sans MS">
+character:<br>
+</font>
+<font face="Fixedsys" size="1">
+Coupon-Number|Discount-Rate|Affiliate-Rate</font>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+Coupon-Number is always numeric</font><li>
+<font size="-1" face="Comic Sans MS">
+Discount-Rate can be a percent rate or dollar amount</font><li>
+<font size="-1" face="Comic Sans MS">
+Affiliate-Rate is always a percent rate</font>
+</ul>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Make sure this file is secure if you use one.&nbsp; That means keep it out of range of any public web access, or if it is inside any public web access, then give your coupon file a name no one can guess, to make it difficult for web visitors to peek
+in it.&nbsp; You'll need the absolute address (not a URL web location) if it's not located in the native directory your scripts are running in.</font>
+
+<p>
+
+<font face="Fixedsys" size="1">
+$default_coupon = "New Member";<br>
+</font>
+<font size="-1" face="Comic Sans MS">
+What default coupon to display for New customers</font><p>
+<font size="-1" face="Comic Sans MS">
+This sets the default coupon code to display when someone enters the Shipping Information page.&nbsp; This allows you to give away a particular coupon number, with a rate that you designate in the coupon file, to anyone that comes to your site and
+doesn't have a Real Coupon number.&nbsp; If you don't want to give away a coupon number, then just set this to &quot;None.&quot;&nbsp; It's best to set this to something, because that field won't validate without something in it.&nbsp; It doesn't
+have to be a valid coupon number to clear the form, but it does have to be a valid coupon number to compute any discount.</font><p>&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="WhatCouponsdo"></a>
+What can I do with the coupon discount feature</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+You can do a mass mail out for a particular promotional and assign a designated discount rate for that campaign. You'll be able to keep an unlimited number of rates for a particular code or marketing campaign.&nbsp;</font><p>
+<font size="-1" face="Comic Sans MS">
+Mof has some pretty cool add on scripts that are seriously capable of automated management of a referral tracking system.&nbsp; The logging feature for this tracking system is already installed in Mof v1.53; however, the add on scripts that actually
+do the user management: assigning codes, allowing user management of an account, etc., are not being distributed yet.&nbsp; They are completely built, and if you want some demos or more information on this, then please contact us for more info on it.</font><p>
+<font size="-1" face="Comic Sans MS">
+You can enable the logging feature if you want.&nbsp; See the main Merchant OrderForm site <a href="http://www.merchantorderform.com/support.html">Support</a>
+ section for details.&nbsp; Once the referral logging is enabled, then a log will be created for each transaction that uses a valid coupon number.&nbsp; You'll be able to query the log and see what coupon numbers have generated business.&nbsp; Our
+tracking system does all the work via the web.&nbsp; Affiliates can log in and see what activity their Coupon Number has generated, even get a print out of past and current earnings.&nbsp;</font>
+
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="UseHandling"></a>
+How to configure a handling charge</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Front End configuration file: 
+<font color="#000080">
+<b>mof15.conf</b></font></font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+COMPUTING A HANDLING CHARGE<br>
+COMPUTING A HANDLING CHARGE</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: all handling charges are computed after any discounts have been applied.&nbsp; Handling charges are considered a part of Shipping, Handling, and Insurance and are capable of being taxed as SH &amp; I.</font><p>
+<font size="-1" face="Comic Sans MS">
+This setting is used exactly like the default discount setting: Compute handling by amount of purchase, by quantity of products purchased, or by custom code you write yourself.&nbsp; No user input is required to compute this.&nbsp; Mof computes the handling
+charge rom the settings here. This array has 3 elements to it</font>
+<ol>
+<li>
+<font size="-1" face="Comic Sans MS">
+Method to compute [amount/quantity/custom]</font><li>
+<font size="-1" face="Comic Sans MS">
+Rate applied at each increment</font><li>
+<font size="-1" face="Comic Sans MS">
+Increment (dollar-products) to apply rate</font>
+</ol>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+Syntax:&nbsp;<br>
+@use_handling = ('amount/quantity/custom', rate, increment);<br>
+</p>
+</font>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+If no increment is defined, the default is one (doller/product)</font><li>
+<font size="-1" face="Comic Sans MS">
+That is: x percent per dollar, or x dollars per each product</font><li>
+<font size="-1" face="Comic Sans MS">
+If custom is defined, then all following settings are ignored</font>
+</ul>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>Examples</b></font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+Compute Handling</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+ of 5% of subtotal after any discounts on the penny&nbsp;<br>
+</font>
+<font FACE="Fixedsys" SIZE="1">
+@use_handling = ('amount',0.0005,0.01)</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+Compute Handling</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+ of 5% of subtotal after any discounts default (per dollar)&nbsp;<br>
+</font>
+<font FACE="Fixedsys" SIZE="1">
+@use_handling = ('amount',0.05)</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+Compute Handling</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+ of 2.5% of subtotal after any discounts for each $ 100.00 spent</font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Note: the computation is only applied at each $ 100 intervals</font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+@use_handling = ('amount', 0.025, 100);</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+Compute Handling</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+ of $ 1.25 of subtotal after any discounts for each 10 products purchased<br>
+Note: the computation is only applied at each 10 products intervals</font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+@use_handling = ('quantity', 1.25, 10);</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+Don't compute any handling charges</font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+@use_handling = ();</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+Defer to custom code for handling charges</font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+@use_handling = ('custom');</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: if you enable the custom mode, then you will get the example we have installed which computes:</font></p>
+<ul type="circle">
+<li>
+<font size="-1" face="Comic Sans MS">
+Handling of $ 2.50 for under 5 items</font><li>
+<font size="-1" face="Comic Sans MS">
+Handling of $ 4.50 for under 10 </font>
+<font size="-1" face="Comic Sans MS">
+items</font><li>
+<font size="-1" face="Comic Sans MS">
+No handling charge if over 10 items purchased</font>
+</ul>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+For more information on customizing see this documentation on How To Use The Build In Customizing Areas.&nbsp;&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: if this setting isn't set up correctly, the worst that can happen is Mof will compute a zero.&nbsp; Mof is set to compute zeros on anything it sees a setting for, but can't figure out what rules are being sent to it.&nbsp; When zeros are
+computed for a setting, then the item is not added to the overall computation math.&nbsp; Also, if you set an increment that is greater than the initial products actually purchased or greater than the subtotal price after any discounts are applied,
+then obviously no handling charge will compute, because the increment condition has not been satisfied.</font></p>
+
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="InsuranceOptions"></a>
+How to set up the insurance options and computations</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Front End configuration file: 
+<font color="#000080">
+<b>mof15.conf</b></font></font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+ENABLING INSURANCE OPTIONS<br>
+ENABLING INSURANCE OPTIONS</font><p>
+<font size="-1" face="Comic Sans MS">
+This is an associative array that can have as many items as you want.&nbsp; It is not set up to compute a rate amount against a purchase amount, but set up to Add a simple dollar amount of insurance for all of the categories you list.&nbsp; Our
+example lists categories suggesting that insurance can be purchased at a replacement amount for the package.&nbsp; Each category (or replacement amount level) has a specific dollar amount cost for it.&nbsp; User input is required for this.&nbsp; The
+customer has options available on the Shipping Information page to select from.</font><p>
+<font size="-1" face="Comic Sans MS">
+Here's the rules for building this array:</font>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+[Message1, Price1, Message2, Price2, ... ]<br>
+<br>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+<b>Absolutely No commas</b></font> in the array except for those separating key,val</font><li>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+<b>Absolutely No</b></font> apostrophes-quotes except for surrounding text field</font><li>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+<b>Use plain text</b></font>,&nbsp; 
+<font color="#FF0000">
+<b>No html tags allowed</b></font> in arrays<br>
+Sorry to be a pain but this array won't process reliably with that stuff<br>
+<br>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+Insurance is not allowed unless some Shipping is enabled<br>
+(you don't have to charge shipping, just enable it)</font>
+</ul>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+The first Message1, Price1 is always the default option<br>
+Its cost should be set to zero, to allow someone to select No insurance.<br>
+It can't be Null but must be zero to clear the field validation<br>
+<br>
+<font color="#FF0000">
+Note</font>: If you don't have a default method set to 0 cost, then a customer will not be able to decline the insurance.&nbsp; You can force an insurance cost by not setting any of the methods as the default zero.</font>
+</ul>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+When the list displays Mof sorts it from ascending order for cost<br>
+From zero cost to the most expensive cost<br>
+<br>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+Same amount values are not allowed</font>
+<font size="-1" face="Comic Sans MS">
+<br>
+</font>
+</ul>
+<p>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>Here's the example that appears on our demo site:</b></font><p>
+<font face="Fixedsys" size="1">
+%use_insurance = (<br>
+&nbsp;&nbsp;&nbsp; 'No Insurance',0,<br>
+&nbsp;&nbsp;&nbsp; 'Up to $ 500.00 ($13.25)',13.25,<br>
+&nbsp;&nbsp;&nbsp; 'Up to $ 1000.00 ($18.98)',18.98,<br>
+&nbsp;&nbsp;&nbsp; 'Up to $ 2500.00 ($26.00)',26<br>
+  	);</font><br>
+<br>
+<font size="-1" face="Comic Sans MS">
+You can also instruct Mof to display your list in radio button format or dropbox format<br>
+Specify &quot;
+<font color="#000080">
+<b>radio</b></font>&quot; or &quot;
+<font color="#000080">
+<b>dropbox</b></font>&quot;</font><p>
+<font face="Fixedsys" size="1">
+$type_insurance_options = "radio";</font><br>
+<p>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+Note</font>: we do have a built in way to trigger a custom insurance computation.&nbsp; For example, someone might want to use a simply (Yes, No) Insurance option, and compute the rate of insurance based on total price of the order.</font><p>
+<font size="-1" face="Comic Sans MS">
+If you set up your insurance array as below, then insurance computations will be deferred to a customizable area of the library file.&nbsp; You can find this area around line <b>1747</b> in <b>
+<font color="#000080">
+mof15_lib.pl.</font></b>&nbsp; You'll have to write your own code for computations there.</font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+%use_insurance = (<br>
+&nbsp;&nbsp;&nbsp; 'NO Do Not Add Insurance',0,<br>
+&nbsp;&nbsp;&nbsp; 'YES Add Insurance Please',1000000<br>
+);</p>
+</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: if you are using this custom insurance, then you may also want to change the message that displays in the Shipping Information page:</font><p>
+<font size="-1" face="Comic Sans MS">
+From: Please select the amount of insurance you want.<br>
+To: Please select if you would like insurance.</font><p>
+<font size="-1" face="Comic Sans MS">
+This message is in 
+<font color="#000080">
+<b>mof.cgi </b></font>around line <b>1004</b></font><p>
+&nbsp;
+<p>&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="DefaultShippingComputations"></a>
+How to set the default Shipping computations</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Front End configuration file: 
+<font color="#000080">
+<b>mof15.conf</b></font></font>
+<font face="Fixedsys" size="1">
+<br>
+COMPUTING A DEFAULT SHIPPING METHOD<br>
+COMPUTING A DEFAULT SHIPPING METHOD</font>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+These settings configure a default shipping computation.&nbsp; There are three areas of settings:</font>
+<ol>
+<li>
+<font size="-1" face="Comic Sans MS">
+The actual shipping computations</font><li>
+<font size="-1" face="Comic Sans MS">
+Minimum shipping charges</font><li>
+<font size="-1" face="Comic Sans MS">
+Identifying Domestic or Foreign shipping areas</font>
+</ol>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>1.&nbsp; The actual shipping computation is a simple array with 4 elements:&nbsp;</b></font>
+<ol>
+<li>
+<font size="-1" face="Comic Sans MS">
+Method to compute [amount/weight/custom]</font><li>
+<font size="-1" face="Comic Sans MS">
+Domestic Rate applied at each increment</font><li>
+<font size="-1" face="Comic Sans MS">
+Foreign Rate applied at each increment</font><li>
+<font size="-1" face="Comic Sans MS">
+Increment (dollar-products) to apply rate</font>
+</ol>
+<p>
+
+<font face="Fixedsys" size="1">
+Syntax:<br>
+[amount/weight/custom, domestic-rate, foreign-rate, increment]</font><p>
+<font size="-1" face="Comic Sans MS">
+These settings allow you to specify how you want default shipping computed: You can compute a shipping rate against the overall dollar amount of the order, or you can compute a shipping rate against the total weight of products in an order.&nbsp; You
+can also simply declare a custom shipping computation, and all other settings will be overridden.&nbsp;</font><p>
+<font size="-1" face="Comic Sans MS">
+If you use the &quot;amount&quot; method to compute a shipping charge, then Mof doesn't care about each products ShipCode that you identified in the product information (when you built your Store Front pages).&nbsp; If you use the &quot;weight&quot;
+method, then Mof will use your ShipCodes, so you should be careful to set those up with meaningful weight values, else you'll get some weird results.</font>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+You can also enable Mof to attempt to match any City, State, or Country defined in the Domestic lists with the Shipping destination entered by the customer, so as to set up a flag to use Foreign or Domestic Rates.&nbsp; The first setting in enabling
+default shipping rates is to define the Method, Domestic-Rate, Foreign-Rate, Increment:</font><br>
+<br>
+<font face="Fixedsys" size="1">
+HOW DO YOU WANT SHIPPING COMPUTED ?</font><p>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>Examples</b></font><p>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Add $ 2.95 (domestic) or $3.95 (foreign) for each $ 100 spent<br>
+Note: the rate computes at each $ 100 increment<br>
+</font>
+<font face="Fixedsys" size="1">
+@use_shipping = ('amount',2.95,3.95,100);</font><p>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Add $ 1.35 (domestic) or $ 1.85 (foreign) per each pound in invoice<br>
+Note: Pounds are computed from your ShipCodes<br>
+</font>
+<font face="Fixedsys" size="1">
+@use_shipping = ('weight',1.35,1.85,1);</font><p>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Enable shipping address info but don't charge any shipping</font>
+<font face="Fixedsys" size="1">
+<br>
+@use_shipping = ('weight',0,0,1);</font><br>
+<br>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Use a custom shipping computation</font><br>
+<font face="Fixedsys" size="1">
+@use_shipping = ('custom');</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>:&nbsp;&nbsp; If you are not using the Domestic-Foreign matching feature, then the default rate is the Rate in the Domestic-Rate position in the setting.&nbsp; Even if you don't use Domestic-Foreign matching, you still need a placeholder
+in the Foreign position, otherwise the increment will not be identified correctly.</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: if you enable the custom mode, then you will get the example we have installed which computes:</font></p>
+<ul type="circle">
+<li>
+<font size="-1" face="Comic Sans MS">
+Shipping of $ 6.95 for under 6 items</font><li>
+<font size="-1" face="Comic Sans MS">
+Shipping of $ 8.95 for under 12 </font>
+<font size="-1" face="Comic Sans MS">
+items</font><li>
+<font size="-1" face="Comic Sans MS">
+Any order with 12 or more items is Free shipping</font>
+</ul>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+For more information on customizing see this documentation on How To Use The Build In Customizing Areas.&nbsp;&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>2.&nbsp;&nbsp; Minimum Shipping charges</b></font></p>
+<p>
+<font face="Fixedsys" size="1">
+WHAT ARE MINIMUM SHIPPING CHARGES ?</font><p>
+<font size="-1" face="Comic Sans MS">
+If you have minimum settings defined, and the increment is not met from your settings in </font>
+<font face="Fixedsys" size="1">
+@use_shipping</font>
+<font size="-1" face="Comic Sans MS">
+, then the minimum rate will apply.&nbsp; If you don't have minimum rates defined, and the increment is not satisfied for your shipping computations, then shipping charges will be zero.</font><p>
+<font face="Fixedsys" size="1">
+$minimum_domestic = 0;<br>
+$minimum_foreign = 0;</font><p>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>3.&nbsp; Identifying Domestic or Foreign shipping areas</b></font><p>
+<font face="Fixedsys" size="1">
+DO YOU WANT TO USE DIFFERENT RATES FOR DOMESTIC AND FOREIGN ?</font><p>
+<font size="-1" face="Comic Sans MS">
+ Enabling any three of these settings will trigger a "foreign" rate to compute if the shipping destination is NOT a "domestic" match in your list(s) below.&nbsp; A match in any one of the settings will initiate the flag for
+&quot;domestic.&quot;&nbsp; Disable all three arrays and the default "domestic" rate applies to all shipping.&nbsp; You must enable at least one of these arrays for a match to be attempted, and only when a match is attempted, and not found, will the
+ &quot;foreign&quot; rate be used.</font><br>
+<br>
+<font face="Fixedsys" size="1">
+@domestic_city = ();<br>
+@domestic_state = ();<br>
+@domestic_country = ();</font><p>
+<font size="-1" face="Comic Sans MS">
+If you want to include ability in the Shipping computations to use apply a domestic or foreign rate, then we need to identify if the customer's shipping destination is Domestic or not.&nbsp; You can identify as many Cities, States, and Countries as
+you want in the settings for this.&nbsp; If any of these settings are enabled, Mof will look at the customer's shipping </font>
+<font size="-1" face="Comic Sans MS">
+destination and try to match whatever you have declared for those fields.&nbsp; You can make the lists as long as you want.&nbsp; Mof will attempt a match on anything in any of those three fields you have listed.&nbsp; If Mof finds a match anywhere,
+then it declares the shipping computations &quot;domestic,&quot; if Mof doesn't find any matches, then it declares the shipping computations &quot;foreign.&quot;</font><p>
+<font size="-1" face="Comic Sans MS">
+If you are using Drop Box lists for State-Province and Countries, as is the most reliable, then you'll need to make sure that what you define in the State and Country domestic list(s) below, matches up with the actual user input from the drop
+boxes.&nbsp; If you aren't using drop boxes for State and Country user input, then it will be challenging to standardize your list(s) and coordinate your domestic lists(s) with your user input.&nbsp; The list for Domestic Cities poses such a
+challenge, because the user can enter any non standardized input.&nbsp; The matches are not case sensitive, but they do require whole word matching.&nbsp; You don't want to declare &quot;LA&quot; as a domestic city, and have someone enter LaLa, which
+could be a city across the world, and result in a domestic match.</font><p>
+<font size="-1" face="Comic Sans MS">
+Build your lists as large as you want.&nbsp; Remember to surround your array elements with single quotes, with the comma separating elements in your list.</font><p><font size="-1" face="Comic Sans MS">Here's a list of US states and Canadian Provinces.&nbsp;&nbsp;</font><p><font face="Fixedsys" size="1">@domestic_state =
+('AL','AZ','AR','CA','CO','CT','DE','DC','FL','GA','ID','IL','IN',<br>
+'IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV',<br>
+'NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN',<br>
+'TX','UT','VT','VA','WA','WV','WI','WY','AB','BC','MB','NB','NF','NS',<br>
+'ON','PQ','SK');
+</font>
+<p>
+<font FACE="Fixedsys" SIZE="1">
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: The three settings for&nbsp;</font><br>
+ DO YOU WANT TO USE DIFFERENT RATES FOR DOMESTIC AND FOREIGN ?<br>
+<font size="-1" face="Comic Sans MS">
+are used for Domestic matching for both default shipping and User selected Methods</font></font><p>&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="UseSelectedShipMethods"></a>
+How to set up user selected Shipping Methods and computations</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Front End configuration file: 
+<font color="#000080">
+<b>mof15.conf</b></font></font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+SETTING UP USER SELECTED SHIPPING METHODS<br>
+SETTING UP USER SELECTED SHIPPING METHODS</font><p>
+<font color="#000080" size="-1" face="Comic Sans MS">
+<b>Brief description of how this works</b></font><p>
+<font size="-1" face="Comic Sans MS">
+This group of settings allows you to set up an unlimited number of Shipping Methods, that can be selected by the customer.&nbsp; This list displays on the Shipping Information page and requires user input.&nbsp; There are two basic sections to
+understanding this group of settings and how they work together to give user selected Shipping Methods.&nbsp; Here's how it works</font><p>
+<font size="-1" face="Comic Sans MS">
+You first declare what all the Methods are, by giving them a Field Name and a description.&nbsp; Along with this section, you'll declare the default Method, and how you want Mof to display the list (radio buttons or drop box).</font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+%use_method<br>
+$default_method<br>
+$type_method_options = &quot;radio&quot;;</p>
+</font><p>
+<font size="-1" face="Comic Sans MS">
+Next, you'll define 6 pieces of information for each of the Methods you declared above.&nbsp; The 6 pieces of information for each Method are the same information the default shipping method uses: (1) mode (2) domestic rate (3) foreign rate (4)
+increment (5) minimum domestic charge, and (6) minimum foreign charge.&nbsp;&nbsp;</font><p>
+<font face="Fixedsys" size="1">
+%method_mode<br>
+%method_domestic<br>
+%method_foreign<br>
+%method_increment<br>
+%method_min_domestic<br>
+%method_min_foreign</font><p>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>Details on making all the arrays and settings</b></font><p>
+<font size="-1" face="Comic Sans MS">
+Some reminders and notes to get started</font><p>
+<font size="-1" face="Comic Sans MS">
+Don't enable this section if you want to use the default shipping method.&nbsp; When you enable this section any default shipping computations will be discarded and Mof will attempt shipping computations from what you have defined in this
+section.&nbsp; Define this section only if you need to be able to have our customers select from a list of 2 or more Shipping Methods</font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+DEFINE ALL METHOD NAME=DESCRIPTION PAIRS<br>
+['Key_Name','Whatever Discription to Display']</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is the main switch to enable this section.&nbsp; If you define anything in this array, then Mof will assume you are wanting to create User selected shipping options.&nbsp; You can define an unlimited number of Methods</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+Disable the option</font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+%use_method = ()</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+Enable it by defining two or more Name, Description pairs</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Key_Name: will be used as the FORM input name='Pick_Up'<br>
+Description: this is what the user sees in the list, text only No html tags</font></p>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+<b>Absolutely no commas</b></font> except array delimiter comma</font><li>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+<b>Absolutely no apostrophes</b></font>-quotes except to ID array fields</font><li>
+<font size="-1" face="Comic Sans MS">
+HTML tags 
+<font color="#FF0000">
+<b>Not Allowed</b></font> in these arrays</font><li>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000" face="Comic Sans MS" size="-1">
+<b>Suggestion</b></font>: No spaces in the Key names, use underscore as the example</font>
+</ul>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+Here's the example on our demo site</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+%use_method = (<br>
+&nbsp; 'Central_Freight_Lines','Ship by Central Freight Lines 3 day delivery',<br>
+&nbsp; 'Overnight_Flight','Ship by Overnight 747 Jet Overnight delivery',<br>
+&nbsp; 'Express_Delivery','Ship by Internet Express E-delivery',<br>
+&nbsp; 'Pick_Up','I will Pick it up at the Factory in my Pick Up Truck'<br>
+);</p>
+<p>
+
+WHAT IS THE DEFAULT SELECTED METHOD</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Identify the exact Key_Name in your list above to be the default selected method.&nbsp;&nbsp; Mof will remember what a customer previously selected, but if they enter your site for the first time, or lose their information cookie, then this setting
+tells Mof to select one of the Methods as default.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$default_method = &quot;Pick_Up&quot;;</p>
+<p>
+
+# USE A DROP BOX OR RADIO BUTTONS<br>
+[radio/dropbox]</p>
+<p>
+
+$type_method_options = &quot;radio&quot;;</p>
+<p>
+
+&nbsp;</p>
+<p>
+
+DEFINE THESE SETTINGS FOR EACH METHOD DECLARED</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+The next series of 6 associative arrays define the settings for (1) mode (2) domestic rate (3) foreign rate (4) increment (5) minimum domestic charge, and (6) minimum foreign charge.&nbsp; All the examples listed for those 6 arrays come from our demo
+site, if you want to see what the end result looks like.&nbsp; Also, all the examples listed here correspond to the </font>
+<font FACE="Fixedsys" SIZE="1">
+%use_method </font>
+<font size="-1" face="Comic Sans MS">
+we have set up in the above example.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+<b>Important</b></font>: Your keys in these arrays should be exactly as you have defined the Keys in the main %use_method array above.&nbsp; These arrays are just extensions of the %use_method keys and every key declared in %use_method should be
+present in these arrays. Then make the corresponding setting for that method's key</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Mof should not malfunction if you mess it up. You will simply get zero shipping charges.&nbsp; If you want a method that doesn't cost anything to ship, then say that as in my example with the &quot;Pick_Up&quot; method. This tells Mof that no
+shipping will be charged, but Mof will still print the shipping method in the email notices, so you'll know what the customer selected.</font></p>
+<p>
+
+<br>
+<font FACE="Fixedsys" SIZE="1">
+(1) What MODE to use for each method ?<br>
+[amount/weight/custom]</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+You can use a different mode for each method if wanted.&nbsp; Any &quot;custom&quot; mode must be relative to the Key defined for method.&nbsp; I have included one example of how to do this in the library file using the method Key: Express_Delivery.&nbsp;
+This is a little different than simply enabling &quot;custom&quot; mode as in some of the other features like discount, handling, default shipping.&nbsp; You'll have to actually write the branch for &quot;custom&quot; in the library file specific to
+the method Key you have defined.&nbsp; Setting a particular method to &quot;custom&quot; will override settings for that method below.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Note: you must at least put a zero placeholder as the value for that key. If you do not put the zero placeholder then the array may not function correctly</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+%method_mode = (<br>
+&nbsp;&nbsp;&nbsp; 'Central_Freight_Lines','amount',<br>
+&nbsp;&nbsp;&nbsp; 'Overnight_Flight','weight',<br>
+&nbsp;&nbsp;&nbsp; 'Express_Delivery','custom',<br>
+&nbsp;&nbsp;&nbsp; 'Pick_Up','weight'<br>
+);</p>
+<p>
+
+&nbsp;</p>
+<p>
+
+(2) What DOMESTIC RATE to use for each method ?</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is a numeric value only.&nbsp; This is also the default rate used if not using Domestic-Foreign matching.&nbsp; You must at least put a zero placeholder for every key listed.&nbsp; If you don't at least put the placeholder the array will not
+work.&nbsp; See the section in default shipping computations above if you want more discussion or examples on how these Rates work with the other settings like Mode and Increment.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+%method_domestic = (<br>
+&nbsp;&nbsp;&nbsp; 'Central_Freight_Lines',0.0003,<br>
+&nbsp;&nbsp;&nbsp; 'Overnight_Flight',1.77,<br>
+&nbsp;&nbsp;&nbsp; 'Express_Delivery',0,<br>
+&nbsp;&nbsp;&nbsp; 'Pick_Up',0<br>
+);</p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: The three settings for&nbsp;</font><br>
+ DO YOU WANT TO USE DIFFERENT RATES FOR DOMESTIC AND FOREIGN ?<br>
+<font size="-1" face="Comic Sans MS">
+are used for Domestic matching for both default shipping and User selected Methods</font></p>
+<p>
+
+<br>
+(3) What FOREIGN RATE to use for each method ?</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is a numeric value only.&nbsp; You don't have to do this array unless using Foreign-domestic matching. If Mof looks for this and it is empty shipping will be $ 0.00. You can also set a particular Foreign rate to zero if you want $ 0.00 foreign
+shipping charges for a particular Mode.&nbsp; If a key is listed it must at least have a zero placeholder for the array to work</font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+%method_foreign = (<br>
+&nbsp;&nbsp;&nbsp; 'Central_Freight_Lines',0.00035,<br>
+&nbsp;&nbsp;&nbsp; 'Overnight_Flight',2.35,<br>
+&nbsp;&nbsp;&nbsp; 'Express_Delivery',0,<br>
+&nbsp;&nbsp;&nbsp; 'Pick_Up',0<br>
+);</p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: The three settings for&nbsp;</font><br>
+ DO YOU WANT TO USE DIFFERENT RATES FOR DOMESTIC AND FOREIGN ?<br>
+<font size="-1" face="Comic Sans MS">
+are used for Domestic matching for both default shipping and User selected Methods<br>
+</font></p>
+<p>
+
+(4) What INCREMENT to use for each method ?</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is a numeric value only.&nbsp; The rates defined for each Mode above Domestic or Foreign are applied to this interval or increment.&nbsp; Remember that &quot;amount&quot; and &quot;weight&quot; are different.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+For Amount: (Rate * [integer of (SubDiscountAmount / Increment)])<br>
+For Weight: (Rate * [integer of (TotalWeight / Increment)])</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+You can compute things on the penny or hundredth of a pound, just like in the default shipping examples, or you can compute things on the dollar or each pound, or you can compute things for each hundred dollars or each 4.2 pounds.&nbsp; If a key is
+listed it must at least have a zero placeholder for the array to work</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+%method_increment = (<br>
+&nbsp;&nbsp;&nbsp; 'Central_Freight_Lines',0.01,<br>
+&nbsp;&nbsp;&nbsp; 'Overnight_Flight',1,<br>
+&nbsp;&nbsp;&nbsp; 'Express_Delivery',0,<br>
+&nbsp;&nbsp;&nbsp; 'Pick_Up',0<br>
+);</p>
+<p>
+
+&nbsp;</p>
+<p>
+
+(5) What is the minimum domestic charge ?</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is a dollar amount, example: 4.95.&nbsp; It triggers if the Domestic or Standard increment condition defined in your computations for a given Method are not satisfied.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+%method_min_domestic = (<br>
+&nbsp;&nbsp;&nbsp; 'Central_Freight_Lines',2.85,<br>
+&nbsp;&nbsp;&nbsp; 'Overnight_Flight',22.95,<br>
+&nbsp;&nbsp;&nbsp; 'Express_Delivery',0,<br>
+&nbsp;&nbsp;&nbsp; 'Pick_Up',0<br>
+);</p>
+<p>
+
+&nbsp;</p>
+<p>
+
+(6) What is the minimum foreign charge ?</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is a dollar amount, example: 6.95.&nbsp; It triggers if the Foreign increment condition as defined in your computations for given Method are not satisfied.&nbsp;</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+%method_min_foreign = (<br>
+&nbsp;&nbsp;&nbsp; 'Central_Freight_Lines',4.85,<br>
+&nbsp;&nbsp;&nbsp; 'Overnight_Flight',27.95,<br>
+&nbsp;&nbsp;&nbsp; 'Express_Delivery',0,<br>
+&nbsp;&nbsp;&nbsp; 'Pick_Up',0<br>
+);</p>
+</font>
+
+<p>
+
+&nbsp;
+
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="TaxComputations"></a>
+How to set up tax computations</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Front End configuration file: 
+<font color="#000080">
+<b>mof15.conf</b></font></font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+TAX COMPUTATIONS<br>
+TAX COMPUTATIONS</font><p>
+<font size="-1" face="Comic Sans MS">
+This area of settings is powerful yet basically simple.&nbsp; Let's break it down into two groups of settings.&nbsp; First, there are some initial settings to tell Mof how to handle Taxing behavior.&nbsp; Second there are a series of eight arrays
+where you can define all the possibilities you can dream up for matching taxes to City, Postal Code, State, and Country--same or different tax rates for each, and even exceptions for computing before or after Shipping, handling, and Insurance.</font><p>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>Here's some important notes on some of the taxing complexities:</b></font>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+All tax computations are dependent on a TaxCode = 1 for your products</font><li>
+<font size="-1" face="Comic Sans MS">
+If you have defined a TaxCode = 0 that product will not be taxed</font><li>
+<font size="-1" face="Comic Sans MS">
+You set these definitions up in your product input pages when you defined the product information</font>
+</ul>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+value=Item----Description----Price----ShipCode----TaxCode</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If any discounts are applied to the invoice amount then an Adjusted Tax Amount is computed.&nbsp; The &quot;Adjusted Tax Amount&quot; is used to compute the Tax.&nbsp; Adjustments are made from the ratio of taxable amount to whole amount. That ratio
+of Discounted total(s) is subtracted from the Taxable Amount.&nbsp;&nbsp;&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+What that means is this: Tax is computed less any discount, but only for those items that are actually taxable.&nbsp; If all items are taxable then an entire discount (if there is one) is subtracted from the taxable amount, so that only the actual
+purchase amount is taxed.&nbsp; We don't want to tax something that is not there (like the amount over the discount).</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+What if there are mixed items in the invoice, both taxable and non taxable, and there is a discount ?&nbsp; Then Mof creates an adjusted taxable amount, from ratios between the taxable to non taxable items, the whole price of each, and the total
+discount applied to the invoice.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+We did things this way because tax is applied or not applied per product, yet discounts are not applied at the product level, but at the invoice level.&nbsp; So, when a discount is applied to an invoice of products, where each individual product may
+or may not be taxable, then we need to determine exactly how much of the actual taxable items will be discounted, so we can tax only the actual amount of those products and not the original price of those products prior to any discounts.&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>1.&nbsp; The initial settings that define taxing behavior</b></font></p>
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+HOW TO IDENTIFY TAXABLE - NON TAXABLE ITEMS ?</p>
+</font>
+<p>
+<font size="-1" face="Comic Sans MS">
+This setting tells Mof to display some flag on the invoices and email messages next to the products that are taxable.&nbsp; Set it to Null if you Don't want this flag displayed.&nbsp; Set it to a message or html based message to display.&nbsp; Our
+example prints a small gray &quot;Tax&quot; flag on the invoices next to a taxable item.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>$identify_tax_items = &quot;&lt;font size=1 color=gray&gt;Tax&lt;/font&gt;&quot;;</p>
+<p><br>
+JUST TAX EVERYTHING AT THIS GLOBAL RATE</p>
+</font>
+<p>
+<font size="-1" face="Comic Sans MS">
+Enable this setting with a global tax rate in decimal percent format and all products with a positive TaxCode will be taxed at this global rate.&nbsp; This setting overrides all your other tax settings below.&nbsp; This must be set to zero to enable
+the other area specific tax settings.&nbsp; This global rate will be applied as per your Before/After SHI rule, and also notice any exceptions to that rule as defined in your exceptions list(s).&nbsp; It just will not recognize any of the area
+specific tax rates you may have defined for City, PostalCode, State, or Country.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+Example: Tax all taxable items at a flat 8.25 %</font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+$use_global_tax = 0.0825;</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+Make sure to disable this for the other settings to work</font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+$use_global_tax = 0;</p>
+<p>
+
+<br>
+COMPUTE TAX BEFORE OR AFTER Shipping, Handling, Insurance ?</p>
+</font><p>
+<font size="-1" face="Comic Sans MS">
+Some US states place a tax on S, H, and I, some don't.&nbsp; Set this to (1) for before, set it to (0) to tax amy S, H, and I on the invoice.&nbsp; This rule is applied whenever MOF sees any tax area matches as you have defined in the City,
+PostalCode, State, Countey arrays below.&nbsp; The rule will be reversed if an @exceptions match is found on any of those lists.&nbsp; If no exception rules matched with the user input area(s)&nbsp; then what you define here will be the prevailing rule.&nbsp;</font></p>
+<p>
+<font size="-1" face="Comic Sans MS">
+Note: The before-after rule is applied to the tax computation at large.&nbsp; You cannot set before for city, after for state, etc ..</font></p>
+<p>
+<font face="Fixedsys" size="1">
+(1)</font>
+<font size="-1" face="Comic Sans MS">
+&nbsp; 
+<font color="#000080">
+Do not tax SH and I -- Tax before the SH and I</font><br>
+</font>
+<font face="Fixedsys" size="1">
+(0) </font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Tax all the SH and I charges along with taxable items</font></p>
+<p><font FACE="Fixedsys" SIZE="1">$tax_before_SHI = 0;</p>
+<p>
+
+<br>
+CONSOLIDATE TAX AREAS FOUND OR USE HIGEST RATE</p>
+<p>
+
+(1)
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+ Do you want all possible tax area matches to consolidate to a total rate ?</font><font FACE="Fixedsys" SIZE="1"><br>
+(0)
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+ Or do you just want to use the matched tax rate that is largest ?</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If Mof finds multiple matches in more than one area defined below in City, PostalCode, State, and Country, then you can choose to consolidate all the found rates into one rate, or you can make the rate whatever is the largest of all matched rates.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+The consolidated rate is what you would use if you need to access a State tax, and a county tax, and a city tax.&nbsp; You would define those areas below, and enable this switch to tell Mof to consolidate any and all rates it finds.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Note: Mof will quit looking in an area once it finds the first match.&nbsp; That way consolidate rates can't come from a tax matching area more than once.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$add_tax_rates = 1;</p>
+<p>
+
+&nbsp;</p>
+</font>
+<p>
+
+<font color="#000080" size="-1" face="Comic Sans MS">
+<b>2.&nbsp; What User input areas do you want to attempt to tax ?</b></font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+ The following section allows you to set up configurations to attempt to locate matching tax areas for whatever the customer has put in for City, PostalCode, State, or Country.&nbsp; Most folks will only be attempting to match for State sales tax, in which case you will only be configuring the
+State areas, and you will simply leave City, PostalCode, and Country areas as blank arrays.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Mof will attempt to match and compute taxes based on any complex configuration that you build with the following lists for City, PostalCode, State and Country areas.&nbsp; Mof will attempt to match to as much information as it can find, so be careful to set only what you mean, don't overlap settings, etc.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+Example: Let's say you want to Tax a combined tax for State, County, City</font></p>
+<ol>
+<li>
+<font size="-1" face="Comic Sans MS">
+Enable Zipcode, State for user input areas (shipping fields)</font><li>
+<font size="-1" face="Comic Sans MS">
+Turn on the $add_tax_rates (to consolidate all matches)</font><li>
+<font size="-1" face="Comic Sans MS">
+The city and country areas are Null</font><li>
+<font size="-1" face="Comic Sans MS">
+Define Zipcodes for surrounding county (outside city) county rate only</font><li>
+<font size="-1" face="Comic Sans MS">
+Define Zipcodes for city (excluding surrounding county) county + city rate both</font><li>
+<font size="-1" face="Comic Sans MS">
+Define the state to match</font><li>
+<font size="-1" face="Comic Sans MS">
+Now you have set up a possible state, county, city combined tax rate</font>
+</ol>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: matching is not case sensitive, but it is boundary sensitive.&nbsp; When Mof finds the first match it aborts searching that list any further.&nbsp; The match sequence is: City, PostalCode, State, Country.&nbsp; Leading or trailing
+spaces, or extra characters can prevent a match.&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+In each of the four areas: City, PostalCode, State, Country, you'll be building a list of rates and a list of exception for the Tax Before/After SHI rule.</font></p>
+<p>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>The list of rates</b></font> is an associative array with the [string to match, and tax rate]<br>
+<font color="#000080">
+Here's two examples from our demo site.&nbsp; The first is the PostalCode match list and corresponding rates, the second is the State match list and corresponding rates.</font></font></p>
+<p><font FACE="Fixedsys" SIZE="1">%use_zipcode_tax = (<br>
+&nbsp;&nbsp;&nbsp; '78745',0.025,<br>
+&nbsp;&nbsp;&nbsp; '78746',0.026,<br>
+&nbsp;&nbsp;&nbsp; '78747',0.027,<br>
+&nbsp;&nbsp;&nbsp; '78748',0.028,<br>
+&nbsp;&nbsp;&nbsp; '78749',0.029,<br>
+&nbsp;&nbsp;&nbsp; '78750',0.030<br>
+);</p>
+<p>
+
+%use_state_tax = ('TX',0.0825,'CO',0.053,'CA',0.0922);</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Also, in each of the four areas there is a 
+<font color="#000080">
+<b>list of exceptions</b></font> to the Before/After rule you set above.&nbsp; If Mof finds a match in the exceptions list for that area, then the Rule is reversed.&nbsp; The prevailing rule is the one that emerges after all matching is completed in
+the four areas.&nbsp; You don't have to define any exceptions, just leave it Null if you don't need this feature.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+@exceptions_zipcode = ('78747');</p>
+<p>
+
+@exceptions_state = ('CO','TX','NZ');</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Here's a list to tax all US and Great Britain orders, each at different rates, and to reverse the Before After rule set above for Great Britain orders.&nbsp; Since our Before rule is set to in our example above ready to tax the SH and I, any US
+orders will have SH and I taxes, and any Great Britian orders will not have SH and I taxed.&nbsp; Hopefully this gives you an idea of how the SH and I rule works with the tax rate list and the exception list.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+%use_country_tax = ('US',0.022,'GB',0.015);</p>
+<p>
+
+@exceptions_country = ('GB');</p>
+<p>
+
+<br>
+</font>
+<font color="#000080" size="-1" face="Comic Sans MS">
+<b>Here's the list names</b></font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+DEFINE POSSIBLE CITIES TO TAX</p>
+<p>
+
+%use_city_tax = ();<br>
+@exceptions_city = ();</p>
+<p>
+
+DEFINE POSSIBLE POSTAL CODES TO TAX</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: make the PostalCodes text by enclosing the patter in single quotes.&nbsp; Also Mof will match on any beginning of the string for PostalCodes, since 78745 is the same as 78745-8999.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+%use_zipcode_tax = ();<br>
+@exceptions_zipcode = ();</p>
+<p>
+
+DEFINE POSSIBLE STATES TO TAX</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Note: This must be an exact match with your drop list if you are using them, otherwise you must attempt as best you can to match free user input</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+%use_state_tax = ();<br>
+@exceptions_state = ();</p>
+<p>
+
+DEFINE POSSIBLE COUNTRIES TO TAX</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Note: This must be an exact match with your drop list if you are using them, otherwise you must attempt as best you can to match free user input</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+%use_country_tax = ();<br>
+@exceptions_country = ();</p>
+</font>
+
+<p>
+
+&nbsp;
+
+<p>
+
+&nbsp;
+
+<P>&nbsp;
+<hr>
+<P><FONT FACE="Comic Sans MS"><FONT SIZE=-1>Written and produced by </FONT><B><FONT SIZE=-2>RGA@IO.COM</FONT></B><FONT SIZE=-1>
+/ <a HREF="http://www.io.com/~rga/scripts">http://www.io.com/~rga/scripts</a>
+</FONT></FONT>
+<BR><FONT FACE="Comic Sans MS"><FONT COLOR="#000080">What do you <FONT SIZE=+1>want</FONT>
+to order <FONT SIZE=+1>today</FONT>?</FONT></FONT>
+<BR><FONT FACE="Comic Sans MS"><FONT SIZE=-1>Documentation prepared July 31, 2000</FONT></FONT>
+<P><FONT FACE="Comic Sans MS"><FONT SIZE=-1>Thanks for your interest in
+</FONT><I><FONT COLOR="#800000">Merchant
+Order Form</FONT></I><FONT SIZE=-1>
+<B>v1.53 </B></FONT></FONT><FONT FACE="Wingdings"><FONT SIZE=-1>J</FONT></FONT>
+<BR>
+<font color="#808080">
+<FONT FACE="Arial,Helvetica"><b>Explore the Internet - Create the Internet</b></FONT>
+<BR>&nbsp;</font>
+<BR>
+<font size="-1" face="Comic Sans MS">
+These programs are distributed as Trial Ware or Share Ware. You are Welcome to install and test all portions of the programs. The package is not limited in any way and code source is left readable.&nbsp; Please make arrangements for the fee if you
+continue operating it on a Web Site. Feel free to contact me if you need special arrangements for use of MOF v1.53.</font>
+<P>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>For payment arrangements</b></font>: <a href="http://www.merchantorderform.com/payment.html">http://www.merchantorderform.com/payment.html</a>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+For personal web site use: $ 15.00<br>
+For web development (3-10 sites): $ 45.00, includes limited support<br>
+For web development (above 10 sites): $ 150.00, includes limited support<br>
+Note: For Resale or hosting license please contact <a href="mailto:rga@io.com">rga@io.com</a></font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Distribution of these programs and files without owner consent is prohibited. Please contact the authors of this product for any use outside the original registration and user license.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<b>COPYRIGHT NOTICE:</b><br>
+The contents of these programs and scripts are protected under the United States copyright laws as an unpublished work, and is confidential and proprietary to Austin Contract Computing, Inc.&nbsp; Its use or disclosure&nbsp; in whole or in part
+without the expressed written permission of Austin Contract Computing, Inc. is prohibited.&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<b>DISCLAIMER:</b><br>
+By opening and configuring this for your server and application you thereby assume any and all responsibility for the use and outcomes of this program. Please read the documentation on configurations, and test your installation thoroughly.&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Please do not distribute this script, as it is not a free-ware version. Please direct any non registered users of this script to the author's Web Site for details on how to obtain a registered copy of this script.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Web: <a href="http://www.merchantorderform.com/">Merchant OrderForm v1.53<br>
+</a>
+Mail: <a href="mailto:info@merchantorderform.com">info@merchantorderform.com<br>
+</a>
+Austin, Texas<br>
+July 31, 2000</font></p>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;</p>
+<P>
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+</BODY>
+</HTML>

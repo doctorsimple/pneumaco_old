@@ -1,0 +1,796 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+   <meta name="Author" content="Russell Alexander">
+   <meta name="Description" content="The complete set of Documentation for Merchant OrderForm v1.5 - WebWare written and produced by RGA">
+   <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+   <meta name="ProgId" content="FrontPage.Editor.Document">
+   <meta name="subject" content="Merchant OrderForm">
+   <meta name="Template" content="C:\MICROSOFT OFFICE\OFFICE\html.dot">
+   <TITLE>Merchant OrderForm v1.5 Documentation</TITLE>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#3333FF" VLINK="#3333FF" ALINK="#FF0000">
+<font size="4" face="Comic Sans MS">
+<b>About Configurations </b></font><font face="Comic Sans MS"><b>
+<font size="4">
+<I><FONT COLOR="#800000">Merchant Order Form</FONT></I></font></b>
+<font size="-1">
+&nbsp; version 1.53, 8/15/2000, Updated 9/15/2000</font></font>
+<BR><FONT FACE="Comic Sans MS"><FONT SIZE=-1>Copyright by </FONT><B><FONT SIZE=-2>RGA@IO.COM</FONT></B><FONT SIZE=-1>
+/ <A HREF="http://www.io.com/~rga/scripts">http://www.io.com/~rga/scripts<br>
+</A>Internet Location: <a href="http://www.merchantorderform.com">http://www.merchantorderform.com<br>
+</a>
+Use our web site for <a href="http://www.merchantorderform.com/updates.html">current issues or updates to this product</a>
+ <a href="http://www.merchantorderform.com"><br>
+</a>
+Documentation prepared July 31, 2000.
+</FONT></FONT><p><font size="-1" face="Comic Sans MS">
+This file will help you with the basics of editing Perl configuration files.&nbsp; If you are unfamiliar with installing cgi Perl scripts, then you will need to start here.&nbsp; It will save you a lot of troubleshooting later on down the road.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+The other documentation files are:</font>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS"><a href="ReadMe.html">ReadMe.html</a>
+ -- Introductory information about Merchant OrderForm</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="Installation.html">Installation.html&nbsp;</a>
+ -- Step by step instructions for installing these scripts</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="BuildingPages.html">BuildingPages.html</a>
+&nbsp;-- All about Building the Input Pages for your Store</font><li>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>AboutConfigurations.html </b></font>-- 
+<font color="#000080">
+<b>You Are Here</b></font></font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="Configurations1.html">Configurations1.html</a>
+&nbsp;-- Front End settings (Cart and Order Summary)</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="Configurations2.html">Configurations2.html</a>
+ -- Back End settings (Check out and Final invoice)</font><li>
+<font size="-1" face="Comic Sans MS"><a href="Troubleshooting.html">Troubleshooting.html</a>
+&nbsp;-- Information on error messages and troubleshooting</font>
+</ul>
+<p>
+
+T<FONT FACE="Comic Sans MS"><FONT SIZE=-1>hanks for your interest in </FONT><I><FONT COLOR="#800000">Merchant
+Order Form</FONT></I><FONT SIZE=-1>
+<B>v1.53.</B>&nbsp;</FONT></FONT>
+<p><u>
+<font size="+1" face="Comic Sans MS">
+Shareware statement</font></u>
+
+<font size="-1" face="Comic Sans MS">
+&nbsp;<br>
+<br>
+You are authorized to install, test, and explore your copy of Merchant OrderForm.  When you are satisfied that it will do the job for you, then you are expected to make arrangements for the Shareware fees.&nbsp;</font><p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#000080"><b>Payment arrangements</b></font> @ <a href="http://www.merchantorderform.com/payment.html">http://www.merchantorderform.com/payment.html</a>
+&nbsp;<br>
+<br>
+-- Or you can Send Check or Money Order To:&nbsp;</font><br>
+<br>
+<font size="-1" face="Comic Sans MS">
+        RUSSELL ALEXANDER&nbsp;<br>
+        1904 INVERNESS BLVD.&nbsp;<br>
+        AUSTIN, TEXAS 78745&nbsp;</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+
+
+-- Or you can use </font>
+
+<!-- Begin PayPal Logo -->
+<A HREF="https://secure.paypal.x.com/xclick/business=rga%40io.com&undefined_quantity=1&item_name=Merchant+OrderForm+v1.5&return=http%3A//www.merchantorderform.com/" target="_blank">
+<font size="-1" face="Comic Sans MS">
+Pay Pal</font>
+&nbsp;
+</a>
+<p>
+
+&nbsp;
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9"><FONT SIZE=+1><a name="TableContents"></a>
+Table
+of Contents for this Documentation</FONT></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT FACE="Comic Sans MS"><FONT COLOR="#800000">Merchant
+OrderForm</FONT>
+<B><FONT SIZE=-1>v</FONT></B></FONT>
+ <font size="-1" face="Comic Sans MS">
+ <b>1.53</b></font></TD>
+</TR>
+</TABLE>
+
+<ul>
+<li><b><font size="-1" face="Comic Sans MS" color="#000080"><a href="#AllAboutConfigs">About Perl Configuration Files</a></font></b>
+<font size="-1" face="Comic Sans MS">
+<br>
+How to work with the configuration files: <b>
+<font color="#000080">
+beginners start here<br>
+</font></b></font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>
+<a href="#AllAboutConfigs">
+<br>
+</a>
+</b></font>
+<ul>
+
+
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#EditingBasics">Basics of editing configuration files</a>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="#VariableRules">Rules for variables, arrays, and associative arrays</a></font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#OnOff">Simple On/Off switches</a>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="#SingleText">Single text strings</a>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="#SimpleArray">Simple array settings</a>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="#AssociativeArray">Associative array settings</a>
+</font>
+</ul>
+
+
+<p>
+
+&nbsp;
+
+
+</ul>
+
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="+1" face="Comic Sans MS">
+<a name="AllAboutConfigs"></a>About Perl configuration files</font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<P>
+<font size="-1" face="Comic Sans MS">
+Merchant OrderForm v1.53 uses two configuration files.&nbsp; The configuration files supply MOF with settings and information that govern its behavior.&nbsp; As they come in the package, both configuration files have many of MOF's settings turned
+off, to minimize installation problems.&nbsp; The idea is to get the system up and running in simple mode, and then begin to turn on features one at a time so any problems can be traced back to a particular function or setting.</font>
+<P>&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="EditingBasics"></a>
+Basics of editing configuration files</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Once your scripts are running in test mode, and you have set up your Product Input Pages, then you are ready to configure the features and settings you want to use.&nbsp; Here's some tips and rules for those of you who are not familiar with editing
+Perl configuration files.</font>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>The most important rule:</b></font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Use an ASCII editor only</font>, do not use a rich text, or fancy word processor to edit the files unless it lets you work in ASCII mode only.&nbsp; It's nice to use an ASCII editor that will store the file in Unix format, if you are working from a
+Windows machine, but usually this is not necessary.&nbsp; Most of the files are too large for the regular Windows Notepad. Therefore, you may have to find a good ASCII text editor.&nbsp; Check out the <a href="http://www.nonags.com">NoNags Web Site</a>
+.&nbsp; Don't use the Windows Word Pad, Word, or an HTML editor to edit the configuration files</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>mof15.conf</b></font> is the configuration file for the Cart Front End<br>
+<font color="#000080">
+<b>mofpayment.conf</b></font> is the configuration file for the Checkout Back End</font>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>Some other basic rules:</b></font>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+Settings are grouped together under </font>
+<font face="Fixedsys" size="1">
+CAPITALIZED HEADINGS</font>
+<font size="-1" face="Comic Sans MS">
+<br>
+Mofs settings have a Questions commented above groups of settings<br>
+Example:</font>
+<font face="Fixedsys" size="1">
+ # WHERE ARE THE DATA STORAGE FILES LOCATED ?</font></li>
+</ul>
+
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+In Perl, all comments start with the <b>#</b> character. So, when you see a line like this:</font>
+<font size="-1" face="Comic Sans MS">
+<b><br>
+</b></font>
+<font face="Fixedsys" size="1">
+# this is a comment about something</font>
+<font size="-1" face="Comic Sans MS">
+<br>
+You don't need to modify anything past the <b>#</b> character.<br>
+You're looking at notes and the Perl interpreter won't process it as code.</font></li>
+</ul>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+When modifying a setting, be very careful to leave all the punctuation intact.&nbsp; Perl is not like HTML, and it is not forgiving if you leave one little single quote off,&nbsp; or one little semicolon. The Perl interpreter won't compile the code
+if a syntax error exists.&nbsp; If you create a Perl syntax error during your editing, then you'll get an &quot;Internal Server Error&quot; when you try to run the script on your server.&nbsp; Be careful to not accidentally delete any of the single
+quotes or double quotes that surround text, or accidentally delete semicolons that end a line.</font></li>
+</ul>
+<font size="-1" face="Comic Sans MS">
+You'll find 4 types of settings in Mof's configuration files.&nbsp; The next section will explain more detail about how to work with the different types of settings.&nbsp;&nbsp;</font>
+
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="VariableRules"></a>
+Rules for scalar variables, simple arrays, and associative arrays</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+Merchant OrderForm configurations use four different types of settings.&nbsp; You can tell what type of setting it is by the very first symbol preceding the setting.&nbsp; Here's a brief table on the four types of settings.&nbsp; After the table
+we'll cover some of the more detail rules for working with these types of variables and arrays.&nbsp; If you are having trouble with a setting and creating a syntax error, the detail rules for each type of setting will help you sort through where the
+problem might be.</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>$</b></font> precedes a scalar variable (Type: 1, 2)<br>
+<font color="#000080">
+<b>@</b></font> precedes a simple array (Type: 3)<br>
+<font color="#000080">
+<b>% </b></font>precedes an associative array (Type: 4)</font>
+
+<p>
+
+&nbsp;
+
+<table border="1" cellpadding="0" cellspacing="0" width="643" height="135">
+
+<tr><td width="26" nowrap bgcolor="#F4F4F4" align="center" height="1">&nbsp;</td><td nowrap bgcolor="#F4F4F4" align="center" width="150" height="1">
+<font size="-1" face="Comic Sans MS">
+Setting Type</font></td><td bgcolor="#F4F4F4" align="center">
+<font face="Fixedsys" size="1">
+What it looks like</font>
+<font size="-1" face="Comic Sans MS">
+ /&nbsp;
+<font color="#000080">
+ How it works</font></font></td></tr>
+
+<tr><td width="26" nowrap align="center" height="19"><b>
+<font size="-1" face="Comic Sans MS" color="#000080">
+1</font></b></td><td nowrap width="150" height="19" align="center">
+<font size="-1" face="Comic Sans MS">
+On/Off switches</font>
+<p align="center">
+
+<b>
+<font face="Arial" size="4" color="#000080">
+$</font></b></td><td>
+<font face="Fixedsys" size="1">
+<br>
+$enable_cc_verify = 1;</font>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+This simply turns On (1) or Off (0) the on board credit card verification algorithms.&nbsp; You can set these to zero (off) or any positive integer (on)</font></td></tr>
+
+<tr><td width="26" nowrap align="center" bgcolor="#F4F4F4" height="18">&nbsp;</td><td nowrap bgcolor="#F4F4F4" align="center" width="150" height="18">&nbsp;</td><td bgcolor="#F4F4F4" align="center">&nbsp;</td></tr>
+
+<tr><td width="26" bgcolor="#FFFFFF" nowrap align="center" height="19"><b>
+<font size="-1" face="Comic Sans MS" color="#000080">
+2</font></b></td><td bgcolor="#FFFFFF" nowrap width="150" height="19" align="center">
+<font size="-1" face="Comic Sans MS">
+Text strings</font>
+<p align="center">
+
+<b>
+<font face="Arial" size="4" color="#000080">
+$</font></b></td><td bgcolor="#FFFFFF"><br>
+<font face="Fixedsys" size="1">
+$programfile = 'mof.cgi';</font>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+This type of setting simply identifies a string of text.&nbsp; These text settings are used for HTML tags and attributes, messages, filenames, and file pathways.&nbsp; This example identifies a file that Mof will use.</font>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+In a few rare cases, text string settings are used both to declare a text string that will be used by Mof, and as an On/Off switch. We'll point out where that is the case in the configuration help.</font></td></tr>
+
+<tr><td width="26" nowrap align="center" bgcolor="#F4F4F4" height="18">&nbsp;</td><td nowrap bgcolor="#F4F4F4" align="center" width="150" height="18">&nbsp;</td><td bgcolor="#F4F4F4" align="center">&nbsp;</td></tr>
+
+<tr><td width="26" nowrap align="center" height="19"><b>
+<font color="#000080">
+3</font></b></td><td nowrap width="150" height="19" align="center">
+<font size="-1" face="Comic Sans MS">
+Simple array settings</font>
+<p align="center">
+
+<b>
+<font face="Arial" size="4" color="#000080">
+@</font></b></td><td><br>
+<font face="Fixedsys" size="1">
+@field_validation = ('HatColor','HatSize');</font>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+This is a simple array.&nbsp; It stores elements in a list.&nbsp; Mof uses the list to process stuff.&nbsp; This example is taken from the section on how to&nbsp; set up User Selected Input Options for a product.&nbsp; It simply identifies that both </font>
+<font face="Fixedsys" size="1">
+HatColor</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+ and </font>
+<font face="Fixedsys" size="1">
+HatSize</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+ should be required input for a product.</font></td></tr>
+
+<tr><td width="26" bgcolor="#F4F4F4" nowrap align="center" height="18">&nbsp;</td><td bgcolor="#F4F4F4" nowrap align="center" width="150" height="18">&nbsp;</td><td bgcolor="#F4F4F4" align="center">&nbsp;</td></tr>
+
+<tr><td width="26" bgcolor="#FFFFFF" nowrap align="center" height="19"><b>
+<font color="#000080">
+4</font></b></td><td bgcolor="#FFFFFF" nowrap width="150" height="19" align="center">
+<font size="-1" face="Comic Sans MS">
+Associative arrays</font>
+<p align="center">
+
+<b>
+<font face="Arial" size="4" color="#000080">
+%</font></b></td><td bgcolor="#FFFFFF">
+<font face="Fixedsys" size="1">
+<br>
+%product_fields = ('HatColor','Selected Hat Color',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'HatSize','Selected Hat Size');</font>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+This is an associative array.&nbsp; These types of arrays make two column lists where the item in the first column is paired to the item in the second column.&nbsp; This example </font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+is taken from the section on how to&nbsp; set up User Selected Input Options for a product.&nbsp;&nbsp;</font>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+These arrays act like </font>
+<font size="-1" face="Comic Sans MS">
+name=value</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+ pairs, </font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+pairing the string </font>
+<font face="Fixedsys" size="1">
+Selected Hat Color</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+ with the element </font>
+<font face="Fixedsys" size="1">
+HatColor</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+.&nbsp; Mof uses this list to do two things:</font>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+First, to help it look for and process any User Selected Input for a product, and second, to provide a short description of that option.</font></td></tr>
+</table>
+
+<p>
+
+&nbsp;
+
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="OnOff"></a>
+Simple On/Off switches&nbsp; $</b></font>
+</TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<P>
+<font size="-1" face="Comic Sans MS">
+Stick to the syntax rules that you find already in place for a setting.&nbsp; If it is surrounded by single quotes, double quotes, or no quotes, then use that same syntax.&nbsp; Remember that the line always ends with the semicolon.</font><P>
+<font size="-1" face="Comic Sans MS">
+A simple On/Off switch is On (positive number) or Off (0) (Null)<br>
+</font>
+<font face="Fixedsys" size="1">
+$tax_before_SHI = 0;</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+&nbsp; -- Off</font>
+<font face="Fixedsys" size="1">
+<br>
+$tax_before_SHI = 1;</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+&nbsp; -- On</font>
+
+<P>
+<font size="-1" face="Comic Sans MS">
+These types of settings can be both: On/Off switch and contain usable information:</font><br>
+<font face="Fixedsys" size="1">
+$use_global_tax = 0;</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+&nbsp; -- Off</font>
+<font face="Fixedsys" size="1">
+<br>
+$use_global_tax = 0.825;</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+&nbsp; -- Enables a global tax rate of 8.25 %</font>
+
+<P>
+<font size="-1" face="Comic Sans MS">
+Here's an On/Off setting that contains usable text </font>
+<font size="-1" face="Comic Sans MS">
+information</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<br>
+</font>
+<font face="Fixedsys" size="1">
+$identify_tax_items = "&lt;font size=1 color=gray>Tax&lt;/font>";</font><P>
+<font size="-1" face="Comic Sans MS">
+The above setting not only turns on the feature, but also tells Mof how to print an identifier for taxable or non taxable items.</font><P>
+<font size="-1" face="Comic Sans MS">
+If you wanted to turn Off that feature it would look like this:</font>
+<font face="Fixedsys" size="1">
+<br>
+$identify_tax_items = "&quot;;&nbsp;</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+ -- Null</font>
+
+<P>&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="SingleText"></a>
+Single text strings&nbsp; $</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<P>
+<font size="-1" face="Comic Sans MS">
+Stick to the syntax rules that you find already in place for a setting.&nbsp; If it is surrounded by single quotes, double quotes, or no quotes, then use that same syntax.&nbsp; Remember that the line always ends with the semicolon.</font>
+
+<P>
+<font size="-1" face="Comic Sans MS">
+These types of settings can identify a filename</font><br>
+<font face="Fixedsys" size="1">
+$use_country_list = "countries.txt";</font>
+
+<P>
+<font size="-1" face="Comic Sans MS">
+These types of settings can identify html attributes:</font><br>
+<font face="Fixedsys" size="1">
+$font_preview_titles = '&lt;font face="Arial, Helvetica" size=2>';</font><P>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: the example above uses single quotes to surround a text string.&nbsp; When single quotes are used then everything between them is treated as exact text.&nbsp; So, although the embedded double quotes are Perl sensitive characters, it
+works because single quotes tell Perl to treat everything as text.</font><P>
+<font size="-1" face="Comic Sans MS">
+Here's another example of an html setting, but surrounded in double quotes:</font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+$action_message_s = &quot;&lt;font face=\&quot;Arial,Helvetica\&quot; size=2 color=navy&gt;&quot;;</font><P>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: if any of these type settings surrounded by double quotes use special characters within the double quotes, then the Perl escape character must precede any occurrence of a special character.&nbsp; The above example must precede the inside
+use of a double quote with the backward slash.&nbsp; This tells Perl to treat the very next character as text.&nbsp; Otherwise, Perl would be looking at a broken string, not knowing what to do with 4 sets of double quotes on a single line.&nbsp; This
+is a common oversight with beginners.</font>
+
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="SimpleArray"></a>
+Simple array settings&nbsp; @</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+Simple arrays are lists of elements</font><li>
+<font size="-1" face="Comic Sans MS">
+The whole list of elements are enclosed within parentheses (&nbsp; )</font><li>
+<font size="-1" face="Comic Sans MS">
+Each element in the list is separated by a comma</font><li>
+<font size="-1" face="Comic Sans MS">
+If an element will be text, then you should surround it in single quotes</font><li>
+<font size="-1" face="Comic Sans MS">
+If an element is numeric, then no quotes are needed</font><li>
+<font size="-1" face="Comic Sans MS">
+The very last element in your list does not have a comma after it</font><li>
+<font size="-1" face="Comic Sans MS">
+The very first element in your list does not have a comma preceding it</font><li>
+<font size="-1" face="Comic Sans MS">
+End the whole array with the semicolon</font>
+</ul>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+An array setting can have one element:</font><br>
+<font face="Fixedsys" size="1">
+@use_shipping = ('custom');</font><p>
+<font size="-1" face="Comic Sans MS">
+Or it can have multiple elements of both text and numbers</font><br>
+<font face="Fixedsys" size="1">
+@use_shipping = ('weight',0,0,1);</font>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Notice</font> the rules of surrounding the text in single quotes, numbers without quotes, separated by commas, enclosed in parentheses.</font><p>
+<font size="-1" face="Comic Sans MS">
+You don't have to keep everything on one line, you can break it all up on individual lines.&nbsp; Perl allows for liberal white space if it will help you make things more readable.&nbsp; All rules described above appear in the following example, yet
+each element is placed on a different line, making it more readable.&nbsp; Remember to end the list with the ending parenthesis and semicolon </font>
+<font face="Fixedsys" size="1">
+);</font>
+
+<p>
+
+<font face="Fixedsys" size="1">
+@field_validation=('HatColor',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'HatSize',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'PropellerColor',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'BandType');</font><p>
+<font size="-1" face="Comic Sans MS">
+Here's a list of US states and Canadian Provinces.&nbsp; This example sets all these states and provinces as domestic for shipping computations.</font>
+
+<p>
+
+<font face="Fixedsys" size="1">
+@domestic_state = ('AL','AZ','AR','CA','CO','CT','DE','DC','FL','GA','ID','IL','IN',<br>
+'IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV',<br>
+'NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN',<br>
+'TX','UT','VT','VA','WA','WV','WI','WY','AB','BC','MB','NB','NF','NS',<br>
+'ON','PQ','SK');<br>
+</font>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="AssociativeArray"></a>
+Associative array settings&nbsp; %</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+Associative arrays are lists of name=value pairs</font><li>
+<font size="-1" face="Comic Sans MS">
+The whole list of elements are enclosed within parentheses (&nbsp; )</font><li>
+<font size="-1" face="Comic Sans MS">
+The name and value in the list is separated by a comma</font><li>
+<font size="-1" face="Comic Sans MS">
+And The pairs of name,value are seperated by a comma</font><li>
+<font size="-1" face="Comic Sans MS">
+If an element will be text, then you should surround it in single quotes</font><li>
+<font size="-1" face="Comic Sans MS">
+If an element is numeric, then no quotes are needed</font><li>
+<font size="-1" face="Comic Sans MS">
+The very last element in your list does not have a comma after it</font><li>
+<font size="-1" face="Comic Sans MS">
+The very first element in your list does not have a comma preceding it</font><li>
+<font size="-1" face="Comic Sans MS">
+End the whole array with the semicolon</font>
+</ul>
+<p>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Important</font>: When making these types of arrays, you must always keep order with your name=value pairs.&nbsp; To explain:&nbsp; Perl will read the associative array beginning with the first item in your list, the next item in the list is paired
+with the first .. the third item is paired with the fourth .. the fifth is paired with the sixth .. and so on.&nbsp; If you have your pairings mixed up then you will get unexpected results.</font><p>
+<font size="-1" face="Comic Sans MS">
+Here's an example from the tax settings:</font>
+<font face="Fixedsys" size="1">
+<br>
+%use_state_tax = ('TX',0.0825,'CO',0.053,'CA',0.0922);<br>
+<br>
+</font>
+<font size="-1" face="Comic Sans MS">
+This example sets up the following tax rates for different states<br>
+(Texas)&nbsp; TX = 8.25 percent<br>
+(Colorado) CO = 5.3 percent<br>
+(California) CA = 6.22 percent</font><p>
+<font size="-1" face="Comic Sans MS">
+You can see the pairings thusly:<br>
+Item 1 paired to Item 2<br>
+Item 3 paired to Item 4<br>
+Item 5 paired to Item 6 ...</font><p>
+<font size="-1" face="Comic Sans MS">
+Here's an example using the shipping configurations.&nbsp; This setting instructs Mof what fields to list for shipping, and if that field is required or not.&nbsp; It also acts as the overall On/Off switch for using the whole shipping information and
+computations.&nbsp; In a few short lines, this settings is able to supply Mof with some very complex instructions for handling shipping information input.&nbsp;</font>
+
+<p>
+
+<font face="Fixedsys" size="1">
+%shipping_destination_fields = (<br>
+&nbsp;&nbsp;&nbsp; 'Ecom_ShipTo_Postal_Name_Prefix',0,<br>
+&nbsp;&nbsp;&nbsp; 'Ecom_ShipTo_Postal_Name_First',2,<br>
+&nbsp;&nbsp;&nbsp; 'Ecom_ShipTo_Postal_Name_Middle',0,<br>
+&nbsp;&nbsp;&nbsp; 'Ecom_ShipTo_Postal_Name_Last',2,<br>
+&nbsp;&nbsp;&nbsp; 'Ecom_ShipTo_Postal_Name_Suffix',0,<br>
+&nbsp;&nbsp;&nbsp; 'Ecom_ShipTo_Postal_Street_Line1',4,<br>
+&nbsp;&nbsp;&nbsp; 'Ecom_ShipTo_Postal_Street_Line2',0,<br>
+&nbsp;&nbsp;&nbsp; 'Ecom_ShipTo_Postal_Company',0,<br>
+&nbsp;&nbsp;&nbsp; 'Ecom_ShipTo_Postal_City',2,<br>
+&nbsp;&nbsp;&nbsp; 'Ecom_ShipTo_Postal_StateProv',2,<br>
+&nbsp;&nbsp;&nbsp; 'Ecom_ShipTo_Postal_PostalCode',4,<br>
+&nbsp;&nbsp;&nbsp; 'Ecom_ShipTo_Postal_CountryCode',2,<br>
+&nbsp;&nbsp;&nbsp; 'Ecom_ShipTo_Telecom_Phone_Number',0,<br>
+&nbsp;&nbsp;&nbsp; 'Ecom_ShipTo_Online_Email',0<br>
+	);</font>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Notice</font> all the rules are followed: surrounding the text in single quotes, numbers without quotes, separated by commas, enclosed in parentheses, ending in semicolon.&nbsp; We even placed each name=value pair on a separate line for readability.</font><p>
+<font size="-1" face="Comic Sans MS">
+Here's a last example taken from the tax settings.&nbsp; This setting identifies different tax rates for specific postal code areas.&nbsp; What's a little different about this one is that the zip code looks like a number, but is surrounded in single
+quotes--meaning it is actually treated like text.&nbsp; This is very important, because Mof uses this list to match zip code areas that may not always be numbers for different countries.&nbsp; Mof also uses this pattern to match the starting string,
+which could not be done with numbers</font>
+
+<p>
+
+<font face="Fixedsys" size="1">
+%use_zipcode_tax = (<br>
+&nbsp;&nbsp;&nbsp; '78745',0.025,<br>
+&nbsp;&nbsp;&nbsp; '78746',0.026,<br>
+&nbsp;&nbsp;&nbsp; '78747',0.027,<br>
+&nbsp;&nbsp;&nbsp; '78748',0.028,<br>
+&nbsp;&nbsp;&nbsp; '78749',0.029,<br>
+&nbsp;&nbsp;&nbsp; '78750',0.030<br>
+	);</font><br>
+
+<p>
+
+&nbsp;
+
+<P>&nbsp;
+<hr>
+<P><FONT FACE="Comic Sans MS"><FONT SIZE=-1>Written and produced by </FONT><B><FONT SIZE=-2>RGA@IO.COM</FONT></B><FONT SIZE=-1>
+/ <a HREF="http://www.io.com/~rga/scripts">http://www.io.com/~rga/scripts</a>
+</FONT></FONT>
+<BR><FONT FACE="Comic Sans MS"><FONT COLOR="#000080">What do you <FONT SIZE=+1>want</FONT>
+to order <FONT SIZE=+1>today</FONT>?</FONT></FONT>
+<BR><FONT FACE="Comic Sans MS"><FONT SIZE=-1>Documentation prepared July 31, 2000</FONT></FONT>
+<P><FONT FACE="Comic Sans MS"><FONT SIZE=-1>Thanks for your interest in
+</FONT><I><FONT COLOR="#800000">Merchant
+Order Form</FONT></I><FONT SIZE=-1>
+<B>v1.53 </B></FONT></FONT><FONT FACE="Wingdings"><FONT SIZE=-1>J</FONT></FONT>
+<BR>
+<font color="#808080">
+<FONT FACE="Arial,Helvetica"><b>Explore the Internet - Create the Internet</b></FONT>
+<BR>&nbsp;</font>
+<BR>
+<font size="-1" face="Comic Sans MS">
+These programs are distributed as Trial Ware or Share Ware. You are Welcome to install and test all portions of the programs. The package is not limited in any way and code source is left readable.&nbsp; Please make arrangements for the fee if you
+continue operating it on a Web Site. Feel free to contact me if you need special arrangements for use of MOF v1.53.</font>
+<P>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>For payment arrangements</b></font>: <a href="http://www.merchantorderform.com/payment.html">http://www.merchantorderform.com/payment.html</a>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+For personal web site use: $ 15.00<br>
+For web development (3-10 sites): $ 45.00, includes limited support<br>
+For web development (above 10 sites): $ 150.00, includes limited support<br>
+Note: For Resale or hosting license please contact <a href="mailto:rga@io.com">rga@io.com</a></font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Distribution of these programs and files without owner consent is prohibited. Please contact the authors of this product for any use outside the original registration and user license.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<b>COPYRIGHT NOTICE:</b><br>
+The contents of these programs and scripts are protected under the United States copyright laws as an unpublished work, and is confidential and proprietary to Austin Contract Computing, Inc.&nbsp; Its use or disclosure&nbsp; in whole or in part
+without the expressed written permission of Austin Contract Computing, Inc. is prohibited.&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<b>DISCLAIMER:</b><br>
+By opening and configuring this for your server and application you thereby assume any and all responsibility for the use and outcomes of this program. Please read the documentation on configurations, and test your installation thoroughly.&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Please do not distribute this script, as it is not a free-ware version. Please direct any non registered users of this script to the author's Web Site for details on how to obtain a registered copy of this script.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Web: <a href="http://www.merchantorderform.com/">Merchant OrderForm v1.53<br>
+</a>
+Mail: <a href="mailto:info@merchantorderform.com">info@merchantorderform.com<br>
+</a>
+Austin, Texas<br>
+July 31, 2000</font></p>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;</p>
+<P>
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+</BODY>
+</HTML>

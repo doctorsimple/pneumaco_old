@@ -1,0 +1,755 @@
+/************** layout **************/
+body{	 
+	margin-left: 20px;
+	margin-top: 10px;
+	margin-right: 20px;
+	margin-bottom: 50px;	 
+	font-family: Arial,sans-serif;
+	color: #333333;
+	line-height: 1.166;	
+}
+/******* hyperlink and anchor tag styles *******/
+a:link, a:visited{
+	color: #005FA9;
+	text-decoration: none;
+}
+a:hover{
+	color: #EDEDED;
+	text-decoration: none;
+}
+FORM { margin-bottom:0; margin-top:0 }
+
+
+.example {	
+	padding-right: 9px;
+	color: #9F9D9D;
+ 	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	font-style: normal;	
+}
+
+
+TD.lineLeft {
+	height: 26px;	
+	border-bottom-width: 2px;
+	border-bottom-color: #D7D7D7;	 
+	border-bottom-style: solid;
+	background-color: #DFF0FF;
+	border-left-width: 1px;
+	border-left-color: #578BEA;	 
+	border-left-style: solid;
+ }
+TD.lineRight {	
+	height: 26px;		
+	border-bottom-width: 2px;
+	border-bottom-color: #D7D7D7;	 
+	border-bottom-style: solid;
+	background-color: #DFF0FF;
+	border-right-width: 1px;
+	border-right-color: #578BEA;	 
+	border-right-style: solid;
+ }
+TD.lineBottom {	
+	height: 26px;		
+	background-color: #DFF0FF;
+	border-bottom-width: 2px;
+	border-bottom-color: #D7D7D7;	 
+	border-bottom-style: solid;
+ }							 
+TD.lineHeader {	
+ 	font-family: Arial, Helvetica, sans-serif;
+	letter-spacing: 1.2px;
+	font-size: 12px;
+	font-weight: bold;
+	font-style: normal;	  
+	vertical-align: middle;
+	color: Black;
+	text-shadow: #FFEFD5;
+ 	padding-left: 122px;	 
+	height: 26px;		
+	background: #DFF0FF;	 
+	background-image: url("images/topbak.jpg");
+	background-repeat: no-repeat;
+	background-position: left;
+	border-bottom-width: 2px;
+	border-bottom-color: #D7D7D7;	 
+	border-bottom-style: solid; 
+	border-left-width: 1px;
+	border-left-color: #578BEA;	 
+	border-left-style: solid;
+	border-right-width: 1px;
+	border-right-color: #578BEA;	 
+	border-right-style: solid;
+
+ }
+TD.columns {
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;	
+	text-align: left;
+	vertical-align: top;
+	border-left-width: 1px;
+	border-left-color: #578BEA;	 
+	border-left-style: solid;
+ }
+TD.whatsnew {	
+	text-align: left;
+	vertical-align: top;
+	border-left-width: 1px;
+	border-left-color: #578BEA;	 
+	border-left-style: solid;
+ }
+TD.body {	 
+	text-align:left;
+	padding: 5px 5px 5px 5px;
+	width: 100%;
+	background-color: #F7F8FD;
+	border-right-width: 1px;
+	border-right-color: #578BEA;	 
+	border-right-style: solid;
+ }
+TD.topBkgd {
+	background-image: url("images/moflogobk.gif");
+}
+TD.tl {		 
+	background-image: url("images/bgimg.gif");
+	padding: 0px 0px 0px 0px;
+	vertical-align: top;
+	text-align: left;		
+}
+TD.tr { 
+	background-image: url("images/bgimg.gif");
+	padding: 0px 0px 0px 0px;
+	vertical-align: top;
+	text-align: right;
+}		
+
+TD.view {
+	border-right-style: double;
+	border-right-width: 3px;
+	padding-left: 12px;
+	padding-right: 12px;
+	border-color: #BCC7D1;
+}
+
+/************** content tag styles **************/
+TABLE.content {		 
+	text-align: left;	
+
+ }
+TD.content {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: Black;
+	border-color: #D6E1FD;	 
+	border-style: solid;
+	border-width: 1px 1px 1px 1px;
+	background-color: #F8F8F8;	
+	padding: 10px 10px 10px 10px;
+}
+TD.rightcontent {
+	border-color: #DCDCDC #DCDCDC #DCDCDC #DCDCDC;	 
+	border-style: solid solid solid solid;
+	border-width: 1px 2px 2px 1px;
+	background-color: #F8F8F8;	
+	background-image: url("images/rightbak120.jpg");
+	background-repeat: no-repeat;
+	background-position: top;
+	padding: 0px 0px 0px 0px;		  
+	vertical-align: bottom;
+}
+.title {
+     font: bold 10pt Verdana, sans-serif; 
+     color: Black;
+}
+.text	  {
+	font-family: Verdana,sans-serif;	
+	font-weight: normal;
+	font-size: 10pt;
+	font-style: normal;	
+}
+
+ 
+/************** TABS for Top Example # 1 **************/
+TABLE.tabs {	
+	width: 601px;	 
+	border: 	 0px 0px 0px 0px;	
+	padding: 0px 0px 0px 0px;	
+	margin: 0px 0px 0px 0px;	 	
+ }
+TD.tabHead1 {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: Black;
+	font-style: normal;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+	border-width: 0px 0px 0px 0px;
+	width: 200px;
+	height: 22px;
+	background-image: url("images/toptab200.gif");
+	background-repeat: no-repeat;
+	background-position: top;
+}
+TD.tabHead2 {
+	width: 401px;
+	height: 22px;
+	border-width: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;	
+
+}
+TD.tabBodytop {	
+	width: 601px;
+	height: 10px;	
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 2px;
+	border-color: #D6E1FD;	
+	border-style: solid;
+	border-width: 0px 0px 0px 1px;
+	padding: 0px 0px 0px 10px; 
+	background-image: url("images/tabs60022a.gif");
+	background-position: top;
+	background-repeat: no-repeat;
+}
+TD.tabBodymid {	
+	width: 601px;	
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: Black;
+	border-color: #D6E1FD;	
+	background-color: #F8F8F8;
+	border-style: solid;
+	border-width: 0px 1px 0px 1px;
+	padding: 0px 10px 0px 10px; 
+}
+TD.tabBodybot {	
+	width: 601px;
+	height: 10px;		
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 2px;	
+	border-color: #D6E1FD;	
+	border-style: solid;
+	border-width: 0px 0px 0px 1px;
+	padding: 0px 0px 0px 0px; 
+	background-image: url("images/tabs60022b.gif");
+	background-position: bottom;
+	background-repeat: no-repeat;
+}
+/************** TABS for Top Example # 2 **************/
+/************** First 4 classes can be reused *****/
+TABLE.tabtbl {	
+	width: 601px;	 
+	border: 	 0px 0px 0px 0px;	
+	padding: 0px 0px 0px 0px;	
+	margin: 0px 0px 0px 0px;	 	
+ }
+TD.tabcutra {
+	width: 446px;
+	height: 22px;
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 2px;
+	border-width: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 10px;  
+
+}
+TD.tabcutrb {
+	width: 446px;
+	height: 10px;
+	border-width: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;	
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 2px;
+	border-width: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 10px;  
+	background-image: url("images/tabrow.gif");
+	background-position: right;
+	background-repeat: no-repeat;
+}
+TD.tabtext {	
+	width: 601px;	
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: Black;
+	border-color: #D6E1FD;	
+	background-color: #F8F8F8;
+	border-style: solid;
+	border-width: 0px 1px 0px 1px;
+	padding: 8px 10px 0px 10px; 
+}
+TD.tabbottom {	
+	width: 601px;
+	height: 12px;
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 2px;
+	border-width: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 10px;  
+	background-image: url("images/tabbottom.gif");
+	background-position: bottom;
+	background-repeat: no-repeat;
+}/************** Requires 4 seperate TD-TR classes *****/ 
+/************** TD-TR classes For # 1 *****/ 
+TD.tabcut1a {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: Black;
+	font-style: normal;
+	font-weight: bold;
+	text-align: left;
+	text-indent: 70px;
+	vertical-align: middle;
+	border-width: 0px 0px 0px 0px;
+	width: 155px;
+	height: 22px;
+	background-image: url("images/tabcut1a.gif");	
+	background-repeat: no-repeat;
+	background-position: top;
+}
+TD.tabcut1b {
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 2px; 
+	border-width: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 10px;  
+	width: 155px;
+	height: 10px;
+ 	background-image: url("images/tabcut1b.gif");
+	background-repeat: no-repeat;
+	background-position: top;
+}
+
+/************** TD-TR classes For # 2 *****/
+TD.tabcut2a {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: Black;
+	font-style: normal;
+	font-weight: bold;
+	text-align: left;
+	text-indent: 70px;
+	vertical-align: middle;
+	border-width: 0px 0px 0px 0px;
+	width: 155px;
+	height: 22px;
+	background-image: url("images/tabcut2a.gif");	
+	background-repeat: no-repeat;
+	background-position: top;
+}
+TD.tabcut2b {
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 2px; 
+	border-width: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 10px;  
+	width: 155px;
+	height: 10px;
+ 	background-image: url("images/tabcut2b.gif");
+	background-repeat: no-repeat;
+	background-position: top;
+}
+/************** TD-TR classes For # 3 *****/	
+TD.tabcut3a {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: Black;
+	font-style: normal;
+	font-weight: bold;
+	text-align: left;
+	text-indent: 70px;
+	vertical-align: middle;
+	border-width: 0px 0px 0px 0px;
+	width: 155px;
+	height: 22px;
+	background-image: url("images/tabcut3a.gif");	
+	background-repeat: no-repeat;
+	background-position: top;
+}
+TD.tabcut3b {
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 2px; 
+	border-width: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 10px;  
+	width: 155px;
+	height: 10px;
+ 	background-image: url("images/tabcut3b.gif");
+	background-repeat: no-repeat;
+	background-position: top;
+}
+TD.tabtext3 {	
+	width: 601px;	
+	text-align: left;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	color: #007301;
+	border-color: #D6E1FD;	
+	background-color: #F8F8F8;
+	border-style: solid;
+	border-width: 0px 1px 0px 1px;
+	padding: 8px 10px 0px 10px; 
+}
+/************** TD-TR classes For # 4 *****/ 
+TD.tabcut4a {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: Black;
+	font-style: normal;
+	font-weight: bold;
+	text-align: left;
+	text-indent: 70px;
+	vertical-align: middle;
+	border-width: 0px 0px 0px 0px;
+	width: 155px;
+	height: 22px;
+	background-image: url("images/tabcut4a.gif");	
+	background-repeat: no-repeat;
+	background-position: top;
+}
+TD.tabcut4b {
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 2px; 
+	border-width: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 10px;  
+	width: 155px;
+	height: 10px;
+ 	background-image: url("images/tabcut4b.gif");
+	background-repeat: no-repeat;
+	background-position: top;
+}
+/************** END TABS ***********************/
+/************** footer tag styles **************/
+.FooterText {
+	color : #5D5D5D;
+	font-family : Arial,Helvetica,Sans-serif;
+	font-size : 10px;
+}
+.footer {
+	background-image: url("images/mofbottombk.gif");
+	border-bottom-width: 1px;
+	border-bottom-color: #578BEA;	 
+	border-bottom-style: solid;
+ 	font-family: Verdana,Helvetica,sans-serif;
+	font-size: 9px;
+	font-weight: bold;
+	color: White;
+}
+.footer a:link, .footer a:visited {
+ 	font-family: Verdana,Helvetica,sans-serif;
+	font-size: 9px;
+	font-weight: bold;
+	color: White;
+}
+
+.footer a:hover{
+	color: White;
+	text-decoration: underline;
+}
+/************ topLinks, sectionLinks styles **************/	 
+#pageNav{
+	float: left;
+	width:110px;
+	padding: 0px;
+	margin: 0px;
+	background-color: White;
+	border-right: 0px solid #cccccc;
+	border-bottom: 0px solid #cccccc;
+}
+#topLinks{	
+	text-align: left;
+	margin: 0px;
+	padding: 0px;
+	white-space: nowrap;
+	text-indent: 8px;	
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	font-style: normal;
+	font-weight: bolder;		
+	background-color: #F8F8F8;
+}
+#topLinks a:link, #topLinks a:visited { 
+	display: block;
+	border-top: 1px solid #ffffff;
+	border-bottom: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+	font-weight: bold;
+	padding: 4px 0px 4px 0px;	
+	color: #2A5276;
+}
+#topLinks a:hover{
+	border-top: 1px solid #cccccc; 
+	border-bottom: 1px solid #cccccc;
+	border-right: 0px;
+	background-color: #F7F8FD;	
+ 	font-weight: bold;
+	text-decoration: none;
+}
+#sectionLinks{
+	text-align: left;
+	margin: 0px;
+	padding: 0px;
+	white-space: nowrap;
+	text-indent: 28px;	
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	font-style: normal;
+	font-weight: bolder;
+}
+#sectionLinks a:link {	 
+	display: block;
+	border-top: 1px solid #ffffff;
+	border-bottom: 1px solid #cccccc;
+	background-image: url("images/navoff.jpg");	
+	border-right: 1px solid #cccccc;
+	font-weight: bold;
+	padding: 5px 0px 5px 0px;	
+	color: #2A5276;
+}
+#sectionLinks a:visited {	 
+	display: block;
+	border-top: 1px solid #ffffff;
+	border-bottom: 1px solid #cccccc;
+	background-image: url("images/navisited.jpg");	
+	border-right: 1px solid #cccccc;
+	font-weight: bold;
+	padding: 5px 0px 5px 0px;	
+	color: #9B9B9B;
+}
+#sectionLinks a:hover{ 
+	color: #2A5276;
+	border-top: 1px solid #ffffff; 
+	border-right: 0px;
+	background-color: #F7F8FD;	
+ 	background-image: url("images/navopen.jpg");	
+ 	font-weight: bold;
+	text-decoration: none;
+}
+#noLink {
+	border-right: 0px; 
+	display: block;
+	border-top: 1px solid #ffffff;
+	border-bottom: 1px solid #cccccc;
+	background-color: #F7F8FD;	
+ 	background-image: url("images/navnow.jpg");	
+ 	font-weight: bold;
+	text-decoration: none;
+	padding: 5px 0px 5px 0px;	
+	color: #2A5276;
+}
+#noTopLink {
+	white-space: nowrap;
+	text-indent: 28px;	
+	border-right: 0px; 
+	display: block;
+	border-top: 1px solid #ffffff;
+	border-bottom: 1px solid #cccccc;
+	background-color: #F7F8FD;	
+ 	background-image: url("images/navnowtop.jpg");	
+ 	font-weight: bold;
+	text-decoration: none; 
+	padding: 6px 0px 6px 0px;	
+	color: #2A5276;
+}
+#bottomNav{
+	padding: 0px;
+	background-color: White;  
+	border-bottom: 0px solid #cccccc;
+	text-align: center;
+}
+#spaceNav {	
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	background-color: #DCDCDC;
+	border-right: 1px solid #cccccc;
+	border-bottom: 0px solid #cccccc;	
+	text-align: center;	
+	vertical-align: middle;	 
+	white-space: nowrap;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 4px;
+	font-style: normal;
+	font-weight: normal;
+}
+#iconLinks{	 
+ 	padding: 2px 2px 2px 2px;
+	margin: 0px;
+	padding: 0px;
+	white-space: nowrap;	 
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #005FA9;
+	text-decoration: none;
+	border-left: 1px;
+	border-left-color: #F8F8F8; 
+	border-left-style: solid;
+	border-top: 1px;
+	border-top-color: #F8F8F8; 
+	border-top-style: solid;
+	border-right: 1px;
+	border-right-color: #F8F8F8; 
+	border-right-style: solid;
+	border-bottom: 1px;
+	border-bottom-color: #F8F8F8; 
+	border-bottom-style: solid;
+}
+#iconLinks a:link, #iconLinks a:visited {
+ 	padding: 2px 2px 2px 2px;	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #005FA9;
+	text-decoration: none;	
+	border-left: 1px;
+	border-left-color: #F8F8F8; 
+	border-left-style: solid;
+	border-top: 1px;
+	border-top-color: #F8F8F8; 
+	border-top-style: solid;
+	border-right: 1px;
+	border-right-color: #F8F8F8; 
+	border-right-style: solid;
+	border-bottom: 1px;
+	border-bottom-color: #F8F8F8; 
+	border-bottom-style: solid;
+}
+#iconLinks a:hover{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #006637;
+	text-decoration: none;
+	background-color: #FFFFF2;
+ 	padding: 2px 2px 2px 2px;
+	border-left: 1px;
+	border-left-color: #DCDCDC;
+	border-left-style: solid;
+	border-top: 1px;
+	border-top-color: #5A5A5A;
+	border-top-style: solid;
+	border-right: 1px;
+	border-right-color: #778899;
+	border-right-style: solid;
+	border-bottom: 1px;
+	border-bottom-color: #778899;
+	border-bottom-style: solid;
+}
+
+
+/********* Imported from old CSS examples ***************/	
+a:link, a:visited{
+	color: #005FA9;
+	text-decoration: none;
+}
+a:hover{
+ 	color: #9F0024;
+	text-decoration: underline;  
+}
+#StoryText {color: darkgreen}
+.SmTxt {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: Black;
+}
+P.SmTxtPBK {	  
+	background-color: #E3F2FF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: Black;
+}
+.SmBlack {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: Black; 
+	font-weight: bold;
+}
+.SmMaroon {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: Maroon;	  
+	font-weight: bold;
+}
+.SmWhite {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: White;	  
+	font-weight: bold;
+}
+.menu	  {
+	font-family: Verdana,sans-serif;	
+	font-weight: normal;
+	font-size: 7pt;
+	font-style: normal;	
+}
+.SmCart {
+	background: transparent;
+}
+.SmCart:HOVER {
+	background: #ECFFD9;
+}
+.CodeFormat {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	color: #009500;
+}
+.BoxTwoFormat {
+	width : 200px;
+}
+.TextBoxFormat {
+	background-color : #F5F5F5;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12px;	  
+	font-weight: bold;
+	text-align : center;
+	visibility : visible;
+	border : thin solid #578BEA;
+}
+.SmallBoxFormat {
+	width : 35px;
+	background-color : #F5F5F5;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12px;		
+	font-weight: bold;
+	text-align : center;
+	visibility : visible;
+	border : thin solid #578BEA;
+}
+.TextAreaBoxFormat {
+	width : 500px;
+	height : 100px;
+	background-color : #F5F5F5;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12px;		  
+	font-weight: bold;
+	text-align : left;
+	visibility : visible;
+	border : thin solid #578BEA;
+}
+.BoxAreaFormat {
+	width : 500px;
+	background-color : #F8F8F8;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12px;		 
+	font-weight: bold;
+	text-align : left;
+	visibility : visible;
+
+}
+.ButtonFormat {
+	background-color : #F5F5F5;
+	border : 2px solid #336699;
+	width : 100px;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	text-align : center;
+	visibility : visible;
+	border-color : #578BEA;
+}
+
+
+						 

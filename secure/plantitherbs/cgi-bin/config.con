@@ -1,0 +1,30 @@
+# The line below lets Soupermail know who to send the message
+# to. Its actually the value of the Email field from the form
+mailto   : plantit@frognet.net
+
+# this sets the subject of the email
+subject: Someone Has Ordered
+
+# This is a user to encrypt to in the pubring keyring
+pgpuserid: plantit@frognet.net
+
+# See whether to send the message in PGP/MIME format
+unless: (pgpmime) then pgpmime: no
+
+#These are the required fields
+required: billing_name
+required: billing_address
+required: billing_city
+required: billing_state
+required: billing_zip
+required: ccn
+required: cce
+
+# If a required field is missing
+failure : failiure.htm
+
+# send mail using this template
+mailtemplate: success.txt
+
+# show this page on success
+gotosuccess : https://www.frognet.net/plantitherbs/success.htm

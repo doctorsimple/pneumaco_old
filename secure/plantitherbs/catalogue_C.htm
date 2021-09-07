@@ -1,0 +1,471 @@
+ 
+<HTML>
+<!-- #BeginTemplate "/Templates/template1.dwt" --> 
+<HEAD>
+<!-- #BeginEditable "doctitle" --> 
+<TITLE>basictemplate</TITLE>
+<!-- #EndEditable --> 
+<meta http-equiv="Content-Type" content="text/html; charset=">
+</HEAD>
+<BODY BGCOLOR="#999999" text="#003300" link="#660000">
+<div align="center"><!-- #BeginEditable "whole%20thing" --> 
+  <script><!--
+  function OpenNewWindow(cPicture,nWidth,nHeight,cMessage,nBorder)       
+		{
+ NewWindow=window.open("","NewOne","HEIGHT="+nHeight+",WIDTH="+nWidth+",scrollbars=yes,resizable=no,top=5,left=5");
+        NewWindow.document.write ("<HTML><HEAD>");
+        NewWindow.document.write ("</HEAD>");
+        NewWindow.document.write ("<BODY BGCOLOR='#999999'>");
+        NewWindow.document.write ("<P ALIGN=CENTER>");
+        NewWindow.document.write ("<FONT FACE='Georgia' SIZE='+1'COLOR='#003300'><B>");           
+        NewWindow.document.write (cMessage);
+        NewWindow.document.write ("</B><FONT>");
+        NewWindow.document.write ("<IMG SRC=");
+        NewWindow.document.write (cPicture);
+        NewWindow.document.write (">");
+        NewWindow.document.write ("</P>");
+        NewWindow.document.write ("<bottom><FORM><INPUT TYPE='button'VALUE='Close This Window' onClick='self.close()'>"); 
+        NewWindow.document.write ("</FORM></CENTER></BODY></HTML>");
+        NewWindow.document.write ("</BODY></HTML>");
+        NewWindow.document.close();
+        return false;
+        }
+  
+
+if (!parent.control)
+{window.location="shoppingarea.htm?catalogue_a-c.htm"}
+
+function LineOnForm(plantname,number,price)
+	{ 
+	this.plantname=plantname;
+	this.number=number;
+	this.price=price;
+	}
+var Entries = new Array();
+var countStart=0;
+var Placeholder=0;
+function AddToCart(plantname,number,price)
+	{
+	 Entries[Placeholder]=new LineOnForm(plantname,number,price);
+	 ++Placeholder;
+	 showCart();
+	 }
+
+function ParseArray()
+	{
+	
+	for (x=countStart;x<Entries.length;++x)
+		{
+ 		 parent.control.document.catalogue.qstring.value += Entries[x].plantname;
+		 parent.control.document.catalogue.qstring.value += '-';
+		 parent.control.document.catalogue.qstring.value +=Entries[x].number;
+		 parent.control.document.catalogue.qstring.value +='-';
+		 parent.control.document.catalogue.qstring.value +=Entries[x].price;
+		 parent.control.document.catalogue.qstring.value +='--';
+		 countStart++;
+			}
+	}	
+	
+
+function makeSpace(latinname)
+	{
+		 chopped=latinname.split('+');
+		 n=0;holder='';
+		 while (chopped[n])
+		 	{
+			holder+=(chopped[n]+' ');
+			n++;
+			}
+		 return holder;
+	} 
+ function showCart()
+ 	{
+	ParseArray(Placeholder);
+	var showme="";
+	var args=parent.control.document.catalogue.qstring.value;
+	lines = args.split('--');
+	 for (x=0;(x<((lines.length)-1));++x)
+	 {
+	  parts = lines[x].split('-');
+	  showme+=(makeSpace(parts[1])+"\n")
+	  }
+	 
+	 alert('Your shopping cart contains:\n'+showme+'\nWhen you are ready to place your order, click the submit button to choose a quantity for each item and to enter your shipping and billing information');
+
+				return true;
+	} 
+	
+	
+	
+	//-->
+	</script>
+  <p><img src="graphics_garden/PIH2.jpg" width="500" height="100"></p>
+  <p><font color="#999999">Plant It Herbs - Specializing in Chinese Medicinal 
+    Plants</font></p>
+  <p><font color="#999999">n<b><a href="index.htm">Home</a></b><font color="#999999">---</font> 
+    <b><a href="workshops.htm">Workshops</a><font color="#999999">--</font> <a href="mailto:plantit@plantitherbs.com">Contact 
+    Plant It Herbs</a><font color="#999999">---</font> <a href="javascript:document.forms[0].submit()">Order 
+    Form</a><font color="#999999">---</font> <a href="links.htm">Links</a></b>g</font></p>
+  <p><a href="catalogue_A.htm"><font color="#000066"><b><i>A</i></b></font></a> 
+    <i><b><a href="catalogue_B.htm"><font color="#000066">B</font></a><font color="#000066"> 
+    </font><a href="catalogue_C.htm"><font color="#000066">C</font></a><font color="#000066"> 
+    </font><a href="catalogue_D-G.htm"><font color="#000066">DEFG</font></a> </b></i><font color="#999999"><b><i><a href="catalogue_H-K.htm"><font color="#000066">HIJK</font></a><font color="#000066"> 
+    </font><a href="catalogue_L-N.htm"><font color="#000066">LMN</font></a><font color="#000066"> 
+    </font><a href="catalogue_O-Q.htm"><font color="#000066">OPQ</font></a><font color="#000066"> 
+    </font><a href="catalogue_R-S.htm"><font color="#000066">RS</font></a><font color="#000066"> 
+    </font><a href="catalogue_T-Z.htm"><font color="#000066">TUVWXYZ</font></a></i></b>i</font> 
+  <p>&nbsp; 
+  <p><font size="+3"><b>2006 Catalogue</b></font> 
+  <p><b><font size="+3">- C -</font> </b> 
+  <form action="order_form.htm" method=GET name=catalogue>
+    <p> 
+      <input type=hidden name=qstring value=value>
+    </p>
+    <p>&nbsp;</p>
+    <p><a name="Capsicum annuum cul Pequin"></a><font face="Georgia"><i>#10210 
+      </i></font><font face="Georgia" color="#000066"><b>Capsicum annuum cul Pequin</b></font><font face="Georgia">, 
+      Chili pequin, Solanaceae<i> - A must for the pepper lover plus it makes 
+      a great house plant; grow in well-drained soil in sun, compact pepper plant 
+      with small, fiery-hot chilies are used to season moles, sauces, stewed meats 
+      and vegetables, Pazole, barbecue sauce, hot and sour soup; USE WITH CAUTION!!!!! 
+      </i></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $5.00 </i></font></p>
+    <p> 
+      <input type=button name=Button value="add to shopping cart" onClick="AddToCart(10210,'Capsicum annuum cul Peguin',5.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p>&nbsp;</p>
+    <p align=right>&nbsp;</p>
+    <p><a name="Cassia occidentalis"></a><font face="Georgia"><i>#10220 </i></font><font face="Georgia" color="#000066"><b>Cassia 
+      occidentalis</b></font><font face="Georgia">, huai tou, coffee senna, Leguminosae<i> 
+      - This showy tropical plant was first recorded in Chui huang pen tsao; stems 
+      are erect and leaves are pinnate with fragrant yellow flowers; grow in a 
+      tropical greenhouse in rich, well drained soil in sun or in Zone 10-11; 
+      seed in said to used to cleans lungs, regulates stomach, disperses swelling, 
+      removes toxins, clears vision.</i></font></p>
+    <p><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_a-c/Cassia_occidentalis.jpg',450,450,'Cassia Occidentalis'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font><b>Click 
+      for Picture</b></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $10.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10220,'Cassia occidentalis',10.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p>&nbsp;</p>
+    <p align=right><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></p>
+    <p><font face="Georgia" color="#330066"><i><a name="Cassia surattensis"></a></i></font><font face="Georgia"><i>#10220</i> 
+      </font><font face="Georgia" color="#000066"><b>Cassia surattensis</b></font><font face="Georgia">, 
+      scrambled eggs, Leguminosae<i> - Elegant tall shrub or tall tree, leaflets 
+      in 6-9 pairs on angular shoots, clusters of yellow flowers bloom in fall 
+      and form flat pod containing seed: grow in rich well-drained soil in tropical 
+      greenhouse or in Zones 9-10; said to be used in the treatment of venereal 
+      disease.</i></font></p>
+    <p><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_a-c/Cassia_surattensis.jpg',450,450,'Cassia surattensis'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font><b>Click 
+      for Picture</b></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $10.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10220,'Cassia surrattensis',10.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p>&nbsp;</p>
+    <p><a name="Catharanthus roseus"></a><font face="Georgia"><i>#10230 </i></font><font face="Georgia" color="#000066"><b>Catharanthus 
+      roseus</b></font><font face="Georgia">, chang chun hua, Madagascar periwinkle, 
+      Apocynaceae<i> - In China it is called long--lasting spring flower, an attractive, 
+      erect, compact tender perennial with smooth oval leaves and pretty flat- 
+      petaled pink flowers that bloom all summer; grows 24" in moist, well-drained 
+      soil in sun; contains over 75 alkaloids, toxic in isolation but valuable 
+      in the treatment of leukemia, especially in children; also said to be useful 
+      for high blood pressure and associated liver yang rising symptoms, calms 
+      the spirit .</i></font></p>
+    <p><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_a-c/Catheranthus_roseus.jpg',450,450,'Catharanthus roseus'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font><b>Click 
+      for Picture</b></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $6.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10240,'Catheranthus roseus',6.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p>&nbsp;</p>
+    <p align=right><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></p>
+    <p><font color="#660000"><a name="Celosia argentea"></a></font><font face="Georgia"><i>#10240 
+      </i></font><font face="Georgia" color="#000066"><b>Celosia argentea</b></font><font face="Georgia">, 
+      qing xiang zi, celosia seed, Amaranthaceae<i> -This compact annual has narrow 
+      leaves that stagger up the stem to form a dense, showy, pink-tipped bloom 
+      that lasts all summer into fall; grow in rich soil with plenty of moisture 
+      in full sun: fresh flowers are eaten as a vegetable in China and seeds are 
+      said to clear vision, benefits eyes, cataracts.</i></font></p>
+    <p><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_a-c/Celosia_argentea.jpg',450,450,'Celosia argentea'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font><b>Click 
+      for Picture</b></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $6.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10240,'Celosia argentea',5.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p>&nbsp;</p>
+    <p><a name="Celosia cristata"></a><font face="Georgia"><i>#10241</i> </font><font face="Georgia" color="#000066"><b>Celosia 
+      cristata</b></font><font face="Georgia">, ji guan hua, cockscomb, Amaranthaceae<i> 
+      - Rich, dark, red-crested blooms make up the most outstanding feature of 
+      this plant, an annual, it grows in rich soil in full sun, keep slightly 
+      moist; flowers are said to treat hemorrhoids, diarrhea, bleeding, blood 
+      diseases, urinary tract infections, may be an aphrodisiac.</i></font></p>
+    <p><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_a-c/Celosia_cristata.jpg',450,450,'Celosia cristata'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font><b>Click 
+      for Picture</b></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $5.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10241,'Celosia cristata',5.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p>&nbsp;</p>
+    <p align=right><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></p>
+    <p><font color="#660000"><a name="Centella asiatica"></a></font><font face="Georgia"><i>#10250 
+      </i></font><font face="Georgia" color="#000066"><b>Centella asiatica</b></font><font face="Georgia">, 
+      ji xue cao, Gotu kola, Hydrocotylaceae<i> - Tender perennial with fan shaped 
+      green leaves; small white flowers bloom in summer; grow in rich well-drained 
+      soil in shade; in Chinese medicine it is said to be used to clear heat, 
+      drains dampness, reduces swelling, vomiting or coughing with bleeding, nose 
+      bleeds, red eyes, swollen throat, skin rashes with itching; leaves are eaten 
+      in salads, steamed with rice, in soups, and as a refreshing drink in Thailand; 
+      one of the most widely used herbs in the Ayurvedic tradition known as "Brahmi", 
+      nerve tonic that is said to promote mental calm and clarity.</i></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $8.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10360,'Centella asiatica',7.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <center>
+      <font face="Georgia" color="#330066"><i>*The genus Chrysanthemum has been 
+      re named Dendranthemum </i></font> 
+    </center>
+    <p><a name="Chrysanthemum indicum"></a><font face="Georgia"><i>#10360 </i></font><font face="Georgia" color="#000066"><b>Chrysanthemum 
+      indicum</b></font><font face="Georgia">, ye ju hua, chrysanthemum, Compositae<i> 
+      - The chrysanthemum is to the East what the rose is to the West.This perennial 
+      was collected in Kunming; it has many branches and grows 10-14" in rich 
+      well-drained soil in sun, flowers are yellow and bloom in late summer; it's 
+      aromatic and said to disperse wind heat, clears vision, removes toxins, 
+      soothes liver yang.</i></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $12.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10360,'Chrysanthemum indicum',10.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p align=right><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></p>
+    <p><a name="Chrysanthemum morifolium"></a><font face="Georgia"><i>10361 </i></font><font face="Georgia" color="#000066"><b>Chrysanthemum 
+      morifolium</b></font><font face="Georgia">, ju hua, chrysanthemum, Compositae<i> 
+      - Also known as florist's chrysanthemum, the original plant was collected 
+      in Guangxi; grow this perennial in rich, well-drained soil in sun, branches 
+      are many and form a small bush, flowers are white and bloom in late summer; 
+      the flowers are used to make a delicious chrysanthemum tea, aromatic and 
+      said to clear liver and brighten eyes.</i></font></p>
+    <p><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_a-c/Chrysanthemum_morifolium.jpg',450,450,'Chrysanthemum morifolium'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font><b>Click 
+      for Picture</b></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $10.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10361,'Chrysanthemum morifolium',10.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p><font face="Georgia" color="#660000"><i><a name="Chrysanthemum zawadskii var. latiloba"></a></i></font><font face="Georgia" color="#003300"><i>#10362 
+      </i></font><font face="Georgia" color="#000066"><b>Chrysanthemum zawadskii 
+      var. latiloba</b></font><font face="Georgia" color="#003300"><i>, shan ye 
+      ju, mountain wild chrysanthemum, Compositae - Best described by it's distinctive 
+      gray green leaves this perennial is compact, soft purple flowers bloom in 
+      summer and fall; grow in neutral soil in sun; flowers are said to clear 
+      heat and relieves toxins, treats warm heat diseases</i></font><font face="Georgia" color="#660000"><i>.</i></font></p>
+    <p><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_a-c/Chrysanthemum_zawadskii.jpg',450,450,'Chrysanthemum zawadskii var. latiloba'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font><b>Click 
+      for Picture</b></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $8.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10362,'Chrysanthemum zawadskii var. latiloba',7.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p><font color="#660000">&nbsp;</font></p>
+    <p><a name="Clematis armandii"></a><font face="Georgia"><i>#10260 </i></font><font face="Georgia" color="#000066"><b>Clematis 
+      armandii</b></font><font face="Georgia">, Ranunculaceae <i>- Native to West 
+      and So. China this plant is a vigorous evergreen climber with leathery leaves 
+      and fragrant white flowers blooming on wood from the previous year, grow 
+      in greenhouse in shade to part sun in rich well-drained soil, it is listed 
+      as hardy in Zone 7.</i></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $10.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10260,'Clematis armandii',10.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p align=right><font color="#660000">&nbsp;</font><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></p>
+    <p><a name="Clematis brevicaudata"></a><font face="Georgia"><i>#10261</i></font><font face="Georgia" color="#FFFF33"><b><i> 
+      </i></b></font><font face="Georgia" color="#000066"><b>Clematis brevicaudata</b></font><font face="Georgia">, 
+      iron wire/string lotus, Ranunculaceae<i> - Duan wei tie xian lian is the 
+      plant name given to this vining, slender tender perennial with tri-lobed 
+      delicate light green leaves, clusters of flowers bloom in summer; grow in 
+      greenhouse in rich well-drained soil in sun; vine stem clears heat to benefit 
+      the urination, unblocks the breast (for lactation), helps digestion, eases 
+      constipation.</i></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $10.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10261,'Clematis brevicaudata',10.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p>&nbsp;</p>
+    <p><a name="Clerodendron bungei"></a><font face="Georgia"><i>#10270 </i></font><font face="Georgia" color="#000066"><b>Clerodendron 
+      bungei</b></font><font face="Georgia">, chou mu dan, stinking/smelly Moutan, 
+      Chinese tree peony,Verbenaceae<i> Native to China this subtropic upright 
+      bush has large dark-green</i></font> <font face="Georgia"><i>leaves and 
+      thin stems, fragrant clusters of pink-red flowers bloom from June - Sept., 
+      flowers turn to black seed berries, grow in rich well- drained soil in part 
+      sun; roots and leaves are used to dispel wind and eliminate dampness, relieve 
+      toxins, break up blood statis, roots are used for wind-damp joint pain, 
+      injuries from falls.</i></font></p>
+    <p><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_a-c/Clerodendron_bungei.jpg',450,450,'Clerodendrum bungei'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i>Click 
+      for Picture</b></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $10.00</i></font><font face="Georgia"><i> 
+      </i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10270,'Clerodendrum bungei',10.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p align=right><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></p>
+    <p><a name="Cnidium monnieri"></a><font face="Georgia"><i>#10280 </i></font><font face="Georgia" color="#000066"><b>Cnidium 
+      monnieri</b></font><font face="Georgia">, she chuang zi, cnidium seed, Umbelliferae<i> 
+      - Resembles Queen Ann's lace with it's soft feathery leaves; this hardy 
+      perennial grows in well-drained neutral soil in sun, small white flowers 
+      bloom in summer; seeds are said to stop itching, kill parasites, scabies 
+      and ringworm, also has the function of tonifying the kidney yang.</i></font></p>
+    <p><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_a-c/Cnidium_monnieri.jpg',450,450,'Cnidium monnieri'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font><b>Click 
+      for Picture</b></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $5.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10280,'Cnidium monnieri',3.25)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p>&nbsp;</p>
+    <p><a name="Codonopsis pilosula"></a><font face="Georgia"><i>#10290 </i></font><font face="Georgia" color="#000066"><b>Codonopsis 
+      pilosula</b></font><font face="Georgia">, dang shen, codonopsis root,<i> 
+      </i>Campanulaceae<i> - Twining perennial herb with broadly ovate leaves, 
+      bell shaped flowers are yellowish-green with violet streaks and bloom in 
+      late summer; grow in well-drained soil in part sun using a trellis or support, 
+      roots are said to tonify the qi, for poor appetite, fatigue, diarrhea, vomiting.</i></font></p>
+    <p><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_a-c/Codonopsis_pilosula.jpg',450,450,'Codonopsis pilosula'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font><b>Click 
+      for Picture</b></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $8.00 </i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10290,'Codonopsis pilosula',7.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p>&nbsp;</p>
+    <p align=right><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></p>
+    <p><a name="Commelina communis"></a><font face="Georgia"><i>#10300</i></font><font face="Georgia" color="#000066"><b> 
+      Commelina communis</b></font><font face="Georgia">, ya zhi cao, Commelinaceae<i> 
+      - An annual spreading plant that grows low to the ground in neutral soil 
+      in sun, it has elongated leaves and delicate deep blue flowers; the whole 
+      plant is said to be used for sore throat, edema, acute rheumatoid arthritis, 
+      considered to have anti-cancer properties.</i></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $5.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10300,'Commelina communis',4.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p>&nbsp;</p>
+    <p><a name="Crossostephium chinense"></a><font face="Georgia"><i>#10310 </i></font><font face="Georgia" color="#000066"><b>Crossostephium 
+      chinense</b></font><font face="Georgia">, Compositae<i> - In Taiwan it is 
+      used as a folk medicine and called fu jung: a charming perennial with narrow 
+      gray-green leaves on a woody stem, light to brown colored flowers bloom 
+      in fall, grows in well-drained soil in sun; whole plant is said to be used 
+      as a substitute for mugwort, rheumatoid arthritis, common cold due to windcold.</i></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $15.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10310,'Crossostephium chinensis',7.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p align=right><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></p>
+    <p><font color="#660000"><a name="Cymbopogon citratus"></a></font><font face="Georgia"><i>#10320 
+      </i></font><font face="Georgia" color="#000066"><b>Cymbopogon citratus</b></font><font face="Georgia">, 
+      xiang mao, lemon grass, Gramineae/Poaceae<i> - Also called fragrant grass 
+      this aromatic culinary herb grows in well- drained soil in sun, a tender 
+      perennial that is spicy and warm with cane-like stems and lemon-scented 
+      leaves, spikes of blooms appear in summer; said to dispel wind, opens channels 
+      and moves blood, colds and flu, diarrhea, headache, external injuries, leaves 
+      are used fresh</i></font> <font face="Georgia"><i>or as a powder in Asian 
+      cooking with fish or meat.</i></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $5.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10320,'Cymbopogon citratus',5.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p>&nbsp;</p>
+    <p><a name="Cymbopogon nardus"></a><font face="Georgia"><i>#10321</i> </font><font face="Georgia" color="#000066"><b>Cymbopogon 
+      nardus</b></font><font face="Georgia">, citronella grass, Gramineae/Poaceae<i> 
+      - Native to Asia, the leaves can be used for flavoring soups, cooking fish 
+      and making curries, in Sri Lanka and Java it is grown for the oil to be 
+      used as an insect repellent, a tasty tea is made from the leaves in Africa, 
+      grow this tender perennial in well-drained soil in sun, stems with spikes 
+      of blooms appear in summer.</i></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $5.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10321,'Cymbopogon nardus',5.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p><a name="Cynoglossum amabile"></a><font face="Georgia">#10330 </font><font face="Georgia" color="#000066"><b>Cynoglossum 
+      amabile</b></font><font face="Georgia"><b>,</b> Chinese forget-me-not, Boraginaceae 
+      -<i> Upright bushy annual or biennial with lance shaped gray-green leaves, 
+      exquisite pure sky blue flowers bloom in summer, a garden standout.</i></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $5.50</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(21410,'Cynoglossum amabile',4.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p>&nbsp;</p>
+    <p align=right><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></p>
+    <p><a name="Cyperus rotundus"></a><font face="Georgia"><i>#10340 </i></font><font face="Georgia" color="#000066"><b>Cyperus 
+      rotundus</b>,</font><font face="Georgia"> xiang fu, nut grass, coco grass, 
+      Cyperaceae<i> - Important in Chinese medicine and collected from Guangxi 
+      B.G.; loves damp places and can become invasive, glabrous perennial grass 
+      grows in damp soil in sun, slender leaves up to 24", tiny purplish flowers 
+      bloom in summer followed by black nuts; rhizomes are said to be used for 
+      digestive problems and treatment of irregular menstruation. </i></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $7.00</i></font></p>
+    <p> 
+      <input type=button name=Button22 value="add to shopping cart" onClick="AddToCart(10340,'Cyperus rotundus',7.00)">
+      <input type=submit name=Submit2 value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button22 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p>&nbsp; </p>
+  </form>
+  <p></P>
+  <p align="center"><b><a href="index.htm">Home</a></b> <b><a href="links.htm">Links</a></b> 
+    <b> </b><b><a href="workshops.htm">Workshops</a></b></p>
+  <p align="center"><b> <a href="mailto:plantit@plantitherbs.com">Contact Plant 
+    It Herbs</a> </b></p>
+  <p align="center"><b><a href="shoppingarea.htm?order_form.htm">Order Form</a> 
+    </b></p>
+  <p></p>
+  <!-- #EndEditable --> 
+  <p>&nbsp;</p>
+</div>
+</BODY>
+<!-- #EndTemplate -->
+</HTML>

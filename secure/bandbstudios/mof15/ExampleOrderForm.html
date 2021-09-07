@@ -1,0 +1,835 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<!-- Merchant Ordering Form v1.53  -->
+<!-- CGI script by RGA@IO.com -->
+<!-- http://www.io.com/~rga -->
+<!-- This is an example web page on how to set up OrderForm pages on your site -->
+<!-- MOF accepts input of many kinds, consult the documentation for assistance -->
+
+<html>
+
+<head>
+<title>Example OrderForm MOF v1.53</title>
+</head>
+
+<BODY BACKGROUND="mofback.jpg" TOPMARGIN="0" LEFTMARGIN="0" MARGINWIDTH="0" MARGINHEIGHT="0" BGCOLOR=FFFFFF>
+
+<a href="http://bandbstudios.com/"><img src="mofsplash_ex.gif" border=0 width=468 height=60></a>
+<br>
+
+
+<blockquote>
+
+<font face="Arial,Helvetica" size="3">
+<font color=navy>
+<h3>Merchant OrderForm v1.53 OrderForm Examples
+<a href="http://bandbstudios.com/cgi-bin/mof.cgi?viewcart">
+<img align=top src="viewcartlink.gif" border=0 width=60 height=30 alt="View Cart Contents">
+</a>
+</h3>
+<font color=black>
+
+<font face="Arial,Helvetica" size="3">
+
+This page has examples of how to set up OrderForm Pages(s) on your Web Site. 
+<font color=#800000><i><strong>
+Merchant OrderForm v1.53 </strong></i> 
+<font color=black> 
+now consolidates multiple OrderForm pages from around your site into one invoice. 
+ Consult the page on 
+ <a href="ExampleSingleInput.html">
+ Single Input Examples </a>
+ if you want to collect single products from around your site, and 
+ won't be using the OrderForm modes.
+<p>
+
+
+<font size=3>
+You should have some basic skill with constructing Forms in HTML to make your OrderForm 
+ page(s). If you use a Web Page Editor like Front 
+ Page or Page Mill, then you should know how to use them to Construct Form Input.
+<p>
+
+You can follow the examples in the underlying HTML syntax on this page 
+ to get you started. When you View the Source or HTML for this example 
+ page you will also see many Comments embedded around the input syntax. 
+ If you need help on the basics of building Forms in Web Pages, there are
+ many free tutorials around the internet.
+<p>
+
+
+There are <font color=navy><strong> two </strong> <font color=black> OrderForm Modes: postmode<p>
+
+Consult the examples further down on this page to see how the two 
+ different <font color=navy><strong>postmode</strong><font color=black>s  
+ work.  Here's a summary of what the two modes do.
+<p>
+
+
+<blockquote>
+
+<ol>
+
+<li>postmode=<font size=2><strong>CHECKBOXES</strong><font size=3><br>
+ Uses CheckBox input for each product. Checkboxes do 
+ not allow for User Input Options, but simply submit <strong> 6 </strong> Fields
+ to be processed. Quantity is part of the 6 Field input.
+<p>
+
+<li>postmode=<font size=2><strong>QUANTITYBOXES</strong><font size=3><br>
+ This Form Type uses a Quantity User Input Option to identify if they want
+ the product. A positive quantity instructs MOF to accept the item.  A blank 
+ quantity instructs MOF to ignore the item.  You can set up User Input Options 
+ with this postmode Type; however, there are some specific naming rules you must 
+ follow.
+<p>
+
+</ol>
+<p>
+
+</blockquote>
+
+<font face="Arial,Helvetica" size="3">
+The examples on this page send the OrderForm Input Page 
+ of your products to the MOF System. There are two examples 
+ in this section: First, a simple OrderForm Page with No User Input for options; 
+ Second, an OrderForm Page that allows for various User Input options for each product. 
+ All examples for MOF will consolidate input from various OrderForm Pages.
+<p>
+
+
+
+
+<h4>1. The Classic OrderForm Page</h4>
+
+<font color=navy><strong>
+The Classic Web World Ordering Form
+</strong><font color=black>
+<p>
+
+This is the simplest use of Merchant OrderForm. 
+ In this example, you simply check the items you want to order. No User Input 
+ options are allowed.  All necessary information on the product is sent as the 
+ value of the checkbox. You will sending <strong> 6 </strong> fields for the 
+ value of your checkbox input: You will be submitting 
+ <strong> 6 </strong> Fields of information under the name=<strong>order</strong> 
+ for each Check Box on This OrderForm Page.
+<p>
+
+<ul>
+<li>postmode=CHECKBOXES
+<li>order=Quantity----Product----Description----Price----ShipCode----Tax
+</ul>
+
+
+<p>
+This example uses Pop Up windows to preview the products images. Click on the 
+ Product Name to see this. It's just an idea, and can certainly be taken out. 
+ Just remove the Hype Link reference to the Pop Up windows.
+<p>
+
+
+
+<!-- CHECKBOXES -->	
+<!-- CHECKBOXES -->	
+<!-- CHECKBOXES -->	
+<!-- CHECKBOXES -->	
+<!-- CHECKBOXES -->	
+
+
+<!-- THIS WILL POINT TO THE FIRST PROCESSING SCRIPT-->
+<!-- IT IS A RELATIVE OR FULL HTTP URL ONLY-->
+<!-- IT CANNOT BE AN ABSOLUTE ADDRESS-->
+
+<FORM method=POST action="http://bandbstudios.com/cgi-bin/mof.cgi">
+
+<!-- THE POSTMODE IS REQUIRED HIDDEN INFO -->
+
+<INPUT type="hidden" name="postmode" value="CHECKBOXES">
+
+
+<font color=navy>Select The Product(s) To Order<font color=black>
+<TABLE border=0 cellpadding=0 cellspacing=0 width=90%>
+
+<tr bgcolor=navy>
+<td align=center><font face="Arial,Helvetica" size=2 color=white><strong>Item</strong></td><td>&nbsp;</td>
+<td align=center><font face="Arial,Helvetica" size=2 color=white><strong>Description</strong></td><td>&nbsp;</td>
+<td align=center><font face="Arial,Helvetica" size=2 color=white><strong>Price</strong></td>
+</tr>
+
+
+
+<!-- The value for each checkbox must have 6 fields sent if checked -->
+<!-- [Quantity----Product----Description----Price----ShipCode----TaxY/N] -->
+
+
+<tr><td align=left><input type="checkbox" name="order" 
+value="1----Box Baseball Cards----24 Collectable Baseball Cards----10.00----1----1">
+<font face="Arial,Helvetica" size=2>
+<a href="show1.html" target="view" onClick="open('show1.html','view','height=150,width=150')">
+Box Baseball Cards</td></a><td>&nbsp;</td>
+<td align=left><font face="Arial,Helvetica" size=2>24 Collectable Baseball Cards</td><td>$</td>
+<td align=right><font face="Arial,Helvetica" size=2> 10.00</td></tr>
+
+<tr><td align=left><input type="checkbox" name="order" 
+value="1----Second Nature Books----Collection of 10 Children books----65.00----1----1">
+<font face="Arial,Helvetica" size=2>
+<a href="show2.html" target="view" onClick="open('show2.html','view','height=150,width=150')">
+Second Nature Books</td></a><td>&nbsp;</td>
+<td align=left><font face="Arial,Helvetica" size=2>Collection of 10 Children books</td><td>$</td>
+<td align=right><font face="Arial,Helvetica" size=2> 65.00</td></tr>
+
+<tr><td align=left><input type="checkbox" name="order" 
+value="1----Each Day Poster # 1----Mountain scene inspiration poster----11.50----1----1">
+<font face="Arial,Helvetica" size=2>
+<a href="show3.html" target="view" onClick="open('show3.html','view','height=150,width=150')">
+Each Day Poster # 1</td></a><td>&nbsp;</td>
+<td align=left><font face="Arial,Helvetica" size=2>Mountain scene inspiration poster</td><td>$</td>
+<td align=right><font face="Arial,Helvetica" size=2> 11.50</td></tr>
+
+<tr><td align=left><input type="checkbox" name="order" 
+value="1----Each Day Poster # 34----Lake scene inspiration poster----11.50----1----1">
+<font face="Arial,Helvetica" size=2>
+<a href="show4.html" target="view" onClick="open('show4.html','view','height=150,width=150')">
+Each Day Poster # 34</td></a><td>&nbsp;</td>
+<td align=left><font face="Arial,Helvetica" size=2>Lake scene inspiration poster</td><td>$</td>
+<td align=right><font face="Arial,Helvetica" size=2> 11.50</td></tr>
+
+<tr><td align=left><input type="checkbox" name="order" 
+value="1----Today In History v1.0----History archives web based software----21.65----1----1">
+<font face="Arial,Helvetica" size=2>
+<a href="show5.html" target="view" onClick="open('show5.html', 'view', 'height=150,width=150')">
+Today In History v1.0</td></a><td>&nbsp;</td>
+<td align=left><font face="Arial,Helvetica" size=2>History archives web based software</td><td>$</td>
+<td align=right><font face="Arial,Helvetica" size=2> 21.65</td></tr>
+
+<tr><td align=left><input type="checkbox" name="order" 
+value="1----New York Times----A monthly subscription to the NYT----19.25----2----1">
+<font face="Arial,Helvetica" size=2>
+<a href="show6.html" target="view" onClick="open('show6.html', 'view', 'height=150,width=150')">
+New York Times</td></a><td>&nbsp;</td>
+<td align=left><font face="Arial,Helvetica" size=2>A monthly subscription to the NYT</td><td>$</td>
+<td align=right><font face="Arial,Helvetica" size=2>  19.25</td></tr>
+
+<tr><td align=left><input type="checkbox" name="order" 
+value="1----Magic Box Gifts----A surprise gift box of potpourri----12.25----2----1">
+<font face="Arial,Helvetica" size=2>
+<a href="show7.html" target="view" onClick="open('show7.html', 'view', 'height=150,width=150')">
+Magic Box Gifts</td></a><td>&nbsp;</td>
+<td align=left><font face="Arial,Helvetica" size=2>A surprise gift box of potpourri</td><td>$</td>
+<td align=right><font face="Arial,Helvetica" size=2>  12.25</td></tr>
+
+<tr><td align=left><input type="checkbox" name="order" 
+value="2----The Finish Line----An autobiography by Bill Waters----31.99----2----1">
+<font face="Arial,Helvetica" size=2>
+<a href="show8.html" target="view" onClick="open('show8.html', 'view', 'height=150,width=150')">
+The Finish Line</td></a><td>&nbsp;</td>
+<td align=left><font face="Arial,Helvetica" size=2>An autobiography by Bill Waters</td><td>$</td>
+<td align=right><font face="Arial,Helvetica" size=2>  31.99</td></tr>
+
+<tr><td align=left><input type="checkbox" name="order" 
+value="3----The Naked Kingdom----Hidden confessions by Monica L.----50.95----2----1">
+<font face="Arial,Helvetica" size=2>
+<a href="show9.html" target="view" onClick="open('show9.html', 'view', 'height=150,width=150')">
+The Naked Kingdom</td></a><td>&nbsp;</td>
+<td align=left><font face="Arial,Helvetica" size=2>Hidden confessions by Monica L.</td><td>$</td>
+<td align=right><font face="Arial,Helvetica" size=2>  50.95</td></tr>
+
+<!-- New items go here -->
+<!-- New items go here -->
+<!-- New items go here -->
+
+
+
+</TABLE>
+
+
+<p>
+<font size=2>
+<input type=submit value="Add To Cart">
+<input type=reset value="Reset Form">
+
+</FORM>
+<br>
+
+<!-- END OF CHECKBOXES -->
+<!-- END OF CHECKBOXES -->
+<!-- END OF CHECKBOXES -->
+
+
+
+<h4>2. The OrderForm Page with User Input</h4>
+
+<font size=3>
+<font color=navy><strong>
+The Web World Ordering Form with User Input
+</strong><font color=black>
+<p>
+
+
+This Form Type Example allows for Quantity User Input to identify if they want
+ the product. A positive quantity instructs MOF to accept the item.  A blank 
+ quantity instructs MOF to ignore the item.  You will be submitting 
+ <strong> 5 </strong> Hidden Fields of information under the name=<strong>orderN</strong> 
+ for each product, and submitting Quantity for that product under the name=<strong>quantityN</strong>, 
+ where <strong> N </strong> is a number matching order to quantity.  Each product will have a 
+ sequential Number assigned to the order<strong>N</strong>/quantity<strong>N</strong> pair, 
+ and that same order<strong>N</strong>/quantity<strong>N</strong> pair 
+ Number will be assigned to any User Input for that particular product. 
+ You cannot submit quantityN as hidden, unless you really want that product to be ordered by 
+ default.  When MOF sees quantityN whether hidden or as text box input by user, then we
+ assume the product is added to the cart.
+<p>
+
+The Overall Form Input will have :
+
+<ul>
+<li>postmode=QUANTITYBOXES
+</ul>
+<p>
+
+And each Product's Input will look like this:
+
+<ul>
+<li>orderN=Product----Description----Price----ShipCode----Tax
+<li>quantityN=User Input
+<li>option_nameN=User Input
+</ul>
+
+
+
+<!-- QUANTITYBOXES -->
+<!-- QUANTITYBOXES -->
+<!-- QUANTITYBOXES -->
+<!-- QUANTITYBOXES -->
+<!-- QUANTITYBOXES -->
+<!-- QUANTITYBOXES -->
+
+
+<!-- THIS WILL POINT TO THE FIRST PROCESSING SCRIPT-->
+<!-- IT IS A RELATIVE OR FULL HTTP URL ONLY-->
+<!-- IT CANNOT BE AN ABSOLUTE ADDRESS-->
+
+<FORM method=POST action="http://bandbstudios.com/cgi-bin/mof.cgi">
+
+<!-- THE POSTMODE IS REQUIRED HIDDEN INFO -->
+
+<INPUT type="hidden" name="postmode" value="QUANTITYBOXES">
+
+<table border=0 cellpadding=2 cellspacing=0 width=500>
+
+
+<!-- Propeller Hat Example -->
+<!-- Propeller Hat Example -->
+
+<tr><td colspan=2 bgcolor=#DDFFDD>
+<font face="Arial,Helvetica" size="3" color=navy>
+<strong>The World Famous Propeller Hat</strong> 
+
+<font face="Arial,Helvetica" size="2" color=black>
+<strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+ $ 19.99
+</strong>
+
+</td></tr>
+
+<tr bgcolor=#FFFFEE>
+
+<td width=60>
+<img src="propellerhat.gif" width=60 height=60 border=0>
+</td>
+
+<td width=440>
+
+<input type="hidden" name="order1" value="Propeller Hat----World Famous Propeller Hat----19.99----2----1">
+
+<font face="Arial,Helvetica" size="3" color=black>
+
+
+<table border=0 cellpadding=1 cellspacing=0>
+<tr>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Qty</strong><br>
+<font face="Arial,Helvetica" size="3" color=black>
+<input type="text" name="quantity1" size=3 maxlength=3>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Hat Color</strong><br>
+<SELECT name=HatColor1>
+ <OPTION selected value="">Select Color
+ <OPTION value="Rainbow">Rainbow
+ <OPTION value="Purple Stripe">Purple Stripes
+ <OPTION value="Yellow Solid">Yellow Solid
+ <OPTION value="Sunburst Red">Sunburst Red
+</SELECT>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Size</strong><br>
+<SELECT name=HatSize1>
+ <OPTION selected value="">Select Size
+ <OPTION value="Small">Small
+ <OPTION value="Medium">Medium
+ <OPTION value="Large">Large
+ <OPTION value="Extra Large">Extra Large
+</SELECT>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Prop Color</strong><br>
+<SELECT name=PropellerColor1>
+ <OPTION selected value="">Propeller Color
+ <OPTION value="Bright Red">Bright Red
+ <OPTION value="Dull Green">Dull Green
+ <OPTION value="Metallic Purple">Metallic Purple
+ <OPTION value="Shinny Yellow">Shinny Yellow
+</SELECT>
+</td>
+
+<td><strong>1</strong></td>
+
+</tr></table>
+
+</td></tr>
+
+
+
+
+<!-- Work Hat Example -->
+<!-- Work Hat Example -->
+
+<tr><td colspan=2 bgcolor=#DDFFDD>
+<font face="Arial,Helvetica" size="3" color=navy>
+<strong>The Industrial Work Hat</strong> 
+
+<font face="Arial,Helvetica" size="2" color=black>
+<strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+ $ 24.99
+</strong>
+
+</td></tr>
+
+<tr bgcolor=#FFE8E8>
+
+<td width=60>
+<img src="workhat.gif" width=60 height=60 border=0>
+</td>
+
+<td width=440>
+
+<input type="hidden" name="order2" value="Work Hat----The Industrial Work Hat----24.99----2----1">
+
+<font face="Arial,Helvetica" size="3" color=black>
+
+<table border=0 cellpadding=1 cellspacing=0>
+<tr>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Qty</strong><br>
+<font face="Arial,Helvetica" size="3" color=black>
+<input type="text" name="quantity2" size=3 maxlength=3>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Hat Color</strong><br>
+<SELECT name=HatColor2>
+ <OPTION selected value="">Select Color
+ <OPTION value="Red">Red
+ <OPTION value="Blue">Blue
+ <OPTION value="Yellow">Yellow
+ <OPTION value="Black">Black
+</SELECT>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Size</strong><br>
+<SELECT name=HatSize2>
+ <OPTION selected value="">Select Size
+ <OPTION value="Small">Small
+ <OPTION value="Medium">Medium
+ <OPTION value="Large">Large
+ <OPTION value="Extra Large">Extra Large
+</SELECT> 
+</td>
+
+<td><strong>2</strong></td>
+
+</tr></table>
+
+</td></tr>
+
+
+
+<!-- Caravan Hat Example -->
+<!-- Caravan Hat Example -->
+
+<tr><td colspan=2 bgcolor=#DDFFDD>
+<font face="Arial,Helvetica" size="3" color=navy>
+<strong>The Hardy Caravan Hat</strong> 
+
+<font face="Arial,Helvetica" size="2" color=black>
+<strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+ $ 32.50
+</strong>
+
+</td></tr>
+
+<tr bgcolor=#FFFFEE>
+
+<td width=60>
+<img src="caravanhat.gif" width=60 height=60 border=0>
+</td>
+
+<td width=440>
+
+
+<input type="hidden" name="order3" value="Caravan Hat----The Hardy Go-Anywhere Hat----32.50----2----1">
+
+
+<font face="Arial,Helvetica" size="3" color=black>
+
+<table border=0 cellpadding=1 cellspacing=0>
+<tr>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Qty</strong><br>
+<font face="Arial,Helvetica" size="3" color=black>
+<input type="text" name="quantity3" size=3 maxlength=3>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Hat Color</strong><br>
+<SELECT name=HatColor3>
+ <OPTION selected value="">Select Color
+ <OPTION value="Red">Red
+ <OPTION value="Blue">Blue
+ <OPTION value="Yellow">Yellow
+ <OPTION value="Black">Black
+</SELECT>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Size</strong><br>
+<SELECT name=HatSize3>
+ <OPTION selected value="">Select Size
+ <OPTION value="Small">Small
+ <OPTION value="Medium">Medium
+ <OPTION value="Large">Large
+ <OPTION value="ExtraLarge">Extra Large
+</SELECT>
+</td>
+
+<td><strong>3</strong></td>
+
+</tr></table>
+
+</td></tr>
+
+
+
+
+
+<!-- Mountie Hat Example -->
+<!-- Mountie Hat Example -->
+
+<tr><td colspan=2 bgcolor=#DDFFDD>
+<font face="Arial,Helvetica" size="3" color=navy>
+<strong>The Canadian Mountie Hat</strong> 
+
+<font face="Arial,Helvetica" size="2" color=black>
+<strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+ $ 39.98
+</strong>
+
+</td></tr>
+
+<tr bgcolor=#FFE8E8>
+
+<td width=60>
+<img src="mountiehat.gif" width=60 height=60 border=0>
+</td>
+
+<td width=440>
+
+<input type="hidden" name="order4" value="Mountie Hat----The Canadian Mountie Hat----39.98----2----1">
+
+<font face="Arial,Helvetica" size="3" color=black>
+
+<table border=0 cellpadding=1 cellspacing=0>
+<tr>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Qty</strong><br>
+<font face="Arial,Helvetica" size="3" color=black>
+<input type="text" name="quantity4" size=3 maxlength=3>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Hat Color</strong><br>
+<SELECT name=HatColor4>
+ <OPTION selected value="">Select Color
+ <OPTION value="Navy Blue">Navy Blue
+ <OPTION value="Desert Brown">Desert Brown
+ <OPTION value="Great Green">Great Green
+ <OPTION value="Bear Black">Bear Black
+</SELECT>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Size</strong><br>
+<SELECT name=HatSize4>
+ <OPTION selected value="">Select Size
+ <OPTION value="Size 10">Size 10
+ <OPTION value="Size 11">Size 11
+ <OPTION value="Size 12">Size 12
+ <OPTION value="Size 13">Size 13
+ <OPTION value="Size 14">Size 14
+ <OPTION value="Size 15">Size 15
+ <OPTION value="Size 16">Size 16
+ <OPTION value="Size 17">Size 17
+</SELECT> 
+</td>
+
+<td><strong>4</strong></td>
+
+</tr></table>
+
+</td></tr>
+
+
+
+
+<!-- Saddle Hat Example -->
+<!-- Saddle Hat Example -->
+
+<tr><td colspan=2 bgcolor=#DDFFDD>
+<font face="Arial,Helvetica" size="3" color=navy>
+<strong>The Western Saddle Hat</strong> 
+
+<font face="Arial,Helvetica" size="2" color=black>
+<strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+ $ 45.00
+</strong>
+
+</td></tr>
+
+<tr bgcolor=#FFFFEE>
+
+<td width=60>
+<img src="saddlehat.gif" width=60 height=60 border=0>
+</td>
+
+<td width=440>
+
+<input type="hidden" name="order15" value="Saddle Hat----The Western Saddle Hat----45.00----2----1">
+
+<font face="Arial,Helvetica" size="3" color=black>
+
+<table border=0 cellpadding=1 cellspacing=0>
+<tr>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Qty</strong><br>
+<font face="Arial,Helvetica" size="3" color=black>
+<input type="text" name="quantity15" size=3 maxlength=3>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Hat Color</strong><br>
+<SELECT name=HatColor15>
+ <OPTION selected value="">Select Color
+ <OPTION value="Dark Brown">Dark Brown
+ <OPTION value="Desert Brown">Desert Brown
+ <OPTION value="Black Brown">Black Brown
+ <OPTION value="Bear Brown">Bear Brown
+</SELECT>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Size</strong><br>
+<SELECT name=HatSize15>
+ <OPTION selected value="">Select Size
+ <OPTION value="Size 10">Size 10
+ <OPTION value="Size 11">Size 11
+ <OPTION value="Size 12">Size 12
+ <OPTION value="Size 13">Size 13
+ <OPTION value="Size 14">Size 14
+ <OPTION value="Size 15">Size 15
+ <OPTION value="Size 16">Size 16
+ <OPTION value="Size 17">Size 17
+</SELECT> 
+</td>
+
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Band</strong><br>
+<SELECT name=BandType15>
+ <OPTION selected value="">Select Band
+ <OPTION value="Squirrel Tail">Squirrel Tail
+ <OPTION value="Rattle Snake">Rattle Snake
+ <OPTION value="Bear Tooth">Bear Tooth
+ <OPTION value="Garden Hose">Garden Hose
+</SELECT> 
+</td>
+
+
+<td><strong>15</strong></td>
+
+</tr></table>
+
+</td></tr>
+
+
+
+
+
+<!-- New items go here -->
+<!-- New items go here -->
+<!-- New items go here -->
+
+
+
+
+</td></tr></table>
+
+
+<p>
+<font size=2>
+<input type=submit value="Add To Cart">
+<input type=reset value="Reset Form">
+
+</FORM>
+
+
+<font face="Arial,Helvetica" size="3" color=black>
+
+On the Quantity Box postmode layout example above you can mix user_inputN boxes, and each of your 
+ products can have different selections from the use_inputN boxes.  The last two 
+ products in this example layout use the same user_inputN boxes, but those 
+ input boxes have different values to select from.  It's not important what selections 
+ are listed in the user_inputN. The important thing is that the user_input name is 
+ declared in your configuration file, and that user_inputN Number is matched to 
+ the correct orderN when you build this form.  Whatever user_inputN boxes are used for 
+ each product, the user_input<strong>3</strong> must match order<strong>3</strong> 
+ and quantity<strong>3</strong> lines.  The documentation has more detail on this.  
+<p>
+
+Note: You do not have to use sequential numbering, but do keep all your orderN, quantityN, and 
+ user_inputN numbers together.  MOF will find your Numbers whether in sequence or not.  This 
+ will allow you to edit your products, delete a number out of sequence, or add a number out of
+ sequence, and MOF will still find them for you.
+<p>
+
+
+<!-- END QUANTITY BOXES -->
+<!-- END QUANTITY BOXES -->
+<!-- END QUANTITY BOXES -->
+<!-- END QUANTITY BOXES -->
+<!-- END QUANTITY BOXES -->
+<!-- END QUANTITY BOXES -->
+<!-- END QUANTITY BOXES -->
+
+
+<font face="Arial,Helvetica" size="3" color=black>
+
+
+<h4>3. Customized OrderForm Input</h4>
+
+<p>
+<font color=navy><strong>
+Support for Custom Processing
+</strong><font color=black>
+<p>
+
+
+
+
+<!-- THIS WILL POINT TO THE FIRST PROCESSING SCRIPT-->
+<!-- IT IS A RELATIVE OR FULL HTTP URL ONLY-->
+<!-- IT CANNOT BE AN ABSOLUTE ADDRESS-->
+
+<FORM method=POST action="http://bandbstudios.com/cgi-bin/mof.cgi">
+
+<!-- THE POSTMODE IS REQUIRED HIDDEN INFO -->
+
+<INPUT type="hidden" name="postmode" value="CUSTOM">
+
+A "CUSTOM" postmode has been built in.  The custom routines will 
+ have to be coded in the MOF processes library file and the program 
+ flow will have to be built in the main program file.
+<p>
+
+A custom process can be from an HTML form input or you could develop 
+ a pre-front end script to process a product to a stage ready to 
+ be accepted by MOF.
+<p>
+
+In the first scenario, you would actually 
+ submit your form to postmode=CUSTOM and build in the unique process 
+ you needed: For example, a Mailing List Subscription Service where 
+ a main service type is selected as the main product with embedded 
+ pricing for that input.  The Custom process would then take that 
+ input and do whatever was needed to put it into @NewOrder format.  Then 
+ the progam flow script would probably process as normal to the cart.
+<p>
+
+In the second scenario, you might build a script that processed 
+ your products in some way and prepared a screen to input into
+ postmode=SINGLEPOST mode, thereby, utilizing MOF to pick up 
+ your input in an already recognizible format with the standard 
+ input names it's looking for.
+
+
+<p>
+<font size=2>
+<input type=submit value="Add To Cart">
+<input type=reset value="Reset Form">
+
+
+</FORM>
+
+
+<font face="Arial,Helvetica" size="3" color=black>
+
+<br><br>
+
+<font face="Arial,Helvetica" size="2">
+
+Happy Ordering<br>
+
+Copyright &copy; 
+<a href="http://www.io.com/~rga/scripts/">
+Merchant OrderForm </a> v1.53
+<br>
+All Rights Reserved, April 2000 by
+<a href="http://www.io.com/~rga/">RGA</a>
+<br>
+These programs may not be distributed without consent of owner.
+<br>
+
+<br><br><br>
+
+</blockquote>
+
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+BODY {	
+	background-color: #E8E8E8;
+}
+/******* hyperlink and anchor tag styles *******/
+
+a:link, a:visited{
+	color: #005FA9;
+	text-decoration: none;
+}
+
+a:hover{
+ 	color: #9F0024;
+	text-decoration: underline;  
+
+}
+
+FORM { margin-bottom:0; margin-top:0 }
+
+#StoryText {color: darkgreen}
+
+.SmTxt {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: Black;
+}		
+
+P.SmTxtPBK {	  
+	background-color: #E3F2FF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: Black;
+}		
+
+.SmBlack {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: Black; 
+	font-weight: bold;
+}	
+
+.SmMaroon {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: Maroon;	  
+	font-weight: bold;
+}		
+	  
+.SmWhite {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: White;	  
+	font-weight: bold;
+}		
+
+.menu	  {
+	font-family: Verdana,sans-serif;	
+	font-weight: normal;
+	font-size: 7pt;
+	font-style: normal;	
+}	
+		 
+.SmCart {
+	background: transparent;
+}
+
+.SmCart:HOVER {
+	background: #ECFFD9;
+}
+.CodeFormat {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	color: #009500;
+}
+
+
+.BoxTwoFormat {
+	width : 200px;
+}
+
+.TextBoxFormat {
+	background-color : #F5F5F5;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12px;	  
+	font-weight: bold;
+	text-align : center;
+	visibility : visible;
+	border : thin solid #578BEA;
+}
+
+.SmallBoxFormat {
+	width : 35px;
+	background-color : #F5F5F5;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12px;		
+	font-weight: bold;
+	text-align : center;
+	visibility : visible;
+	border : thin solid #578BEA;
+}
+
+
+.TextAreaBoxFormat {
+	width : 500px;
+	height : 100px;
+	background-color : #F5F5F5;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12px;		  
+	font-weight: bold;
+	text-align : left;
+	visibility : visible;
+	border : thin solid #578BEA;
+}
+
+.BoxAreaFormat {
+	width : 500px;
+	background-color : #F5F5F5;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12px;		 
+	font-weight: bold;
+	text-align : left;
+	visibility : visible;
+	border : thin solid #578BEA;
+}
+
+
+.ButtonFormat {
+	background-color : #F5F5F5;
+	border : 2px solid #336699;
+	width : 100px;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	text-align : center;
+	visibility : visible;
+	border-color : #578BEA;
+}
+
+
+
+
+
+
+

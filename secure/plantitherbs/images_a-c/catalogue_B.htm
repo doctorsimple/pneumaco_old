@@ -1,0 +1,242 @@
+ 
+<HTML>
+<!-- #BeginTemplate "/Templates/template1.dwt" --> 
+<HEAD>
+<!-- #BeginEditable "doctitle" --> 
+<TITLE>B</TITLE>
+<!-- #EndEditable --> 
+<meta http-equiv="Content-Type" content="text/html; charset=">
+</HEAD>
+<BODY BGCOLOR="#999999" text="#003300" link="#660000">
+<div align="center"><!-- #BeginEditable "whole%20thing" --> 
+  <p> 
+    <script><!--
+  function OpenNewWindow(cPicture,nWidth,nHeight,cMessage,nBorder)       
+		{
+ NewWindow=window.open("","NewOne","HEIGHT="+nHeight+",WIDTH="+nWidth+",scrollbars=yes,resizable=no,top=5,left=5");
+        NewWindow.document.write ("<HTML><HEAD>");
+        NewWindow.document.write ("</HEAD>");
+        NewWindow.document.write ("<BODY BGCOLOR='#999999'>");
+        NewWindow.document.write ("<P ALIGN=CENTER>");
+        NewWindow.document.write ("<FONT FACE='Georgia' SIZE='+1'COLOR='#003300'><B>");           
+        NewWindow.document.write (cMessage);
+        NewWindow.document.write ("</B><FONT>");
+        NewWindow.document.write ("<IMG SRC=");
+        NewWindow.document.write (cPicture);
+        NewWindow.document.write (">");
+        NewWindow.document.write ("</P>");
+        NewWindow.document.write ("<bottom><FORM><INPUT TYPE='button'VALUE='Close This Window' onClick='self.close()'>"); 
+        NewWindow.document.write ("</FORM></CENTER></BODY></HTML>");
+        NewWindow.document.write ("</BODY></HTML>");
+        NewWindow.document.close();
+        return false;
+        }
+  
+
+if (!parent.control)
+{window.location="shoppingarea.htm?catalogue_a-c.htm"}
+
+function LineOnForm(plantname,number,price)
+	{ 
+	this.plantname=plantname;
+	this.number=number;
+	this.price=price;
+	}
+var Entries = new Array();
+var countStart=0;
+var Placeholder=0;
+function AddToCart(plantname,number,price)
+	{
+	 Entries[Placeholder]=new LineOnForm(plantname,number,price);
+	 ++Placeholder;
+	 showCart();
+	 }
+
+function ParseArray()
+	{
+	
+	for (x=countStart;x<Entries.length;++x)
+		{
+ 		 parent.control.document.catalogue.qstring.value += Entries[x].plantname;
+		 parent.control.document.catalogue.qstring.value += '-';
+		 parent.control.document.catalogue.qstring.value +=Entries[x].number;
+		 parent.control.document.catalogue.qstring.value +='-';
+		 parent.control.document.catalogue.qstring.value +=Entries[x].price;
+		 parent.control.document.catalogue.qstring.value +='--';
+		 countStart++;
+			}
+	}	
+	
+
+function makeSpace(latinname)
+	{
+		 chopped=latinname.split('+');
+		 n=0;holder='';
+		 while (chopped[n])
+		 	{
+			holder+=(chopped[n]+' ');
+			n++;
+			}
+		 return holder;
+	} 
+ function showCart()
+ 	{
+	ParseArray(Placeholder);
+	var showme="";
+	var args=parent.control.document.catalogue.qstring.value;
+	lines = args.split('--');
+	 for (x=0;(x<((lines.length)-1));++x)
+	 {
+	  parts = lines[x].split('-');
+	  showme+=(makeSpace(parts[1])+"\n")
+	  }
+	 
+	 alert('Your shopping cart contains:\n'+showme+'\nWhen you are ready to place your order, click the submit button to choose a quantity for each item and to enter your shipping and billing information');
+
+				return true;
+	} 
+	
+	
+	
+	//-->
+	</script>
+    <img src="graphics_garden/PIH2.jpg" width="500" height="100"> </p>
+  <p><font color="#999999">n<b><a href="index.htm">Home</a></b><font color="#999999">---</font> 
+    <b><a href="workshops.htm">Workshops</a><font color="#999999">---</font> <a href="shoppingarea.htm?pictures_a-c.htm">Picture 
+    Gallery</a><font color="#999999">---</font> <a href="mailto:plantit@plantitherbs.com">Contact 
+    Plant It Herbs</a><font color="#999999">---</font> <a href="shoppingarea.htm?order_form.htm">Order 
+    Form</a><font color="#999999">---</font> <a href="links.htm">Links</a></b>g</font></p>
+  <p><a href="catalogue_A.htm"><font color="#000066"><b><i>A</i></b></font></a> 
+    <i><b><a href="catalogue_B.htm"><font color="#000066">B</font></a><font color="#000066"> 
+    </font><a href="catalogue_C.htm"><font color="#000066">C</font></a><font color="#000066"> 
+    </font><a href="catalogue_D-G.htm"><font color="#000066">DEFG</font></a> </b></i><font color="#999999"><b><i><a href="catalogue_H-K.htm"><font color="#000066">HIJK</font></a><font color="#000066"> 
+    </font><a href="catalogue_L-N.htm"><font color="#000066">LMN</font></a><font color="#000066"> 
+    </font><a href="catalogue_O-Q.htm"><font color="#000066">OPQ</font></a><font color="#000066"> 
+    </font><a href="catalogue_R-S.htm"><font color="#000066">RS</font></a><font color="#000066"> 
+    </font><a href="catalogue_T-Z.htm"><font color="#000066">TUVWXYZ</font></a></i></b>i</font> 
+  </p>
+  <p><font color="#003300" size="+3"><b>2002 Catalogue</b></font> 
+  <p><b><font color="#003300" size="+3">- B -</font> </b> 
+  <form action="order_form.htm" method=GET name=catalogue>
+    <p> 
+      <input type=hidden name=qstring value=value>
+    </p>
+    <font face="Georgia" color="#660000"><i><a name="Banisteriopsis caapi"></a></i></font><font face="Georgia" color="#003300"><i>#21370 
+    </i></font><font face="Georgia" color="#000066"><b>Banisteriopsis caapi</b></font><font face="Georgia" color="#003300">, 
+    soul vine/ayahuasca, Malpighiaceae<i> - This striking tropical vine has a 
+    long history of use and importance in various ceremonies led by tribal shamans 
+    and ayahuasqueros; liana with opposite leaves, pink but usually yellow flowers 
+    bloom in clusters; grow in rich soil in part shade; in the Amazon region it 
+    is used as a cure all for many kinds of medical problems including as a laxative 
+    and emetic.</i></font> 
+    <p><font face="Georgia"><i><a href=# onClick="OpenNewWindow('https://www.frognet.net/plantitherbs/images_a-c/Banisteriopsis_caapi.jpg',450,450,'Banisteriopsis caapi'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38"border="0" align="center "></a></i></font><font size="4">Click 
+      for Picture</font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $35.00</i></font></p>
+    <p> 
+      <input type=button name=Button3 value="add to shopping cart" onClick="AddToCart(21370,'Banisteriopsis caapi',35.00)">
+      <input type=submit name=Submit22 value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button3 value="See contents of cart" onClick="showCart()">
+    </p>
+    <font size="4">Click for Picture</font> 
+    <p><font face="Georgia" color="#660000"><i>Plant = $35.00</i></font></p>
+    <p> 
+      <input type=button name=Button value="add to shopping cart" onClick="AddToCart(20140,'Astragalus membranaceus',5.25)">
+      <input type=submit name=Submit2 value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button value="See contents of cart" onClick="showCart()">
+    </p>
+    <p><a name="Belamcande chinensis"></a><font face="Georgia"><i>#20150 </i></font><font face="Georgia" color="#000066"><b>Belamcanda 
+      chinensis</b></font><font face="Georgia">, she gan, blackberry lily, Iridaceae<i> 
+      - Beautiful perennial with branched stems that reach a height of 2-4', blooms 
+      are tiger spotted and star-shaped in a deep orange-red followed by shiny 
+      black seeds; grow in well-drained,</i></font> <font face="Georgia"><i>sandy 
+      humus-rich soil in full sun, rhizomes are said to soothe throat coughs with 
+      chest distress, as a poultice for twisted ankles and some types of skin 
+      ailments .</i></font></p>
+    <p><font face="Georgia"><i><a href=# onClick="OpenNewWindow('https://www.frognet.net/plantitherbs/images_a-c/Belemcande_chinensis.jpg',450,450,'Belamcande chinensis'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38"border="0" align="center "></a></i></font> 
+      <font size="4">Click for Picture</font> </p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $4.25 </i></font></p>
+    <p> 
+      <input type=button name=Button value="add to shopping cart" onClick="AddToCart(20150,'Belamcande chinensis',4.25)">
+      <input type=submit name=Submit2 value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button value="See contents of cart" onClick="showCart()">
+    </p>
+    <p><font face="Georgia" color="#660000"><i>Seed = $3.00</i></font></p>
+    <p> 
+      <input type=button name=Button value="add to shopping cart" onClick="AddToCart(20150,'Belamcande chinensis seed',3.00)">
+      <input type=submit name=Submit2 value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button value="See contents of cart" onClick="showCart()">
+    </p>
+    <p align=right><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></p>
+    <p><font face="Georgia" color="#330066"><i><a name="Bletilla striata"></a></i></font><font face="Georgia">#21400 
+      </font><font face="Georgia" color="#000066"><b>Bletilla striata</b></font><font face="Georgia"><b>,</b> 
+      bai ji, Hyachinth orchid, Orchidaceae- <i>Terrestrial orchid with leafy 
+      stems growing from tuberous rhizomes, light lavender flowers lined by deep 
+      purple ridges. Hardy to Zone 6 with protection. Rhizomes are said to restrain 
+      leakage of blood, stops bleeding, especially useful for non-healing ulcers. 
+      </i></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $8.00</i></font></p>
+    <p><font face="Georgia"><i><a href=# onClick="OpenNewWindow('https://www.frognet.net/plantitherbs/images_a-c/Bletilla_striata.jpg',450,450,'Bletilla striata'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38"border="0" align="center "></a></i></font><font size="4">Click 
+      for Picture</font></p>
+    <p> 
+      <input type=button name=Button value="add to shopping cart" onClick="AddToCart(21400,'Bletilla striata',8.00)">
+      <input type=submit name=Submit2 value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button value="See contents of cart" onClick="showCart()">
+    </p>
+    <p></p>
+    <p align=right><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></p>
+    <p><a name="Brucea javanica"></a><font face="Georgia"><i>#20170 </i></font><font face="Georgia" color="#000066"><b>Brucea 
+      javanica</b></font><font face="Georgia">, ya dan zi, kusam seeds, Simarubaceae<i> 
+      - Tender evergreen deciduous shrub with velvety branches that are poisonous; 
+      original seeds come from Guangxi B.G., grow in well- drained soil in sun 
+      or part shade, minimum 56-64 degrees, small purple 4-petaled flowers appear 
+      in summer, first recorded in Chinese medicine in AD 720; seeds are said 
+      to lower fever, effective against a wide range of pathogens, amebic dysentery, 
+      externally for warts and corns, seldom seen in cultivation; limited supply.</i></font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $12.50</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(20170,'Brucea javanica',12.50)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p><a name="Bupleurum chinense"></a><font face="Georgia"><i>#20180 </i></font><font face="Georgia" color="#000066"><b>Bupleurum 
+      chinense</b></font><font face="Georgia">, chai hu, sickle-leaved hare's 
+      ear,Umbelliferae/Apiaceae<i> - Slender perennial herb; glabrous and yellowish 
+      in overall color, leaves alternate; original seed from IMPLAD; grow in well-drained 
+      soil in full sun, tiny yellow flowers bloom July-October; root is said to 
+      be used internally for malaria, fever, abdominal bloating, common and major 
+      use is to help the flow of qi when there is liver qi stagnation and to help 
+      the gall bladder to function better .</i></font></p>
+    <p><font face="Georgia"><i><a href=# onClick="OpenNewWindow('https://www.frognet.net/plantitherbs/images_a-c/Bupleurum_chinensis.jpg',450,450,'Bupleurum chinense'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38"border="0" align="center "></a></i></font><font size="4">Click 
+      for Picture</font></p>
+    <p><font face="Georgia" color="#660000"><i>Plant = $4.75 </i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(20180,'Bupleurum chinensis',4.75)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p><font face="Georgia" color="#660000"><i>Seed = $3.00</i></font></p>
+    <p> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(20180,'Bupleurum chinensis seed',3.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+    </p>
+    <p align=right><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></p>
+  </form>
+  <p></P>
+  <p align="center"><b><a href="index.htm">Home</a></b> <b><a href="links.htm">Links</a></b> 
+    <b> </b><b><a href="workshops.htm">Workshops</a> </b><b> <a href="shoppingarea.htm?pictures_a-c.htm">Picture 
+    Gallery</a></b></p>
+  <p align="center"><b> <a href="mailto:plantit@plantitherbs.com">Contact Plant 
+    It Herbs</a> </b></p>
+  <p align="center"><b><a href="shoppingarea.htm?order_form.htm">Order Form</a> 
+    </b></p>
+  <p></p>
+  <!-- #EndEditable --> 
+  <p>&nbsp;</p>
+</div>
+</BODY>
+<!-- #EndTemplate -->
+</HTML>

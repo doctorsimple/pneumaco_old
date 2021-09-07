@@ -1,0 +1,181 @@
+<html><head><title>MOF v1.52 Front End Variables Test</title></head>
+   		 <body bgcolor=#FFFFFF text=#000000><h3>Merchant OrderForm v1.53 Front End Variables Available</h3>For programmers who want to build their own payment processing 
+		using the Merchant OrderForm v1.53 Front End.&nbsp; This is a comprehensive list of all global variables available to you when &lt;mof.cgi&gt; is ready to post to the next process.
+         <p>
+
+         Reference any of the variables this way:<br>
+         <font color="#000080">
+         <b>$frm{'Variable_Name_Here'}</b></font> <p>
+
+<strong><u>All Shipping Address Info is Available in %frm ?</u></strong><ol><li>Ecom_ShipTo_Postal_Company, <strong>Austin Contract Computing, Inc.</strong> 
+<li>Ecom_ShipTo_Telecom_Phone_Number, <strong>512.447.1124</strong> 
+<li>Ecom_ShipTo_Online_Email, <strong>rga@io.com</strong> 
+<li>Ecom_ShipTo_Postal_StateProv, <strong>TX</strong> 
+<li>Ecom_ShipTo_Postal_Name_First, <strong>William</strong> 
+<li>Ecom_ShipTo_Postal_Name_Prefix, <strong>Mr.</strong> 
+<li>Ecom_ShipTo_Postal_Name_Middle, <strong>G.</strong> 
+<li>Ecom_ShipTo_Postal_Street_Line1, <strong>1904 Inverness Blvd.</strong> 
+<li>Ecom_ShipTo_Postal_Street_Line2, <strong>P.O. Box 19945</strong> 
+<li>Ecom_ShipTo_Postal_Name_Last, <strong>Alejandro</strong> 
+<li>Ecom_ShipTo_Postal_Name_Suffix, <strong>PhD</strong> 
+<li>Ecom_ShipTo_Postal_City, <strong>Austin</strong> 
+<li>Ecom_ShipTo_Postal_PostalCode, <strong>78745-7788</strong> 
+<li>Ecom_ShipTo_Postal_CountryCode, <strong>US</strong> 
+</ol><strong><u>All Other Info in %frm ?</u></strong><p>Here is a list of all the info in %frm outside the Shipping 
+		Destination fields. The remaining data is a complete listing 
+ 		of all results from the computations routines when the preview
+		is computed.  All info is listed here in no particular order.
+		All of the %Computations array is POSTed to the next process
+		(mofpayment.cgi) as listed here and will end up in that %frm array.
+
+<ol><li>Tax_Amount, <strong>83.95</strong> 
+<li>Shipping_Method_Name, <strong>Pick_Up</strong> 
+<li>Compute_Coupons, <strong>New Member</strong> 
+<li>Coupon_Affiliate_Rate, <strong>0.02</strong> 
+<li>Compute_Insurance, <strong>18.98</strong> 
+<li>Combined_SHI, <strong>21.98</strong> 
+<li>Adjusted_Tax_Amount_After, <strong>611.09</strong> 
+<li>Sub_Coupon_Discount, <strong>592.56</strong> 
+<li>Shipping_Status, <strong>Domestic</strong> 
+<li>Shipping_Method_Description, <strong>I will Pick it up at the Factory in my Pick Up Truck</strong> 
+<li>Tax_Rule_Exceptions, <strong>2</strong> 
+<li>Adjusted_Tax_Amount_Before, <strong>589.11</strong> 
+<li>Insurance, <strong>18.98</strong> 
+<li>Handling_Status, <strong>$ 0.25 each 2 item(s)</strong> 
+<li>OrderID, <strong>20000711011939-3749701</strong> 
+<li>Total_Weight, <strong>48</strong> 
+<li>Insurance_Status, <strong>Up to $ 1000.00 ($18.98)</strong> 
+<li>Tax_Discount_Ratio, <strong>1</strong> 
+<li>Is_Domestic, <strong>3</strong> 
+<li>Shipping_Amount, <strong>0.00</strong> 
+<li>Sub_Primary_Discount, <strong>596.31</strong> 
+<li>Primary_Price, <strong>599.76</strong> 
+<li>Tax_Rate, <strong>0.1425</strong> 
+<li>Domestic_State, <strong>TX</strong> 
+<li>InfoID, <strong>20000710161314-3802717</strong> 
+<li>previouspage, <strong>http://localhost/mof15/ExampleDropBoxes.html</strong> 
+<li>Allow_Shipping, <strong>2</strong> 
+<li>Use_Domestic, <strong>3</strong> 
+<li>Tax_Rule, <strong>BEFORE</strong> 
+<li>Handling, <strong>3.00</strong> 
+<li>Shipping_Message, <strong>I will Pick it up at the Factory in my Pick Up Truck</strong> 
+<li>Combined_Discount, <strong>10.65</strong> 
+<li>Allow_Tax, <strong>4</strong> 
+<li>Domestic_Country, <strong>US</strong> 
+<li>Primary_Discount, <strong>3.45</strong> 
+<li>Sub_SHI, <strong>611.09</strong> 
+<li>Primary_Discount_Status, <strong>0.6% each $ 25</strong> 
+<li>Domestic_City, <strong>Austin</strong> 
+<li>Adjusted_Tax_Amount, <strong>589.11</strong> 
+<li>Primary_Products, <strong>24</strong> 
+<li>Sub_Final_Discount, <strong>589.11</strong> 
+<li>Coupon_Discount, <strong>7.20</strong> 
+<li>Initial_Taxable_Amount, <strong>599.76</strong> 
+<li>Coupon_Cust_Rate, <strong>0.012</strong> 
+<li>Final_Amount, <strong>695.04</strong> 
+<li>Compute_Shipping_Method, <strong>Pick_Up</strong> 
+<li>Coupon_Discount_Status, <strong>1.2% For New Member Valid</strong> 
+</ol>Here's how the tabulations occur. You must follow this sequence if 
+		you will be reproducing any itimized output of the invoice. The 
+		computations are already done, the above variables hold the
+   		results off all computations.
+
+<ol>
+		<li>Number of products and initial summed price
+
+			<ul><strong>
+			<li>Primary_Products
+			<li>Primary_Price
+			</strong>
+			</ul>
+
+		<li>Any Regular discountes applied
+
+			<ul><strong>
+			<li>Primary_Discount
+			<li>Primary_Discount_Status </strong> Message <strong>
+			</strong>
+			</ul>
+
+		<li>Any Coupon discounts applied
+
+			<ul><strong>
+			<li>Coupon_Discount
+			<li>Coupon_Discount_Status </strong> Message <strong>	
+			</strong>
+			</ul>
+
+		<li>Sub Total after any discounts
+
+			<ul><strong>
+			<li>Combined_Discount </strong> what it says <strong>
+			<li>Sub_Final_Discount
+			</strong>
+			</ul>
+
+		<li><font color=red>Tax Amount (if taxing Before SHI)<font color=black>
+
+			<ul><strong>
+			<li>Tax_Rule eq "BEFORE"
+			<li>Adjusted_Tax_Amount_Before </strong>Amount to be taxed<strong>
+			<li>Tax_Amount </strong>Actual tax<strong>
+			<li>Tax_Rate
+			</strong>
+			</ul>
+
+		<li>Handling charges
+
+			<ul><strong>
+			<li>Handling
+			<li>Handling_Status </strong> Message <strong>	
+			</strong>
+			</ul>
+
+		<li>Insurance charges
+
+			<ul><strong>
+			<li>Insurance
+			<li>Insurance_Status </strong> Message <strong>	
+			</strong>
+			</ul>
+
+		<li>Shipping charges
+
+			<ul><strong>
+			<li>Total_Weight </strong>if used <strong>
+			<li>Shipping_Amount
+			<li>Shipping_Message </strong> Message <strong>
+			</strong>
+			</ul>
+
+		<li><font color=red>Tax Amount (if taxing After SHI)<font color=black>
+
+			<ul><strong>
+			<li>Tax_Rule eq "AFTER"
+			<li>Adjusted_Tax_Amount_After </strong>Amount to be taxed<strong>
+			<li>Tax_Amount </strong>Actual tax<strong>
+			<li>Tax_Rate
+			</strong>
+			</ul>
+
+		<li>Actual Total for Invoice All adjustments
+
+			<ul><strong>
+			<li>Final_Amount
+			</strong>
+			</ul>
+
+		</ol> 
+
+ <strong><u>orders Array</u></strong> </font></font></font></font> <p>
+<font color="black">
+You must always build a separate <b>@orders</b> array from the parsed input if you plan to parse the details of the cart contents.
+		MOF processes product information in this array and format.&nbsp;</font> <p>
+<font color="black">
+24----Work Hat----The Industrial Work Hat~Selected Hat Size::Medium~Selected Hat Color::Red----24.99----2----1</font> 
+<p>
+<font color="black">
+Happy Ordering<br> Merchant OrderForm v1.53 © Copyright <a href="http://www.io.com/~rga/scripts/">RGA</a> 
+</font> 
+</body></html> 
+

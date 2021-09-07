@@ -1,0 +1,288 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>MOFcart v2.5 Examples</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 5.50.4611.1300" name=GENERATOR>
+<META name="ROBOTS" content="NOINDEX,NOFOLLOW">
+<link rel="stylesheet" type="text/css" href="examples.css">
+
+<script type="text/javascript" LANGUAGE="JavaScript">
+<!-- name and focus window
+window.name = 'MAIN';
+window.focus();
+// End -->
+</SCRIPT>
+
+</HEAD>
+<BODY>
+
+
+
+<TABLE cellSpacing=0 cellPadding=0 width=640 align=center bgColor=#E8E8E8 border=0>
+  <TBODY>
+  <TR>
+    <TD height="48" valign="top">
+	
+	      <img src="images/moflogo640.gif" width="640" height="50"></TD>
+    </TR>
+  </TBODY>
+</TABLE>
+
+
+
+
+<TABLE cellSpacing=0 cellPadding=1 width=640 align=center bgColor=#578BEA border=0>
+<TBODY>
+<TR>
+<TD>
+
+
+<TABLE cellSpacing=0 cellPadding=25 width="100%" align=center bgColor=#ffffff border=0>
+<TBODY>
+<TR>
+<TD> 
+		  
+            <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="57%" class="SmTxt"><strong>Price Input Fields 3 </strong></td>
+                <td width="25%" class="SmTxt"><strong><a href="example_mofstore.html"><img src="images/larrow.gif" width="12" height="7" border="0"></a></strong><a href="example_mofstore.html">Return to Examples</a></td>
+                <td width="18%"><div align="right" class="SmTxt"><strong><strong><a href="http://www.gardenthemes.com/cgi-bin/mcart/mof.cgi?viewcart"><img src="images/yourbasket.gif" width="106" height="20" border="0" alt="Go To Your Shopping Basket"></a></strong></strong></div></td>
+              </tr>
+            </table>
+            <p class="SmTxt"><strong>Use:</strong> You need the  ability for the customer to enter  amounts  for a product or service and you are using QUANTITYBOXES mode..</p>
+            <p class="SmTxt"><strong>Instructions</strong>: Enter a quantity to select contributions for Source ONE or TWO, then enter any additional amounts for that Source. For Source THREE, select the checkbox to contribute $25.00, then enter any additional amounts to append.  When done with your selections and amounts,  click the <strong>Add to Cart</strong> button. The item and/or items will be added to your cart with total amounts.</p>
+
+ 
+ 
+
+	<FORM method=POST action="http://www.gardenthemes.com/cgi-bin/mcart/mof.cgi">
+	<INPUT type="hidden" name="postmode" value="QUANTITYBOXES">
+	<INPUT type="hidden" name="order1" value="Source One----Contributions for Source ONE----0----0----0">
+	<INPUT type="hidden" name="order2" value="Source Two----Contributions for Source TWO----0----0----0">
+	<INPUT type="hidden" name="order3" value="Source Three----Contributions for Source THREE----25.00----0----0">
+
+
+              <table align=center border="0" cellspacing="0" cellpadding="4" bgcolor="#E8E8E8">
+				  
+				  
+                <tr bgcolor="#578BEA">
+                  <td colspan=2>
+ 			  	<strong class="SmWhite">Enter Source ONE Amounts</strong>
+				</td>
+                </tr>
+				
+				<tr>
+                  <td bgcolor="E3F2FF" class="SmTxt">
+	    		
+		   		    <INPUT type="text" name="quantity1" size=2 class="BoxFormat">
+                    Qty <strong>X</strong> Amount				</td>
+                  <td nowrap bgcolor="#F5F5F5">
+			   	    <img src="images/rarrow.gif" width="12" height="7" align="absmiddle">
+			   	    <INPUT type="text" name="PriceInput1" size=15 value="" class="BoxFormat">				</td>
+                </tr>
+				
+				
+				<tr>
+                  <td bgcolor="E3F2FF" class="SmTxt">
+	    		<strong>+</strong> Enter Second Amount: 
+				</td>
+                  <td nowrap bgcolor="#F5F5F5">
+		   		    <img src="images/rarrow.gif" width="12" height="7" align="absmiddle">
+		   		    <INPUT type="text" name="bDonationTwo1" size=15 value="" class="BoxFormat">				</td>
+                </tr>
+				
+						
+				<tr>
+                  <td bgcolor="E3F2FF" class="SmTxt">
+	    		<strong>+</strong> Enter Third Amount: 
+				</td>
+                  <td nowrap bgcolor="#F5F5F5">
+			        <img src="images/rarrow.gif" width="12" height="7" align="absmiddle">
+			        <INPUT type="text" name="cDonationThree1" size=15 value="" class="BoxFormat">			</td>
+                </tr>
+                <tr bgcolor="#FFFFFF">
+                  <td colspan="2">&nbsp;</td>
+                </tr>
+                <tr bgcolor="#578BEA">
+                  <td colspan="2"><strong class="SmWhite">Enter Source TWO Amounts</strong></td>
+                </tr>
+
+
+				<tr>
+                  <td bgcolor="E3F2FF" class="SmTxt">
+	    		
+		   		    <INPUT type="text" name="quantity2" size=2 class="BoxFormat">
+                    Qty <strong>X</strong> Amount				</td>
+                  <td nowrap bgcolor="#F5F5F5">
+			   	    <img src="images/rarrow.gif" width="12" height="7" align="absmiddle">
+			   	    <INPUT type="text" name="PriceInput2" size=15 value="" class="BoxFormat"></td>
+                </tr>
+                <tr bgcolor="#FFFFFF">
+                  <td colspan="2">&nbsp;</td>
+                </tr>
+
+
+                <tr bgcolor="#578BEA">
+                  <td colspan="2">
+				  <strong class="SmWhite">Check and Enter Source THREE Amounts</strong></td>
+                </tr>
+				
+				
+                <tr>
+
+                  <td bgcolor="E3F2FF" class="SmTxt">
+				    
+                    
+                    <INPUT type="checkbox" name="quantity3" value="1" class="BoxFormat">
+                    Contribute $ 25.00 <strong>+</strong>			</td>
+                  <td nowrap bgcolor="#F5F5F5">
+				    <img src="images/rarrow.gif" width="12" height="7" align="absmiddle">
+				    <INPUT type="text" name="cDonationThree3" size=15 value="" class="BoxFormat"></td>
+                </tr>
+                <tr bgcolor="#FFFFFF">
+                  <td colspan="2">&nbsp;</td>
+                </tr>
+				
+				<tr bgcolor="#FFFFFF">
+                  <td colspan=2 align="center">
+		            <input name="update_btn" type=submit value="Add To Cart" class="ButtonFormat">
+			        <input name="reset_btn" type=reset value="Reset" class="ButtonFormat"></td>
+                </tr>
+              </table>
+
+		    </FORM></TD>
+</TR>
+</TBODY>
+</TABLE>
+
+</TD>
+</TR>
+</TBODY>
+</TABLE>
+
+<br>
+
+
+<TABLE cellSpacing=0 cellPadding=4 width=640 align=center border=0>
+<TBODY>
+<TR>
+<TD class="SmBlack">
+
+
+<strong>FORM syntax ..</strong> &nbsp;
+
+
+</TD>
+</TR>
+</TBODY>
+</TABLE>
+
+
+
+<TABLE cellSpacing=0 cellPadding=1 width=640 align=center bgColor=#578BEA border=0>
+<TBODY>
+<TR>
+<TD>
+
+
+<TABLE cellSpacing=0 cellPadding=10 width="100%" align=center bgColor=#ffffff border=0>
+<TBODY>
+<TR>
+          <TD Class="CodeFormat">	        <p>		&lt;FORM method=POST action=&quot;http://www.gardenthemes.com/cgi-bin/mcart/mof.cgi&quot;&gt;<br>
+              	&lt;INPUT type=&quot;hidden&quot; name=&quot;<span class="SmMaroon">postmode</span>&quot; value=&quot;<strong class="SmBlack">QUANTITYBOXES</strong>&quot;&gt;</p>
+            <p>&lt;INPUT type=&quot;hidden&quot; name=&quot;<strong class="SmMaroon">order1</strong>&quot; <br>
+              value=&quot;<span class="SmBlack">Source One----Contributions for Source ONE----0----0----0</span>&quot;&gt;<br>
+              	&lt;INPUT type=&quot;hidden&quot; name=&quot;<strong class="SmMaroon">order2</strong>&quot; <br>
+              value=&quot;<span class="SmBlack">Source Two----Contributions for Source TWO----0----0----0</span>&quot;&gt;<br>
+              	&lt;INPUT type=&quot;hidden&quot; name=&quot;<strong class="SmMaroon">order3</strong>&quot; <br>
+              value=&quot;<span class="SmBlack">Source Three----Contributions for Source THREE----25.00----0----0</span>&quot;&gt;<br>
+              <br>
+              &lt;INPUT type=&quot;text&quot; name=&quot;<strong class="SmMaroon">quantity1</strong>&quot; size=2&gt;<br>
+              &lt;INPUT type=&quot;text&quot; name=&quot;<strong class="SmMaroon">PriceInput1</strong>&quot; size=15 value=<span class="SmBlack">&quot;&quot;</span>&gt;<br>
+              &lt;INPUT type=&quot;text&quot; name=&quot;<strong class="SmMaroon">bDonationTwo1</strong>&quot; size=15 value=<span class="SmBlack">&quot;&quot;</span>&gt;<br>
+              &lt;INPUT type=&quot;text&quot; name=&quot;<strong class="SmMaroon">cDonationThree1</strong>&quot; size=15 value=<span class="SmBlack">&quot;&quot;</span>&gt;<br>
+              <br>
+              &lt;INPUT type=&quot;text&quot; name=&quot;<strong class="SmMaroon">quantity2</strong>&quot; size=2&gt;<br>
+              &lt;INPUT type=&quot;text&quot; name=&quot;<strong class="SmMaroon">PriceInput2</strong>&quot; size=15 value=<span class="SmBlack">&quot;&quot;</span>&gt;<br>
+              <br>
+              &lt;INPUT type=&quot;checkbox&quot; name=&quot;<strong class="SmMaroon">quantity3</strong>&quot; value=&quot;1&quot;&gt;<br>
+              &lt;INPUT type=&quot;text&quot; name=&quot;<strong class="SmMaroon">cDonationThree3</strong>&quot; size=15 value=<span class="SmBlack">&quot;&quot;</span>&gt;<br>
+              <br>
+              &lt;input name=&quot;update_btn&quot; type=submit value=&quot;Add To Cart&quot;&gt;<br>
+              &lt;input name=&quot;reset_btn&quot; type=reset value=&quot;Reset&quot;&gt;<br>
+              &lt;/FORM&gt;</p>
+            </TD>
+</TR>
+</TBODY>
+</TABLE>
+
+</TD>
+</TR>
+</TBODY>
+</TABLE>
+
+<br>
+
+
+<TABLE cellSpacing=0 cellPadding=1 width=640 align=center bgColor=#578BEA border=0>
+<TBODY>
+<TR>
+<TD>
+
+
+<TABLE cellSpacing=0 cellPadding=25 width="100%" align=center bgColor=#ffffff border=0>
+<TBODY>
+        <TR>
+          <TD> 
+		  
+            <p>
+
+              <span class="SmTxt"><strong>Notes</strong></span></p>
+            <p class="SmTxt">This is a medley of Price Input that can be used with QUANTITYBOXES mode.</p>
+            <p class="SmTxt">Note the hidden input for Source ONE/TWO &quot;order&quot; has  Price, ShipCode, and TaxCode set to <strong>0</strong><br>
+              .. denoting a zero base price, no shipping, and  tax free status<br>
+              .. you could set these to other settings as  needed</p>
+            <p class="SmTxt">Note the hidden input for Source THREE &quot;order&quot; has a preset amount of $ 25.00<br>
+              .. and no shipping, tax free status</p>
+            <p class="SmTxt">Note that both types of price input  settings are enabled in &lt;mof.conf&gt;</p>
+            <ul>
+              <li class="SmTxt">The main price setting: <strong>$price_input</strong></li>
+              <li class="SmTxt">Declared User Input: <strong>%product_fields</strong></li>
+              <li class="SmTxt">Declared User Input:<strong>@price_input_adjustments</strong></li>
+              <li class="SmTxt">Declared User Input:<strong>@field_validation</strong> (if required)</li>
+            </ul>
+            <p><span class="SmTxt">Note you can allow zero based input by enabling <strong>$allow_zeros</strong> in &lt;mof.conf&gt;
+            </span> </p>
+            </TD>
+</TR>
+</TBODY>
+</TABLE>
+
+</TD>
+</TR>
+</TBODY>
+</TABLE>
+
+
+<br>
+<TABLE cellSpacing=0 cellPadding=2 align=center bgColor=#ECECEC border=0>
+  <TR>
+    <TD align="center" valign="middle" class="menu">	
+	<span class="FooterText">
+    	<a href="license.html" onClick="window.open(this.href,'INFO','directories=no,location=no,menubar=no,status=no,titlebar=no,toolbar=no,scrollbars=yes,width=450,height=500,resizable=yes');return false">License</a> |
+    <a href="about.html" onClick="window.open(this.href,'INFO','directories=no,location=no,menubar=no,status=no,titlebar=no,toolbar=no,scrollbars=yes,width=450,height=500,resizable=yes');return false">About Us</a> |
+    <a href="privacy.html" onClick="window.open(this.href,'INFO','directories=no,location=no,menubar=no,status=no,titlebar=no,toolbar=no,scrollbars=yes,width=450,height=500,resizable=yes');return false">Privacy Info</a> 
+	<br>
+	<a href="http://www.merchantpal.com" target="_blank">MerchantPal</a>.com &amp; <a href="http://www.merchantorderform.com" target="_blank">MerchantOrderForm</a> Shopping Cart are registered TradeMarks<br>
+	&copy; 2001-2004 All Rights Reserved. Austin Contract Computing, Austin, Texas USA
+	</span> 
+	 </TD>
+  </TR>
+  <TR>
+    <TD align="center" valign="middle"><img src="images/mplogo150x33.gif" width="150" height="33"></TD>
+  </TR>
+</TABLE>
+</BODY>
+</HTML>
+
+
+

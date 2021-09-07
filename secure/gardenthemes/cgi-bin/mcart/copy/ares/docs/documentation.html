@@ -1,0 +1,304 @@
+<html>
+<head>
+
+<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+<title>ARES v2.5 Documentation</title>
+
+<link href="istyle.css" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="white">
+
+<table border=0 width="640" cellpadding="6" cellspacing="0">
+
+  <tr>
+
+    <td width=10 bgcolor=#cece9c>
+<br>
+      <br>
+      <br>
+      <br>
+    </td>
+    <td width=630 align=top>
+
+<font face="Verdana" color="#CECE9C" size="5">
+<b>
+</b></font>
+      <p><font face="Verdana" color="#CECE9C" size="4">
+<a href="readme.html"><img src="areslogo.gif" width="262" height="48" align="absmiddle" border="0"></a>   </font><font color="#CECE9C"><font color="#990000" size="5"><b><font color="#000066">Operating Documentation</font></b></font></font></p>
+      <blockquote>
+        <p><font color="#000066" size="2" face="Verdana, Arial, Helvetica, sans-serif">Affiliate Referral Earnings System @ 2001 - 2004 <a href="license.html">See License</a><br>
+        </font> <font size="2" color="#000066" face="Verdana, Arial, Helvetica, sans-serif"><b> Packaged For use with Merchant OrderForm cart ver 2.5</b> </font></p>
+        <p><font color="#000066" size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="readme.html">Welcome</a> <strong><font color="#990000">|</font></strong> <a href="starting.html">Getting Started</a><b> <font color="#990000">|</font> </b><strong><a href="http://www.gardenthemes.com/ares/docs/readme.html"><img src="arrow.gif" width="12" height="7" border="0"></a>Operating Documentation</strong> <b><font color="#990000">| </font></b><a href="adminmanual.html">Admin Manual</a></font></p>
+      </blockquote>
+      <p><font face="Verdana" size="2" color="#000080"><b>Welcome&nbsp;</b></font>
+      <p class="text">
+<font face="Verdana" size="2">
+The ARES v2.5 system is fully independent and runs on flatfile databases which require no special web site modules or databases.&nbsp; It is fully contained and manages all aspects of operation from Affiliate sign up to Admin control via the web.&nbsp;
+Once installed, everything is done via the web browser.&nbsp; It has been tested to 10,000 affiliates, but is should easily run up to 150,000 affiliates.</font>
+      <p>
+      <p><font face="Verdana" size="2"><font color="#000080"><b>After Installation Important Reminders</b></font></font>
+      <p class="text"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b>Please read this section</b>.  It has important information about some of the <font color="#FF0000"><font color="#000000">message adjustments<strong>. </strong></font></font><font color="#000000"> A</font>RES is packaged for easy installation, however, some of the settings and information may not be what you want for your particular Affiliate program.</font>
+        <br>      
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><strong>1.</strong> The <strong>signup.cgi </strong>script is preset to issue all New Affiliate signups a <b>10% commission</b> rate, and their referred customers a <b>10% discount</b> on an order made through your site.  If you will not offer a discount to customers, or will offer a different rate, etc. then you should make the correct settings in your signup.cgi script before you go live.  Discounts and earning rates will be applied with any live orders placed once the system is turned on.   Make sure you're not discounting products 10% unless you really want that.  This is just a <b>starting Sign Up rate</b> which ARES issues to a New Affiliate.  The Admin is able to adjust discounts and rates at any point, but it's possible that a New Affiliate could sign up and send someone through for the discount quick.  So, don't set a starting discount or commission unless it's for real</font>
+      <p class="text">Find all the Settings for Affiliate Sign Up in the /<strong>mcart</strong>/&lt;signup.cgi&gt; script. You should be familiar with editing Ascii files and downloading/uploading to the hosting server. <br>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b>2. </b>Review and make any adjustments to the content in the <b>Operating</b> <b>Agreement</b> and the <b>F.A.Q</b>., especially regarding your terms, rates, payment intervals, and policies.</font>
+      <p class="text">These are plain HTML pages located here:
+      <p> <span class="text"><font color="#000066" size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong><a href="http://www.gardenthemes.com/ares/docs/readme.html"><img src="arrow.gif" width="12" height="7" border="0"></a></strong></font><a href="http://www.gardenthemes.com/ares/agreement.html" target="_blank">http://www.gardenthemes.com/ares/agreement.html</a><br>
+          <font color="#000066" size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong><a href="http://www.gardenthemes.com/ares/docs/readme.html"><img src="arrow.gif" width="12" height="7" border="0"></a></strong></font><a href="http://www.gardenthemes.com/ares/faq.html" target="_blank">http://www.gardenthemes.com/ares/faq.html</a></span>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b><br>
+      3.</b> Make any adjustments to the <b>Sign Up confirmation messages </b>that the <strong>signup.cgi</strong> script will display for a Successful Registration, and email confirmation.  Make sure the message matches what you say in your <u>Operating Agreement</u> and <u>F.A.Q.</u>  </font>      
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">You can see more about that toward the end of this document in the section <font color="#000099"><a href="#AdjustMessage">Adjusting Automated Sign Up Messages</a></font>.</font>
+      <p><br>
+        <span class="textBold">Below you can find more detail on some of the ARES Logistics</span>      
+      <p><font face="Verdana" size="2"><b><font color="#000080">Yourself as  Representative and Default Affiliate</font></b></font>            
+      <p><span class="text">You already did this as part of activating ARES v2.5 with the MOFcart v2.5 install utility </span>
+      <ul>
+        <li>
+          <font face="Verdana" size="2">
+Use your RepNumber as hidden input for signup.html to default all affiliates to you as Rep.  This is preset to Rep # 100 in the package. <br> 
+</font>
+        <li><font face="Verdana" size="2">
+  Use your Affiliate Number in &lt;mofpay.conf&gt; setting as the use_ARES_default_number</font>
+        </li>
+      </ul>
+      <p>
+<font face="Verdana" size="2">
+This will allow you to have accounts to assist you in tracking activity, and give you ability to give visitors without an Affiliate Cookie a discount, by using your Affiliate number.</font>
+      <p>
+<font face="Verdana" size="2">
+ You don't have to set any earning percentages to your Affiliate Account or Rep Account.&nbsp; You can set the Customer discount rate to zero, but still credit yourself with sales to track those customers who don't get associated with an Affiliate.</font>
+      <p>
+<font face="Verdana" size="2">
+Do this even if you only use a one tier system, because it will allow you to use the very impressive stats that get generated for Reps, which will give you complete analysis and stats on all your site's ordering activity.&nbsp; If you do not set up a
+required rep (yourself) then you will not have ability to use the powerful Rep summaries, etc.</font>
+      <p><strong><font color="#000080" size="2" face="Verdana"><br>
+        T</font></strong><font face="Verdana" size="2"><font color="#000080"><b>he Associates Area</b></font></font>
+      <p>
+<font face="Verdana" size="2">
+We've already constructed a slick consolidated area where Affiliates can get information on What your Affiliate Program is about, How to use it, Where to Sign up, etc.</font>      
+      <p><span class="text"><font color="#000066" size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong><a href="http://www.gardenthemes.com/ares/docs/readme.html"><img src="arrow.gif" width="12" height="7" border="0"></a></strong></font><a href="http://www.gardenthemes.com/ares/associates.html" target="_blank">http://www.gardenthemes.com/ares/associates.html</a></span>      
+      <p><font face="Verdana" size="2"><strong>Note</strong>: A duplicate of &quot;associates.html&quot; named &quot;<strong>index.html</strong>&quot; is in the /<strong>ares</strong>/ directory. This lets folks get to the area without any filename. </font>      
+      <p><strong><font color="#000080" size="2" face="Verdana"><br>
+        Affiliates </font></strong><b><font face="Verdana" size="2" color="#000080"> Sign Up process</font></b>
+      <p>
+<font face="Verdana" size="2">
+All affiliates will <b>Sign</b> <b>Up</b> at a common location on your site.&nbsp; They will use the form in this package called: signup.html.&nbsp; You can construct the page any way you like to match your site, but all the &lt;FORM&gt;&lt;/FORM&gt; components must
+remain, i.e., the form field names.</font>
+      <p>
+<font face="Verdana" size="2">
+Point the signup.html form to the signup.cgi script, as it is in the default installation</font>      
+      <p><span class="text"><font color="#000066" size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong><a href="http://www.gardenthemes.com/ares/docs/readme.html"><img src="arrow.gif" width="12" height="7" border="0"></a></strong></font><a href="http://www.gardenthemes.com/ares/signup.html" target="_blank">http://www.gardenthemes.com/ares/signup.html</a></span>      
+      <p>
+<font face="Verdana" size="2">
+If you are using the two tier level: <b>Representatives</b>, you have the option to set the signup.cgi script to require a Representative.&nbsp;&nbsp;</font>
+      <p>
+<font face="Verdana" size="2" color="#008000">
+	# REQUIRE A REP TO BE SELECTED ?&nbsp;<br>
+	<br>
+        <font color="#000000"><b>$require_rep = 1;</b></font></font>
+      <p>
+<font face="Verdana" size="2">
+If you enable this setting, then all new sign ups must have a representative associated with their application.&nbsp; The system provides the following ways to assign a representative to the new affiliate.</font>
+      <ol>
+        <li>
+<font face="Verdana" size="2">
+Place a hidden field in the signup.html&nbsp;<br>
+This will default to a particular representative for all new Sign Ups.<br>
+          </font>
+<font face="Verdana" size="2">
+<font color="#000080">
+&lt;input type="hidden" name="Ecom_Rep_Number" value=&quot;100&quot;&gt;</font><br>
+          <br>
+          </font>
+        <li>
+<font face="Verdana" size="2">
+Place a text box for the rep number on the signup.html<br>
+The affiliate can enter the rep number with other signup info<br>
+          <font color="#000080">&lt;input name=&quot;Ecom_Rep_Number&quot; size=8&gt;</font><br>
+          <br>
+          </font>
+        <li>
+<font face="Verdana" size="2">
+If the rep number is not provided from the signup.html, either as hidden or text input, AND you have enabled require_rep in the signup.cgi, then the system will present a list of available Representatives and require the new affiliate to select one before
+they can complete the sign up.</font>
+      </ol>
+      <p>
+<font face="Verdana" size="2">
+<font color="#800000">
+Important Note:</font>&nbsp; You must have at least one representative entered into the system before you can enable the require_rep setting.</font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">You can also set the starting customer discount rates and starting Affiliate earnings rates in the signup.cgi configurations.  A new Affiliate will be started at these designated rates, but you can change their earnings rate or their associated Customer Discount Rates at any point via the Admin Utility.</font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>$discount = 0.05;<br>
+        </b></font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>$affiliate_rate = 0.05;</b></font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">If you are using the require Rep switch above, then you have the option of allowing the Rep's contact information to be viewable to the Affiliate on emails, account management, etc.  Set to zero to show only the Rep's email addr, city, and state.  Set this to one to show full contact information, including address and phone number.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>$allow_rep_info = 1;</b></font></p>
+      <p>
+      <p><font face="Verdana" size="2" color="#000080"><b>Linking to the Sign Up page</b></font>
+      <p>
+<font face="Verdana" size="2">
+You can place links to the ARES Sign Up page on your site from anywhere on your site or on the web.&nbsp; Just put the full URL to your Sign Up page for folks to click on.</font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Do not publish this signup invitation where regular customers using your Merchant OrderForm shopping cart will be shopping, or buying (unless of course you really intend for them to be able to activate an affiliate status, and receive not only product discounts, but referral earnings - from themselves). </font>      
+      <p><span class="text"><font face="Verdana" size="2"><font color="#000066" size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong><a href="http://www.gardenthemes.com/ares/docs/readme.html"><img src="arrow.gif" width="12" height="7" border="0"></a></strong></font></font></span> <a href="http://www.gardenthemes.com/ares/signup.html" target="_blank"><span class="text">http://www.gardenthemes.com/ares/signup.html</span></a>      
+      <p>
+      <p><font face="Verdana" size="2" color="#000080"><b>The User Management Page</b></font>
+      <p>
+<font face="Verdana" size="2">
+When your affiliates have completed the online Sign Up process, the system will email the affiliate a confirmation, which includes complete account information, and instructions on how to Manage their account.&nbsp; From that page Affiliates can:</font>
+      <ul>
+        <li>
+<font face="Verdana" size="2">
+View real time earnings 24/7</font>
+        <li>
+<font face="Verdana" size="2">
+Edit any of their personal information</font>
+        <li>
+<font face="Verdana" size="2">
+Change their User ID and/or password</font>
+        <li>
+<font face="Verdana" size="2">
+Have their password mailed to the registered address</font>
+      </ul>
+      <p>
+<font face="Verdana" size="2">
+All affiliates will use the form in this package called: usrmgt.html, the tab for <b>Account</b> <b>Log</b> <b>In</b>.&nbsp; You can construct the page any way you like to match your site, but all the &lt;FORM&gt;&lt;/FORM&gt; components must
+remain, i.e., the form field names.</font>
+      <p>
+<font face="Verdana" size="2">
+Point the usrmgt.html form to the usrmgt.cgi script as the form in usrmgt.html does.</font>      
+      <p>
+        <span class="text"><font face="Verdana" size="2"><font color="#000066" size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong><a href="http://www.gardenthemes.com/ares/docs/readme.html"><img src="arrow.gif" width="12" height="7" border="0"></a></strong></font></font></span>
+        <a href="http://www.gardenthemes.com/ares/usrmgt.html" target="_blank"><span class="text">http://www.gardenthemes.com/ares/usrmgt.html</span></a><a href="http://www.gardenthemes.com/cgi-bin/mcart/user/usrmgt.cgi"><font face="Verdana" size="2"><font color="#000066" size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong></strong></font></font></a><font face="Verdana" size="2"><font color="#000066" size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong></strong></font></font>
+        <br>
+        <span class="text"><font face="Verdana" size="2"><font color="#000066" size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong><a href="http://www.gardenthemes.com/ares/docs/readme.html"><img src="arrow.gif" width="12" height="7" border="0"> </a></strong></font></font>POST URL : </span><span class="textGreen">http://www.gardenthemes.com/cgi-bin/mcart/user/usrmgt.cgi     </span>
+      <p>
+
+<font face="Verdana" size="2">
+The affiliate will be required to log in with User ID and password.&nbsp; They must always use this special URL to manage their account.&nbsp; The usrmgt.cgi script is very tight, and knows how to manage all possible situations.&nbsp;</font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">As described above in the signup.cgi, you can allow or not allow a Rep's full contact information to be viewable to an Affiliate</font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>$allow_rep_info = 1;</b></font></p>
+      <p>&nbsp;</p>
+      <p><font face="Verdana" size="2" color="#000080">
+<b>The Link Help Page</b></font></p>
+      <p>
+
+<font face="Verdana" size="2">
+<font face="Verdana, Arial, Helvetica, sans-serif">We also suggest you provide a Link Help page.&nbsp; We've included an example in this package, called <b>Referring</b> <b>Tips</b>.&nbsp; It reviews how to set up Affiliate Links to your site.&nbsp; Also, the URL to this Link Help
+Page is emailed to the Affiliate for &quot;future reference&quot; when they complete the Sign Up.</font></font><font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+ Make sure you do not rename or relocate this file, since the Sign Up process sends mail referencing the url of this file.</font>
+      <p><font face="Verdana" size="2"><span class="text"><font color="#000066" size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong><a href="http://www.gardenthemes.com/ares/docs/readme.html"><img src="arrow.gif" width="12" height="7" border="0"></a></strong></font></span></font><span class="text"><a href="http://www.gardenthemes.com/ares/linkhelp.html" target="_blank">http://www.gardenthemes.com/ares/linkhelp.html</a> </span>     
+      <p>
+      <p><font face="Verdana" size="2" color="#000080"><b>How Are Referrals Tracked ?</b></font>
+
+      <p>
+
+<font face="Verdana" size="2">
+
+Whenever a site visitor clicks into your site from an Affiliate Link, then the script ares.cgi sets a cookie on the visitors browser, looks for any redirect information specific to that Affiliate, and redirects to the appropriate page on your site.  The visitor only sees the redirect page and usually never knows they had a cookie set, unless they have message boxes turned on for their browser monitoring cookie activity.  The cookie is extremely harmless, and only holds the Affiliate's Number.</font>
+      <p><font face="Verdana" size="2">When the same visitor returns to your site within the specified time frame and completes a purchase via the Merchant OrderForm Shopping Cart, then MOF will check for any Affiliate Numbers, and if one is found, an affiliate transaction is logged into the ARES system, according to the Affiliates settings: customer discounts, Affiliate rates of earnings, Representative associations and credits, etc.</font>
+      <p><font face="Verdana" size="2">  Some of the various settings in &lt;ares.cgi&gt;</font>
+      <ul>
+        <li><font face="Verdana" size="2">@NOT_ALLOWED_DOMAINS = ();<br>
+          Prevent certain referring domains from using the system<br>
+          <br>
+          </font></li>
+        <li><font face="Verdana" size="2">$holdcookie = 720;<br>
+           Number of hours to hold Affiliate Number as cookie<br>
+          <br>
+          </font></li>
+        <li><font face="Verdana" size="2">$override_previous_cookie = 0;<br>
+          This will allow the most recent Affiliate's click through to get credit<br>
+          <br>
+          </font></li>
+        <li><font face="Verdana" size="2">$allow_cookie_to_expire = 0;<br>
+          Prevents re setting the time interval for same customer<br>
+          The cookie only lives as long as the time set at first click through<br>
+          <br>
+          </font></li>
+        <li><font face="Verdana" size="2">$defaulturl = 'http://www.yourplace.com';<br>
+          Where to send visitor by default if no redirect info found<br>
+          <br>
+          <br>
+        </font></li>
+      </ul>
+      <p><font face="Verdana" size="2">
+<b>Notes</b>: When ARES &amp; MOFcart are running together you can only use  ARES for the Second Discount (The Coupon Discount cannot be used while ARES is enabled). The Primary Discount can still be used with either/or ARES &amp; Coupon Discount. In other words, you can use either of the scenarios below, but not both at the same time. </font>
+      <p><font face="Verdana" size="2"><b>1</b>. A Coupon Discount independent of the ARES system, where you can issue Coupon Numbers and customers can manually enter that Coupon Number into the Shipping Information page of MOF.  This number is stored along with all other Shipping, Insurance, information.</font>
+      <p><font face="Verdana" size="2"><b>2</b>. The ARES ver 2.5, which is fully automated, and uses cookies to track click-throughs from Affiliate Links.  If ARES is enabled the Affiliate Number will not be stored in the MOF shipping information  file, so there is never any chance of using a stored Coupon Number.</font>
+
+      
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>Very Important</b>: The ares.cgi script must be located in the exact same directory as your mof.cgi script is.  This is so that Merchant OrderForm can extract the cookie set by ARES, by using the exact same path.</font>
+            <p>
+      <p><font face="Verdana" size="2" color="#000080"><b><a name="AllowedDomains"></a>Setting Allowed Domains in the scripts</b></font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">You can set &quot;<b>Allowed Domains</b>&quot; in both the signup.cgi and usrmgt.cgi scripts.  This prevents any referring URLs not listed as &quot;allowed&quot; from POSTing data to your scripts.  The setting is an array.  Include all possible domains to be allowed, including aliases.  The installation search and replace should have created your root domain as the only allowed domain.</font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"> @ALLOWED_DOMAINS = ('http://www.youplace.com');</font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Here's how you would add more domains to the list.</font>
+      <blockquote>
+        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">@ALLOWED_DOMAINS = (<br>
+          </font><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">'http://www.youplace.com',<br>
+          </font><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">'http://youplace.com',<br>
+          </font><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">'https://www.youplace.com',</font><br>
+          <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">'http://IP NUMBER'<br>
+        </font><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">);</font></p>
+      </blockquote>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">You must get the usage of single quotes and commas exactly correct.   The last item on the list is not followed by a comma, but all items before it are.  All items are surrounded in single quotes.</font>
+      <p>
+      <p><font face="Verdana" size="2" color="#000080"><b><a name="AdjustMessage"></a>Adjusting automated Sign Up messages</b></font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">You'll want to make sure your Operating Agreement (agreement.html),  F.A.Q. (faq.html), and the automated messages generated by the Sign Up script (signup.cgi) are all in agreement about your terms and conditions, i.,e., how you will pay out earnings to Affiliates. They are all in agreement in the package, but if you changed the terms that define how you will pay, then you'll have to adjust the message in all three places above.</font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">The installation package reads this way in all three places:</font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000099">Referral revenue is paid to you monthly by the 10th of the following month. Accounts with a balance less than $25.00 will be carried over to the following pay period.</font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">You can adjust the automated registration confirmation message that appears in the <b>browser</b> when an Affiliate has Successfully completed the online Sign Up process, by going into the <strong>signup.cgi</strong> script, to the first section right after the End Configurations comments.</font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">	<font color="#006600"># END OF CONFIGURATIONS<br>
+        	# END OF CONFIGURATIONS	</font></font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#006600"># EDIT THE &quot;HOW IT WORKS&quot; HTML MESSAGE HERE<br>
+        	# EDIT THE &quot;HOW IT WORKS&quot; HTML MESSAGE HERE</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b>$HowItWorksMessage = &quot;</b></font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">You can put any plain <b>html</b> here between these markers<br>
+        as we have it in the package.  Find your way to the line that explains<br>
+        the terms for Referral revenue to be paid.
+</font>      </p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b>&quot;; # do not remove this line</b></font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">To adjust the similar message appearing in the <u>automated email confirmation</u> that an Affiliate receives after they have successfully completed the Sign up process, continue down in the same section until you see the commented area:</font></p>
+      <p>	<font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#006600"># EDIT THE &quot;HOW IT WORKS&quot; MAIL MESSAGE HERE<br>
+        	# EDIT THE &quot;HOW IT WORKS&quot; MAIL MESSAGE HERE</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b>$HowItWorksMailMessage = &quot;</b></font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Adjust your message here using any plain text as we have it.<br>
+        Do not use HTML.  This is an email message.</font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b>&quot;; # do not remove this line</b></font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b>Note</b>: when you are inserting text in these areas you are writing inside Perl syntax.  Anything between the double quotes will be printed; however, you cannot use special characters like the dollar sign unless you precede the character with the \$  back slash. Example: to say $ 25.00 you must use this syntax: <b>\</b>$ 25.00.</font>
+      <p>
+      <p><font face="Verdana" size="2" color="#000080"><b>Using screen templates in ARES scripts</b></font>
+
+      
+      
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">In the package, we have provided a template for headers and footers which the scripts for Sign Up &lt;signup.cgi&gt; and Account Log In &lt;usrmgt.cgi&gt; use to mix with their dynamic output.  The template matches our packaged example for the Associates Are pages.</font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">You can, of course, use any template you like, but you must  have the needed template insertion marker in the template as in our example: </font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">In &lt;signup.cgi&gt; and &lt;usrmgt.cgi&gt; these settings define what template to use</font>
+      <p class="text"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>$template = '<span class="textGreen">/home/gardenth/public_html/ares/temp_referral.html</span>'; </b></font>
+      <p><b><font face="Verdana, Arial, Helvetica, sans-serif" size="2">$insertion_marker = '</font></b><span class="textGreen"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">&lt;!--INSERT_TEMPLATE_OUTPUT--&gt;</font></span><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>'; </b><br>
+      </font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Once you have defined the template use this way, then you will need to have that exact Insertion Marker in the template, at the point you want ARES to mix its output with the template file, usually in the middle, between the header and footer.  Make sure the Insertion marker appears on a line completely by itself.  It's a good idea to duplicate the Insertion Marker as we did in the package example.  This will make sure the marker is found by ARES.</font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">You should keep the templates free of any fancy JScript or especially VBScript, and most especially free of any onLoad() or event scripting.  A plain html page is recommended.  Fancy Scripting can cause problems when the stuff attempts to run from the CGI environment.</font>
+      <p><font face="Verdana" size="3">
+        </font>
+
+
+      <p>
+
+
+<font face="Verdana" size="1">
+These programs are copyright @ <a href="http://www.merchantorderform.com">MerchantOrderForm.com</a>,
+ <a href="http://www.merchantpal.com">MerchantPal.com</a>
+ 2001 - 2004</font>
+    </td>
+  </tr>
+  <tr>
+    <td width=10 bgcolor=#cece9c>&nbsp;</td>
+    <td width=630 align=top>&nbsp;</td>
+  </tr>
+
+</table>
+
+</body>
+
+</html>
+

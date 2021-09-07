@@ -1,0 +1,223 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>MOFcart v2.5 Examples</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 5.50.4611.1300" name=GENERATOR>
+<META name="ROBOTS" content="NOINDEX,NOFOLLOW">
+<link rel="stylesheet" type="text/css" href="examples.css">
+
+<script type="text/javascript" LANGUAGE="JavaScript">
+<!-- name and focus window
+window.name = 'MAIN';
+window.focus();
+// End -->
+</SCRIPT>
+
+</HEAD>
+<BODY>
+
+
+
+<TABLE cellSpacing=0 cellPadding=0 width=640 align=center bgColor=#E8E8E8 border=0>
+  <TBODY>
+  <TR>
+    <TD height="48" valign="top">
+	
+	    
+  	  <a href="http://www.gardenthemes.com/cgi-bin/mcart/mof.cgi?viewcart">	  </a><img src="images/moflogo640.gif" width="640" height="50"></TD>
+    </TR>
+  </TBODY>
+</TABLE>
+
+
+
+
+<TABLE cellSpacing=0 cellPadding=1 width=640 align=center bgColor=#578BEA border=0>
+<TBODY>
+<TR>
+<TD>
+
+
+<TABLE cellSpacing=0 cellPadding=25 width="100%" align=center bgColor=#ffffff border=0>
+<TBODY>
+<TR>
+<TD> 
+		  
+            <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="57%" class="SmTxt"><strong>List Box Order Form</strong></td>
+                <td width="25%" class="SmTxt"><strong><a href="example_mofstore.html"><img src="images/larrow.gif" width="12" height="7" border="0"></a></strong><a href="example_mofstore.html">Return to Examples</a></td>
+                <td width="18%"><div align="right" class="SmTxt"><strong><strong><a href="http://www.gardenthemes.com/cgi-bin/mcart/mof.cgi?viewcart"><img src="images/yourbasket.gif" width="106" height="20" border="0" alt="Go To Your Shopping Basket"></a></strong></strong></div></td>
+              </tr>
+            </table>
+            <p class="SmTxt"><strong>Use:</strong> For the impulsive buyer who doesn't have time to click nine items. Just swipe all nine items and click Add to cart. </p>
+            <p class="SmTxt"><strong>Instructions</strong>: Use any Windows multiple select method - swipe all items while holding your left mouse button, or hold the Control and Left Click any item in the list.Click the <strong>
+      
+    add to cart</strong> button. Those items will be added to your basket. 
+					
+            </p>
+	
+		              <FORM method=POST action="http://www.gardenthemes.com/cgi-bin/mcart/mof.cgi">
+					  <INPUT type="hidden" name="postmode" value="CHECKBOXES">
+		              <table width="44%" border="0" align=center cellpadding="4" cellspacing="0">
+              <tr>
+                <td width="48%" bgcolor="#F2F2F2"><select class="BoxFormat" multiple size=9 name=order>
+                  <option value="1----Box Baseball Cards----24 Baseball Cards----10.00----0.11----1"> Box Baseball Cards
+	                    <option value="1----Second Nature Books----10 Children books----65.00----0.22----0"> Second Nature Books
+	                    <option value="1----Each Day Poster # 1----Mountain scene poster----11.50----0.33----1"> Each Day Poster # 1
+	                    <option value="1----Each Day Poster # 34----Lake scene poster----11.50----0.44----1"> Each Day Poster # 34
+	                    <option value="1----Today In History v1.0----History software----21.65----0.55----1"> Today In History v1.0
+	                    <option value="1----New York Times----Subscription to the NYT----19.25----0.66----1"> New York Times
+	                    <option value="1----Magic Box Gifts----Surprise gift box----12.25----0.77----1"> Magic Box Gifts
+	                    <option value="2----The Finish Line----Autobiography by Bill Waters----31.99----0.88----1"> The Finish Line
+	                    <option value="3----The Naked Kingdom----Confessions by Monica L.----50.95----0.99----1"> The Naked Kingdom
+                      </select></td>
+                <td width="52%" valign="bottom" nowrap>
+				
+				
+				
+
+	                <p align="right">                        <img src="images/larrow.gif" width="12" height="7">
+	                  <input Class="ButtonFormat" type=reset value="Reset Form">
+	                  <br>
+	                  <br>	                    
+	                  <img src="images/larrow.gif" width="12" height="7">
+	                  <input class="ButtonFormat" type=submit value="Add To Cart">
+                      </p>	                </td>
+              </tr>
+            </table>
+			
+			
+			 </FORM>
+			
+			
+			</TD>
+</TR>
+</TBODY>
+</TABLE>
+
+</TD>
+</TR>
+</TBODY>
+</TABLE>
+
+<br>
+
+
+<TABLE cellSpacing=0 cellPadding=4 width=640 align=center border=0>
+<TBODY>
+<TR>
+<TD class="SmTxt">
+
+
+<strong>FORM syntax ..</strong> &nbsp;
+
+
+</TD>
+</TR>
+</TBODY>
+</TABLE>
+
+
+
+<TABLE cellSpacing=0 cellPadding=1 width=640 align=center bgColor=#578BEA border=0>
+<TBODY>
+<TR>
+<TD>
+
+
+<TABLE cellSpacing=0 cellPadding=10 width="100%" align=center bgColor=#ffffff border=0>
+<TBODY>
+<TR>
+          <TD Class="CodeFormat">            <p>&lt;FORM method=POST action=&quot;http://www.gardenthemes.com/cgi-bin/mcart/mof.cgi&quot;&gt;<br>
+            &lt;INPUT type=&quot;hidden&quot; name=&quot;<span class="SmMaroon">postmode</span>&quot; value=&quot;<strong class="SmBlack">CHECKBOXES</strong>&quot;&gt;</p>
+            <p>&lt;SELECT MULTIPLE SIZE=9 NAME=<span class="SmMaroon">order</span>&gt;<br>
+              &lt;OPTION VALUE=&quot;<span class="SmBlack"><strong>1</strong>----Box Baseball Cards----24  Baseball Cards----10.00----0.11----1</span>&quot;&gt;<br>
+              Box Baseball Cards<br>
+              &lt;OPTION VALUE=&quot;<span class="SmBlack"><strong>1</strong>----Second Nature Books----10 Children books----65.00----0.22----0</span>&quot;&gt;<br>
+              Second Nature Books<br>
+              &lt;OPTION VALUE=&quot;<span class="SmBlack"><strong>1</strong>----Each Day Poster # 1----Mountain scene  poster----11.50----0.33----1</span>&quot;&gt;<br>
+              Each Day Poster # 1<br>
+              &lt;OPTION VALUE=&quot;<span class="SmBlack"><strong>1</strong>----Each Day Poster # 34----Lake scene  poster----11.50----0.44----1</span>&quot;&gt;<br>
+              Each Day Poster # 34<br>
+              &lt;OPTION VALUE=&quot;<span class="SmBlack"><strong>1</strong>----Today In History v1.0----History    software----21.65----0.55----1</span>&quot;&gt;<br>
+              Today In History v1.0<br>
+              &lt;OPTION VALUE=&quot;<span class="SmBlack"><strong>1</strong>----New York Times----Subscription to the NYT----19.25----0.66----1</span>&quot;&gt;<br>
+              New York Times<br>
+              &lt;OPTION VALUE=&quot;<span class="SmBlack"><strong>1</strong>----Magic Box Gifts----Surprise gift box----12.25----0.77----1</span>&quot;&gt;<br>
+              Magic Box Gifts<br>
+              &lt;OPTION VALUE=&quot;<span class="SmBlack"><strong>2</strong>----The Finish Line----Autobiography by Bill Waters----31.99----0.88----1</span>&quot;&gt;<br>
+              The Finish Line<br>
+              &lt;OPTION VALUE=&quot;<span class="SmBlack"><strong>3</strong>----The Naked Kingdom----Confessions by Monica L.----50.95----0.99----1</span>&quot;&gt;<br>
+              The Naked Kingdom<br>
+              &lt;/SELECT&gt;</p>
+            <p>&lt;input type=submit value=&quot;Add To Cart&quot;&gt;<br>
+              &lt;input type=reset value=&quot;Reset Form&quot;&gt;<br>
+              &lt;/FORM&gt;</p>
+            </TD>
+</TR>
+</TBODY>
+</TABLE>
+
+</TD>
+</TR>
+</TBODY>
+</TABLE>
+
+<br>
+
+
+<TABLE cellSpacing=0 cellPadding=1 width=640 align=center bgColor=#578BEA border=0>
+<TBODY>
+<TR>
+<TD>
+
+
+<TABLE cellSpacing=0 cellPadding=25 width="100%" align=center bgColor=#ffffff border=0>
+<TBODY>
+<TR>
+<TD> 
+		  
+            <p>
+
+              <span class="SmTxt"><strong>Notes</strong></span></p>
+
+
+            <p class="SmTxt">This sets up a multi select list box  using CHECKBOXES mode.  </p>
+            <p class="SmTxt">Note the order data is simply submitted as the OPTION value.  When the add to cart button is clicked, all  selected items are  added to the cart</p>
+            <p class="SmTxt">No product options are allowed for this type input</p>
+            <p class="SmTxt">Note that quantity is submitted as the first field placeholder in the order input<br>
+  value=&quot;<strong>Qty</strong>----Item----Desc----Price----ShipCode----TaxCode&quot;</p>
+            </TD>
+</TR>
+</TBODY>
+</TABLE>
+
+</TD>
+</TR>
+</TBODY>
+</TABLE>
+
+
+<br>
+<TABLE cellSpacing=0 cellPadding=2 align=center bgColor=#ECECEC border=0>
+  <TR>
+    <TD align="center" valign="middle" class="menu">	
+	<span class="FooterText">
+    	<a href="license.html" onClick="window.open(this.href,'INFO','directories=no,location=no,menubar=no,status=no,titlebar=no,toolbar=no,scrollbars=yes,width=450,height=500,resizable=yes');return false">License</a> |
+    <a href="about.html" onClick="window.open(this.href,'INFO','directories=no,location=no,menubar=no,status=no,titlebar=no,toolbar=no,scrollbars=yes,width=450,height=500,resizable=yes');return false">About Us</a> |
+    <a href="privacy.html" onClick="window.open(this.href,'INFO','directories=no,location=no,menubar=no,status=no,titlebar=no,toolbar=no,scrollbars=yes,width=450,height=500,resizable=yes');return false">Privacy Info</a> 
+	<br>
+	<a href="http://www.merchantpal.com" target="_blank">MerchantPal</a>.com &amp; <a href="http://www.merchantorderform.com" target="_blank">MerchantOrderForm</a> Shopping Cart are registered TradeMarks<br>
+	&copy; 2001-2004 All Rights Reserved. Austin Contract Computing, Austin, Texas USA
+	</span> 
+	 </TD>
+  </TR>
+  <TR>
+    <TD align="center" valign="middle"><img src="images/mplogo150x33.gif" width="150" height="33"></TD>
+  </TR>
+</TABLE>
+</BODY>
+</HTML>
+
+
+

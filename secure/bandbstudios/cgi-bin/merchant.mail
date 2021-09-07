@@ -1,0 +1,986 @@
+# Merchant OrderForm v1.53 Plug In for Emailing Invoice to Merchant
+# Copyright August 2000, UPDATED 9/15/2000	
+# Owner: http://www.io.com/~rga/
+# Mailto: rga@io.com
+# Written for Austin Contract Computing, Inc. All Rights Reserved 2000
+
+# PLEASE NOTE_________________________________________________
+# These programs are distributed as Trial Ware or Share Ware.
+# You are Welcome to install and test all portions of the programs.
+# The package is not limited in any way and code source is left readable.
+# Please make arrangements for the fee if you continue operating it on a Web Site
+# Feel free to contact me if you need special arrangements for use of MOF v1.53
+
+# For personal web site use: $ 15.00
+# For web development (3-10 sites): $ 45.00, includes limited support
+# For web development (above 10 sites): $ 150.00, includes limited support
+# Note: For Resale or hosting license please contact rga@io.com
+# For payment arrangements: http://www.merchantorderform.com/payment.html
+
+# IMPORTANT___________________________________________________
+# Distribution of this file without owner consent is prohibited.
+# Please contact the authors of this product for any use outside 
+# The original registration and user license
+
+# COPYRIGHT NOTICE____________________________________________
+# The contents of this file is protected under the United States
+# copyright laws as an unpublished work, and is confidential and
+# proprietary to Austin Contract Computing, Inc. Its use or disclosure 
+# in whole or in part without the expressed written permission of Austin
+# Contract Computing, Inc. is prohibited.
+
+# THIS IS THE PLUG IN TO MAIL MERCHANT THE COMPLETED ORDER
+# THIS IS THE PLUG IN TO MAIL MERCHANT THE COMPLETED ORDER
+
+# WARNING: THIS PLUG IN SENDS SENSITIVE DATA VIA EMAIL
+# WARNING: IT IS SAFE TO SEND THIS AS NON ENCRYPTED DATA
+# WARNING: ONLY IF YOU ARE SENDING-RECEIVING EMAIL ON YOUR ISP
+# WARNING: IN OTHER WORDS, YOU MUST BE LOGGED IN VIA YOUR DIAL UP CONNECTION
+# WARNING: TO THE EXACT SAME ISP OR NETWORK THAT YOU WILL BE SENDING-RECEIVING MAIL
+# WARNING: IF THIS IS NOT THE CASE, THEN YOU NEED THE PGP ENCRYPTED MAIL PLUG-IN
+
+# This Plug-In is written for Unix-Linx type mail servers using "sendmail"
+# Note: You should be using a different Plug-In for NT, else you should know
+# Note: how to set up an NT mailer that simulates "sendmail"
+
+# This Plug In contains One sub routine to Email the merchant the completed order
+# You MUST have correct settings in the mofpayment.conf configuration file for this function
+
+
+
+sub MailMerchantInvoice {
+
+
+	# WHERE IS THE LOCATION OF YOUR SENDMAIL ?
+	# ======================================	
+	# You MUST edit this to match where it is on your server
+	# Ask your server admin where sendmail is if you don't know
+	# IMPORTANT: You must include any switches and settings 
+	# IMPORTANT: exactly as they should be in your mail program line
+	# EXAMPLE: A typical sendmail location is:
+	# EXAMPLE: /usr/sbin/sendmail -t
+	# EXAMPLE: /usr/lib/sendmail -t
+	# EXAMPLE: Use the "-t" switch - it is a needed security switch
+	# EXAMPLE: qmail without -t switch
+	# EXAMPLE: /var/qmail/bin/qmail-inject
+
+$mail_program = '/usr/sbin/sendmail -t';
+
+	
+	# WHAT DO YOU WANT THE SUBJECT LINE TO SAY ?
+	# ========================================
+	# You can edit this Subject Line to fit your business
+	# The Invoice number is appended ..
+
+my ($mail_subject_line) = "$mail_merchant_name Order # $InvoiceNumber";
+
+
+	# Sending To and From the primary Merchant Email address
+	# Modify MERCHANT_MAIL pipe to change To/From Email addressing
+
+my ($mail_merchant_addr) = $mail_merchant_addr;
+
+
+
+
+	# DO NOT EDIT BELOW THIS LINE
+	# DO NOT EDIT BELOW THIS LINE
+	# UNLESS YOU ARE CUSTOMIZING THE PLUG-IN
+	# UNLESS YOU ARE CUSTOMIZING THE PLUG-IN
+
+
+
+		# START INVOICE INFO
+		# START INVOICE INFO
+
+	my (@TEMP) = ();
+	my (@list) = ();
+	my ($tt, $tp, $tl);
+	my ($key, $val);
+	my ($li, $lk, $lv, $msg_status);
+	my ($totalprice, $totalqnty, $temprice);
+	my ($line, $qty, $item, $desc, $price, $ship, $taxit);
+	my ($DiscountOne);
+	my ($DiscountTwo);
+	my ($CombinedDiscount);
+	my ($SubDiscount);
+	my ($TaxRate);
+	my ($AdjustedTax);
+	my ($InitialAmount);
+	my ($Tax);
+	my ($HandlingCharge);
+	my ($InsuranceCharge);
+	my ($ShippingCharge);
+	my ($FinalProducts) = CommifyNumbers ($frm{'Primary_Products'});
+	my ($FinalAmount) = CommifyMoney ($frm{'Final_Amount'});
+	my ($CombinedSHI) = CommifyMoney ($frm{'Combined_SHI'});
+	my ($msg_tab, $cc_date);
+	my ($msg_tab_ck);
+	my ($check_additional);
+	my ($tax_discounted);
+	my ($taxable_count, $notax_count);
+
+	my ($mail_msg, $save_msg, $save_url, $ship_msg, $bill_msg, $receipt_msg);
+	$msg_status = "$FinalProducts Products " if ($frm{'Primary_Products'} > 1);
+	$msg_status = "$FinalProducts Product " if ($frm{'Primary_Products'} == 1);
+	$msg_status = $msg_status . " $currency $FinalAmount";
+
+
+		# encode cc numbers
+		# encode cc numbers
+
+	my ($code_cc_final);
+	my ($code_cc_tr) = $frm{'Ecom_Payment_Card_Number'};
+	my ($code_check_new) = $frm{'Check_Account_Number'};
+
+
+	if ($card_check) {
+
+    		$code_cc_tr =~ tr/0-9//cd;
+		$_ = $code_cc_tr;
+
+    		$code_cc_one = substr($_, 0, 4);
+		$code_cc_one = ($code_cc_one - $code_cc_number_one);
+
+		if ($code_cc_one < 0) {
+		$code_cc_one = sprintf("%05d", $code_cc_one);
+		} else {
+		$code_cc_one = sprintf("%04d", $code_cc_one);
+		}
+
+		$code_cc_two = substr($_, 4, 4);
+		$code_cc_two = ($code_cc_two - $code_cc_number_two);
+
+		if ($code_cc_two < 0) {
+		$code_cc_two = sprintf("%05d", $code_cc_two);
+		} else {
+		$code_cc_two = sprintf("%04d", $code_cc_two);
+		}
+
+		$code_cc_final = $code_cc_one . "  ";
+ 		$code_cc_final = $code_cc_final . $code_cc_two . "  ";	
+ 		$code_cc_final = $code_cc_final . substr($_, 8, 4) . "  ";	
+ 		$code_cc_final = $code_cc_final . substr($_, 12);	
+
+	}
+
+
+
+		# encode check account number
+		# encode check account number
+
+	if ($check_check) {
+
+		if ($code_check_number) {
+
+    		$code_check_new =~ tr/0-9//cd;
+		$_ = $code_check_new;
+		$code_check_new = ($_ - $code_check_number);
+
+		}
+
+	}
+
+
+
+
+		# top message
+		# top message
+
+	push (@TEMP, "$Date $ShortTime \n\n");
+
+	push (@TEMP, "$mail_merchant_name Order \n");
+
+	push (@TEMP, "$msg_status Invoice $InvoiceNumber \n\n");
+
+	push (@TEMP, "----------------------------------------------------- \n\n");
+
+
+
+		# ship to
+		# ship to
+
+	if ($frm{'Allow_Shipping'}) {
+	$msg_tab = "SHIPPING TO ";	
+
+	} elsif ($frm{'Allow_Tax'}) {
+	$msg_tab = "TAX AREA ";
+
+	} else {
+	$msg_tab = "Shipping Information: NONE ";
+
+	}
+
+
+
+	if ($frm{'Allow_Shipping'} || $frm{'Allow_Tax'}) {
+
+	push (@TEMP, "$msg_tab \n\n");
+
+	$msg_tab_ck = 0;
+
+	if ($frm{'Ecom_ShipTo_Postal_Name_Prefix'}) {
+	push (@TEMP, "$frm{'Ecom_ShipTo_Postal_Name_Prefix'} ");
+	$msg_tab_ck++;}
+
+	if ($frm{'Ecom_ShipTo_Postal_Name_First'}) {
+	push (@TEMP, "$frm{'Ecom_ShipTo_Postal_Name_First'} ");
+	$msg_tab_ck++;}
+
+	if ($frm{'Ecom_ShipTo_Postal_Name_Middle'}) {
+	push (@TEMP, "$frm{'Ecom_ShipTo_Postal_Name_Middle'} ");
+	$msg_tab_ck++;}
+
+	if ($frm{'Ecom_ShipTo_Postal_Name_Last'}) {
+	push (@TEMP, "$frm{'Ecom_ShipTo_Postal_Name_Last'} ");
+	$msg_tab_ck++;}
+
+	if ($frm{'Ecom_ShipTo_Postal_Name_Suffix'}) {
+	push (@TEMP, "$frm{'Ecom_ShipTo_Postal_Name_Suffix'} ");
+	$msg_tab_ck++;}
+
+	push (@TEMP, " \n") if ($msg_tab_ck);
+	$msg_tab_ck = 0;
+
+	if ($frm{'Ecom_ShipTo_Postal_Company'}) {
+	push (@TEMP, "$frm{'Ecom_ShipTo_Postal_Company'} \n");
+	}
+
+	if ($frm{'Ecom_ShipTo_Postal_Street_Line1'}) {
+	push (@TEMP, "$frm{'Ecom_ShipTo_Postal_Street_Line1'} \n");
+	}
+
+	if ($frm{'Ecom_ShipTo_Postal_Street_Line2'}) {
+	push (@TEMP, "$frm{'Ecom_ShipTo_Postal_Street_Line2'} \n");
+	}
+
+	if ($frm{'Ecom_ShipTo_Postal_City'}) {
+	push (@TEMP, "$frm{'Ecom_ShipTo_Postal_City'} ");
+	$msg_tab_ck++;}
+
+	if ($frm{'Ecom_ShipTo_Postal_StateProv'}) {
+	unless ($frm{'Ecom_ShipTo_Postal_StateProv'} eq "NOTINLIST") {
+	push (@TEMP, "$frm{'Ecom_ShipTo_Postal_StateProv'} ");
+	$msg_tab_ck++;}
+	}
+
+	if ($frm{'Ecom_ShipTo_Postal_PostalCode'}) {
+	push (@TEMP, "$frm{'Ecom_ShipTo_Postal_PostalCode'} ");
+	$msg_tab_ck++;}
+	
+	push (@TEMP, " \n") if ($msg_tab_ck);
+	$msg_tab_ck = 0;
+
+	if ($frm{'Ecom_ShipTo_Postal_CountryCode'}) {
+	my ($tc) = $frm{'Ecom_ShipTo_Postal_CountryCode'};
+	$tc =~ s/-/ /g;
+	push (@TEMP, "$tc \n");
+	}
+
+	push (@TEMP, " \n");
+
+
+
+		# shipping messages
+		# shipping messages
+
+
+	$frm{'Total_Weight'} = CommifyNumbers ($frm{'Total_Weight'});
+
+	push (@TEMP, "$frm{'Shipping_Message'} \n") if ($frm{'Shipping_Message'});
+
+	push (@TEMP, "Computation Method: $frm{'Shipping_Method_Name'} \n") if ($frm{'Shipping_Method_Name'});
+
+	push (@TEMP, "Ship Codes (Weight) Total: $frm{'Total_Weight'} \n") if ($frm{'Total_Weight'});
+
+	if ($frm{'Ecom_ShipTo_Telecom_Phone_Number'}) {
+	push (@TEMP, "ShipTo Phone: $frm{'Ecom_ShipTo_Telecom_Phone_Number'} \n")}
+
+	if ($frm{'Ecom_ShipTo_Online_Email'}) {
+	push (@TEMP, "ShipTo Email: $frm{'Ecom_ShipTo_Online_Email'} \n")}
+
+	push (@TEMP, " \n");
+
+	push (@TEMP, "----------------------------------------------------- \n\n");
+
+	}
+
+
+
+
+		# order summary
+		# order summary
+
+
+	push (@TEMP, "ORDER SUMMARY \n\n");
+
+	push (@TEMP, "Invoice Number: $InvoiceNumber \n");
+
+	push (@TEMP, "Total Number of Items: $FinalProducts \n");
+
+	push (@TEMP, "Order ID: $frm{'OrderID'} \n");
+
+	push (@TEMP, "Info ID: $frm{'InfoID'} \n");
+
+	if ($mail_customer_receipt && $mail_customer_addr) {
+	push (@TEMP, "Receipt Emailed To: $mail_customer_addr \n");
+	} else {
+	push (@TEMP, "No Receipt Emailed - No Email Entered \n");
+	}
+
+	push (@TEMP, "URL: " . $save_invoice_url . $frm{'OrderID'} . ".html \n") if ($save_invoice_html);
+
+	push (@TEMP, "\n");
+
+	push (@TEMP, "----------------------------------------------------- \n\n");
+
+
+
+		# payment
+		# payment
+
+	push (@TEMP, "PAYMENT INFO \n\n");
+
+
+	$_ = $frm{'input_payment_options'};	
+	push (@TEMP, "Payment Type: $payment_options_list{$_} \n");
+
+
+		# cc card
+		# will print if there
+	
+	if ($frm{'Ecom_Payment_Card_Name'}) {
+		push (@TEMP, "Name on Credit Card: $frm{'Ecom_Payment_Card_Name'} \n");
+		}
+
+	if ($frm{'Ecom_Payment_Card_Type'}) {
+		push (@TEMP, "Credit Card Code: $frm{'Ecom_Payment_Card_Type'} \n");
+		}
+
+	if ($frm{'Ecom_Payment_Card_Number'}) {
+
+		push (@TEMP, "Credit Card Number: $code_cc_final \n");
+		}
+
+
+		$cc_date = $frm{'Ecom_Payment_Card_ExpDate_Month'};
+
+		if ($frm{'Ecom_Payment_Card_ExpDate_Month'}) {
+			$cc_date = $cc_date . "-" if ($frm{'Ecom_Payment_Card_ExpDate_Day'});
+			}
+
+		$cc_date = $cc_date . $frm{'Ecom_Payment_Card_ExpDate_Day'};
+
+		if ($frm{'Ecom_Payment_Card_ExpDate_Month'} || $frm{'Ecom_Payment_Card_ExpDate_Day'}) {
+			$cc_date = $cc_date . "-" if ($frm{'Ecom_Payment_Card_ExpDate_Year'});
+			}
+
+		$cc_date = $cc_date . $frm{'Ecom_Payment_Card_ExpDate_Year'};
+
+		push (@TEMP, "Credit Card Expiration Date: $cc_date \n") if ($cc_date);
+
+		if ($frm{'Ecom_Payment_Card_Verification'}) {
+		push (@TEMP, "Credit Card Verification: $frm{'Ecom_Payment_Card_Verification'} \n");
+		}
+
+
+		# checking
+		# will print if there
+
+	push (@TEMP, "Name on Checking Account: $frm{'Check_Holder_Name'} \n") if ($frm{'Check_Holder_Name'});
+
+	push (@TEMP, "Checking Bank Name: $frm{'Check_Bank_Name'} \n") if ($frm{'Check_Bank_Name'});
+
+	push (@TEMP, "Checking Bank Address: $frm{'Check_Bank_Address'} \n") if ($frm{'Check_Bank_Address'});
+
+	push (@TEMP, "Check Number: $frm{'Check_Number'} \n") if ($frm{'Check_Number'});
+
+	if ($frm{'Check_Account_Number'}) {
+
+		if ($code_check_number) {
+		push (@TEMP, "Checking Account Number: $code_check_new \n");
+
+		} else {
+		push (@TEMP, "Checking Account Number: $frm{'Check_Account_Number'} \n");
+
+		}
+
+	}
+
+	push (@TEMP, "Checking Routing Number: $frm{'Check_Routing_Number'} \n") if ($frm{'Check_Routing_Number'});
+
+	push (@TEMP, "Checking Fraction Number: $frm{'Check_Fraction_Number'} \n") if ($frm{'Check_Fraction_Number'});
+
+	push (@TEMP, " \n");
+
+	push (@TEMP, "----------------------------------------------------- \n\n");
+
+
+
+
+		# bill to info
+		# bill to info
+
+		$tt = 0;
+		while (($key, $val) = each (%frm)) { 
+			if ($key =~ /^Ecom_BillTo_/) {
+				$tt++ if ($val);
+				}
+				}
+
+	if ($tt) {
+
+	push (@TEMP, "BILLING TO \n\n");
+
+	$msg_tab_ck = 0;
+
+	if ($frm{'Ecom_BillTo_Postal_Name_Prefix'}) {
+	push (@TEMP, "$frm{'Ecom_BillTo_Postal_Name_Prefix'} ");
+	$msg_tab_ck++;}
+
+	if ($frm{'Ecom_BillTo_Postal_Name_First'}) {
+	push (@TEMP, "$frm{'Ecom_BillTo_Postal_Name_First'} ");
+	$msg_tab_ck++;}
+
+	if ($frm{'Ecom_BillTo_Postal_Name_Middle'}) {
+	push (@TEMP, "$frm{'Ecom_BillTo_Postal_Name_Middle'} ");
+	$msg_tab_ck++;}
+
+	if ($frm{'Ecom_BillTo_Postal_Name_Last'}) {
+	push (@TEMP, "$frm{'Ecom_BillTo_Postal_Name_Last'} ");
+	$msg_tab_ck++;}
+
+	if ($frm{'Ecom_BillTo_Postal_Name_Suffix'}) {
+	push (@TEMP, "$frm{'Ecom_BillTo_Postal_Name_Suffix'} ");
+	$msg_tab_ck++;}
+
+	push (@TEMP, " \n") if ($msg_tab_ck);
+	$msg_tab_ck = 0;
+
+	if ($frm{'Ecom_BillTo_Postal_Company'}) {
+	push (@TEMP, "$frm{'Ecom_BillTo_Postal_Company'} \n");
+	}
+
+	if ($frm{'Ecom_BillTo_Postal_Street_Line1'}) {
+	push (@TEMP, "$frm{'Ecom_BillTo_Postal_Street_Line1'} \n");
+	}
+
+	if ($frm{'Ecom_BillTo_Postal_Street_Line2'}) {
+	push (@TEMP, "$frm{'Ecom_BillTo_Postal_Street_Line2'} \n");
+	}
+
+	if ($frm{'Ecom_BillTo_Postal_City'}) {
+	push (@TEMP, "$frm{'Ecom_BillTo_Postal_City'} ");
+	$msg_tab_ck++;}
+
+	if ($frm{'Ecom_BillTo_Postal_StateProv'}) {
+ 	unless ($frm{'Ecom_BillTo_Postal_StateProv'} eq "NOTINLIST") {
+	push (@TEMP, "$frm{'Ecom_BillTo_Postal_StateProv'} ");
+	$msg_tab_ck++;}
+	}
+
+	if ($frm{'Ecom_BillTo_Postal_PostalCode'}) {
+	push (@TEMP, "$frm{'Ecom_BillTo_Postal_PostalCode'} ");
+	$msg_tab_ck++;}
+	
+	push (@TEMP, " \n") if ($msg_tab_ck);
+	$msg_tab_ck = 0;
+
+	if ($frm{'Ecom_BillTo_Postal_CountryCode'}) {
+	my ($tc) = $frm{'Ecom_BillTo_Postal_CountryCode'};
+	$tc =~ s/-/ /g;
+	push (@TEMP, "$tc \n");
+	}
+
+	if ($frm{'Ecom_BillTo_Telecom_Phone_Number'}) {
+	push (@TEMP, "Phone: $frm{'Ecom_BillTo_Telecom_Phone_Number'} \n");
+	}
+
+	if ($frm{'Ecom_BillTo_Online_Email'}) {
+	push (@TEMP, "Email: $frm{'Ecom_BillTo_Online_Email'} \n");
+	}
+
+
+	push (@TEMP, " \n");
+
+	push (@TEMP, "----------------------------------------------------- \n\n");
+
+	}
+
+
+
+
+
+		# receipt to info 
+		# receipt to info
+
+
+		$tt = 0;
+		while (($key, $val) = each (%frm)) { 
+			if ($key =~ /^Ecom_ReceiptTo_/) {
+				$tt++ if ($val);
+				}
+				}
+
+	if ($tt) {
+
+	push (@TEMP, "RECEIPT TO \n\n");
+
+	$msg_tab_ck = 0;
+
+	if ($frm{'Ecom_ReceiptTo_Postal_Name_Prefix'}) {
+	push (@TEMP, "$frm{'Ecom_ReceiptTo_Postal_Name_Prefix'} ");
+	$msg_tab_ck++;}
+
+	if ($frm{'Ecom_ReceiptTo_Postal_Name_First'}) {
+	push (@TEMP, "$frm{'Ecom_ReceiptTo_Postal_Name_First'} ");
+	$msg_tab_ck++;}
+
+	if ($frm{'Ecom_ReceiptTo_Postal_Name_Middle'}) {
+	push (@TEMP, "$frm{'Ecom_ReceiptTo_Postal_Name_Middle'} ");
+	$msg_tab_ck++;}
+
+	if ($frm{'Ecom_ReceiptTo_Postal_Name_Last'}) {
+	push (@TEMP, "$frm{'Ecom_ReceiptTo_Postal_Name_Last'} ");
+	$msg_tab_ck++;}
+
+	if ($frm{'Ecom_ReceiptTo_Postal_Name_Suffix'}) {
+	push (@TEMP, "$frm{'Ecom_ReceiptTo_Postal_Name_Suffix'} ");
+	$msg_tab_ck++;}
+
+	push (@TEMP, " \n") if ($msg_tab_ck);
+	$msg_tab_ck = 0;
+
+	if ($frm{'Ecom_ReceiptTo_Postal_Company'}) {
+	push (@TEMP, "$frm{'Ecom_ReceiptTo_Postal_Company'} \n");
+	}
+
+	if ($frm{'Ecom_ReceiptTo_Postal_Street_Line1'}) {
+	push (@TEMP, "$frm{'Ecom_ReceiptTo_Postal_Street_Line1'} \n");
+	}
+
+	if ($frm{'Ecom_ReceiptTo_Postal_Street_Line2'}) {
+	push (@TEMP, "$frm{'Ecom_ReceiptTo_Postal_Street_Line2'} \n");
+	}
+
+	if ($frm{'Ecom_ReceiptTo_Postal_City'}) {
+	push (@TEMP, "$frm{'Ecom_ReceiptTo_Postal_City'} ");
+	$msg_tab_ck++;}
+
+	if ($frm{'Ecom_ReceiptTo_Postal_StateProv'}) {
+	unless ($frm{'Ecom_ReceiptTo_Postal_StateProv'} eq "NOTINLIST") {
+	push (@TEMP, "$frm{'Ecom_ReceiptTo_Postal_StateProv'} ");
+	$msg_tab_ck++;}
+	}
+
+	if ($frm{'Ecom_ReceiptTo_Postal_PostalCode'}) {
+	push (@TEMP, "$frm{'Ecom_ReceiptTo_Postal_PostalCode'} ");
+	$msg_tab_ck++;}
+	
+	push (@TEMP, " \n") if ($msg_tab_ck);
+	$msg_tab_ck = 0;
+
+	if ($frm{'Ecom_ReceiptTo_Postal_CountryCode'}) {
+	my ($tc) = $frm{'Ecom_ReceiptTo_Postal_CountryCode'};
+	$tc =~ s/-/ /g;
+	push (@TEMP, "$tc \n");
+	}
+
+	if ($frm{'Ecom_ReceiptTo_Telecom_Phone_Number'}) {
+	push (@TEMP, "Phone: $frm{'Ecom_ReceiptTo_Telecom_Phone_Number'} \n");
+	}
+
+	if ($frm{'Ecom_ReceiptTo_Online_Email'}) {
+	push (@TEMP, "Email: $frm{'Ecom_ReceiptTo_Online_Email'} \n");
+	}
+
+	push (@TEMP, " \n");
+
+	push (@TEMP, "----------------------------------------------------- \n\n");
+
+	}
+
+
+	
+		# orders
+		# orders
+
+		$taxable_count = 0;
+		$notax_count = 0;
+
+	push (@TEMP, "ORDER DETAIL \n\n");
+
+	foreach $line (@orders) {
+  	($qty, $item, $desc, $price, $ship, $taxit) = split (/$delimit/, $line);
+
+	$taxable_count += $qty if ($taxit);
+	$notax_count += $qty unless ($taxit);
+
+	++$tp;
+	push (@TEMP, "[Item # $tp] ordered _______ | delivered ________ \n");
+
+	if ($qty > 1) {
+
+		$sub_price = ($qty * $price);
+		$totalprice += $sub_price;
+		$totalqnty += $qty;
+      	$sub_price = sprintf "%.2f", $sub_price;
+
+      	$sub_price = CommifyMoney ($sub_price);
+		$price = CommifyMoney ($price);
+		$qty = CommifyNumbers ($qty);
+	
+		push (@TEMP, "$qty units $item ");
+		push (@TEMP, "($currency $price each) ");
+		push (@TEMP, "subtotal = $currency $sub_price ");
+
+	} else {
+
+		$totalprice += $price;
+		$totalqnty += $qty;
+		$price = CommifyMoney ($price);
+		
+		push (@TEMP, "$qty unit $item ");
+		push (@TEMP, "subtotal = $currency $price ");
+	}
+
+
+	if ($identify_tax_items) { 
+
+		if ($frm{'Tax_Amount'} > 0 && $taxit) {
+	
+		push (@TEMP, " (Tax) \n");
+		} else {
+		push (@TEMP, " (No Tax) \n");
+		}
+
+	} else {
+	push (@TEMP, " \n");
+
+	}
+
+
+
+		# Format User Input in Description
+		# Format User Input in Description
+
+	@list = split (/\|/, $desc);
+
+	$desc = shift (@list);
+ 	$desc =~ s/\[/</g;
+	$desc =~ s/\]/>/g;
+   	$desc =~ s/<([^>]|\n)*>//g;
+
+		unless ($makelist) {
+		$desc = $desc . " - " if (scalar(@list));
+		}
+
+
+		$tl = 0;
+		foreach $li (@list) {
+
+		($lk, $lv) = split (/::/, $li);
+
+			if ($makelist) {
+			$desc = $desc . "\n* $lk: $lv ";
+
+			} else {
+
+				++$tl;
+				if ($tl < scalar(@list)) {
+
+				$desc = $desc . "$lk: $lv, ";
+
+				} else {
+				$desc = $desc . "$lk: $lv ";
+
+				}
+
+
+			}
+
+		}
+
+	push (@TEMP, "$desc \n\n");
+
+	}
+
+
+	push (@TEMP, "----------------------------------------------------- \n\n");
+
+
+
+
+		# totals	
+		# totals
+
+	if ($totalqnty > 1) {$pd = "Products"} else {$pd = "Product"}
+
+	$totalprice = sprintf "%.2f", $totalprice;
+	$totalprice = CommifyMoney ($totalprice);
+	$totalqnty = CommifyNumbers ($totalqnty);
+
+
+	push (@TEMP, "PURCHASE SUMMARY \n\n");
+
+	push (@TEMP, "Subtotal ");
+
+	push (@TEMP, "$totalqnty  $pd = ");
+
+	push (@TEMP, "$currency $totalprice \n");
+
+
+		# Totals from %frm Formerly %Computations -------------->
+		# Totals from %frm Formerly %Computations -------------->
+		# CommifyMoney here, keep computations free of formatting
+
+
+		# Display First Discount
+		# Display First Discount
+
+	if ($frm{'Primary_Discount'} > 0) {
+	$DiscountOne = CommifyMoney ($frm{'Primary_Discount'});
+
+	push (@TEMP, "Discount $frm{'Primary_Discount_Status'} = ");
+
+	push (@TEMP, "- $currency $DiscountOne \n");
+
+	}
+
+
+		# Display Coupon Discount
+		# Display Coupon Discount
+		
+	if ($frm{'Coupon_Discount'} > 0) {
+	$DiscountTwo = CommifyMoney ($frm{'Coupon_Discount'});
+
+	push (@TEMP, "Discount $frm{'Coupon_Discount_Status'} = ");
+
+	push (@TEMP, "- $currency $DiscountTwo \n");
+
+	}
+
+
+		# Display Subtotal if discounts
+		# Display Subtotal if discounts
+
+	if ($frm{'Combined_Discount'} > 0 ) {
+	$SubDiscount = CommifyMoney ($frm{'Sub_Final_Discount'});
+	$CombinedDiscount = CommifyMoney ($frm{'Combined_Discount'});
+
+	push (@TEMP, "Sub Total After $currency $CombinedDiscount Total Discount = ");
+
+	push (@TEMP, "$currency $SubDiscount \n");
+
+	}
+
+
+		# Tax Before
+		# Tax Before
+
+	if ($frm{'Tax_Amount'} > 0 && $frm{'Tax_Rule'} eq "BEFORE") {
+	$TaxRate = ($frm{'Tax_Rate'} * 100);
+	$AdjustedTax = CommifyMoney ($frm{'Adjusted_Tax_Amount_Before'});
+	$Tax = CommifyMoney ($frm{'Tax_Amount'});
+
+	push (@TEMP, "Sales tax $TaxRate\% \(on $currency $AdjustedTax taxable\) = ");
+
+	push (@TEMP, "$currency $Tax \n");
+
+	}
+
+
+		# Handling Charges
+		# Handling Charges
+
+	if ($frm{'Handling'} > 0) {
+	$HandlingCharges = CommifyMoney ($frm{'Handling'});
+
+	push (@TEMP, "Handling $frm{'Handling_Status'} = ");
+
+	push (@TEMP, "$currency $HandlingCharges \n");
+
+	}
+
+
+		# Insurance Charges
+		# Insurance Charges
+
+	if ($frm{'Insurance'} > 0) {
+	$InsuranceCharges = CommifyMoney ($frm{'Insurance'});
+
+	push (@TEMP, "Insurance $frm{'Insurance_Status'} = ");
+
+	push (@TEMP, "$currency $InsuranceCharges \n");
+
+	}
+
+
+		# Shipping Charges
+		# Shipping Charges
+
+
+	if ($frm{'Shipping_Amount'} > 0 ) {
+	$ShippingCharges = CommifyMoney ($frm{'Shipping_Amount'});
+
+	push (@TEMP, "$frm{'Shipping_Message'} = ");
+
+	push (@TEMP, "$currency $ShippingCharges \n");
+
+	}
+
+
+		# Tax After
+		# Tax After
+
+	if ($frm{'Tax_Amount'} > 0 && $frm{'Tax_Rule'} eq "AFTER") {
+	$TaxRate = ($frm{'Tax_Rate'} * 100);
+	$AdjustedTax = CommifyMoney ($frm{'Adjusted_Tax_Amount_After'});
+	$Tax = CommifyMoney ($frm{'Tax_Amount'});
+
+	push (@TEMP, "Sales tax $TaxRate\% \(on $currency $AdjustedTax taxable\) = ");
+
+	push (@TEMP, "$currency $Tax \n");
+
+	}
+
+
+		# Final Total
+		# Final Total
+
+	push (@TEMP, "------------------------------- \n");
+
+	push (@TEMP, "Total Order Amount = ");
+
+	push (@TEMP, "$currency $FinalAmount \n");
+
+	push (@TEMP, "\n");
+
+	push (@TEMP, "----------------------------------------------------- \n\n");
+
+
+
+
+		# additional computation info
+		# additional computation info
+
+	$tax_discounted = ( ($frm{'Initial_Taxable_Amount'}) - ($frm{'Adjusted_Tax_Amount'}) );
+	$tax_discounted = sprintf "%.2f", $tax_discounted;
+	$tax_discounted = CommifyMoney ($tax_discounted);
+
+	$TaxRate = ($frm{'Tax_Rate'} * 100);
+	$taxable_count = CommifyNumbers ($taxable_count);
+	$notax_count = CommifyNumbers ($notax_count);
+
+	$CombinedDiscount = CommifyMoney ($frm{'Combined_Discount'});
+	$InitialAmount = CommifyMoney ($frm{'Initial_Taxable_Amount'});
+
+
+	if ($frm{'Tax_Amount'} > 0 && $notax_count > 0 && ($frm{'Combined_Discount'} > 0 && $taxable_count)) {
+
+	push (@TEMP, "ADJUSTMENTS \n\n");
+
+	push (@TEMP, "A $TaxRate\% Sales tax was applied to $taxable_count items \n");
+
+	push (@TEMP, "The Pre Discounted value for all Taxable items = $currency $InitialAmount. \n");
+
+	push (@TEMP, "We have subtracted a weighted porportion of the discounts. \n");
+
+	push (@TEMP, "The Taxable items have been discounted $currency $tax_discounted \n");
+
+
+		if ($frm{'Tax_Rule'} eq "AFTER" && $frm{'Combined_SHI'} > 0) {
+
+		push (@TEMP, "We added any Shipping, Handling, Insurance = $currency $CombinedSHI. \n");
+
+		}
+
+
+	push (@TEMP, "Making The Final Adjusted Taxable Amount = $currency $AdjustedTax. \n");
+
+
+		if ($notax_count == 1) {
+	
+		push (@TEMP, "There was $notax_count Non Taxable item \n");
+
+		} else {
+
+		push (@TEMP, "There were $notax_count Non Taxable items \n");
+		}
+
+
+	push (@TEMP, "\n");
+
+	push (@TEMP, "----------------------------------------------------- \n\n");
+
+	}
+
+
+
+
+	if ($frm{'special_instructions'}) {
+
+	push (@TEMP, "SPECIAL INSTRUCTIONS \n\n");
+	push (@TEMP, "$frm{'special_instructions'} \n\n");
+
+	push (@TEMP, "----------------------------------------------------- \n\n");
+
+	}
+
+
+
+		# Server-User Info
+		# Server-User Info
+
+	push (@TEMP, "IP INFORMATION \n\n");
+	push (@TEMP, "Server Name: $ENV{'SERVER_NAME'} \n") if ($ENV{'SERVER_NAME'});
+	push (@TEMP, "Server Software: $ENV{'SERVER_SOFTWARE'} \n") if ($ENV{'SERVER_SOFTWARE'});
+	push (@TEMP, "Browser: $ENV{'HTTP_USER_AGENT'} \n") if ($ENV{'HTTP_USER_AGENT'});
+	push (@TEMP, "Remote Host: $ENV{'REMOTE_HOST'} \n") if ($ENV{'REMOTE_HOST'});
+	push (@TEMP, "Remote Addr: $ENV{'REMOTE_ADDR'} \n") if ($ENV{'REMOTE_ADDR'});
+	push (@TEMP, "Remote User: $ENV{'REMOTE_USER'} \n") if ($ENV{'REMOTE_USER'});
+	push (@TEMP, "\n");
+
+	push (@TEMP, "----------------------------------------------------- \n\n");
+
+
+	push (@TEMP, "$mail_merchant_name \n");
+	push (@TEMP, "$mail_site_url \n\n");
+
+	push (@TEMP, "Merchant OrderForm ver 1.53 \n");
+	push (@TEMP, "Copyright © 2000, All Rights Reserved \n");
+	push (@TEMP, "Web: http://www.io.com/~rga \n");
+	push (@TEMP, "Email: rga\@io.com \n\n");
+	push (@TEMP, "For Registration-Payment Information: \n");
+	push (@TEMP, "http://www.merchantorderform.com/payment.html \n");
+
+
+
+
+
+
+		# SEND MAIL --> MERCHANT
+		# SEND MAIL --> MERCHANT	
+
+	open (MERCHANT_MAIL, "|$mail_program");
+
+   	print MERCHANT_MAIL "To: $mail_merchant_addr\n";
+
+	print MERCHANT_MAIL "From: $mail_merchant_addr\n";
+
+   	print MERCHANT_MAIL "Subject: $mail_subject_line\n\n";
+
+	print MERCHANT_MAIL @TEMP;
+
+   	close (MERCHANT_MAIL);
+
+
+	#### END OF PLUG IN SUB ROUTINE
+	#### END OF PLUG IN SUB ROUTINE
+	
+	}
+
+
+1;
+
+

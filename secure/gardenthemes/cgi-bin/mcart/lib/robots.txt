@@ -1,0 +1,13 @@
+User-agent: * 
+Disallow: /invoices
+Disallow: /cgi-bin
+Disallow: /cgi-bin/mcart
+Disallow: /cgi-bin/mcart/info
+Disallow: /cgi-bin/mcart/data
+Disallow: /cgi-bin/mcart/lib
+Disallow: /invoices/
+Disallow: /cgi-bin/
+Disallow: /cgi-bin/mcart/
+Disallow: /cgi-bin/mcart/info/
+Disallow: /cgi-bin/mcart/data/
+Disallow: /cgi-bin/mcart/lib/

@@ -1,0 +1,599 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+   <meta name="Author" content="Russell Alexander">
+   <meta name="Description" content="The complete set of Documentation for Merchant OrderForm v1.5 - WebWare written and produced by RGA">
+   <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+   <meta name="ProgId" content="FrontPage.Editor.Document">
+   <meta name="subject" content="Merchant OrderForm">
+   <meta name="Template" content="C:\MICROSOFT OFFICE\OFFICE\html.dot">
+   <TITLE>Merchant OrderForm v1.5 Documentation</TITLE>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#3333FF" VLINK="#3333FF" ALINK="#FF0000">
+<B>
+<font size="4">
+<FONT FACE="Comic Sans MS">Welcome
+to <I><FONT COLOR="#800000">Merchant Order Form</FONT></I> </FONT></font> </B>
+<font size="-1" face="Comic Sans MS">
+version 1.53, 8/15/2000, Updated 9/15/2000</font>
+<BR><FONT FACE="Comic Sans MS"><FONT SIZE=-1>Copyright by </FONT><B><FONT SIZE=-2>RGA@IO.COM</FONT></B><FONT SIZE=-1>
+/ <A HREF="http://www.io.com/~rga/scripts">http://www.io.com/~rga/scripts<br>
+</A>Internet Location: <a href="http://www.merchantorderform.com">http://www.merchantorderform.com<br>
+</a>
+Use our web site for <a href="http://www.merchantorderform.com/updates.html">current issues or updates to this product</a>
+ <a href="http://www.merchantorderform.com"><br>
+</a>
+Documentation prepared July 31, 2000.</FONT></FONT>
+<p>
+
+&quot; 
+<font size="-1" face="Comic Sans MS">
+After examining countless shopping carts, this was the only solution providing the flexibility to customize it precisely to my business needs.&quot; --</font> 
+<font face="Comic Sans MS" size="1">
+Comments: <a href="http://www.cgi-resources.com/">CGI Resource Index</a>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is the Beginning of the documentation for the Merchant OrderForm documentation and programs.&nbsp; This file contains some basic information about what the scripts are and what's in the various documentation files.&nbsp; You should unzip the package you received
+or downloaded by using the <b>
+<font color="#000080">
+Preserver Folder Information</font></b>, and unzip the package into a clean folder on your computer that you can begin to work with.&nbsp; This will keep the various files organized in a way that will keep them organized for installation.</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+All of the documentation should be visible in the root folder where you unzipped the package.&nbsp; We recommend that you proceed to use this product in this order (<b>1</b>) <b>Installation</b>, as it comes out of the package (<b>2</b>) Then<b>
+build your store pages</b>, or product input pages, and last (<b>3</b>) adjust the behavior of Merchant OrderForm by the <b>configuration</b> files.&nbsp; The troubleshooting file is a reference.</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+These are the documentation files.&nbsp;</font>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>ReadMe.html </b></font>
+&nbsp;-- 
+<font color="#000080">
+<b>You Are Here</b></font></font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="Installation.html">Installation.html</a>
+&nbsp;
+ -- Step by step instructions for installing these scripts</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="BuildingPages.html">BuildingPages.html </a>
+&nbsp;&nbsp; -- All about Building the Input Pages for your Store</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="AboutConfigurations.html">AboutConfigurations.html</a>
+ -- Basics about editing Perl configuration files</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="Configurations1.html">Configurations1.html</a>
+&nbsp; -- Front End settings (Cart and Order Summary)</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="Configurations2.html">Configurations2.html </a>
+ -- Back End settings (Check out and Final invoice)</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="Troubleshooting.html">Troubleshooting.html </a>
+&nbsp;&nbsp; -- Information on error messages and troubleshooting</font>
+</ul>
+<p><u>
+<font size="+1" face="Comic Sans MS">
+Introduction</font></u><p>
+<font color="#800000" face="Comic Sans MS">
+<i>Merchant OrderForm</i></font>
+ <font size="-1" face="Comic Sans MS">
+ <b> v1.53</b> - t<font color="#000080">he Web Developers affordable solution for getting products online</font>, is a smart online ordering system that accepts standard web page input.  Just build your store from regular web pages and Merchant OrderForm will sort, preview, and process smart looking
+invoices for your online customers.&nbsp;</font><p>
+<font size="-1" face="Comic Sans MS">
+With Merchant OrderForm you're not limited to a Database that has one look and feel, but you can build your store anywhere, anyway you want.&nbsp; MOF accepts input from a standard html based form, so you can use the search results from a database to provide product input if you need
+that, or you can simply build web pages with products to submit to MOF.&nbsp; It is capable of handling an unlimited number of pages, products, and product options.&nbsp; It uses templates to display all its output, so you can easily match the look
+and feel of your Web Site.&nbsp; It has serious capability to adapt to all kinds of usage, by adjusting configuration settings, but has lots of customizing support already built in.&nbsp; If you have a question about a particular application you can
+contact us at <a href="mailto:info@merchantorderform.com">info@merchantorderform.com</a>
+</font><p>
+<font size="-1" face="Comic Sans MS">
+Merchant OrderForm v1.53 is an advanced Web Development tool for building online store fronts.&nbsp; It is complex enough to handle many of the toughest Web projects, yet at the same time we have made the scripts usable by the small business entrepreneur.&nbsp;
+The features built into it come from user feedback over the two years that web designers have been using our very popular Merchant OrderForm v1.4.&nbsp; Once installed and configured for your site needs, Merchant OrderForm is ready to process any
+products you are able to throw at it.&nbsp; Just update your product pages using your favorite html editor and you're ready to sell.</font><p>
+<font size="-1" face="Comic Sans MS">
+Merchant OrderForm v1.53 is distributed as shareware or trial ware.&nbsp; Under the shareware policy, you are licensed to download, install, and test Merchant OrderForm v1.53 to see if it will do the job for you.  If it does the job for your web site, then you are expected to consult our shareware fees, and select the package that best fits your needs.
+Fees are listed at our <a href="http://www.merchantorderform.com/payment.html">Fees Information Page</a>
+</font>.<p>
+<font size="-1" face="Comic Sans MS">
+Merchant OrderForm v1.53</font>
+<font size="-1" face="Comic Sans MS">
+ is a free standing CGI script written in Perl 5. It was built for Unix, Linux, but can be run on NT if you know how to install Perl cgi scripts on NT.<br>
+<br>
+<font color="#000080">
+<b>Here's a partial list of features:</b></font></font>
+<ul type="circle">
+<li>
+<font size="-1" face="Comic Sans MS">
+Accepts a wide variety of input types</font><li>
+<font size="-1" face="Comic Sans MS">
+Unlimited Product Options across your site</font><li>
+<font size="-1" face="Comic Sans MS">
+Price Adjusting product options</font><li>
+<font size="-1" face="Comic Sans MS">
+Unlimited number of store front pages</font><li>
+<font size="-1" face="Comic Sans MS">
+Built in PayPal submit feature</font><li>
+<font size="-1" face="Comic Sans MS">
+Ability to customize shipping options, sales tax, discounts, insurance</font><li>
+<font size="-1" face="Comic Sans MS">
+Ability to match the look and feel of your web site</font><li>
+<font size="-1" face="Comic Sans MS">
+Ability to use shared SSL on same or split servers</font><li>
+<font size="-1" face="Comic Sans MS">
+Allows for taxable or non-taxable items</font><li>
+<font size="-1" face="Comic Sans MS">
+Currency and numeric format configurable</font><li>
+<font size="-1" face="Comic Sans MS">
+Very friendly and intuitive for your online customers</font><li>
+<font size="-1" face="Comic Sans MS">
+Can compute sales tax before or after S. H. &amp; I.</font><li>
+<font size="-1" face="Comic Sans MS">
+Can identify four separate or consolidated tax domains</font><li>
+<font size="-1" face="Comic Sans MS">
+Remembers your customers last shipping address</font><li>
+<font size="-1" face="Comic Sans MS">
+Presents a full preview of the order at anytime</font><li>
+<font size="-1" face="Comic Sans MS">
+Ability to Save an invoice copy to the Web</font><li>
+<font size="-1" face="Comic Sans MS">
+Onboard credit card validation algorithms</font><li>
+<font size="-1" face="Comic Sans MS">
+Encodes cc and check numbers for mailing</font><li>
+<font size="-1" face="Comic Sans MS">
+Almost all of its behavior is configurable</font><li>
+<font size="-1" face="Comic Sans MS">
+Clean Open source code designed for Plug-Ins or additional programming</font>
+</ul>
+<p>
+
+<u>
+<font size="+1" face="Comic Sans MS">
+Shareware Statement</font></u>
+
+<font size="-1" face="Comic Sans MS">
+<br>
+<br>
+You are authorized to install, test, and explore your copy of Merchant OrderForm.  When you are satisfied that it will do the job for you, then you are expected to make arrangements for the Shareware fees.&nbsp;</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>Payment arrangements</b></font> @ <a href="http://www.merchantorderform.com/payment.html">http://www.merchantorderform.com/payment.html</a></font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Personal web site use: $ 15.00&nbsp;<br>
+Web development (3-10 sites): $ 45.00, includes limited support<br>
+Web development (above 10 sites): $ 150.00, includes limited support&nbsp;<br>
+For Resale or hosting license please contact <a href="mailto:rga@io.com">rga@io.com</a>
+&nbsp;<br>
+<br>
+-- Or you can Send Check or Money Order To:&nbsp;</font><br>
+<br>
+<font size="-1" face="Comic Sans MS">
+        RUSSELL ALEXANDER&nbsp;<br>
+        1904 INVERNESS BLVD.&nbsp;<br>
+        AUSTIN, TEXAS 78745&nbsp;</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+
+
+-- Or you can use </font>
+
+<!-- Begin PayPal Logo -->
+<A HREF="https://secure.paypal.x.com/xclick/business=rga%40io.com&undefined_quantity=1&item_name=Merchant+OrderForm+v1.5&return=http%3A//www.merchantorderform.com/" target="_blank">
+<font size="-1" face="Comic Sans MS">
+PayPal</font>
+</a>
+<!-- End PayPal Logo -->
+
+<p>
+
+&nbsp;
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9"><FONT SIZE=+1><a name="TableContents"></a>
+Table
+of Contents for this Documentation</FONT></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT FACE="Comic Sans MS"><FONT COLOR="#800000">Merchant
+OrderForm</FONT>
+<B><FONT SIZE=-1>v</FONT></B></FONT>
+ <font size="-1" face="Comic Sans MS">
+ <b>1.53</b></font></TD>
+</TR>
+</TABLE>
+
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>
+Frequently Asked Questions about MOF's use<br>
+</b></font>Is Merchant OrderForm what you are looking for ?<b>
+<br>
+</b></font>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#WhatIs">What is Merchant OrderForm ?</a>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="#WhatNeeded">What do I need to use it ?</a>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="#AbleToInstall">Will I be able to install it ?</a>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="#WindowsUse">Can I use it on Windows ?</a>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="#AuthorizationServices">Is it linked to any Authorization Services ?
+</a>
+</font>
+</ul>
+</ul>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="WhatIs"></a>
+What is Merchant OrderForm ?</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Q: What Is Merchant OrderForm v1.53 ?</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+A: A Professional shopping cart system for gathering products from a Web site and processing invoices.&nbsp; At the time this documentation was written, Merchant OrderForm was released as a stand-alone system, meaning that is does all the shopping
+cart functions, and for final processing it emails the merchant when an order is placed.&nbsp; Please consult the <a href="http://www.merchantorderform.com/updates.html">Updates Page</a>
+ to determine what Plug-ins have been written for connection to authorization services.&nbsp; This version 1.53 also has a built in payment option for PayPal's Web Accept.&nbsp; It is also pretty easy to integrate MOF with any type of Web Link that
+services provide.&nbsp;&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Technically Speaking, Merchant OrderForm v1.53 are CGI scripts written in Perl v5.01</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Merchant OrderForm are Perl CGI scripts, which means they are plain ASCII script files written in Perl v5.01 designed to run under a Web servers CGI (Common Gateway Interface).&nbsp; They are made with Unix or Linux type servers in mind, but can be
+installed to run under a Win32 platform like Win_xx or NT with a few considerations.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+It's a Web Development tool for E-Commerce that is versatile in its look and feel and not locked into performing in only one way.  The more serious the Web Developer's level of skill, the more they will be able to see possibilities for using Merchant OrderForm
+v1.53 to bridge Web Site Products into invoices for processing.  It provides Shopping Cart capabilities, OrderForm capabilities, and much more.&nbsp;
+Some developers link PHP search results, or Db searches, to Merchant OrderForm.</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Merchant OrderForm is mainly a tool for the Web Developer; however, it is seriously usable for the wannabies or novices who want to invest a little time in familiarizing themselves with installing and configuring CGI scripts.&nbsp; There are hosting
+services that make generic shopping carts available to your web site which are much easier to set up and use for the beginner, but many of these generic carts restrict you to general use, with little customizing ability.&nbsp; Merchant OrderForm is a
+serious tool to enable an e-Commerce Web Site’s products to be carted, invoiced, previewed, purchased in extremely customizable ways.</font>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="WhatNeeded"></a>
+What do I need to use it ?</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Merchant OrderForm is used on Web Sites.&nbsp; So, you need a Web Site.&nbsp; Almost all commercial Web Space has everything that MOF needs to run successfully. If a hosting service did not have the basics for Merchant OrderForm to run, then you should be wary of their service. Here are the details:</font>
+<ol>
+<li>
+<font size="-1" face="Comic Sans MS">
+It runs best on a Unix or Linux type server (common with hosting services)<br>
+It can be installed on NT with some adjustments, and requires a different mail plug-in<br>
+<br>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+You'll need ability to run independent cgi Perl scripts on your account (common on commercial accounts)<br>
+Your server must have Perl v5.01 or higher installed (standard)<br>
+<br>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+You'll need FTP (File Transfer Protocol) access to upload the files to your server (standard)<br>
+So, you'll need an FTP program to work with on your machine (software)<br>
+Or you'll need a Web based control panel for uploading files to your Web Space (provided by some hosts)<br>
+<br>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+You'll need ability to set Permissions (Unix, Linux) for the executable and writable files (standard)<br>
+Many FTP programs do this, or a hosting service's Web Based Control Panel will do this<br>
+If installing on NT, your admin will need to give your cgi-bin folder executable-writable permission</font>
+</ol>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Okay, that will get you up and running; however, we have some recommendations that will insure safety and security when using Merchant OrderForm on your Web site:</font>
+<ol>
+<li>
+<font size="-1" face="Comic Sans MS">
+If you plan on using SSL (Secure Sockets Layers) for collecting sensitive info (recommended)<br>
+Then you'll need SSL services on your account (common on commercial accounts)<br>
+Note: You do not need SSL if you will not be collecting actual credit card numbers or checking account numbers<br>
+<br>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+We recommend that you install it and use it on a well configured Virtual Domain<br>
+Where your cgi-bin is configured by the Web Server to prohibit a directory listing<br>
+And prohibits execution of any file not listed as *.cgi for executable cgi usage.<br>
+This is the strongest configured cgi-bin and should be provided by good quality hosting services<br>
+If you do not have this then consult the section on <a href="Installation.html#OtherInstallIssues">Other Installation Issues<br>
+<br>
+</a>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+We also recommend that your Virtual domain account have Root Directory Access.<br>
+Meaning that you have access to the Root of your account one directory above Public Web Access<br>
+Our installation instructions recommend that all scratch files use directories out of range of Public<br>
+Web Access.
+If you do not have this then consult the section on<a href="Installation.html#OtherInstallIssues"> Other Installation Issues<br>
+</a>
+</font>
+</ol>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="AbleToInstall"></a>
+Will I be able to install it ?</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+If you are 
+<font color="#000080">
+<b>experienced</b></font> at installing Perl CGI scripts, then jump right in.&nbsp; Once you get over the initial shock of how enormous the configuration files are, you will see things are really quite organized and simply laid out in 6 main files.</font><p>
+<font size="-1" face="Comic Sans MS">
+If you are a 
+<font color="#000080">
+<b>beginner</b></font>,&nbsp; attempting to install Perl CGI scripts on your Web Site, then you will need a little courage and patience.&nbsp; Our documentation is very thorough, and will lead you through the process, even teach you the basics of
+running CGI scripts, but you must be willing to follow directions.&nbsp; Our previous version of Merchant OrderForm has been used by several schools to teach beginning and intermediate CGI programming.</font><p>
+<font size="-1" face="Comic Sans MS">
+The most important thing is that you be able to follow directions closely.&nbsp; You should not jump over any of the installation section, unless you are experienced at installing Perl CGI scripts.&nbsp; Our first direction is to not jump
+ahead.&nbsp; You should not even look at the configuration files except in the areas we direct for the initial install.&nbsp; The configuration files can be a little intimidating to beginners.</font><p>
+<font size="-1" face="Comic Sans MS" color="#000080">
+What you need to install it:</font>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+Ability to make Web pages with Forms for your products (Your HTML Editor)</font><li>
+<font size="-1" face="Comic Sans MS">
+An FTP (File Transfer Protocol) program</font><li>
+<font size="-1" face="Comic Sans MS">
+A plain ASCII text Editor (not notepad, it doesn't handle large files)</font>
+</ul>
+<p>
+<font size="-1" face="Comic Sans MS">
+You'll need some understanding of how to build html forms for your product pages, or you'll need some willingness to learn a little of this.&nbsp; We have plenty of examples and will walk you through it, but the more web page building experience you
+have the better.&nbsp; MOF does all its work when something is sent to it from a Web page Form.&nbsp; You can build your product input pages using your favorite HTML Editor.&nbsp; Our documentation has a whole section on </font>
+<font color="#000080">
+Building your Online store.
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If you need an FTP program the <a href="http://www.nonags.com/">Nonags Site</a>
+ has those.&nbsp; It's a good idea to find one that has the ability to set Unix-Linux permissions.&nbsp; <a href="http://www.ipswitch.com/cgi/download_eval.pl?product=WL-1000">WS-FTP LE</a>
+ has that feature.&nbsp; Also, the makers of WS-FTP have tutorials on <a href="http://www.ftpplanet.com/ftpresources/ftpmain.htm">how to use FTP </a>
+if you're unfamiliar with that.</font><p>
+<font size="-1" face="Comic Sans MS">
+If you don't have a plain ASCII text editor check out the <a href="http://www.nonags.com/">Nonags Site</a>
+.&nbsp; They have plenty of Freeware notepad replacements.&nbsp; You could use Wordpad, but be careful not to use any of the formatting. It's safer to just use a plain ASCII editor.</font><p>
+<font size="-1" face="Comic Sans MS">
+You must use a plain ASCII text editor to edit any of MOF's program files.&nbsp; We have some search and replace techniques that prepare these files for the initial installation, but once you get down into the meat of refining MOF's behavior on your
+site, then we will have to go deep into the configuration files and start making settings.&nbsp; This will be the hardest part for the beginner, but we'll walk you through it.</font><p>
+<font size="-1" face="Comic Sans MS">
+And remember: we provide installation services, customizing services, and have a 99% email answering reputation. Merchant OrderForm is extremely affordable if you want to do it all yourself, but if you need support we recommend our Web Developers
+level of service.&nbsp; We offer limited support for both Web Developers registrations, and will try to help you with any obstacles you're having.&nbsp; Please consult our <a href="http://www.merchantorderform.com/custom.html">service fees </a>
+for more information.</font><p>&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="WindowsUse"></a>
+Can I use it on Windows ?</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Merchant OrderForm is a set of Perl scripts.&nbsp; They are not Windows programs, and will not run as native Windows programs.&nbsp; They are script files full of plain text lines that do nothing at all in Windows except look pretty confusing in your
+text editor.&nbsp; You can edit them with any plain ASCII text editor on any computer.&nbsp; Their power is when they are installed under a Web Servers CGI (common gateway interface), then they have action power.&nbsp; But they are plain text on a
+Windows machine.&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If you are new to installing CGI scripts for a Web Site, and downloading this package to your Windows PC, then your job will be to uncompress (unzip) the downloaded package and follow the instructions in this documentation for Installation.&nbsp; You
+will be Transferring the program files via FTP (File Transfer Protocol) to your Web Server, and you will be making some adjustments to the configuration files for the program to run.&nbsp; But you will not be attempting to run the scripts on your
+Windows PC.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+You can work with the scripts on your Windows PC, but the scripts are made to run under a Web Server (like Apache) on Unix or Linux type servers.&nbsp; Front page does not edit or install CGI scripts and you should not attempt to use Front Page to
+install Merchant OrderForm.&nbsp;&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If you want to run Merchant OrderForm on your Windows PC, then you should have the Active State Perl build installed under a local Web Server. You’ll need both installed: a Web Server (software) and the Perl Interpreter.&nbsp; Then you’ll have to
+configure your Web Server software to run *.PL or *.CGI scripts via the Common Gateway Interface and the Perl Interpreter. At that point Merchant OrderForm will operate out of your standard Web Browser, as if it were actually on the Internet, but
+running on your Windows machine instead.&nbsp; Merchant OrderForm v1.53 was completely built from a Windows98 machine using Active Perl and the Omni HTTPd Web server.&nbsp; All of it's functions were tested on a Linux machine running the Apache Web
+Server.</font></p>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="http://www.activestate.com/">Active State's Win32 Build of Perl</a>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="http://www.omnicron.ab.ca/">Omni HTTPd Win32 Web Server</a>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="http://www.apache.org/">Apache has a Win32 version too</a>
+</font>
+</ul>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Yes, you can use MS Personal Web Server, but configuring it to run Perl via the CGI is not a friendly process.&nbsp; If you want to do this, consult the Usenet discussions for PWS.<br>
+<br>
+<br>
+</font></p>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="AuthorizationServices"></a>
+Is it linked to any Authorization Services</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+ Please consult the <a href="http://www.merchantorderform.com/updates.html">Updates Page</a>
+ to determine what Plug-ins have been written for connection to authorization services.&nbsp; Merchant OrderForm v1.53 was originally released as a stand-alone system, but it was built with serious consideration to developing various APIs to
+Authorization Services.&nbsp; Also, we will try to keep a list of version others have built using various Authorization Services on our Updates Page.</font>
+<P>
+<font size="-1" face="Comic Sans MS">
+Version 1.53 has a built in option to use the PayPal Web Accept service.&nbsp; Mof can be configured to use only the PayPal service, or that service can be user selected from any of the other Payment Methods you enable.</font><P>
+<font size="-1" face="Comic Sans MS">
+PayPal's Web Accept service is a good example of how Merchant OrderForm can be easily customized to send final amounts and information to any simple Web Link type service.&nbsp; The API's require some additional programming, but the Web Link services
+can be customized with just a little knowledge of how to work inside the scripts and install some custom submit buttons with hidden input.</font>
+<P>
+<font size="-1" face="Comic Sans MS">
+We have included a section on customizing Mof to submit it's final information to a Web Link type service.&nbsp; This can be found in the Configurations section of the documentation.</font>
+<P>&nbsp;
+<hr>
+<P><FONT FACE="Comic Sans MS"><FONT SIZE=-1>Written and produced by </FONT><B><FONT SIZE=-2>RGA@IO.COM</FONT></B><FONT SIZE=-1>
+/ <a HREF="http://www.io.com/~rga/scripts">http://www.io.com/~rga/scripts</a>
+</FONT></FONT>
+<BR><FONT FACE="Comic Sans MS"><FONT COLOR="#000080">What do you <FONT SIZE=+1>want</FONT>
+to order <FONT SIZE=+1>today</FONT>?</FONT></FONT>
+<BR><FONT FACE="Comic Sans MS"><FONT SIZE=-1>Documentation prepared July 31, 2000</FONT></FONT>
+<P><FONT FACE="Comic Sans MS"><FONT SIZE=-1>Thanks for your interest in
+</FONT><I><FONT COLOR="#800000">Merchant
+Order Form</FONT></I><FONT SIZE=-1>
+<B>v1.53 </B></FONT></FONT><FONT FACE="Wingdings"><FONT SIZE=-1>J</FONT></FONT>
+<BR>
+<font color="#808080">
+<FONT FACE="Arial,Helvetica"><b>Explore the Internet - Create the Internet</b></FONT>
+<BR>&nbsp;</font>
+<BR>
+<font size="-1" face="Comic Sans MS">
+These programs are distributed as Trial Ware or Share Ware. You are Welcome to install and test all portions of the programs. The package is not limited in any way and code source is left readable.&nbsp; Please make arrangements for the fee if you
+continue operating it on a Web Site. Feel free to <a href="mailto:rga@io.com"> contact me</a>
+ if you need special arrangements for use of MOF v1.53.</font>
+<P>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>
+For payment arrangements</b></font>: <a href="http://www.merchantorderform.com/payment.html">http://www.merchantorderform.com/payment.html</a>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+For personal web site use: $ 15.00<br>
+For web development (3-10 sites): $ 45.00, includes limited support<br>
+For web development (above 10 sites): $ 150.00, includes limited support<br>
+Note: For Resale or hosting license please contact <a href="mailto:rga@io.com">rga@io.com</a>
+</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Distribution of these programs and files without owner consent is prohibited. Please contact the authors of this product for any use outside the original registration and user license.
+</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<b>COPYRIGHT NOTICE:</b><br>
+The contents of these programs and scripts are protected under the United States copyright laws as an unpublished work, and is confidential and proprietary to Austin Contract Computing, Inc.&nbsp; Its use or disclosure&nbsp; in whole or in part
+without the expressed written permission of Austin Contract Computing, Inc. is prohibited.&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<b>DISCLAIMER:</b><br>
+By opening and configuring this for your server and application you thereby assume any and all responsibility for the use and outcomes of this program. Please read the documentation on configurations, and test your installation thoroughly.&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Please do not distribute this script, as it is not a free-ware version. Please direct any non registered users of this script to the author's Web Site for details on how to obtain a registered copy of this script.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Web: <a href="http://www.merchantorderform.com/">Merchant OrderForm v1.53<br>
+</a>
+Mail: <a href="mailto:info@merchantorderform.com">info@merchantorderform.com<br>
+</a>
+Austin, Texas<br>
+July 31, 2000</font></p>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;</p>
+<P>
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+</BODY>
+</HTML>

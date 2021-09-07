@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<!-- Merchant Ordering Form v1.53  -->
+<!-- CGI script by RGA@IO.com -->
+<!-- http://www.io.com/~rga -->
+<!-- This is an example web page on how to set up OrderForm pages on your site -->
+<!-- MOF accepts input of many kinds, consult the documentation for assistance -->
+
+<html>
+
+<head>
+<title>Example OrderForm MOF v1.53</title>
+</head>
+
+<BODY BACKGROUND="mofback.jpg" TOPMARGIN="0" LEFTMARGIN="0" MARGINWIDTH="0" MARGINHEIGHT="0" BGCOLOR=FFFFFF>
+
+<a href="http://bandbstudios.com/"><img src="mofsplash_ex.gif" border=0 width=468 height=60></a>
+<br>
+
+<BLOCKQUOTE>
+
+<font face="Arial,Helvetica" size="3">
+<font color=navy>
+<h3>Merchant OrderForm v1.53 OrderForm Examples
+<a href="http://bandbstudios.com/cgi-bin/mof.cgi?viewcart">
+<img align=top src="viewcartlink.gif" border=0 width=60 height=30 alt="View Cart Contents">
+</a>
+</h3>
+<font color=black>
+
+<font face="Arial,Helvetica" size="3">
+
+<font color=navy><strong>
+Some Custom Input Boxes For Services
+</strong><font color=black>
+<p>
+
+
+<ul>
+<li>postmode=<font size=2><strong>QUANTITYBOXES</strong><font size=3><br>
+<li>quantity11=2
+<li>order11=Type Service----Main Description Header----39.19----1----1
+<li>ServiceBoxMain11=input
+<li>ServiceBoxSub11=input
+</ul>
+
+
+<!-- THIS WILL POINT TO THE FIRST PROCESSING SCRIPT-->
+<!-- IT IS A RELATIVE OR FULL HTTP URL ONLY-->
+<!-- IT CANNOT BE AN ABSOLUTE ADDRESS-->
+
+<FORM method=POST action="http://bandbstudios.com/cgi-bin/mof.cgi">
+
+<!-- THE POSTMODE IS REQUIRED HIDDEN INFO -->
+
+<INPUT type="hidden" name="postmode" value="QUANTITYBOXES">
+
+
+
+
+<INPUT type="hidden" name="quantity11" value="2">
+<INPUT type="hidden" name="order11" value="Type Service----Main Description Header----39.19----1----1">
+
+</font>
+
+<font face="Arial,Helvetica" size="3">
+Service Box One:<br>
+
+</font>
+<textarea name="ServiceBoxMain11" rows="4" cols="60" wrap="soft">
+</textarea>
+
+<p>
+
+<font face="Arial,Helvetica" size="3">
+Service Box Two:<br>
+
+</font>
+<textarea name="ServiceBoxSub11" rows="4" cols="60" wrap="soft">
+</textarea>
+<p>
+
+
+<font size=2>
+<input type=submit value="Add To Cart">
+<input type=reset value="Reset Form">
+
+</FORM>
+
+
+
+<br><br><br>
+
+<font face="Arial,Helvetica" size="2">
+
+Happy Ordering<br>
+
+Copyright &copy; 
+<a href="http://www.io.com/~rga/scripts/">
+Merchant OrderForm </a> v1.53
+<br>
+All Rights Reserved, April 2000 by
+<a href="http://www.io.com/~rga/">RGA</a>
+<br>
+These programs may not be distributed without consent of owner.
+<br>
+
+<br><br><br>
+
+</BLOCKQUOTE>
+
+</body>
+</html>

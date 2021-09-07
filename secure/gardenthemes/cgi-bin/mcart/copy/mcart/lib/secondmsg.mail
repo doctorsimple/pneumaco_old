@@ -1,0 +1,98 @@
+
+# RGA : January 15, 2004
+# Example of a second mail message sent to customer at checkout
+
+
+sub MailSecondMessage {
+my $str;
+my $msg = "";
+my $topmsg = "";
+$todisk=0;
+
+# You can edit this Subject Line to fit your business
+# The Invoice number is appended ..
+my ($mail_subject_line) = "Your Order with $mail_merchant_name # $InvoiceNumber";
+
+
+# CUSTOMIZE THE CONTENTS BELOW FOR MESSAGE
+# important: Your message must stay between the starting and ending double Quotes $msg .=" ...";
+# ==========================================
+
+$msg .= "
+
+
+This is a test message.
+It is a Second Email message to the customer.
+
+Instructions for how to do this are at the Support Center under Topics
+
+http://www.merchantpal.net/modules.php?name=News&file=article&sid=63&mode=&order=0&thold=0
+
+
+";
+
+# ==========================================
+# CUSTOMIZE THE CONTENTS ABOVE FOR MESSAGE
+
+	
+	# this line must stay commented out if you use MOFcart v2.4
+	# if you use MOFcart v2.5, and want to use the mail customising features
+	# then uncomment this line for the Var Replacer to work
+	# $msg = &VarReplacer($msg);
+
+	# SEND MAIL --> CUSTOMER
+	if ($use_external_smtp_server) {
+        $smtp = Net::SMTP->new($use_external_smtp_server);
+        $smtp->mail($mail_return_addr); 
+        $smtp->to($mail_customer_addr);
+        $smtp->data();
+        $smtp->datasend("To: $mail_customer_addr\n");
+        $smtp->datasend("From: $mail_return_addr\n");
+        $smtp->datasend("Subject: $mail_subject_line\n");
+        $smtp->datasend("\n");
+        $smtp->datasend($msg);
+        $smtp->dataend();
+        $smtp->quit;
+
+	} elsif ($todisk) {
+	open (CUSTOMER_MAIL, ">CUSTMSG.txt");
+   	print CUSTOMER_MAIL "To: $mail_customer_addr\n";
+	print CUSTOMER_MAIL "From: $mail_return_addr\n";
+   	print CUSTOMER_MAIL "Subject: $mail_subject_line\n\n";
+	print CUSTOMER_MAIL "$msg";
+	close(CUSTOMER_MAIL);
+
+	} else {
+	open (CUSTOMER_MAIL, "|$mail_program");
+   	print CUSTOMER_MAIL "To: $mail_customer_addr\n";
+	print CUSTOMER_MAIL "From: $mail_return_addr\n";
+   	print CUSTOMER_MAIL "Subject: $mail_subject_line\n\n";
+	print CUSTOMER_MAIL "$msg";
+   	close (CUSTOMER_MAIL);
+	}
+	}
+
+# Notes on how the &doSpace function works
+# The &doSpace function allows you to match a line length, spacing for string variations
+# var = &doSpace(nn,"text","chr",R);
+# nn   = length of whole string
+# text = string to mix with spacing (only use $frm{'RealVars'}
+# chr = what character is the fill ?
+# final flag is (R) = text is on Right Side of Fill
+# otherwise the default = text is on the Left Side of Fill
+	sub doSpace {
+	my($len,$txt,$chr,$side) = @_;
+	$str = length($txt);
+	$len = ($len - $str);
+	$len = "$chr" x $len;
+	$str = $txt . $len;
+	$str = $len . $txt if ($side =~ /R/i);
+	return $str;
+	}
+
+
+
+# END MERCHANT ORDERFORM Cart ver 2.5
+# Copyright by RGA 2000-2003
+
+1;

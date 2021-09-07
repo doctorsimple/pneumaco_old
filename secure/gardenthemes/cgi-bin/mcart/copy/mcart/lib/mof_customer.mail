@@ -1,0 +1,330 @@
+# ==================== MOFcart v2.5.10.21.03 ====================== #
+# === MAIL CUSTOMER NOTICE ======================================== #
+# === REMOVAL OF COPYRIGHT NOTICE IS PROHIBITED =================== #
+# === MERCHANT ORDERFORMcart ver 2.5 (PKG: 10-21-03) ============== #
+# === All Rights Reserverd  © 2000-2004 rga@merchantpal.com ======= #
+# === This Software Package, either individually or together, ===== #
+# === may not be sold, distributed, modified, or otherwise ======== #
+# === used in anyway outside the License Agreement limitations ==== #
+# === Consult the License Agreement with any questions: =========== #
+# === LICENSE: http://www.merchantpal.com/license.html ============ #
+# ================================================================= #
+
+#       Sections in Making your Merchant Mail sub routine
+#       First sections populate some strings to print later
+# (1) set up different top messages based on pay method
+# (2) Split up individual item(s) to list, note: example does not include description
+# (3) format money & numbers in the $frm{'RealVars'}
+# (4) Set up the totals lines, appended to the $totals string
+# (5) Set up the message using text, populated strings, {{VarReplacer}} & $frm{'RealVars'}
+#       Everything below that section are mail & sub routines
+
+# Note: Consult the packaged <mof_merchant.mail> example for more detail
+# Note: on how to customize the customer mail message
+
+
+sub MailCustomerReceipt {
+my $str;
+my $msg = "";
+my $topmsg = "";
+$todisk=0;
+
+# You can edit this Subject Line to fit your business
+# The Invoice number is appended ..
+my ($mail_subject_line) = "Your Order with $mail_merchant_name # $InvoiceNumber";
+
+	# DO YOU WANT TO USE Net::SMTP EXTERNAL MAILER ?
+	# ============================================
+	# Specify an SMTP server available to MOFcart
+	# You can specify your domain SMTP or any Relay SMTP
+	# Note: used for NT/WinXX
+	# uncomment both lines below to use Net::SMTP
+
+# $use_external_smtp_server = 'yoursmtp.com';
+# use Net::SMTP;
+
+# CUSTOMIZE THE CONTENTS BELOW FOR MESSAGE
+# You can use any of the Real Time Vars or the {{Vars}} for VarReplacer
+# See docs on variables available at Final Order confirmation
+# And make sure to customize any info specific to your enabled pay methods
+
+
+# (1) set up different top messages based on pay method
+	# (1.1) pay by mail
+	if ($frm{'input_payment_options'} eq "MAIL") {
+	 $topmsg .= qq~You selected payment by Mail. ~;
+
+	# (1.2) cod
+	} elsif ($frm{'input_payment_options'} eq "COD") {
+	 $topmsg .= qq~You selected payment by COD. ~;
+
+	# (1.3) on account
+	} elsif ($frm{'input_payment_options'} eq "ONACCT") {
+	 $topmsg .= qq~You selected payment On Account. ~;
+
+	# (1.4) call for pay details
+	} elsif ($frm{'input_payment_options'} eq "CALLME") {
+	 $topmsg .= qq~We will call you for payment details. ~;
+
+	# (1.5) invoice is zero amt
+	} elsif ($frm{'input_payment_options'} eq "ZEROPAY") {
+	 $topmsg .= qq~No payment is required for this order. ~;
+
+	# (1.6) paypal pass off	
+	} elsif ($frm{'input_payment_options'} eq "PAYPAL") {
+	 $topmsg .= qq~You selected payment by PayPal. ~;
+
+	# (1.7) forms gateway
+	} elsif ($frm{'input_payment_options'} eq "GATEWAY") {
+	 $topmsg .= qq~You selected payment via our Forms Gateway. ~;
+
+	} else {
+
+		# (1.8) custom full gateway
+		if ($use_gateway_mof) {
+		 $topmsg .= qq~You selected payment via our Full Gateway. ~;
+
+		# (1.9) online check
+		} elsif ($check_check) {
+		 $topmsg .= qq~You selected payment by Check. ~;
+
+		# (1.10) credit card
+		} elsif ($card_check) {
+		 $topmsg .= qq~You selected payment by $payment_options_list{$frm{'input_payment_options'}}. ~;
+
+		}
+	}
+# end pay methods
+
+
+# (2) Split up individual item(s) to list, 
+# note: example does not include description
+
+	my $pt,$tt,$p2,$p3,$p4,$q,$i,$d,$p,$s,$t;
+
+	# make null to prevent duplicates
+	my ($citm,$totals) = ('','');
+
+	foreach(@orders) {
+		($q,$i,$d,$p,$s,$t) = split (/$delimit/,$_);
+		$pt = ($q * $p);
+		$tt += $pt;
+		$p = sprintf "%.2f",$p;
+      		$pt = sprintf "%.2f",$pt;
+		$p = CommifyMoney ($p);	
+		$pt= CommifyMoney ($pt);	
+
+		# strip pseudo html (if any) from item, no pictures, etc.
+		$i =~ s/\[/</g;
+		$i =~ s/\]/>/g;
+ 		$i =~ s/<([^>]|\n)*>//g;
+
+		# strip pseudo html (if any) from desc, no pictures, etc.
+		$d =~ s/\[/</g;
+		$d =~ s/\]/>/g;
+ 		$d =~ s/<([^>]|\n)*>//g;
+
+		# this is how to use the &doSpace function for string spacing variations
+		$citm .= &doSpace(5,$q," ");
+		$citm .= &doSpace(45,"$i ",".");
+		$citm .= " $currency";
+		$citm .=  &doSpace(10,$pt," ","R");
+		$citm .= "\n";
+		$citm .= "$d \n\n";
+
+		}
+
+
+
+# (3) format money & numbers in the $frm{'RealVars'}
+#       Note: many of these RealVars may already be Commified as printed
+#       from the &PaymentAccepted sub Routine, which is the last browser
+#       screen printed, and last sub routine before the mail.
+#       Mail messages are the very last function (in case of sendmail failure)
+
+	$frm{'Primary_Price'} = CommifyMoney($frm{'Primary_Price'});
+	$frm{'Primary_Products'} = CommifyNumbers($frm{'Primary_Products'});
+	$frm{'Primary_Discount'} = CommifyMoney($frm{'Primary_Discount'});
+	$frm{'Sub_Primary_Discount'} = CommifyMoney($frm{'Sub_Primary_Discount'});
+	$frm{'Coupon_Discount'} = CommifyMoney($frm{'Coupon_Discount'});
+	$frm{'Sub_Coupon_Discount'} = CommifyMoney($frm{'Sub_Coupon_Discount'});
+	$frm{'Combined_Discount'} = CommifyMoney($frm{'Combined_Discount'});
+	$frm{'Sub_Final_Discount'} = CommifyMoney($frm{'Sub_Final_Discount'});
+	$frm{'Handling'} = CommifyMoney($frm{'Handling'});
+	$frm{'Insurance'} = CommifyMoney($frm{'Insurance'});
+	$frm{'Shipping_Amount'} = CommifyMoney($frm{'Shipping_Amount'});
+	$frm{'Combined_SHI'} = CommifyMoney($frm{'Combined_SHI'});
+	$frm{'Sub_SHI'} = CommifyMoney($frm{'Sub_SHI'});
+	$frm{'Tax_Amount'} = CommifyMoney($frm{'Tax_Amount'});
+	$frm{'Initial_Taxable_Amount'} = CommifyMoney($frm{'Initial_Taxable_Amount'});
+	$frm{'global_CodCharges'} = CommifyMoney($frm{'global_CodCharges'});
+	$frm{'Final_Amount'} = CommifyMoney($frm{'Final_Amount'});
+	$frm{'Deposit_Amount'} = CommifyMoney($frm{'Deposit_Amount'});
+	$frm{'Remaining_Balance'} = CommifyMoney($frm{'Remaining_Balance'});
+
+
+# (4) Set up the totals lines, appended to the $totals string
+	$totals .= "Total items: ( $frm{'Primary_Products'} )\n";
+	$totals .= " Sub Total ";
+	$totals .= &doSpace(30," $currency $frm{'Primary_Price'}",".","R") . "\n";
+		$frm{'Primary_Discount'} = ('00.00') unless ($frm{'Primary_Discount'} > 0);
+		$totals .= " Discount ";
+	$totals .= &doSpace(31," - $currency $frm{'Primary_Discount'}",".","R") . "\n";
+		$frm{'Compute_Coupons'} = ('00.00') unless ($frm{'Compute_Coupons'} > 0);
+		$totals .= " $frm{'Compute_Coupons'} ";
+	$totals .= &doSpace(29," - $currency $frm{'Coupon_Discount'}",".","R") . "\n";
+		$frm{'Sub_Final_Discount'} = ('00.00') unless ($frm{'Sub_Final_Discount'} > 0);
+		$totals .= " Sub Total ";
+	$totals .= &doSpace(30," $currency $frm{'Sub_Final_Discount'}",".","R") . "\n";
+		$frm{'Tax_Amount'} = ('00.00') unless($frm{'Tax_Amount'} > 0);
+		$totals .= " Tax ";
+	$totals .= &doSpace(37," $currency $frm{'Tax_Amount'}",".","R") . "\n";
+		$frm{'handling'} = ('00.00') unless ($frm{'handling'} > 0);
+		$totals .= " Handling ";
+	$totals .= &doSpace(32," $currency  $frm{'Handling'}",".","R") . "\n";
+		$frm{'Insurance'} = ('00.00') unless ($frm{'Insurance'} > 0);
+		$totals .= " Insurance ";
+	$totals .= &doSpace(30," $currency $frm{'Insurance'}",".","R") . "\n";
+		$frm{'Shipping_Amount'} = ('00.00') unless ($frm{'Shipping_Amount'} > 0);
+		$totals .= " Shipping ";
+	$totals .= &doSpace(32," $currency $frm{'Shipping_Amount'}",".","R") . "\n";
+		$frm{'global_CodCharges'} = ('00.00') unless ($frm{'global_CodCharges'} > 0);
+	$totals .= " COD Fee ";
+	$totals .= &doSpace(31," $currency $frm{'global_CodCharges'}",".","R") . "\n";
+		$frm{'Final_Amount'} = ('00.00') unless ($frm{'Final_Amount'} > 0);
+	$totals .= " Final Total ";
+	$totals .= &doSpace(29," $currency $frm{'Final_Amount'}",".","R") . "\n";
+		$frm{'Deposit_Amount'} = ('00.00') unless ($frm{'Deposit_Amount'} > 0);
+	$totals .= " Payment ";
+	$totals .= &doSpace(31," $currency $frm{'Deposit_Amount'}",".","R") . "\n";
+		$frm{'Remaining_Balance'} = ('00.00') unless ($frm{'Remaining_Balance'} > 0);
+	$totals .= " Balance ";
+	$totals .= &doSpace(32," $currency $frm{'Remaining_Balance'}",".","R") . "\n";
+
+
+
+# (5) Set up the message using text, populated strings, {{VarReplacer}} & $frm{'RealVars'}
+# Tip: the qq~ message format ~; will preserve line endings, spacing, text and also allow you
+#        to use all value types: {{VarReplacer}}, $frm{'RealVars'}, $globalVars, $configVars, etc.
+
+$msg .= qq~
+{{global_MyDate}} : Example Customer Message
+MOFcart v2.5 (c) All Rights Reserved 2003
+
+Thank you for your order Invoice : {{global_InvoiceNumber}}.
+$topmsg
+
+{{global_save_url}}
+-- User : $mail_user
+-- Psw : $mail_pswd
+
+We have assigned a temporary user : password Login for you to check the status of your order online. Note: this was assigned by the <mof_savesql.pl> routine, and reflects what the database requires for customer's initial login.
+
+-- User : $myUsr
+-- Psw : $myPsw
+
+mySQL customer login script:
+<not yet developed for v2.5>
+To provide login & User management to mySQL dB
+
+Follow the link below to consult an online copy of your order and status, or to obtain further instructions for downloading any products delivered electronically.
+
+Copy of Invoice on the Web: 
+{{global_save_url}}
+
+Example: Vars from mySQL operation (if enabled)
+_________________________________________________________________
+
+-- User : $myUsr
+-- Psw : $myPsw
+-- Unix Crypt Psw : $cryptPsw
+-- dB Profile Reference Num : $usrid
+-- Invoice dB Reference Num : $recid
+-- mySQL Date : $sqlDate
+
+
+Example: How to Build the products list & totals
+______________________________________________________________
+
+Qty                  Product                             Total
+______________________________________________________________
+
+$citm$totals
+
+
+
+-- Customer Service
+-- 1-888-888-8888
+-- sales\@MySite.com
+
+
+$ENV{'REMOTE_ADDR'}
+{{global_ShortDate}} {{global_Time}}
+
+~;
+
+
+
+
+
+	# ==========================================
+	# CUSTOMIZE THE CONTENTS ABOVE FOR MESSAGE
+
+	$msg = &VarReplacer($msg);
+
+	# SEND MAIL --> CUSTOMER
+	if ($use_external_smtp_server) {
+        $smtp = Net::SMTP->new($use_external_smtp_server);
+        $smtp->mail($mail_return_addr); 
+        $smtp->to($mail_customer_addr);
+        $smtp->data();
+        $smtp->datasend("To: $mail_customer_addr\n");
+        $smtp->datasend("From: $mail_return_addr\n");
+        $smtp->datasend("Subject: $mail_subject_line\n");
+        $smtp->datasend("\n");
+        $smtp->datasend($msg);
+        $smtp->dataend();
+        $smtp->quit;
+
+	} elsif ($todisk) {
+	open (CUSTOMER_MAIL, ">CUSTMSG.txt");
+   	print CUSTOMER_MAIL "To: $mail_customer_addr\n";
+	print CUSTOMER_MAIL "From: $mail_return_addr\n";
+   	print CUSTOMER_MAIL "Subject: $mail_subject_line\n\n";
+	print CUSTOMER_MAIL "$msg";
+	close(CUSTOMER_MAIL);
+
+	} else {
+	open (CUSTOMER_MAIL, "|$mail_program");
+   	print CUSTOMER_MAIL "To: $mail_customer_addr\n";
+	print CUSTOMER_MAIL "From: $mail_return_addr\n";
+   	print CUSTOMER_MAIL "Subject: $mail_subject_line\n\n";
+	print CUSTOMER_MAIL "$msg";
+   	close (CUSTOMER_MAIL);
+	}
+	}
+
+# Notes on how the &doSpace function works
+# The &doSpace function allows you to match a line length, spacing for string variations
+# var = &doSpace(nn,"text","chr",R);
+# nn   = length of whole string
+# text = string to mix with spacing (only use $frm{'RealVars'}
+# chr = what character is the fill ?
+# final flag is (R) = text is on Right Side of Fill
+# otherwise the default = text is on the Left Side of Fill
+	sub doSpace {
+	my($len,$txt,$chr,$side) = @_;
+	$str = length($txt);
+	$len = ($len - $str);
+	$len = "$chr" x $len;
+	$str = $txt . $len;
+	$str = $len . $txt if ($side =~ /R/i);
+	return $str;
+	}
+
+
+
+# END MERCHANT ORDERFORM Cart ver 2.5
+# Copyright by RGA 2000-2003
+
+1;

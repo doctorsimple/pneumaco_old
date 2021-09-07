@@ -1,0 +1,175 @@
+
+<HTML>
+<HEAD>
+<TITLE>MOFcart Example Pop Up</TITLE>
+
+<link rel="stylesheet" href="popstyle.css" type="text/css">
+
+
+<script type="text/javascript" LANGUAGE="JavaScript">
+<!-- name and focus window
+window.name = 'POPUP';
+window.focus();
+// End -->
+</SCRIPT>
+
+
+
+</HEAD>
+<BODY>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+      <p><strong><span class="SectionHeadings">To Order This Product:</span></strong>
+</p>
+      <ol>
+        <li class="DefaultText">Select Size, Color, and Band Style</li>
+        <li class="DefaultText">Click the <strong>
+    
+    add to cart</strong>  button</li>
+        <li class="DefaultText">The Western Hat will be added to your basket<br>
+          or you can 
+		  
+		  <a href="javascript:;" onClick="window.close()">close </a> this window</li>
+      </ol>
+    </td>
+  </tr>
+</table>
+<form method=POST action="http://www.gardenthemes.com/cgi-bin/mcart/mof.cgi">
+	
+
+    
+  <p>
+    <input type="hidden" name="postmode" value="SINGLEPOST">
+	
+    <input type="hidden" name="order" value="Western Hat----[img align=left vspace=18 hspace=6 src=http://www.gardenthemes.com/mofcart/images/westernhat_sm.gif width=50 height=40 border=0] [li] The Classic Western Hat ----45.00----2----1">
+	
+    <input type="hidden" name="quantity" value="1">
+  
+
+	<!-- POP UP INPUT MODE FIELDS -->
+
+    <input type="hidden" name="POP_TARGET" value="POPUP">
+
+    <input type="hidden" name="REDIRECT_URL" value="">
+  
+    <input type="hidden" name="POP_AUTOCLOSE" value="16">
+	
+    <input type="hidden" name="POP_VIEWCART" value="12345678">
+
+    <input type="hidden" name="POP_MSG" value="SENT MESSAGE HERE ..">
+
+
+	
+
+
+  </p>
+  <table align=center border="0" cellspacing="0" cellpadding="4">
+    <tr align="center" bgcolor="E3F2FF" class="DefaultText">
+      <td colspan=3 nowrap>
+        <div align="left">
+          <p><strong class="SmBlack">The Classic Western Hat $ 45.00</strong></p>
+      </div></td>
+    </tr>
+    <tr class="DefaultText">
+      <td width="31%" align="right" nowrap>
+        <div align="center"><a href="pop-western.html" class="NavBar" onClick="window.open(this.href,6,'directories=no,location=no,menubar=no,status=no,titlebar=no,toolbar=no,scrollbars=no,width=275,height=275,resizable=no');return false"><img src="images/westernhat_sm.gif" width=50 height=40 border=0 alt="Click for larger view"><br>
+          </a>
+          <input type="image" hspace="4" align="absmiddle" src="images/newbuybtn.gif" width=51 height=18 border=0 alt="Click Here to Add To Cart">
+        </div></td>
+      <td width="22%" nowrap>
+        <div align="right"><span class="SmCart">Size <img src="images/rarrow.gif" width="12" height="7"><br>
+        Color <img src="images/rarrow.gif" width="12" height="7"><br>
+        Band <img src="images/rarrow.gif" width="12" height="7"></span><br>
+      </div></td>
+      <td width="47%" nowrap bgcolor="E3F2FF">
+        <p>
+          <select Class="BoxFormat" name="HatSize" size="1">
+            <option selected value="">Select
+            <option value="Small">Small
+            <option value="Medium">Medium
+            <option value="Large">Large
+            <option value="Extra Large">Extra Large
+          </select>
+          <br>
+          <select Class="BoxFormat" name="HatColor" size="1">
+            <option selected value="">Select
+            <option value="Brown">Brown
+            <option value="Gray">Gray
+            <option value="White">White
+            <option value="Black">Black
+          </select>
+          <br>
+          <select Class="BoxFormat" name="HatBand" size="1">
+            <option value="">Select </option>
+            <option value="Snake Skin">Snake Skin </option>
+            <option value="Rabbbit Tail">Rabbit Tail </option>
+            <option value="Fly Fishing">Fly Fishing </option>
+            <option value="Bear Claw">Bear Claw </option>
+          </select>
+        </td>
+    </tr>
+  </table>
+</form>
+<p class="DefaultText"><strong>Notes</strong>:</p>
+<ul>
+  <li class="DefaultText">Name and Focus all windows in the Pop Up scheme <br>
+    <br>
+    </li>
+  <li class="DefaultText">INPUT options: All of the normal MOFcart <strong>POST</strong> rules can be used: SINGLEPOST, CHECKBOXES, QUANTITYBOXES. Cannot use the GET with POPUP mode<br>
+    <br>
+    </li>
+  <li class="DefaultText">INPUT must include hidden flag for Pop Up status (case sensitive) So that MOFcart can tell your are POSTing in Pop Up mode else you will get incorrect error and/or validation messages. Do not send this field from non Pop Up pages, or else make sure it is Null value=&quot;&quot;<br>
+    <br>
+&lt;input type=&quot;hidden&quot; name=&quot;<strong>POP_TARGET</strong>&quot; value=&quot;<strong>POPUP</strong>&quot;&gt;<br>
+    Identifies the cart output is coming back to the Pop Up window<br>
+    <br>
+    May also target another window value=&quot;MAIN&quot; and successful cart output will be sent there using MOFcart regular ViewCart template output, or custom message if using REDIRECT_URL<br>
+    <br>
+    All MOFcart Technical Error Messages and Validation Messages always return to the Pop Up window. Only successful cart Posts can change window placement.<br>
+    <br>
+    </li>
+  <li><span class="DefaultText">INPUT options (Field Names) Note: Names are case sensitive<br>
+    <br>
+    
+    </span>
+    <ul>
+      <li class="DefaultText"><strong>REDIRECT_URL</strong> value=&quot;Full URL&quot;<br>
+  For &quot;add to cart&quot; successful outcome (optional). After successful POST, redirection to this URL. May include (#nameAnchor)(?vars=&amp;GET=string). Note: be careful not to put a 404 destination here. if REDIRECT_URL not present, then MOFcart will use the  Pop Up ViewCart default format<br>
+        <br>
+        </li>
+      <li class="DefaultText"><strong>POP_TARGET</strong> value=&quot;POPUP&quot; (mandatory).<br>
+        Make sure the value = POPUP to get results back to the Pop Up window. You can set it to another name (example: MAIN) and MOFcart will use that window (using a JavaScript redirect from Pop Up window), but be careful not to name a window that is not open, or most browsers will trigger a new window, which will confuse shoppers. <br>
+        <br>
+        Will work in conjunction with REDIRECT_URL. <br>
+        Example (target Pop Up, but use a static message or script):<br>
+        REDIRECT_URL = http://www.somesite.com/mofcart/page-or-script.*<br>
+        POP_TARGET = POPUP<br>
+        <br>
+        Also you can trigger the traditional ViewCart in MAIN window<br>
+        by sending the .. mof.cgi?viewcart string as the REDIRECT_URL.<br>
+        <br>
+        Example:<br>
+        name=&quot;POP_TARGET&quot;<br>
+        value=&quot;MAIN&quot;<br>
+        name=&quot;POP_AUTOCLOSE&quot;<br>
+        value=&quot;0&quot;
+        <br>
+        name=&quot;REDIRECT_URL&quot; <br>
+        value=&quot;http://www.gardenthemes.com/cgi-bin/mcart/mof.cgi?viewcart&amp;previouspage=URL&quot;&gt;<br>
+        <br>
+        Note: make sure and send the correct string including &quot;&amp;previouspage&quot; exactly as defined, so MOFcart can have a valid &quot;continue shopping&quot; URL <br>
+        <br>
+        </li>
+      <li class="DefaultText"><strong>POP_AUTOCLOSE</strong> value=&quot;15&quot;<br>
+        <br>
+        NOTE: use the timer value or NULL &quot;&quot; (no auto close) </li>
+    </ul>
+  </li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</BODY>
+</HTML>
+

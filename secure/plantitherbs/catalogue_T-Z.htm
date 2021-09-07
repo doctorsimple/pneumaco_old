@@ -1,0 +1,306 @@
+ 
+<HTML>
+<!-- #BeginTemplate "/Templates/template1.dwt" --> 
+<HEAD>
+<!-- #BeginEditable "doctitle" --> 
+<TITLE>T-Z</TITLE>
+<!-- #EndEditable --> 
+<meta http-equiv="Content-Type" content="text/html; charset=">
+</HEAD>
+<BODY BGCOLOR="#999999" text="#003300" link="#660000">
+<div align="center"><!-- #BeginEditable "whole%20thing" --> 
+  <p> <font size="3"> 
+    <script><!--
+  function OpenNewWindow(cPicture,nWidth,nHeight,cMessage,nBorder)       
+		{
+ NewWindow=window.open("","NewOne","HEIGHT="+nHeight+",WIDTH="+nWidth+",scrollbars=yes,resizable=no,top=5,left=5");
+        NewWindow.document.write ("<HTML><HEAD>");
+        NewWindow.document.write ("</HEAD>");
+        NewWindow.document.write ("<BODY BGCOLOR='#999999'>");
+        NewWindow.document.write ("<P ALIGN=CENTER>");
+        NewWindow.document.write ("<FONT FACE='Georgia' SIZE='+1'COLOR='#003300'><B>");           
+        NewWindow.document.write (cMessage);
+        NewWindow.document.write ("</B><FONT>");
+        NewWindow.document.write ("<IMG SRC=");
+        NewWindow.document.write (cPicture);
+        NewWindow.document.write (">");
+        NewWindow.document.write ("</P>");
+        NewWindow.document.write ("<bottom><FORM><INPUT TYPE='button'VALUE='Close This Window' onClick='self.close()'>"); 
+        NewWindow.document.write ("</FORM></CENTER></BODY></HTML>");
+        NewWindow.document.write ("</BODY></HTML>");
+        NewWindow.document.close();
+        return false;
+        }
+  
+
+if (!parent.control)
+{window.location="shoppingarea.htm?catalogue_a-c.htm"}
+
+function LineOnForm(plantname,number,price)
+	{ 
+	this.plantname=plantname;
+	this.number=number;
+	this.price=price;
+	}
+var Entries = new Array();
+var countStart=0;
+var Placeholder=0;
+function AddToCart(plantname,number,price)
+	{
+	 Entries[Placeholder]=new LineOnForm(plantname,number,price);
+	 ++Placeholder;
+	 showCart();
+	 }
+
+function ParseArray()
+	{
+	
+	for (x=countStart;x<Entries.length;++x)
+		{
+ 		 parent.control.document.catalogue.qstring.value += Entries[x].plantname;
+		 parent.control.document.catalogue.qstring.value += '-';
+		 parent.control.document.catalogue.qstring.value +=Entries[x].number;
+		 parent.control.document.catalogue.qstring.value +='-';
+		 parent.control.document.catalogue.qstring.value +=Entries[x].price;
+		 parent.control.document.catalogue.qstring.value +='--';
+		 countStart++;
+			}
+	}	
+	
+
+function makeSpace(latinname)
+	{
+		 chopped=latinname.split('+');
+		 n=0;holder='';
+		 while (chopped[n])
+		 	{
+			holder+=(chopped[n]+' ');
+			n++;
+			}
+		 return holder;
+	} 
+ function showCart()
+ 	{
+	ParseArray(Placeholder);
+	var showme="";
+	var args=parent.control.document.catalogue.qstring.value;
+	lines = args.split('--');
+	 for (x=0;(x<((lines.length)-1));++x)
+	 {
+	  parts = lines[x].split('-');
+	  showme+=(makeSpace(parts[1])+"\n")
+	  }
+	 
+	 alert('Your shopping cart contains:\n'+showme+'\nWhen you are ready to place your order, click the submit button to choose a quantity for each item and to enter your shipping and billing information');
+
+				return true;
+	} 
+	
+	
+	
+	//-->
+	</script>
+    </font></p>
+  <p><img src="graphics_garden/PIH2.jpg" width="500" height="100"></p>
+  <p><font color="#999999">Plant It Herbs - Specializing in Chinese Medicinal 
+    Plants</font></p>
+  <p><font color="#999999">n<b><a href="index.htm">Home</a></b><font color="#999999">---</font> 
+    <b><a href="workshops.htm">Workshops</a><font color="#999999">--</font> <a href="mailto:plantit@plantitherbs.com">Contact 
+    Plant It Herbs</a><font color="#999999">---</font> <a href="shoppingarea.htm?order_form.htm">Order 
+    Form</a><font color="#999999">---</font> <a href="links.htm">Links</a></b>g</font></p>
+  <p><font color="#999999">h</font><a href="catalogue_A.htm"><font color="#000066"><b><i>A</i></b></font></a> 
+    <i><b><a href="catalogue_B.htm"><font color="#000066">B</font></a><font color="#000066"> 
+    </font><a href="catalogue_C.htm"><font color="#000066">C</font></a><font color="#000066"> 
+    </font><a href="catalogue_D-G.htm"><font color="#000066">DEFG</font></a> </b></i><font color="#999999"><b><i><a href="catalogue_H-K.htm"><font color="#000066">HIJK</font></a><font color="#000066"> 
+    </font><a href="catalogue_L-N.htm"><font color="#000066">LMN</font></a><font color="#000066"> 
+    </font><a href="catalogue_O-Q.htm"><font color="#000066">OPQ</font></a><font color="#000066"> 
+    </font><a href="catalogue_R-S.htm"><font color="#000066">RS</font></a><font color="#000066"> 
+    </font><a href="catalogue_T-Z.htm"><font color="#000066">TUVWXYZ</font></a></i></b>i</font> 
+  </p>
+  <p><font size="+3"><b>2006 Catalogue</b></font></p>
+  <p><b><font size="+3">- T, U, V, W, X, Y, Z -</font></b></p>
+  <form action="order_form.htm" method=GET name=catalogue>
+    <p> 
+    <p> 
+    <p><font size="3"><a name="Talinum paniculatum"></a></font><font size="3" face="Georgia"><i>#10960 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Talinum paniculatum</b></font><font size="3" face="Georgia">, 
+      tu ren shen, earth ginseng, Portulacaceae<i> - Annual, re-seeds easily, 
+      beautiful glossy leaves with tiny magenta flowers that open in the evening 
+      and bloom all summer, blooms turn to little red balls; grow in rich soil 
+      in sun; roots are said to be sweet and neutral, it strengthens the spleen 
+      and lungs, stops cough, regulates menses; used for spleen qi deficiency, 
+      tiredness, night sweats and spontaneous day sweats, irregular menses.</i></font> 
+    <p><b><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_n-z/Talinum_paniculatum.jpg',450,450,'Talinum paniculatum'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font>Click 
+      for Picture</b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $5.00</i></font></p>
+    <p><font size="3"> 
+      <input type=button name=Button value="add to shopping cart" onClick="AddToCart(10960,'Talinum paniculatum',5.00)">
+      <input type=submit name=Submit2 value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>
+    <p> 
+    <p> 
+    <p> 
+    <p><font size="3" color="#660000"><a name="Taraxacum sp."></a></font><font size="3" face="Georgia"><i>#10970 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Taraxacum sp. 
+      (probably T. mongolicum?)</b></font><font size="3" face="Georgia">, pu gong 
+      ying, dandelion, Compositae/Asteraceae <i>- Collected in Beijing, more compact 
+      and smaller in size than our native species; grow in moist to dry soil in 
+      sun, deadhead to prevent seeding other areas; whole plant it said to be 
+      used for breast and lung tumors, infections and the liver, makes a great 
+      spring tonic!</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Not available at this 
+      time</i></font><font size="3" face="Georgia"><i> </i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10970,'Taraxacum sp. (probably T. mongolicum?)',4.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p align=right><font size="3"><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size="3"><a name="Tussilago farfara"></a></font><font size="3" face="Georgia"><i>#10980 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Tussilago farfara</b></font><font size="3" face="Georgia">, 
+      kuan dong hua, coltsfoot, Compositae/Asteraceae -<i>This creeping perennial 
+      is one of the first plants to bloom in spring; flowers look like small dandelions 
+      and large colt's footprint shaped leaves appear after blooms, grows in moist, 
+      neutral soil in sun or part shade; flowers and flowers buds are said to 
+      be used</i></font><font size="3"> </font><font size="3" face="Georgia"><i>internally 
+      to treat asthma with cough, clinical research has shown benefits to the 
+      respiratory system and in the treatment of pulmonary disease. </i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $5.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10980,'Tussilago farfara',5.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p><font size="3"><a name="Urtica dioica"></a></font><font size="3" face="Georgia"><i>#10990 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Urtica dioica</b></font><font size="3" face="Georgia" color="#003300">,</font><font size="3" face="Georgia"> 
+      stinging nettle, Urticaceae<i> - Stinging perennial with creeping roots, 
+      invasive; grow in rich soil in sun or part shade, young leaves can be picked 
+      to make a wonderful spring tonic or cooked like spinach, whole plant is 
+      said to be used to clear toxins, controls bleeding, astringent, diuretic, 
+      juice from leaves seems to counteract stinging when touched.</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $4.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10990,'Urtica dioica',4.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p align=right><font size="3"><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size="3" color="#660000"><a name="Valeriana officinalis"></a></font><font size="3" face="Georgia"><i>#11000 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Valeriana officinalis</b></font><font size="3" face="Georgia">, 
+      xie cao, valerian, Valerianaceae<i> - The original seed comes from a collector 
+      in Scotland, grows 5' in rich soil in shade or part shade and makes a fine 
+      tall plant for woodland gardens, dense clusters of white flowers bloom in 
+      early summer; has a long medicinal history, rhizomes, roots and oil are 
+      said to be used as a sedative, calms the nerves, relaxes spasms, improves 
+      digestion, relieves pain.</i></font></p>
+    <p><b><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_n-z/Valeriana_officinalis.jpg',450,450,'Valeriana officinalis'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font>Click 
+      for Picture<font size="3" face="Georgia" color="#003300"><i> </i></font></b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $5.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(11000,'Valeriana officinalis',5.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p><font size="3"><a name="Viola spp."></a></font><font size="3" face="Georgia"><i>#11010 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Viola spp.</b></font><font size="3" face="Georgia">, 
+      violet, Violaceae<i> - Violets have long held a place in history; perennial 
+      with narrow leaves and light lavender to purple flowers which bloom in spring 
+      and late fall, grow in rich well-drained soil in part sun; said to clear 
+      heat and toxins, internally and externally, including AIDS and also cancer, 
+      fresh leaves can be used for ear/nose/skin sores or infections in combination 
+      with other herbs.</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $5.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(11010,'Viola spp.',5.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+    <p><font size="3" face="Georgia" color="#660000"><i><a name="Viola dissecta"></a></i></font><font size="3" face="Georgia" color="#003300"><b>#11011 
+      </b></font><font size="3" face="Georgia" color="#000066"><b>Viola dissecta</b></font><font size="3" face="Georgia" color="#003300"><b>, 
+      </b>ding du cao, boil/furuncle toxic grass, Violaceae<b> - </b><i>The plant 
+      name is lie ye jin cai or spilt leaf violet; beautiful tender perennial 
+      has dissected leaves and white flowers that bloom in the winter and spring; 
+      grow in rich humus soil in part sun; whole plant is said to be used to clear 
+      heat and relieve toxins, reduces swollen carbuncles, used to treat non-specific 
+      toxic swellings. </i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $7.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(11011,'Viola dissecta',6.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p align=right><font size="3"><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size="3" face="Georgia" color="#330066"><i><a name="Viola grypoceras"></a></i></font><font size="3" face="Georgia" color="#003300"><b><i>#11012 
+      </i></b></font><font size="3" face="Georgia" color="#000066"><b>Viola grypoceras</b></font><font size="3" face="Georgia" color="#003300">,<i> 
+      </i>ki huang gua, earth cucumber, Violaceae<i> - Nice round compact viola, 
+      small heart shaped leaves, small white flowers bloom in spring and summer; 
+      grow in part sun in rich soil; whole plant said to be used to clear heat 
+      and relieve toxins, stops bleeding, for knife wounds, swelling and pain 
+      from falls. </i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $7.00 </i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(11012,'Viola grypoceras',6.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+    <p><font size="3"><a name="Xanthium sp."></a></font><font size="3" face="Georgia"><i>#11020 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Xanthium sp. 
+      (probably X. strumarium?)</b></font><font size="3" face="Georgia">, cang 
+      er zi, cocklebur, Compositae - <i>First mentioned in traditional Chinese 
+      medicine during the Tang dynasty (AD 618-907), original seed is from Guangxi 
+      B.G.; portly annual with thick lobed leaves, flowers are pale green and 
+      form burr like fruits, grows 8-36" in poor, dry soil in sun, invasive; fruits 
+      are pleasant tasting and said to have antibacterial and antifungal properties, 
+      relieves pain and relaxes spasms.</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $4.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(11020,'Xanthium sp. (probably X. strumarium?)',4.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+    <p><font size="3">&nbsp;</font></p>
+    <p><font size="3"><a name="Ziziphus spinosa"></a></font><font size="3" face="Georgia"><i>#11030</i> 
+      </font><font size="3" face="Georgia" color="#000066"><b>Ziziphus spinosa</b></font><font size="3" face="Georgia">, 
+      suan zao ren, spiny Chinese date, Rhamnaceae - <i>Spiny deciduous shrub 
+      has long been cultivated in China; grow in well-drained neutral soil in 
+      sun, hardy, small cream colored flowers bloom in summer in 2-3 clusters; 
+      fruits taste sour, seed is said to be used for insomnia, calms the spirit.</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $15.00 </i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(11030,'Ziziphus spinosa',12.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+    <p align=right><font size="3"><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size="3">&nbsp;</font> 
+  </form>
+  <p align="center"><b><a href="index.htm">Home</a></b> <b><a href="links.htm">Links</a></b> 
+    <b> </b><b><a href="workshops.htm">Workshops</a></b></p>
+  <p align="center"><b> <a href="mailto:plantit@plantitherbs.com">Contact Plant 
+    It Herbs</a> </b></p>
+  <p align="center"><b><a href="shoppingarea.htm?order_form.htm">Order Form</a> 
+    </b></p>
+  <p></p>
+  <p></p>
+  <center>
+    <p>&nbsp;</p>
+  </center>
+  <p>&nbsp;</p>
+  <p><font size="3">&nbsp;</font></p>
+  <p>&nbsp;</p>
+  <!-- #EndEditable --> 
+  <p>&nbsp;</p>
+</div>
+</BODY>
+<!-- #EndTemplate -->
+</HTML>

@@ -1,0 +1,404 @@
+<HTML>
+<HEAD>
+<TITLE>DBD::mysqlPP - Pure Perl MySQL driver for the DBI</TITLE>
+<LINK REL="stylesheet" HREF="../../../Active.css" TYPE="text/css">
+<LINK REV="made" HREF="mailto:">
+</HEAD>
+
+<BODY>
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=100%>
+<TR><TD CLASS=block VALIGN=MIDDLE WIDTH=100% BGCOLOR="#cccccc">
+<FONT SIZE=+1><STRONG><P CLASS=block>&nbsp;DBD::mysqlPP - Pure Perl MySQL driver for the DBI</P></STRONG></FONT>
+</TD></TR>
+</TABLE>
+
+<A NAME="__index__"></A>
+<!-- INDEX BEGIN -->
+
+<UL>
+
+	<LI><A HREF="#name">NAME</A></LI>
+	<LI><A HREF="#synopsis">SYNOPSIS</A></LI>
+	<LI><A HREF="#example">EXAMPLE</A></LI>
+	<LI><A HREF="#description">DESCRIPTION</A></LI>
+	<UL>
+
+		<LI><A HREF="#class methods">Class Methods</A></LI>
+		<LI><A HREF="#metadata method">MetaData Method</A></LI>
+		<LI><A HREF="#private metadata methods">Private MetaData Methods</A></LI>
+	</UL>
+
+	<LI><A HREF="#database handles">DATABASE HANDLES</A></LI>
+	<LI><A HREF="#statement handles">STATEMENT HANDLES</A></LI>
+	<LI><A HREF="#installation">INSTALLATION</A></LI>
+	<LI><A HREF="#support operating system">SUPPORT OPERATING SYSTEM</A></LI>
+	<LI><A HREF="#dependencies">DEPENDENCIES</A></LI>
+	<LI><A HREF="#difference from dbd::mysql">DIFFERENCE FROM ``DBD::mysql''</A></LI>
+	<UL>
+
+		<LI><A HREF="#parameter of cnstructor">Parameter of Cnstructor</A></LI>
+		<LI><A HREF="#private metadata methods">Private MetaData Methods</A></LI>
+		<LI><A HREF="#server administration">Server Administration</A></LI>
+		<LI><A HREF="#database handles">Database Handles</A></LI>
+		<LI><A HREF="#statement handles">Statement Handles</A></LI>
+		<LI><A HREF="#sql extensions">SQL Extensions</A></LI>
+	</UL>
+
+	<LI><A HREF="#todo">TODO</A></LI>
+	<LI><A HREF="#see also">SEE ALSO</A></LI>
+	<LI><A HREF="#authors">AUTHORS</A></LI>
+	<LI><A HREF="#copyright and licence">COPYRIGHT AND LICENCE</A></LI>
+</UL>
+<!-- INDEX END -->
+
+<HR>
+<P>
+<H1><A NAME="name">NAME</A></H1>
+<P>DBD::mysqlPP - Pure Perl MySQL driver for the DBI</P>
+<P>
+<HR>
+<H1><A NAME="synopsis">SYNOPSIS</A></H1>
+<PRE>
+    use DBI;</PRE>
+<PRE>
+    $dsn = &quot;dbi:mysqlPP:database=$database;host=$hostname&quot;;</PRE>
+<PRE>
+    $dbh = DBI-&gt;connect($dsn, $user, $password);</PRE>
+<PRE>
+    $drh = DBI-&gt;install_driver(&quot;mysqlPP&quot;);</PRE>
+<PRE>
+    $sth = $dbh-&gt;prepare(&quot;SELECT * FROM foo WHERE bla&quot;);
+    $sth-&gt;execute;
+    $numRows = $sth-&gt;rows;
+    $numFields = $sth-&gt;{'NUM_OF_FIELDS'};
+    $sth-&gt;finish;</PRE>
+<P>
+<HR>
+<H1><A NAME="example">EXAMPLE</A></H1>
+<PRE>
+  #!/usr/bin/perl</PRE>
+<PRE>
+  use strict;
+  use DBI;</PRE>
+<PRE>
+  # Connect to the database.
+  my $dbh = DBI-&gt;connect(&quot;dbi:mysqlPP:database=test;host=localhost&quot;,
+                         &quot;joe&quot;, &quot;joe's password&quot;,
+                         {'RaiseError' =&gt; 1});</PRE>
+<PRE>
+  # Drop table 'foo'. This may fail, if 'foo' doesn't exist.
+  # Thus we put an eval around it.
+  eval { $dbh-&gt;do(&quot;DROP TABLE foo&quot;) };
+  print &quot;Dropping foo failed: $@\n&quot; if $@;</PRE>
+<PRE>
+  # Create a new table 'foo'. This must not fail, thus we don't
+  # catch errors.
+  $dbh-&gt;do(&quot;CREATE TABLE foo (id INTEGER, name VARCHAR(20))&quot;);</PRE>
+<PRE>
+  # INSERT some data into 'foo'. We are using $dbh-&gt;quote() for
+  # quoting the name.
+  $dbh-&gt;do(&quot;INSERT INTO foo VALUES (1, &quot; . $dbh-&gt;quote(&quot;Tim&quot;) . &quot;)&quot;);</PRE>
+<PRE>
+  # Same thing, but using placeholders
+  $dbh-&gt;do(&quot;INSERT INTO foo VALUES (?, ?)&quot;, undef, 2, &quot;Jochen&quot;);</PRE>
+<PRE>
+  # Now retrieve data from the table.
+  my $sth = $dbh-&gt;prepare(&quot;SELECT id, name FROM foo&quot;);
+  $sth-&gt;execute();
+  while (my $ref = $sth-&gt;fetchrow_arrayref()) {
+    print &quot;Found a row: id = $ref-&gt;[0], name = $ref-&gt;[1]\n&quot;;
+  }
+  $sth-&gt;finish();</PRE>
+<PRE>
+  # Disconnect from the database.
+  $dbh-&gt;disconnect();</PRE>
+<P>
+<HR>
+<H1><A NAME="description">DESCRIPTION</A></H1>
+<P>DBD::mysqlPP is a Pure Perl client interface for the MySQL database. This module implements network protool between server and client of MySQL, thus you don't need external MySQL client library like libmysqlclient for this module to work. It means this module enables you to connect to MySQL server from some operation systems which MySQL is not ported. How nifty!</P>
+<P>From perl you activate the interface with the statement</P>
+<PRE>
+    use DBI;</PRE>
+<P>After that you can connect to multiple MySQL database servers
+and send multiple queries to any of them via a simple object oriented
+interface. Two types of objects are available: database handles and
+statement handles. Perl returns a database handle to the connect
+method like so:</P>
+<PRE>
+  $dbh = DBI-&gt;connect(&quot;dbi:mysqlPP:database=$db;host=$host&quot;,
+                      $user, $password, {RaiseError =&gt; 1});</PRE>
+<P>Once you have connected to a database, you can can execute SQL
+statements with:</P>
+<PRE>
+  my $query = sprintf(&quot;INSERT INTO foo VALUES (%d, %s)&quot;,
+                      $number, $dbh-&gt;quote(&quot;name&quot;));
+  $dbh-&gt;do($query);</PRE>
+<P>See <EM>DBI(3)</EM> for details on the quote and do methods. An alternative
+approach is</P>
+<PRE>
+  $dbh-&gt;do(&quot;INSERT INTO foo VALUES (?, ?)&quot;, undef,
+           $number, $name);</PRE>
+<P>in which case the quote method is executed automatically. See also
+the bind_param method in <EM>DBI(3)</EM>. See <A HREF="#database handles">DATABASE HANDLES</A> below
+for more details on database handles.</P>
+<P>If you want to retrieve results, you need to create a so-called
+statement handle with:</P>
+<PRE>
+  $sth = $dbh-&gt;prepare(&quot;SELECT id, name FROM $table&quot;);
+  $sth-&gt;execute();</PRE>
+<P>This statement handle can be used for multiple things. First of all
+you can retreive a row of data:</P>
+<PRE>
+  my $row = $sth-&gt;fetchow_arrayref();</PRE>
+<P>If your table has columns ID and NAME, then $row will be array ref with
+index 0 and 1. See <A HREF="#statement handles">STATEMENT HANDLES</A> below for more details on
+statement handles.</P>
+<P>I's more formal approach:</P>
+<P>
+<H2><A NAME="class methods">Class Methods</A></H2>
+<DL>
+<DT><STRONG><A NAME="item_connect"><STRONG>connect</STRONG></A></STRONG><BR>
+<DD>
+<PRE>
+    use DBI;</PRE>
+<PRE>
+    $dsn = &quot;dbi:mysqlPP:$database&quot;;
+    $dsn = &quot;dbi:mysqlPP:database=$database;host=$hostname&quot;;
+    $dsn = &quot;dbi:mysqlPP:database=$database;host=$hostname;port=$port&quot;;</PRE>
+<PRE>
+    $dbh = DBI-&gt;connect($dsn, $user, $password);</PRE>
+<P>A <CODE>database</CODE> must always be specified.</P>
+<DL>
+<DT><STRONG><A NAME="item_host">host</A></STRONG><BR>
+<DD>
+The hostname, if not specified or specified as '', will default to an
+MySQL daemon running on the local machine on the default port
+for the INET socket.
+<P></P>
+<DT><STRONG><A NAME="item_port">port</A></STRONG><BR>
+<DD>
+Port where MySQL daemon listens to. default is 3306.
+<P></P></DL>
+</DL>
+<P>
+<H2><A NAME="metadata method">MetaData Method</A></H2>
+<DL>
+<DT><STRONG><A NAME="item_tables"><STRONG>tables</STRONG></A></STRONG><BR>
+<DD>
+<PRE>
+    @names = $dbh-&gt;tables;</PRE>
+<P>Returns a list of table and view names, possibly including a schema prefix. This list should include all tables that can be used in a ``SELECT'' statement without further qualification.</P>
+</DL>
+<P>
+<H2><A NAME="private metadata methods">Private MetaData Methods</A></H2>
+<DL>
+<DT><STRONG><A NAME="item_ListDBs">ListDBs</A></STRONG><BR>
+<DD>
+<PRE>
+    @dbs = $dbh-&gt;func('_ListDBs');</PRE>
+<P>Returns a list of all databases managed by the MySQL daemon.</P>
+<DT><STRONG><A NAME="item_ListTables">ListTables</A></STRONG><BR>
+<DD>
+<STRONG>WARNING</STRONG>: This method is obsolete due to DBI's $dbh-&gt;tables().
+<PRE>
+    @tables = $dbh-&gt;func('_ListTables');</PRE>
+<P>Once connected to the desired database on the desired mysql daemon with the ``DBI-''connect()&gt; method, we may extract a list of the tables that have been created within that database.</P>
+<P>``ListTables'' returns an array containing the names of all the tables present within the selected database. If no tables have been created, an empty list is returned.</P>
+<PRE>
+    @tables = $dbh-&gt;func('_ListTables');
+    foreach $table (@tables) {
+        print &quot;Table: $table\n&quot;;
+    }</PRE>
+<P></P></DL>
+<P>
+<HR>
+<H1><A NAME="database handles">DATABASE HANDLES</A></H1>
+<P>The DBD::mysqlPP driver supports the following attributes of database
+handles (read only):</P>
+<PRE>
+  $insertid = $dbh-&gt;{'mysqlpp_insertid'};
+  $insertid = $dbh-&gt;{'mysql_insertid'};</PRE>
+<P>
+<HR>
+<H1><A NAME="statement handles">STATEMENT HANDLES</A></H1>
+<P>The statement handles of DBD::mysqlPP support a number
+of attributes. You access these by using, for example,</P>
+<PRE>
+  my $numFields = $sth-&gt;{'NUM_OF_FIELDS'};</PRE>
+<DL>
+<DT><STRONG><A NAME="item_mysqlpp_insertid%2Fmysql_insertid">mysqlpp_insertid/mysql_insertid</A></STRONG><BR>
+<DD>
+MySQL has the ability to choose unique key values automatically. If this
+happened, the new ID will be stored in this attribute. An alternative
+way for accessing this attribute is via $dbh-&gt;{'mysqlpp_insertid'}.
+(Note we are using the $dbh in this case!)
+<P></P>
+<DT><STRONG><A NAME="item_NUM_OF_FIELDS">NUM_OF_FIELDS</A></STRONG><BR>
+<DD>
+Number of fields returned by a <EM>SELECT</EM> statement. You may use this for checking whether a statement returned a result.
+A zero value indicates a non-SELECT statement like <EM>INSERT</EM>, <EM>DELETE</EM> or <EM>UPDATE</EM>.
+<P></P></DL>
+<P>
+<HR>
+<H1><A NAME="installation">INSTALLATION</A></H1>
+<P>To install this module type the following:</P>
+<PRE>
+   perl Makefile.PL
+   make
+   make test
+   make install</PRE>
+<P>
+<HR>
+<H1><A NAME="support operating system">SUPPORT OPERATING SYSTEM</A></H1>
+<P>This module has been tested on these OSes.</P>
+<UL>
+<LI><STRONG><A NAME="item_MacOS_9%2Ex">MacOS 9.x</A></STRONG><BR>
+
+with MacPerl5.6.1r.
+<P></P>
+<LI><STRONG><A NAME="item_MacOS_X">MacOS X</A></STRONG><BR>
+
+with perl5.6.0 build for darwin.
+<P></P>
+<LI><STRONG><A NAME="item_Windows2000">Windows2000</A></STRONG><BR>
+
+with ActivePerl5.6.1 build631.
+<P></P>
+<LI><STRONG><A NAME="item_FreeBSD_3%2E4_and_4%2Ex">FreeBSD 3.4 and 4.x</A></STRONG><BR>
+
+with perl5.6.1 build for i386-freebsd.
+<P>with perl5.005_03 build for i386-freebsd.</P>
+<P></P></UL>
+<P>
+<HR>
+<H1><A NAME="dependencies">DEPENDENCIES</A></H1>
+<P>This module requires these other modules and libraries:</P>
+<PRE>
+  DBI
+  Net::MySQL</PRE>
+<P><STRONG>Net::MySQL</STRONG> is a Pure Perl client interface for the MySQL database.</P>
+<P><STRONG>Net::MySQL</STRONG> implements network protool between server and client of
+MySQL, thus you don't need external MySQL client library like
+libmysqlclient for this module to work. It means this module enables
+you to connect to MySQL server from some operation systems which MySQL
+is not ported. How nifty!</P>
+<P>
+<HR>
+<H1><A NAME="difference from dbd::mysql">DIFFERENCE FROM ``DBD::mysql''</A></H1>
+<P>The function of <STRONG>DBD::mysql</STRONG> which cannot be used by <STRONG>DBD::mysqlPP</STRONG> is described.</P>
+<P>
+<H2><A NAME="parameter of cnstructor">Parameter of Cnstructor</A></H2>
+<P>Cannot be used.</P>
+<UL>
+<LI><STRONG><A NAME="item_msql_configfile">msql_configfile</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_mysql_compression">mysql_compression</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_mysql_read_default_file%2Fmysql_read_default_group">mysql_read_default_file/mysql_read_default_group</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_mysql_socket">mysql_socket</A></STRONG><BR>
+
+</UL>
+<P>
+<H2><A NAME="private metadata methods">Private MetaData Methods</A></H2>
+<P>These methods cannot be used for $drh.</P>
+<UL>
+<LI><STRONG>ListDBs</STRONG><BR>
+
+<LI><STRONG>ListTables</STRONG><BR>
+
+</UL>
+<P>
+<H2><A NAME="server administration">Server Administration</A></H2>
+<P>All <A HREF="#item_func"><CODE>func()</CODE></A> method cannot be used.</P>
+<UL>
+<LI><STRONG><A NAME="item_func"><CODE>func('createdb')</CODE></A></STRONG><BR>
+
+<LI><STRONG><CODE>func('dropdb')</CODE></STRONG><BR>
+
+<LI><STRONG><CODE>func('shutdown')</CODE></STRONG><BR>
+
+<LI><STRONG><CODE>func('reload')</CODE></STRONG><BR>
+
+</UL>
+<P>
+<H2><A NAME="database handles">Database Handles</A></H2>
+<P>Cannot be used</P>
+<UL>
+<LI><STRONG><A NAME="item_%24dbh%2D%3E%7Binfo%7D">$dbh-&gt;{info}</A></STRONG><BR>
+
+</UL>
+<P>
+<H2><A NAME="statement handles">Statement Handles</A></H2>
+<P>A different part.</P>
+<UL>
+<LI><STRONG><A NAME="item_execute">The return value of <EM>execute('SELECT * from table')</EM></A></STRONG><BR>
+
+Although <STRONG>DBD::mysql</STRONG> makes a return value the number of searched records SQL of <EM>SELECT</EM> is performed, <STRONG>DBD::mysqlPP</STRONG> surely returns <EM>0E0</EM>.
+<P></P></UL>
+<P>Cannot be used.</P>
+<UL>
+<LI><STRONG><A NAME="item_%27mysql_use_result%27_attribute">'mysql_use_result' attribute</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_%27ChopBlanks%27_attribute">'ChopBlanks' attribute</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_%27is_blob%27_attribute">'is_blob' attribute</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_%27is_key%27_attribute">'is_key' attribute</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_%27is_num%27_attribute">'is_num' attribute</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_%27is_pri_key%27_attribute">'is_pri_key' attribute</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_%27is_not_null%27_attribute">'is_not_null' attribute</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_%27length%27%2F%27max_length%27_attribute">'length'/'max_length' attribute</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_%27NUUABLE%27_attribute">'NUUABLE' attribute</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_%27table%27_attribute">'table' attribute</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_%27TYPE%27_attribute">'TYPE' attribute</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_%27mysql_type%27_attribute">'mysql_type' attribute</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_%27mysql_type_name%27_attributei">'mysql_type_name' attributei</A></STRONG><BR>
+
+</UL>
+<P>
+<H2><A NAME="sql extensions">SQL Extensions</A></H2>
+<P>Cannot be used.</P>
+<UL>
+<LI><STRONG><A NAME="item_LISTFIELDS">LISTFIELDS</A></STRONG><BR>
+
+<LI><STRONG><A NAME="item_LISTINDEX">LISTINDEX</A></STRONG><BR>
+
+</UL>
+<P>
+<HR>
+<H1><A NAME="todo">TODO</A></H1>
+<P>Encryption of the password independent of <EM>Math::BigInt</EM>.</P>
+<P>Enables access to much metadata.</P>
+<P>
+<HR>
+<H1><A NAME="see also">SEE ALSO</A></H1>
+<P><A HREF="..\..\..\site\lib/Net/MySQL.html">the Net::MySQL manpage</A>, <A HREF="..\..\..\site\lib/DBD/mysql.html">the DBD::mysql manpage</A></P>
+<P>
+<HR>
+<H1><A NAME="authors">AUTHORS</A></H1>
+<P>Hiroyuki OYAMA &lt;<A HREF="mailto:oyama@crayfish.co.jp">oyama@crayfish.co.jp</A>&gt;</P>
+<P>
+<HR>
+<H1><A NAME="copyright and licence">COPYRIGHT AND LICENCE</A></H1>
+<P>Copyright (C) 2002 Hiroyuki OYAMA. Japan. All rights reserved.</P>
+<P>This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.</P>
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=100%>
+<TR><TD CLASS=block VALIGN=MIDDLE WIDTH=100% BGCOLOR="#cccccc">
+<FONT SIZE=+1><STRONG><P CLASS=block>&nbsp;DBD::mysqlPP - Pure Perl MySQL driver for the DBI</P></STRONG></FONT>
+</TD></TR>
+</TABLE>
+
+</BODY>
+
+</HTML>

@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>MOFcart v2.5 Examples</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 5.50.4611.1300" name=GENERATOR>
+<META name="ROBOTS" content="NOINDEX,NOFOLLOW">
+<link rel="stylesheet" type="text/css" href="examples.css">
+
+<script type="text/javascript" LANGUAGE="JavaScript">
+<!-- name and focus window
+window.name = 'MAIN';
+window.focus();
+// End -->
+</SCRIPT>
+
+</HEAD>
+<BODY>
+
+<TABLE cellSpacing=0 cellPadding=0 width=640 align=center bgColor=#E8E8E8 border=0>
+  <TBODY>
+  <TR>
+    <TD height="48" valign="top">
+	<img src="images/moflogo640.gif" width="640" height="50"></TD>
+    </TR>
+  </TBODY>
+</TABLE>
+
+
+
+
+<TABLE cellSpacing=0 cellPadding=1 width=640 align=center bgColor=#578BEA border=0>
+<TBODY>
+<TR>
+<TD>
+
+
+      <TABLE cellSpacing=0 cellPadding=25 width="100%" align=center bgColor=#ffffff border=0>
+        <TBODY>
+        <TR>
+          <TD> 
+		  
+            <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="57%" class="SmTxt"><strong>Pop Up Examples </strong></td>
+                <td width="25%" class="SmTxt"><strong><a href="example_mofstore.html"><img src="images/larrow.gif" width="12" height="7" border="0"></a></strong><a href="example_mofstore.html">Return to Examples</a></td>
+                <td width="18%"><div align="right" class="SmTxt"><strong><strong><a href="http://www.gardenthemes.com/cgi-bin/mcart/mof.cgi?viewcart"><img src="images/yourbasket.gif" width="106" height="20" border="0" alt="Go To Your Shopping Basket"></a></strong></strong></div></td>
+              </tr>
+            </table>
+            <p><span class="SmTxt">A PopUp window is linked via the HREF anchor &amp; the onClick event <br>
+              1. Example 1 declares the full URL, and uses the browser onClick=&quot;window.open()&quot;<br>
+              2. Example 2 uses JavaScript:window.open()
+              <br>
+              3. Same example as 1. but window has different order form<br>
+              4. Same as example 3, but with some interesting Params 
+            </span></p>
+            <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+              <tr bgcolor="#F0F0F0" class="SmTxt">
+                <td><div align="left"><strong>Trigger Example </strong></div></td>
+                <td><div align="left"><strong>Window Name </strong></div></td>
+              </tr>
+              <tr>
+                <td nowrap>&nbsp;</td>
+                <td nowrap>&nbsp;</td>
+              </tr>
+              <tr>
+                <td nowrap><span class="SmTxt"><a class="SmTxt" href="popup1.html" onClick="window.open(this.href,'POPUP','directories=no,location=no,menubar=no,status=no,titlebar=no,toolbar=no,scrollbars=yes,width=450,height=500,resizable=yes');return false"> <img src="images/blue1.gif" width="9" height="16" border="0" align="absbottom"> Trigger Pop Up Window</a></span></td>
+                <td nowrap><span class="SmTxt"><strong class="SmMaroon">POPUP</strong> (onClick)</span></td>
+              </tr>
+              <tr>
+                <td colspan="2" class="CodeFormat">&lt;a href=&quot;http://www.gardenthemes.com/mofcart/popup1.html&quot; onClick=&quot;<span class="SmBlack">window.open</span>(this.href,'name','params')</td>
+              </tr>
+              <tr>
+                <td colspan="2" nowrap>&nbsp;</td>
+                </tr>
+              <tr>
+                <td nowrap><span class="SmTxt"><a class="SmTxt" href="" onClick="javascript:window.open('popup2.html','ALTERNATE','directories=no,location=no,menubar=no,status=yes,titlebar=no,toolbar=no,scrollbars=no,width=375,height=325,resizable=no,left=520,top=0');return false"><img src="images/blue2.gif" width="12" height="16" border="0" align="absbottom"> Trigger Pop Up Window</a></span></td>
+                <td nowrap><span class="SmMaroon"><strong>ALTERNATE</strong></span><span class="SmTxt"> (using JavaScript:onclick) </span></td>
+              </tr>
+              <tr>
+                <td colspan="2" nowrap class="CodeFormat">&lt;a href=&quot;&quot; onClick=&quot;<span class="SmBlack"><strong>javascript:window.open</strong></span>('url','name','params');return false&quot;&gt;</td>
+                </tr>
+              <tr>
+                <td nowrap>&nbsp;</td>
+                <td nowrap>&nbsp;</td>
+              </tr>
+              <tr>
+                <td nowrap><span class="SmTxt"><a class="SmTxt" href="popup3.html" onClick="window.open(this.href,'POPUP','directories=no,location=no,menubar=no,status=no,titlebar=no,toolbar=no,scrollbars=yes,width=450,height=500,resizable=yes');return false"><img src="images/blue3.gif" width="12" height="16" border="0" align="absbottom"> Trigger Pop Up Window</a> </span></td>
+                <td nowrap><span class="SmTxt"><strong class="SmMaroon">POPUP</strong> (onClick)</span></td>
+              </tr>
+              <tr>
+                <td nowrap>&nbsp;</td>
+                <td nowrap>&nbsp;</td>
+              </tr>
+              <tr>
+                <td nowrap><span class="SmTxt"><a class="SmTxt" href="popup4.html" onClick="window.open(this.href,'POPUP','directories=no,location=no,menubar=no,status=no,titlebar=no,toolbar=no,scrollbars=yes,width=450,height=500,resizable=yes');return false"><img src="images/blue4.gif" width="12" height="16" border="0" align="absbottom"> Interesting Param Settings</a> </span></td>
+                <td nowrap><span class="SmTxt"><strong class="SmMaroon">POPUP</strong> (onClick)</span></td>
+              </tr>
+              <tr>
+                <td nowrap>&nbsp;</td>
+                <td nowrap class="SmTxt">Redirects to <span class="SmMaroon">MAIN</span> with ViewCart Screen </td>
+              </tr>
+              <tr>
+                <td nowrap>&nbsp;</td>
+                <td nowrap>&nbsp;</td>
+              </tr>
+            </table>            
+            <p class="SmTxt">MOFcart has some robust optional parameters for handling PopUp windows. There are conditions for closing the window automatically at timed interval, for formatting product added to cart confirmation, for sending custom messages, for bypassing the Main ViewCart screen &amp; redirection options. </p>
+            <p class="SmTxt">If you do anything with PopUps you should read through the documentation section on this. PopUps that work simultaneously with the Main MOFcart screen, or even a Main site screen, must be Named and targetted correctly.  The Pop Up examples used in this package also rely on javaScript for some of the features. It is important that you get all the embedded javaScript and/or events in place between the various windows for everything to work correctly. You will need to make yourself familiar with all the concepts in the documentation for PopUp Windows. </p>            </TD>
+        </TR>
+        </TBODY>
+      </TABLE>
+
+</TD>
+</TR>
+</TBODY>
+</TABLE>
+		
+<br>
+<TABLE cellSpacing=0 cellPadding=2 align=center bgColor=#ECECEC border=0>
+  <TR>
+    <TD align="center" valign="middle" class="menu">	
+	<span class="FooterText">
+    	<a href="license.html" onClick="window.open(this.href,'INFO','directories=no,location=no,menubar=no,status=no,titlebar=no,toolbar=no,scrollbars=yes,width=450,height=500,resizable=yes');return false">License</a> |
+    <a href="about.html" onClick="window.open(this.href,'INFO','directories=no,location=no,menubar=no,status=no,titlebar=no,toolbar=no,scrollbars=yes,width=450,height=500,resizable=yes');return false">About Us</a> |
+    <a href="privacy.html" onClick="window.open(this.href,'INFO','directories=no,location=no,menubar=no,status=no,titlebar=no,toolbar=no,scrollbars=yes,width=450,height=500,resizable=yes');return false">Privacy Info</a> 
+	<br>
+	<a href="http://www.merchantpal.com" target="_blank">MerchantPal</a>.com &amp; <a href="http://www.merchantorderform.com" target="_blank">MerchantOrderForm</a> Shopping Cart are registered TradeMarks<br>
+	&copy; 2001-2004 All Rights Reserved. Austin Contract Computing, Austin, Texas USA
+	</span> 
+	 </TD>
+  </TR>
+  <TR>
+    <TD align="center" valign="middle"><img src="images/mplogo150x33.gif" width="150" height="33"></TD>
+  </TR>
+</TABLE>
+<p>&nbsp;</p>
+</BODY></HTML>

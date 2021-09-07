@@ -1,0 +1,381 @@
+ 
+<HTML>
+<!-- #BeginTemplate "/Templates/template1.dwt" --> 
+<HEAD>
+<!-- #BeginEditable "doctitle" --> 
+<TITLE>O_Q</TITLE>
+<!-- #EndEditable --> 
+<meta http-equiv="Content-Type" content="text/html; charset=">
+</HEAD>
+<BODY BGCOLOR="#999999" text="#003300" link="#660000">
+<div align="center"><!-- #BeginEditable "whole%20thing" --> 
+  <p><font size="3"><font 
+
+
+
+face="Georgia"> 
+    <script><!--
+  function OpenNewWindow(cPicture,nWidth,nHeight,cMessage,nBorder)       
+		{
+ NewWindow=window.open("","NewOne","HEIGHT="+nHeight+",WIDTH="+nWidth+",scrollbars=yes,resizable=no,top=5,left=5");
+        NewWindow.document.write ("<HTML><HEAD>");
+        NewWindow.document.write ("</HEAD>");
+        NewWindow.document.write ("<BODY BGCOLOR='#999999'>");
+        NewWindow.document.write ("<P ALIGN=CENTER>");
+        NewWindow.document.write ("<FONT FACE='Georgia' SIZE='+1'COLOR='#003300'><B>");           
+        NewWindow.document.write (cMessage);
+        NewWindow.document.write ("</B><FONT>");
+        NewWindow.document.write ("<IMG SRC=");
+        NewWindow.document.write (cPicture);
+        NewWindow.document.write (">");
+        NewWindow.document.write ("</P>");
+        NewWindow.document.write ("<bottom><FORM><INPUT TYPE='button'VALUE='Close This Window' onClick='self.close()'>"); 
+        NewWindow.document.write ("</FORM></CENTER></BODY></HTML>");
+        NewWindow.document.write ("</BODY></HTML>");
+        NewWindow.document.close();
+        return false;
+        }
+  
+
+if (!parent.control)
+{window.location="shoppingarea.htm?catalogue_a-c.htm"}
+
+function LineOnForm(plantname,number,price)
+	{ 
+	this.plantname=plantname;
+	this.number=number;
+	this.price=price;
+	}
+var Entries = new Array();
+var countStart=0;
+var Placeholder=0;
+function AddToCart(plantname,number,price)
+	{
+	 Entries[Placeholder]=new LineOnForm(plantname,number,price);
+	 ++Placeholder;
+	 showCart();
+	 }
+
+function ParseArray()
+	{
+	
+	for (x=countStart;x<Entries.length;++x)
+		{
+ 		 parent.control.document.catalogue.qstring.value += Entries[x].plantname;
+		 parent.control.document.catalogue.qstring.value += '-';
+		 parent.control.document.catalogue.qstring.value +=Entries[x].number;
+		 parent.control.document.catalogue.qstring.value +='-';
+		 parent.control.document.catalogue.qstring.value +=Entries[x].price;
+		 parent.control.document.catalogue.qstring.value +='--';
+		 countStart++;
+			}
+	}	
+	
+
+function makeSpace(latinname)
+	{
+		 chopped=latinname.split('+');
+		 n=0;holder='';
+		 while (chopped[n])
+		 	{
+			holder+=(chopped[n]+' ');
+			n++;
+			}
+		 return holder;
+	} 
+ function showCart()
+ 	{
+	ParseArray(Placeholder);
+	var showme="";
+	var args=parent.control.document.catalogue.qstring.value;
+	lines = args.split('--');
+	 for (x=0;(x<((lines.length)-1));++x)
+	 {
+	  parts = lines[x].split('-');
+	  showme+=(makeSpace(parts[1])+"\n")
+	  }
+	 
+	 alert('Your shopping cart contains:\n'+showme+'\nWhen you are ready to place your order, click the submit button to choose a quantity for each item and to enter your shipping and billing information');
+
+				return true;
+	} 
+	
+	
+	
+	//-->
+	</script>
+    </font></font></p>
+  <p><font size="3"><font 
+face="Georgia"><img src="graphics_garden/PIH2.jpg" width="500" height="100"> </font></font></p>
+  <p><font size="3"><font face="Georgia" color="#999999">Plant It Herbs - Specializing 
+    in Chinese Medicinal Plants</font></font></p>
+  <p><font color="#999999">n<b><a href="index.htm">Home</a></b><font color="#999999">---</font> 
+    <b><a href="workshops.htm">Workshops</a><font color="#999999">--</font> <a href="mailto:plantit@plantitherbs.com">Contact 
+    Plant It Herbs</a><font color="#999999">---</font> <a href="shoppingarea.htm?order_form.htm">Order 
+    Form</a><font color="#999999">---</font> <a href="links.htm">Links</a></b>g</font></p>
+  <p><a href="catalogue_A.htm"><font color="#000066"><b><i>A</i></b></font></a> 
+    <i><b><a href="catalogue_B.htm"><font color="#000066">B</font></a><font color="#000066"> 
+    </font><a href="catalogue_C.htm"><font color="#000066">C</font></a><font color="#000066"> 
+    </font><a href="catalogue_D-G.htm"><font color="#000066">DEFG</font></a> </b></i><font color="#999999"><b><i><a href="catalogue_H-K.htm"><font color="#000066">HIJK</font></a><font color="#000066"> 
+    </font><a href="catalogue_L-N.htm"><font color="#000066">LMN</font></a><font color="#000066"> 
+    </font><a href="catalogue_O-Q.htm"><font color="#000066">OPQ</font></a><font color="#000066"> 
+    </font><a href="catalogue_R-S.htm"><font color="#000066">RS</font></a><font color="#000066"> 
+    </font><a href="catalogue_T-Z.htm"><font color="#000066">TUVWXYZ</font></a></i></b>i</font> 
+  </p>
+  <p><font face="Georgia" size="+3"><b>2006 Catalogue</b></font></p>
+  <p><b><font size="+3"><font face="Georgia">- O, P, Q -</font></font></b><font size="+3"> 
+    </font></p>
+  <form action="order_form.htm" method=GET name=catalogue>
+    <p><font size="3"><a name="Ocimum basilicum var."></a></font><font size="3" face="Georgia"><i>#10700 
+      </i></font><font size="3" face="Georgia" color="#330066"><b>Ocimum basilicum 
+      var.</b></font><font size="3" face="Georgia">, Greek columnar basil, Labiatae/Lamiaceae 
+      - <i>A non-flowering culinary basil that tastes great, column shaped tender 
+      perennial allows us to have fresh basil all year; grows up to 3' in rich, 
+      well-drained soil in sun, use as a flavoring in salads, on fresh tomatoes 
+      and pasta dishes, rub a little on yourself to keep insects at bay.</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $5.00</i></font></p>
+    <p><font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10700,'Ocimum basilicum var.',4.50)">
+      <input type=submit name=Submit2 value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p align=right><font size="3" color="#660000">&nbsp;</font><font size="3"><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size="3" color="#660000"><a name="Ophiopogon sp."></a></font><font size="3" face="Georgia"><i>#10710 
+      </i></font><font size="3" face="Georgia" color="#330066"><b>Ophiopogon sp. 
+      (probably japonicus)</b></font><font size="3" face="Georgia">, mai men dong, 
+      snakes beard, Liliaceae - <i>Tender perennial grass-like evergreen; with 
+      graceful dark green leaves that grow in shady damp ground; tuberous root 
+      is harvested in summer and said to be used for cough, thirst and anxiety; 
+      Zone 6-10.</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = 7.00</i></font></p>
+    <p><font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10710,'Ophiopogon sp. (probably japonicus)',7.00)">
+      <input type=submit name=Submit2 value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p> <font size="3"> </font></p>
+    <p><font size="3" color="#660000"><a name="Patrinia scabiosaefolia"></a></font><font size="3" face="Georgia"><i>#10720</i> 
+      </font><font size="3" face="Georgia" color="#330066"><b>Patrinia scabiosaefolia</b></font><font size="3" face="Georgia">, 
+      huang hua bai jiang cao, Valerianaceae - <i>Easy to grow perennial, hardy 
+      to Zone 6, Copper colored leaves with aromatic golden-yellow flowers that 
+      bloom in clusters in summer; grow in well drained soil in sun or part shade, 
+      will spread by underground runners, said to clear heat, relieves toxins, 
+      and expels pus, may be taken internally or applied topically.</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $7.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button value="add to shopping cart" onClick="AddToCart(10720,'Patrinia scabiosaefolia',5.50)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i><a name="Patrinia villosa"></a></i></font><font size="3" face="Georgia" color="#003300"><i>#10721 
+      </i></font><font size="3" face="Georgia" color="#330066"><b>Patrinia villosa</b></font><font size="3" face="Georgia" color="#003300"><i>,</i>bai 
+      hua bai jiang cao,Valerianaceae <i>- Easy perennial to grow and similar 
+      to P. scabiosaefolia except leaves are green and flowers are white, the 
+      blooms are in clusters of white and are aromatic; grow in well drained soil 
+      in sun or part shade, used the same as P. scabiosaefolia, also used for 
+      post partum pain, and more recently for postoperative pain.</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $7.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button value="add to shopping cart" onClick="AddToCart(10721,'Patrinia villosa',5.50)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p align=right><font size="3">&nbsp;<a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size="3" color="#660000"><a name="Petasites japonicus"></a></font><font size="3" face="Georgia"><i>#10730 
+      </i></font><font size="3" face="Georgia" color="#FFFF33"><b><i> </i></b></font><font size="3" face="Georgia" color="#330066"><b>Petasites 
+      japonicus</b></font><font size="3" face="Georgia">, feng dou cai, Japanese 
+      coltsfoot, Compositae<i> - Similar to our coltsfoot in that it is one of 
+      the first plants to bloom in the spring; large blooms with small white flowers 
+      appear in early spring followed by large light green fan shaped leaves, 
+      as leaves mature they become darker, grows in rich well-drained soil in 
+      shade; roots and runners are said to be bitter, spicy and cooling, clears 
+      toxins, removes blockages, reduces swelling, stops pain, tonsil infections, 
+      swollen abscesses with toxins and sores, poisonous snake bites, injuries, 
+      stems are steamed and eaten in Japan.</i></font></p>
+    <p><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_n-z/Petesites_japonicaleaf.jpg',450,450,'Petasites japonicus'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font><font size="3"><b>Click 
+      for Picture</b></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $10.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button value="add to shopping cart" onClick="AddToCart(10730,'Petasites japonicus',8.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p><font size="3"><a name="Physalis peruviana"></a></font><font size="3" face="Georgia"><i>#10740 
+      </i></font><font size="3" face="Georgia" color="#330066"><b>Physalis peruviana</b></font><font size="3" face="Georgia">, 
+      deng long guo, Cape gooseberry, Solanaceae<i> - Deng long is the name of 
+      the ancient Chinese paper lanterns and guo means fruit; attractive furry 
+      leaved tender perennial grows in well- drained soil in sun; fruits are harvested 
+      when ripe and used fresh as juice or in jam making, dried leaves are picked 
+      in summer and used as a fresh poultice; whole plant is said to clear heat, 
+      moves qi, stops pain, cough, abdominal fullness, stops colds and flu.</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Not available at this 
+      time</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button value="add to shopping cart" onClick="AddToCart(10740,'Physalis peruviana',5.50)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+    <p align=right><font size="3" color="#660000">&nbsp;</font><font size="3"><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size="3"><a name="Pinellia ternata"></a></font><font size="3" face="Georgia"><i>#10750</i></font><font size="3" face="Georgia" color="#FFFF33"><b> 
+      </b></font><font size="3" face="Georgia" color="#330066"><b>Pinellia ternata</b></font><font size="3" face="Georgia">, 
+      ban xia, pinellia, Araceae<i> - This tuberous perennial was first recorded 
+      in AD 25-220 during the Han dynasty; it has trifoliate adult leaves that 
+      grow on bulb-bearing stalks, eye-catching inflorescence appear in summer; 
+      grow in moist humus rich soil in part shade; dried tubers are said to be 
+      used for coughs with damp cold phlegm, nausea and vomiting.</i></font></p>
+    <p><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_n-z/Pinella_ternata.jpg',450,450,'Pinella ternata'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font><font size="3"><b>Click 
+      for Picture</b></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $7.00</i></font></p>
+    <p>&nbsp;</p>
+    <p> <font size="3"> 
+      <input type=button name=Button value="add to shopping cart" onClick="AddToCart(10750,'Pinellia ternata',6.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p><font size="3"><a name="Piper nigrum"></a></font><font size="3" face="Georgia"><i>#10760 
+      </i></font><font size="3" face="Georgia" color="#330066"><b>Piper nigrum</b></font><font size="3" face="Georgia">, 
+      hu jiao, black pepper, Piperaceae<i> - More commonly used for mixing flavors 
+      in food than in medicine, it was first recorded in the Tang pen tsao; tropical 
+      climber with leathery black-green leaves, green berries first turn to red 
+      and then to black peppercorns; grow in tropical greenhouse in rich well-drained 
+      soil in sun or in Zone 11; said to strengthen the stomach, increases appetite 
+      in small doses.</i></font></p>
+    <p><b><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_n-z/Piper_nigrum.jpg',450,450,'Piper nigrum'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font>Click 
+      for Picture</b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $8.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button value="add to shopping cart" onClick="AddToCart(10760,'Piper nigrum',6.50)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p align=right><font size="3"><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size="3"><a name="Platycodon grandiflorum"></a><font face="Georgia">#10770 
+      </font></font><font size="3" face="Georgia" color="#330066"><b>Platycodon 
+      grandiflorum</b></font><font size="3" face="Georgia">, jie geng, balloon 
+      flower, Campanulaceae - <i>Compact perennial with ovate blue tinged leaves, 
+      in summer clusters of balloon like buds open to bell shaped purple blue 
+      flowers, roots are said to be used for kidney deficiency. IMPLAD germplasm.</i></font></p>
+    <p><b><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_n-z/Platycodon_grandiflorus.jpg',450,450,'Platycodon grandiflorum'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font>Click 
+      for Picture</b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $7.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button value="add to shopping cart" onClick="AddToCart(10770,'Platycodon grandiflorum',5.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p><font size="3"><a name="Pogostemon cablin"></a></font><font size="3" face="Georgia"><i>#10780 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Pogostemon cablin</b></font><font size="3" face="Georgia">, 
+      guang huo xiang, patchouli, Labiatae/Lamiaceae - <i>Aromatic tender perennial, 
+      to maintain a compact shape keep pinched back; grows in moist soil with 
+      part shade, it enjoys temperatures between 61-64 degrees with high humidity, 
+      contains essential oils; leaves and oil are said to act as a diuretic, lowers 
+      fever, improves digestion, tonic and sedative effect on nervous system, 
+      reputedly is an aphrodisiac.</i></font></p>
+    <p><b><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_n-z/Pogostemon_cablin.jpg',450,450,'Pogostemon cablin'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font>Click 
+      for Picture</b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $7.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button value="add to shopping cart" onClick="AddToCart(10780,'Pogostemon cablin',6.50)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p><font size="3" color="#660000"><a name="Polygonum chinense"></a></font><font size="3" face="Georgia"><i>#10790 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Polygonum chinense</b></font><font size="3" face="Georgia">, 
+      huo tan mu cao, fire coal mother grass Polygonaceae <i>Perennial with dark, 
+      shiny green leaves makes an excellent ground cover, small white to light 
+      pink flowers bloom in late summer; grows in well-drained neutral soil in 
+      sun or part shade; said to be sour, sweet and cooling, stem and roots are 
+      used, clears heat, dries dampness, cools blood, relieves toxins; for diarrhea, 
+      dysentery, jaundice, sores with swelling, clouded mind for weakness/deficiency, 
+      injuries.</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $5.50</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button value="add to shopping cart" onClick="AddToCart(10790,'Polygonum chinense',5.50)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p align=right><font size="3">&nbsp;<a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size="3"><a name="Polygonum multiflorum #1"></a></font><font size="3" face="Georgia"><i>#10791 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Polygonum multiflorum</b></font><font size="3" face="Georgia">, 
+      he shou wu, Chinese cornbind, Polygonaceae<i> Collected in Kunming; leaves 
+      are dark green and heart shaped with red veins; hardy deciduous climber, 
+      grow in rich moist soil with extra peat and sand in part shade; important 
+      tonic herb in Chinese medicine, roots are said to increase longevity, effective 
+      against many bacterial infections, clears toxins, lowers blood sugar and 
+      cholesterol levels.</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $7.50</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button value="add to shopping cart" onClick="AddToCart(10791,'Polygonum multiflorum',7.50)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p><font size="3"><a name="Polygonum #2"></a><font face="Georgia"><i>#10792 
+      </i></font></font><font size="3" face="Georgia" color="#000066"><b>Polygonum 
+      multiflorum</b></font><font size="3" face="Georgia">, he shou wu, Chinese 
+      cornbind, Polygonaceae <i>This species is the more commonly found species, 
+      leaves are heart shaped and solid green, hardy deciduous climber, very important 
+      in Chinese medicine and native to southwestern China; roots are said to 
+      have a rejuvenating effect on the liver, reproductive, urinary and circulatory 
+      systems.</i></font></p>
+    <p><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_n-z/Polygonum_multiflorum.jpg',450,450,'Polygonum multiflorum'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font><font size="3"><b>Click 
+      for Picture</b></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $7.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button value="add to shopping cart" onClick="AddToCart(10792,'Polygonum multiflorum',7.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p align=right><font size="3">&nbsp;<a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size="3"><a name="Polygonum orientale"></a></font><font size="3" face="Georgia"><i>#10793 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Polygonum orientale</b></font><font size="3" face="Georgia">, 
+      hong cao, red grass/herb, Polygonaceae <i>- Tall annual which grows up to 
+      6', leaves grow to 10" in well-drained soil in full sun, bright pink to 
+      rose flowers bloom in dense 3-4" spikes or fingers in summer, re-seeds easily; 
+      roasted or steamed seeds are eaten in China, seeds are said to cleanse lungs, 
+      brighten eyes and breath, whole plant is also used as medicine for wind 
+      damp joint infections, malaria, foot fungus, swollen sores. </i></font></p>
+    <p><b><font face="Georgia"><b><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_n-z/Polygonum_orientale.jpg',450,450,'Polygonum orientale'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></b></font>Click 
+      for Picture</b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $5.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button value="add to shopping cart" onClick="AddToCart(10793,'Polygonum orientale',5.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+    <p><font size="3"><a name="Psoralea corylifolia"></a><i><font face="Georgia">#10800 
+      </font></i></font><font size="3" face="Georgia" color="#000066"><b>Psoralea 
+      corylifolia</b></font><font size="3" face="Georgia">, bu gu zhi, scrufy 
+      pea, Leguminosae - <i>Upright annual with scalloped leaves and deep purple 
+      blue flowers which bloom in summer; grow in well drained soil in sun or 
+      part shade; seed is said to be used for kidney deficiency.</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>not available at this 
+      time </i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button value="add to shopping cart" onClick="AddToCart(10800,'Psoralea corylifolia',0.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+  </form>
+  <p></p>
+  <p align="center"><b><a href="index.htm">Home</a></b> <b><a href="links.htm">Links</a></b> 
+    <b> </b><b><a href="workshops.htm">Workshops</a></b></p>
+  <p align="center"><b> <a href="mailto:plantit@plantitherbs.com">Contact Plant 
+    It Herbs</a> </b></p>
+  <p align="center"><b><a href="shoppingarea.htm?order_form.htm">Order Form</a> 
+    </b></p>
+  <p></p>
+  <!-- #EndEditable --> 
+  <p>&nbsp;</p>
+</div>
+</BODY>
+<!-- #EndTemplate -->
+</HTML>

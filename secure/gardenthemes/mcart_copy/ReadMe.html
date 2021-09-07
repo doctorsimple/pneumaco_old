@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Installation : How to Install </title>
+<link rel="Shortcut Icon" href="favicon.ico">
+<link rel="stylesheet" href="style.css" type="text/css">
+<style type="text/css">
+<!--
+.style1 {color: #000000}
+-->
+</style>
+</head>
+<body text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+
+<table width="573" border="0" cellpadding="6" cellspacing="0">
+  <tr>
+    <td width="573" height="8"></td>
+  </tr>
+  <tr>
+    <td width="573" height="19" class="menu">
+	Installation : How to Install
+      <p class="headMenu style1">The online documentation is here:<br>
+        <a href="http://www.merchantorderform.com/docs/" target="_blank">http://www.merchantorderform.com/docs/</a></p>
+      <p class="headMenu style1">Installation docs for Linux/Unix Type servers is here:<br>
+        <a href="http://www.merchantorderform.com/docs/installation/" target="_blank">http://www.merchantorderform.com/docs/installation/</a></p>
+        <p class="headMenu style1">You can obtain the Documentation in Searchable PDF &amp; CHM format<br>
+        See the Download Area at MerchantPal.NET Support &amp; Info Center<br>
+        <a href="http://www.Merchantpal.NET" target="_blank">http://www.Merchantpal.NET</a></p>
+        <p class="headMenu style1">You will need a certain level of CGI savvy to run the &lt;setup.cgi&gt; and plug in the right settings for your server. If you don't have that level of skill, you may want to consider having us do an installation for you. </p>
+        <p class="textTitle style1">The Installation Utility : <strong>Read This</strong> </p>
+	    <p class="textRegular style1">I spent about a month on the install utility. In the end, I realized that it was pretty grandiouse to think I could write an install utility that would work across the board on all servers. After testing the install utility on a handful of servers, I realized there was way too much variation on Commercial Hosting Servers, especially when the SSL configurations came into play.</p>
+	    <p class="textRegular style1">Where I left things with the install utility is still pretty good, but it does require human oversight. You'll need to eyeball the settings. For now I've placed a file along side this one called &lt;setup.html&gt;. It give a very rough look at some issues that you need to watch when using the installation utility .. To be successful with the installation utility, you're going to have to know your server, and how SSL, paths, etc. are configured on it, if there are any pecularities, etc. </p>
+	    <p class="style1 textTitle"><strong>How To Install the ver2.5 package using the CGI install utility</strong></p>
+	    <ol class="style1">
+          <li class="textRegular">Create a Directory in your web site's ../cgi-bin/ called &quot;<strong>mcart</strong>&quot;<br>
+  If you already have a directory called &quot;mcart&quot; then you'll need to back it up and delete it. 
+  The install utility will stop if it detects anything in that DIR except the &quot;unpack&quot; material <br>
+          </li>
+          <li class="textRegular">Upload the entire directory called &quot;<strong>unpack</strong>&quot; into the newly made &quot;mcart&quot; directory on your server<br>
+          </li>
+          <li class="textRegular">Upload the &lt;setup.cgi&gt; script to the &quot;mcart&quot; directory on your server<br>
+          </li>
+          <li class="textRegular">Set run permissions on the &lt;setup.cgi&gt; 755<br>
+          </li>
+          <li><span class="textRegular">Make sure that the following Directories do not exist in your Web Root Space
+            </span>
+            <ul>
+              <li class="textRegular">../ares</li>
+              <li class="textRegular">../mofcart</li>
+              <li class="textRegular">../invoices<br>
+              <br>
+        If those directories exist, back them up, and delete them from the server. The install utility needs to create it all. If it finds existing files, then it will 
+        stop and not overwrite anything. </li>
+            </ul>
+            <span class="textRegular"><br>
+            </span></li>
+          <li class="textRegular">Run the &lt;setup.cgi&gt; script from your Web Browser <br>
+  --&gt; http://www.site.com/cgi-bin/mcart/setup.cgi</li>
+      </ol>
+	    <p class="textRegular style1">Okay, that's it. If you got the settings correct, then everything started working like a charm. setup.cgi checks for permissions, and assigns permissions, passwords, etc. to everything, that's if the server is configured well enough to let it do that much. For example, Yahoo commercial space, doesn't allow CGI scripts to write .htacces files, etc.</p>
+	    <p class="textRegular style1">There's lots of stuff that the server could screw up or inhibit &lt;setup.cgi&gt; from doing.</p>
+	    <p class="textbold style1">Setup.cgi Settings </p>
+	    <p class="textRegular style1">There are two settings at the top of &lt;setup.cgi&gt; </p>
+	    <p class="textRegular style1">Commented out around line 25 is a manual overwrite switch<br>
+  # $overwrite_files = 0;</p>
+	    <p class="textRegular style1">If you set it to positive, then &lt;setup.cgi&gt; will overwrite any files in its way <br>
+  It will only overwrite files in the Directory Structure it installs to ..<br>
+  Which are the directories in Steps 1 and 5 above<br>
+  The switch is only there cause it was the only work around for some stubborn server pecularities<br>
+  I would not use that switch unless you absolutely need to</p>
+	    <p class="textRegular style1">There is a setting to manually select which of the two (2) example layouts you want to install</p>
+	    <ol class="style1">
+          <li class="textRegular">&quot;boxed&quot; is the old layout, with very basic CSS</li>
+          <li class="textRegular">&quot;ver25&quot; is pretty complex layout, with some serious CSS </li>
+      </ol>
+	    <p class="textRegular style1">$usepkg = 'boxed';<br>
+  $usepkg = 'ver25';</p>
+	    <p class="style1">&nbsp;</p>
+      <p class="textRegular style1">&nbsp;</p>
+	    <p class="textBold style1">&nbsp;</p>
+	    <span class="textRegular"><br>
+        </span>
+      <p class="headArticleLower">&nbsp;</p>
+        <p class="headMenu">&nbsp;</p>
+    </td>
+  </tr>
+</table>
+
+
+<p class="textBold">&nbsp;</p>
+</body>
+</html>

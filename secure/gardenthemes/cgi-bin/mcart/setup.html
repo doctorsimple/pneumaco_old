@@ -1,0 +1,110 @@
+<html><head><title>MOFcart v2.5 Setup ..</title>
+
+<link rel="Shortcut Icon" href="favicon.ico">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<p>This is an example of what the &lt;setup.cgi&gt; install utility produced on first run, on an ideally configured linux/Apache Server. I'm installing to run the Front and Back Ends of the cart via Shared SSL, that is mapped nicely to the same Filespace as the regular Web Site filespace. Also, the server is configured to run scripts (SSL &amp; nonSSL) CGI under the UID (user id) for the Virtual Space. That is nice cause it sets up the best security with only default permissions. </p>
+<p>The installation site is here:<br>
+  <a href="http://www.searchwise.org/mofcart/example_mofstore.html">http://www.searchwise.org/mofcart/example_mofstore.html</a></p>
+<p>So, in an ideally configured server, the only thing that I need to change is the 4 HTTPS paths below highlighted. The table directly below this example shows the 4 HTTPS (web) paths changed to what they should be. In this situation, everything is installed in about 2 minutes, with all examples, etc. set perfectly for the web site installed on.</p>
+<p>About 90% of the Linux/Apache commercial servers I tested the install utility on did not have an Ideal set of configurations, but required some tweaking to fit the servers configs. Examples are: SSL was sloppy, mapped to seperate filespace &amp; directories, SSL did not run under the owners UID, CGI scripts in general did not run under the owner's credentials, Hard drive paths (absolute paths) on the server were mapped in sloppy ways, virtual mapping for SSL filespace were awkward or not followed well from the CGI Environment, etc. </p>
+<p>So, here's the bottom line on the install utility. You need to know your server, cause the utility can't really guess at all the variations out there. </p>
+<center>
+<table border=0 width="740" cellpadding="4" cellspacing="0">
+<tr><td valign="top" align=top> <b><font size="4" color="#006600">
+</font></b>
+<li>
+
+  <table cellspacing="1" bgcolor="#CCCCCC" Class="form">
+<tr><td>  <font size="2" face="Arial, Helvetica, sans-serif"><br>
+    </font></td>
+<td Class="line"><font size="2">&nbsp;</font> </td></tr><tr bgcolor="#FFFFFF" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-YOUR-CC-KEY</font></td>
+<td Class="input">  <font size="2" face="Arial, Helvetica, sans-serif">igaiquetinythuwotanoom</font></td></tr><tr bgcolor="#FFFFFF" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-YOUR-CC-PSW</font></td>
+<td Class="input">  <font size="2" face="Arial, Helvetica, sans-serif">sv5oo8</font></td></tr><tr bgcolor="#FFFFFF" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-ADMIN-USR</font></td>
+<td Class="input">  <font size="2" face="Arial, Helvetica, sans-serif">admin</font></td></tr><tr bgcolor="#FFFFFF" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-ADMIN-PSWD</font></td>
+<td Class="input">  <font size="2" face="Arial, Helvetica, sans-serif">sv5oo8</font></td></tr><tr bgcolor="#FFFFFF" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-INVOICES-USR</font></td>
+<td Class="input">  <font size="2" face="Arial, Helvetica, sans-serif">invoice</font></td></tr><tr bgcolor="#FFFFFF" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-INVOICES-PSWD</font></td>
+<td Class="input">  <font size="2" face="Arial, Helvetica, sans-serif">iekoyd</font></td></tr><tr bgcolor="#FFFFFF" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-DOCS-USR</font></td>
+<td Class="input">  <font size="2" face="Arial, Helvetica, sans-serif">docs</font></td></tr><tr bgcolor="#FFFFFF" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-DOCS-PSWD</font></td>
+<td Class="input">  <font size="2" face="Arial, Helvetica, sans-serif">ngelau</font></td></tr><tr bgcolor="#FFFFFF" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-USER-USR</font></td>
+<td Class="input">  <font size="2" face="Arial, Helvetica, sans-serif">user</font></td></tr><tr bgcolor="#FFFFFF" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-USER-PSWD</font></td>
+<td Class="input">  <font size="2" face="Arial, Helvetica, sans-serif">lahire</font></td></tr><tr bgcolor="#FFFFFF" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-BUSINESS-NAME</font></td>
+<td Class="input">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-BUSINESS-NAME</font></td></tr><tr bgcolor="#FFFFFF" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-BUSINESS-ADDRESS</font></td>
+<td Class="input">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-BUSINESS-ADDRESS</font></td></tr><tr bgcolor="#FFFFFF" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-BUSINESS-CITY-STATE-ZIP</font></td>
+<td Class="input">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-BUSINESS-CITY-STATE-ZIP</font></td></tr><tr bgcolor="#FFFFFF" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-BUSINESS-PHONE</font></td>
+<td Class="input">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-BUSINESS-PHONE</font></td></tr><tr bgcolor="#FFFFFF" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-BUSINESS-FAX</font></td>
+<td Class="input">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-BUSINESS-FAX</font></td></tr><tr bgcolor="#FFFFFF" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-PHONE-HELP</font></td>
+<td Class="input">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-PHONE-HELP</font></td></tr><tr bgcolor="#FFFFFF" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-DOMAIN-NAME.COM</font></td>
+<td Class="input">  <font size="2" face="Arial, Helvetica, sans-serif">www.searchwise.org</font></td></tr><tr bgcolor="#FFFFFF" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-STRICT-HTTP-WWW.YOURSITE.COM</font></td>
+<td Class="input">  <font size="2" face="Arial, Helvetica, sans-serif">http://www.searchwise.org</font></td></tr><tr bgcolor="#FFFFFF" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-STRICT-HTTP-WWW.YOUR-MCART-DIR</font></td>
+<td Class="input">  <font size="2" face="Arial, Helvetica, sans-serif">http://www.searchwise.org/cgi-bin/mcart</font></td></tr><tr bgcolor="#FFFFCC" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-FRONT-HTTPs-WWW.YOURSITE.COM</font></td>
+<td Class="input">  <font size="2" face="Arial, Helvetica, sans-serif">http://www.searchwise.org</font></td></tr><tr bgcolor="#FFFFCC" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-FRONT-HTTPs-WWW.YOUR-MCART-DIR</font></td>
+<td Class="input">  <font size="2" face="Arial, Helvetica, sans-serif">http://www.searchwise.org/cgi-bin/mcart</font></td></tr><tr bgcolor="#FFFFFF" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-FRONT-PATH-WEB-ROOT</font></td>
+<td Class="input">  /usr/www/users/mpal/searchwise</td>
+</tr><tr bgcolor="#FFFFFF" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-FRONT-PATH-CGI-MCART-ROOT</font></td>
+<td Class="input">  <font size="2" face="Arial, Helvetica, sans-serif">/usr/www/users/mpal/searchwise/cgi-bin/mcart</font></td>
+</tr><tr bgcolor="#FFFFCC" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-BACK-HTTPs-WWW.YOURSITE.COM</font></td>
+<td Class="input">  <font size="2" face="Arial, Helvetica, sans-serif">http://www.searchwise.org</font></td></tr><tr bgcolor="#FFFFCC" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-BACK-HTTPs-WWW.YOUR-MCART-DIR</font></td>
+<td Class="input">  <font size="2" face="Arial, Helvetica, sans-serif">http://www.searchwise.org/cgi-bin/mcart</font></td></tr><tr bgcolor="#FFFFFF" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-BACK-PATH-WEB-ROOT</font></td>
+<td Class="input">  /usr/www/users/mpal/searchwise</td>
+</tr><tr bgcolor="#FFFFFF" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-BACK-PATH-CGI-MCART-ROOT</font></td>
+<td Class="input">  <font size="2" face="Arial, Helvetica, sans-serif">/usr/www/users/mpal/searchwise/cgi-bin/mcart</font></td>
+</tr><tr bgcolor="#FFFFFF" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-SEND-ORDERS-TO-AT-YOURSITE.COM</font></td>
+<td Class="input">  <font size="2" face="Arial, Helvetica, sans-serif">orders@searchwise.org</font></td></tr><tr bgcolor="#FFFFFF" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-ORDER-HELP-AT-YOURSITE.COM</font></td>
+<td Class="input">  <font size="2" face="Arial, Helvetica, sans-serif">orders@searchwise.org</font></td></tr><tr bgcolor="#FFFFFF" Class="form"><td Class="label">  <font size="2" face="Arial, Helvetica, sans-serif">MVAR-AFFILIATES-MAIL-AT-YOURSITE.COM</font></td>
+<td Class="input">  <font size="2" face="Arial, Helvetica, sans-serif">affiliates@searchwise.org</font></td></tr></table>
+
+<br><br>
+
+
+  <table cellspacing="1" bgcolor="#CCCCCC" Class="form">
+    <tr bgcolor="#FFFFFF">
+      <td width="286" Class="label"> <font size="2" face="Arial, Helvetica, sans-serif">MVAR-DOMAIN-NAME.COM</font></td>
+      <td width="400" Class="input"> <font size="2" face="Arial, Helvetica, sans-serif">www.searchwise.org</font></td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td Class="label"> <font size="2" face="Arial, Helvetica, sans-serif">MVAR-STRICT-HTTP-WWW.YOURSITE.COM</font></td>
+      <td Class="input"> <font size="2" face="Arial, Helvetica, sans-serif">http://www.searchwise.org</font></td>
+    </tr>
+    <tr bgcolor="#FFFFFF">
+      <td Class="label"> <font size="2" face="Arial, Helvetica, sans-serif">MVAR-STRICT-HTTP-WWW.YOUR-MCART-DIR</font></td>
+      <td Class="input"> <font size="2" face="Arial, Helvetica, sans-serif">http://www.searchwise.org/cgi-bin/mcart</font></td>
+    </tr>
+    <tr bgcolor="#FFFFCC" Class="form">
+      <td Class="label"> <font size="2" face="Arial, Helvetica, sans-serif">MVAR-FRONT-HTTPs-WWW.YOURSITE.COM</font></td>
+      <td Class="input"> <strong>https://commerce26.pair.com/mpal/searchwise</strong></td>
+    </tr>
+    <tr bgcolor="#FFFFCC" Class="form">
+      <td Class="label"> <font size="2" face="Arial, Helvetica, sans-serif">MVAR-FRONT-HTTPs-WWW.YOUR-MCART-DIR</font></td>
+      <td Class="input"> <strong>https://commerce26.pair.com/mpal/searchwise/cgi-bin/mcart</strong></td>
+    </tr>
+    <tr bgcolor="#FFFFFF" Class="form">
+      <td Class="label"> <font size="2" face="Arial, Helvetica, sans-serif">MVAR-FRONT-PATH-WEB-ROOT</font></td>
+      <td Class="input"> /usr/www/users/mpal/searchwise</td>
+    </tr>
+    <tr bgcolor="#FFFFFF" Class="form">
+      <td Class="label"> <font size="2" face="Arial, Helvetica, sans-serif">MVAR-FRONT-PATH-CGI-MCART-ROOT</font></td>
+      <td Class="input"> <font size="2" face="Arial, Helvetica, sans-serif">/usr/www/users/mpal/searchwise/cgi-bin/mcart</font></td>
+    </tr>
+    <tr bgcolor="#FFFFCC" Class="form">
+      <td Class="label"> <font size="2" face="Arial, Helvetica, sans-serif">MVAR-BACK-HTTPs-WWW.YOURSITE.COM</font></td>
+      <td Class="input"> <strong>https://commerce26.pair.com/mpal/searchwise</strong></td>
+    </tr>
+    <tr bgcolor="#FFFFCC" Class="form">
+      <td Class="label"> <font size="2" face="Arial, Helvetica, sans-serif">MVAR-BACK-HTTPs-WWW.YOUR-MCART-DIR</font></td>
+      <td Class="input"> <strong>https://commerce26.pair.com/mpal/searchwise/cgi-bin/mcart</strong></td>
+    </tr>
+    <tr bgcolor="#FFFFFF" Class="form">
+      <td Class="label"> <font size="2" face="Arial, Helvetica, sans-serif">MVAR-BACK-PATH-WEB-ROOT</font></td>
+      <td Class="input"> /usr/www/users/mpal/searchwise</td>
+    </tr>
+    <tr bgcolor="#FFFFFF" Class="form">
+      <td Class="label"> <font size="2" face="Arial, Helvetica, sans-serif">MVAR-BACK-PATH-CGI-MCART-ROOT</font></td>
+      <td Class="input"> <font size="2" face="Arial, Helvetica, sans-serif">/usr/www/users/mpal/searchwise/cgi-bin/mcart</font></td>
+    </tr>
+  </table>
+      <p><font face="Verdana" size="1">
+            These programs are copyright @ <a href="http://www.merchantorderform.com">MerchantOrderForm.com</a>,
+            <a href="http://www.merchantpal.com">MerchantPal.com</a> 2001-2004</font>
+       </td></tr></table></center></body></html>

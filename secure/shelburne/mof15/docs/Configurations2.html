@@ -1,0 +1,2994 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+   <meta name="Author" content="Russell Alexander">
+   <meta name="Description" content="The complete set of Documentation for Merchant OrderForm v1.5 - WebWare written and produced by RGA">
+   <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+   <meta name="ProgId" content="FrontPage.Editor.Document">
+   <meta name="subject" content="Merchant OrderForm">
+   <meta name="Template" content="C:\MICROSOFT OFFICE\OFFICE\html.dot">
+   <TITLE>Merchant OrderForm v1.5 Documentation</TITLE>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#3333FF" VLINK="#3333FF" ALINK="#FF0000">
+<font size="4" face="Comic Sans MS">
+<b>Configuring the Back End </b></font><font face="Comic Sans MS"><b>
+<font size="4">
+<I><FONT COLOR="#800000">Merchant Order Form</FONT></I></font></b>
+<font size="-1">
+&nbsp; version 1.53, 8/15/2000, Updated 9/15/2000</font></font>
+<BR><FONT FACE="Comic Sans MS"><FONT SIZE=-1>Copyright by </FONT><B><FONT SIZE=-2>RGA@IO.COM</FONT></B><FONT SIZE=-1>
+/ <A HREF="http://www.io.com/~rga/scripts">http://www.io.com/~rga/scripts<br>
+</A>Internet Location: <a href="http://www.merchantorderform.com">http://www.merchantorderform.com<br>
+</a>
+Use our web site for <a href="http://www.merchantorderform.com/updates.html">current issues or updates to this product</a>
+ <a href="http://www.merchantorderform.com"><br>
+</a>
+Documentation prepared July 31, 2000.
+</FONT></FONT><p><font size="-1" face="Comic Sans MS">
+This file will help you deal with the Back End configuration file which governs Merchant OrderForm's Checkout and Final Invoicing behavior.&nbsp; How much or how little you want it to do can be configured by these settings.&nbsp; If you are completely
+unfamiliar with working in Perl script configuration files, then you should probably read the section <a href="AboutConfigurations.html">All About Perl Configuration Files</a>
+ before you even get started.</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+The other documentation files are:</font>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS"><a href="ReadMe.html">ReadMe.html</a>
+ -- Introductory information about Merchant OrderForm</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="Installation.html">Installation.html&nbsp;</a>
+ -- Step by step instructions for installing these scripts</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="BuildingPages.html">BuildingPages.html</a>
+&nbsp;-- All about Building the Input Pages for your Store</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="AboutConfigurations.html">AboutConfigurations.html</a>
+ -- Basics about editing Perl configuration files</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="Configurations1.html">Configurations1.html</a>
+&nbsp;-- Front End settings (Cart and Order Summary)</font><li>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>Configurations2.html</b></font> -- 
+<font color="#000080">
+<b>You Are Here</b></font></font><li>
+<font size="-1" face="Comic Sans MS"><a href="Troubleshooting.html">Troubleshooting.html</a>
+ -- Information on error messages and troubleshooting</font>
+</ul>
+<p>
+
+T<FONT FACE="Comic Sans MS"><FONT SIZE=-1>hanks for your interest in </FONT><I><FONT COLOR="#800000">Merchant
+Order Form</FONT></I><FONT SIZE=-1>
+<B>v1.53.</B>&nbsp;</FONT></FONT>
+<p><font size="-1" face="Comic Sans MS">
+Both configuration files in the package you received are not set like the ones on the demo sites.&nbsp; The demo sites have the full blown set of features enabled.&nbsp; We have tried to enable only the minimum settings necessary for the install, in
+hopes of minimizing complications during your installation.&nbsp; Once you are up and running and have planned your Online Store Front, then you will have a better idea of how you want Merchant OrderForm to behave.&nbsp;&nbsp;</font><p><font size="-1" face="Comic Sans MS">
+ For your reference, we've
+included both of Mof's configuration files as they are running on the demo sites, so you may see what settings give it that behavior.&nbsp; We doubt that anyone would ever run every single feature of Merchant OrderForm as we have done on the demo
+sites. The files are called: demo1.txt and demo2.txt in the docs folder of your package.</font><p>
+<font size="-1" face="Comic Sans MS">
+And relax, you have already set most of the settings you need when you did the installation.&nbsp; While Merchant OrderForm's configuration files are huge for Perl scripts, the typical web developer won't need many of the settings.&nbsp; The bulk of
+the configuration file settings are there to allow programmers to customize Merchant OrderForm.&nbsp; Almost everything from the ground up can be customized in either the configurations or in hidden customizing areas of the script libraries.</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>Tip</b></font>: 
+<font color="#000080">
+We have tried to place the configuration details in question format</font>.&nbsp;&nbsp;<br>
+So, find what you want to do with the configurations and we'll explain that section and how to do it.</font><p><u>
+<font size="+1" face="Comic Sans MS">
+Shareware statement</font></u>
+
+<font size="-1" face="Comic Sans MS">
+&nbsp;<br>
+<br>
+You are authorized to install, test, and explore your copy of Merchant OrderForm.  When you are satisfied that it will do the job for you, then you are expected to make arrangements for the Shareware fees.&nbsp;</font><p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#000080"><b>Payment arrangements</b></font> @ <a href="http://www.merchantorderform.com/payment.html">http://www.merchantorderform.com/payment.html</a>
+&nbsp;<br>
+<br>
+-- Or you can Send Check or Money Order To:&nbsp;</font><br>
+<br>
+<font size="-1" face="Comic Sans MS">
+        RUSSELL ALEXANDER&nbsp;<br>
+        1904 INVERNESS BLVD.&nbsp;<br>
+        AUSTIN, TEXAS 78745&nbsp;</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+
+
+-- Or you can use </font>
+
+<!-- Begin PayPal Logo -->
+<A HREF="https://secure.paypal.x.com/xclick/business=rga%40io.com&undefined_quantity=1&item_name=Merchant+OrderForm+v1.5&return=http%3A//www.merchantorderform.com/" target="_blank">
+<font size="-1" face="Comic Sans MS">
+Pay Pal</font>
+&nbsp;
+</a>
+<p>
+
+&nbsp;
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD><U><FONT SIZE=+1><a name="TableContents"></a>
+Table
+of Contents for this Documentation</FONT></U></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM><FONT FACE="Comic Sans MS"><I><FONT COLOR="#800000">Merchant
+OrderForm</FONT></I>
+<B><FONT SIZE=-1>v</FONT></B></FONT>
+ <font size="-1" face="Comic Sans MS">
+ <b>1.53</b></font></TD>
+</TR>
+</TABLE>
+
+<blockquote>
+<p>
+
+<font color="#000080" size="-1" face="Comic Sans MS">
+<b>Back </b></font><font size="-1" face="Comic Sans MS"><font color="#000080"><b>End Settings</b></font>  (Checkout and Final Invoice) - <b>mofpayment.conf<br>
+</b>
+Find the questions to what you want to do</font>
+<blockquote>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>
+Various file locations, explanations, allowed domains</b></font>
+</blockquote>
+
+<ul type="circle">
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#AllowDomains">How to allow only your domain to use the scripts</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#ProgramFileSettings">
+Program file settings and file locations</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#FileLocking"><b>Yes</b>, you should use the<b> lockfile switch</b></a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#NumberFile">Can I change the invoice numbering ?</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#AffiliateLog">What is the Affiliate Tracking Log thing ?</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#WhereAreTemplates">
+Where are the template file(s) settings</a>
+</font>
+
+
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#MailingMerchant">How to mail the Merchant an order notice&nbsp;<br>
+</a>
+-- and how to transpose the cc numbers in mail
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#MailingCustomer">How to mail the Customer an order confirmation&nbsp;</a></font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#SavingWebCopy">How to save a Web copy of the Invoice&nbsp;</a>
+</font>
+
+
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#ExpiringCart">How to expire Mof's cart when order if finalized</a>
+</font>
+
+
+</ul>
+
+<blockquote>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>
+Some Miscellaneous Settings to match the Front End</b></font>
+</blockquote>
+
+<ul type="circle">
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#MiscellaneousSettings">
+How to change the currency symbol</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#MiscellaneousSettings">
+How to change the weight symbol</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#MiscellaneousSettings">
+How to change the delimiter used</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#MiscellaneousSettings">
+How to set the default email address for error messages</a>
+</font>
+
+
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#MiscFormatting">Formatting for Tax Flags and Description display</a>
+</font><li>
+<font face="Comic Sans MS" size="-1">
+<a href="#FormatTables">Format colors, fonts,&nbsp; and backgrounds in the products tables</a>
+</font><li>
+<font face="Comic Sans MS" size="-1">
+<a href="#ChangingNavigationMenus">How to change the Navigation menus for the Back End pages</a>
+</font></li>
+
+
+</ul>
+
+<blockquote>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>Settings for the Billing Information page</b></font>
+</blockquote>
+
+<ul type="circle">
+<li>
+<font face="Comic Sans MS" size="-1">
+<a href="#ChangeBillTo">How to Change what Bill To fields display and validate</a>
+</font><li>
+<font face="Comic Sans MS" size="-1">
+<a href="#ChangeReceiptTo">How to change what Receipt To fields display and validate</a>
+</font><li>
+<font face="Comic Sans MS" size="-1">
+<a href="#ChangeFieldTables">How to Change what the Field tables look like</a>
+</font><li>
+<font face="Comic Sans MS" size="-1">
+<a href="#ChangeValidationCues">How to Change the validation cues on the Billing Info Page</a>
+</font><li>
+<font face="Comic Sans MS" size="-1">
+<a href="#ChangeDropBox">How to Change the drop box list for Country - State in Bill To / Receipt To</a>
+</font>
+
+
+</ul>
+
+<blockquote>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>All about Payment Methods</b></font>
+</blockquote>
+
+<ul type="circle">
+<li>
+<font face="Comic Sans MS" size="-1">
+<a href="#MethodAreaWorks">
+How the Payment Method area works</a>
+</font>
+<li>
+<font face="Comic Sans MS" size="-1">
+<a href="#EnablingCreditCards">
+Enabling credit cart options</a>
+</font>
+<li>
+<font face="Comic Sans MS" size="-1">
+<a href="#EnablingOnlineChecking">
+Enabling online checking options</a>
+</font>
+<li>
+<font face="Comic Sans MS" size="-1">
+<a href="#EnablingMailFax">
+Enabling Mail or Fax in option</a>
+</font>
+<li>
+<font face="Comic Sans MS" size="-1">
+<a href="#EnablingPayPal">
+Enabling the PayPal option</a>
+</font>
+<li>
+<font face="Comic Sans MS" size="-1">
+<a href="#EnablingComments">
+Enabling the comments box</a>
+</font>
+<li>
+<font face="Comic Sans MS" size="-1">
+<a href="#EnablingComments">
+Enabling Cyber Permission</a>
+</font>
+
+
+</ul>
+
+</blockquote>
+<blockquote>
+<blockquote>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080"><b>Some notes on customizing areas</b></font>
+</blockquote>
+
+<ul type="circle">
+<li>
+<font face="Comic Sans MS" size="-1">
+<a href="#CustomizingTips">What are those list of variables ?</a>
+</font>
+<li>
+<font face="Comic Sans MS" size="-1">
+<a href="#CustomizingAreas">
+About Mof's built in customizing areas</a>
+</font>
+
+
+<li>
+<font face="Comic Sans MS" size="-1">
+<a href="#BypassingMethod">
+Bypassing the Payment Method page</a>
+</font>
+
+
+<li>
+<font face="Comic Sans MS" size="-1">
+<a href="#MoreCustomizing">How to obtain more customizing </a>
+</font><a href="#MoreCustomizing">
+<font face="Comic Sans MS" size="-1">
+information</font></a>
+
+
+</ul>
+
+</blockquote>
+
+<p>
+
+&nbsp;
+
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="AllowDomains"></a>
+How to allow only your domain to use the scripts</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Back End configuration file: </font><b>
+<font color="#000080" size="-1" face="Comic Sans MS">
+mofpayment.conf
+</font>
+</b>
+
+<font FACE="Fixedsys" SIZE="1">
+<font color="#000080">
+<b><br>
+</b></font>SECURITY SETTINGS<br>
+SECURITY SETTINGS</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This setting prevents anyone from outside your domain, your Store Front, your pages from accessing the scripts and processing bogus orders.&nbsp; Some folks want this, some don't care.&nbsp; If this feature is not enabled and set, then it is possible
+for any form anywhere on the web to submit products to carts running under your installation of Mof.&nbsp; This is not a big deal with some merchants, because no damage can occur, just a bogus invoice is produced.&nbsp; The Merchant can usually spot
+this.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If you want to prevent this, then just enable the Allow Domains feature.&nbsp; When the setting is empty then no domain checking occurs.&nbsp; Enable the feature by putting a list of allowable domains that can post to your script. Go ahead and put
+both versions:<br>
+&nbsp; http://www.yoursite.com<br>
+&nbsp; http://yoursite.com</font></p>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+When someone attempts to use Merchant OrderForm offsite then an error message is displayed with a list of allowable locations authorized to run the script, they can click on those links to view your main site.</font></p>
+
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+WHAT DOMAINS ARE ALLOWED TO ACCEPT POST INPUT ?</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Here's an example of enabling this feature</font></p>
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+@ALLOWED_DOMAINS = (<br>
+&nbsp;&nbsp;&nbsp; 'http://www.yourdomain.com',<br>
+&nbsp;&nbsp;&nbsp; 'http://208.124.45.111'<br>
+);</font><p>
+<font size="-1" face="Comic Sans MS">
+You must leave it completely empty to disable the feature</font>
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+@ALLOWED_DOMAINS = ();</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: If you enable this feature, then make sure and enable it in both the Front End and the Back End scripts.</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: The Back End processing script does not need a Post_Only setting as found in the Front End, because the Back End doesn't use any GET Query input at all, and any input on that line will trigger an error.</font>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>Adjust your &lt;mofpayment.conf&gt; navigation menu:</b></font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If you are using the Allowed Domains feature, then you may need to make a final adjustment with the menu functions for the back end payment processing.&nbsp; Under some SSL installations, the cgi Reffering_url is not present in the environment when
+mof.cgi is called from a process in 
+<font color="#000080">
+<b>mofpayment.cgi.</b></font>&nbsp; It is not present at the server level of the cgi process, and therefore you will get a Domain Not Allowed message if attempting to use the &quot;Edit Cart&quot; function from the Billing Information page.&nbsp;
+Test this on your installation if you are using the Allowed Domains feature.&nbsp; If this is your case, then you should disable both the top and bottom &quot;Edit Cart&quot; links so they are not available on the Billing Information page.&nbsp;</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Disable the &quot;Edit Cart&quot; buttons only in 
+<font color="#000080">
+<b>mofpayment.conf</b></font></font><br>
+<font face="Fixedsys" size="1">
+# NAVIGATION MENUS IN DYNAMIC PAGES<br>
+# NAVIGATION MENUS IN DYNAMIC PAGES</font>
+<p>
+
+Disable both of these buttons so they do not allow a post back to the cart while on the Billing Information page
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+$menu_viewcart_top<br>
+$menu_editcart_bottom</font>
+<p>
+
+<br>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="ProgramFileSettings"></a>
+Program file settings and file locations</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Back End configuration file:
+
+<font FACE="Fixedsys" SIZE="1">
+ </font></font><b>
+<font color="#000080" size="-1" face="Comic Sans MS">
+mofpayment.conf<br>
+</font>
+</b><font FACE="Fixedsys" SIZE="1"> FILE SETTINGS - FILE LOCATIONS<br>
+ FILE SETTINGS - FILE LOCATIONS</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is a group of settings that define where the main program files are, where the invoice number file is, where the affiliate tracking log is, and where the output templates are.</font>
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+ WHAT IS THE NAME OF THE MAIN PROCESSING FILE ?</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This identifies the Front End program file.&nbsp; This will always be </font>
+<font face="Fixedsys" size="1">
+mof.cgi</font>
+<font size="-1" face="Comic Sans MS">
+ unless you rename </font>
+<font face="Fixedsys" size="1">
+mof.cgi</font>
+<font size="-1" face="Comic Sans MS">
+ to another name.&nbsp; If you are running the Back End under a separate protocol HTTPS, then you will need to reference this file using the Full original HTTP URL that leads back to the Front End processing script (mof.cgi).&nbsp; If both mof.cgi
+ and mofpayment.cgi are running under the same cgi-bin and same protocol, then you can simply reference the filename.</font></p>
+<p>
+<font size="-1" face="Comic Sans MS">
+ If you have to rename program files to *.pl files to be installed under an NT server.&nbsp; Then you will have to define
+the correct filename in this setting.&nbsp;
+This setting is never an absolute path.&nbsp; It is either just the simple filename or the full URL as this script is accessed via the Web.&nbsp; You can see more about SSL and Mof in the Installation Section.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+ WHAT IS THE NAME OF THE FINAL PAYMENT PROCESSING FILE ?</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is simply a reference to itself, running in the native directory.&nbsp; It is used to perform re-submit POSTs to the Back End from a Back End process already running.&nbsp; You should never need a URL pathway here, since the script only references itself in its native
+location.&nbsp; If you are using this in an SSL location and having trouble, then you may want to reference the Full HTTPS URL.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+See the Installation section to see more about using the Back End under SSL.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+<a name="FileLocking"></a>
+DO YOU WANT FILE LOCKING TURNED ON ?</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<b>
+<font color="#000080">
+Yes</font></b>, you do want to turn on File Locking, however, it can only be used for Linux-Unix servers.&nbsp; This setting is not NT compatible, and if you turn it on for an NT installation, then your script will crash, and will likely crash NT
+(not that it takes much to do that).&nbsp; The lockfiles switch is disabled in the distribution package to minimize installation problems.&nbsp; Once you are installed and tested, you should turn it on when you go live with your Shopping Cart.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$lockfiles = 0;<br>
+</font>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+You must leave it off (0) for NT, Winxx servers.</font>&nbsp; If you are on NT and running the log file, or customized that routine to log, then you are in danger of corrupting your log file if you do not come up with some way of installing file
+locking on your scripts.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$lockfiles = 1;<br>
+</font>
+<font size="-1" face="Comic Sans MS">
+This locks the Invoice Number file, and the affiliate tracking log if you are using that.&nbsp; Enabling this switch prevents file corruption to these two files in case the server attempts to write from two users at the same time.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+<a name="NumberFile"></a>
+WHERE IS THE INVOICE NUMBER FILE ?</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is the absolute location to the Invoice Numbering File.&nbsp; The easiest thing is to simply list the filename.&nbsp; You can make the filename anything you want.&nbsp; It is just a plain ASCII file, and you can put any starting number that you
+want.&nbsp; mofpayment.cgi uses this to increment Invoice Numbers. You can define an absolute path if you are having trouble with it, but it almost always will run in the native directory that mofpayment.cgi is running.&nbsp; You can place it in a
+different location if you want.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is never an HTTP address.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+On NT systems you must use the full absolute path to this file on your server.<br>
+On NT systems this would be something like </font>
+<font face="Fixedsys" size="1">
+D:\MyWebDirectory\Cgi-Bin\filename.dat</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+On Linux type systems something like</font>
+<font face="Fixedsys" size="1">
+ /home/domain/domain.com/cgi-bin/filename.dat</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+<a name="AffiliateLog"></a>
+WHERE IS THE AFFILIATE TRACKING LOG ?</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is a plug-in add on to MOF v1.53.&nbsp; Do not enable this unless you have that plug-in, or unless you are using this feature to enable custom logging of orders to a log file.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+The <a href="http://www.merchantorderform.com/support.html">Support page</a>
+ at our main site has information on using this feature for custom logging.&nbsp; If you need information on obtaining this Plug In, then contact me at: <a href="mailto:info@merchantorderform.com">info@merchantorderform.com</a>
+</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+The Plug In is a Referral or Affiliate tracking system that has the ability to issue random coupon numbers with online sign up information, then activate the coupon number in real time creating a discount for any use of that coupon number for orders,
+which then logs all activity under that coupon number to the person issued that coupon number, and creates real money earnings for their referrals.&nbsp; The system also has full ability for online, Real time account management, update information,
+and check earning status.</font></p>
+<p>
+
+<br>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="WhereAreTemplates"></a>
+Where are the template file(s) settings</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Back End configuration file:
+
+<font FACE="Fixedsys" SIZE="1">
+ </font></font></font>
+<font color="#000080" size="-1" face="Comic Sans MS">
+<b>mofpayment.conf</b></font>
+
+<font FACE="Fixedsys" SIZE="1">
+<font size="-1" face="Comic Sans MS"><b><br>
+</b></font>OUTPUT TEMPLATES TO USE<br>
+OUTPUT TEMPLATES TO USE</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">This is a group of settings that define where the Template files are located for the Bsck End process. You can customize what the Mof output pages look like to match your web site, call them anything you want, and locate them anywhere.&nbsp;</font> 
+<font size="-1" face="Comic Sans MS">
+You can see more information about Making Templates for your site in the Installation section, under Making Your Own Templates.&nbsp; There's a table there explaining the seven example templates that come in the distribution package, and what they
+do.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: These locations are Absolute pathways only, and never an HTTP or HTTPS URL address.&nbsp; The absolute path should lead all the way down to the actual filename and extension.&nbsp; You should have already set these if you went through the
+Installation instructions.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+WHERE IS THE PAYMENT INFORMATION PAGE TEMPLATE ?<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+This displays with the Billing Information page</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+WHERE IS THE PAYMENT FINAL PAGE TEMPLATE ?<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+This is the Final Order Confirmation page, dynamically generated</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+WHERE IS THE WEB INVOICE COPY TEMPLATE ?<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+This template is used to Save a copy of the final invoice to the web.&nbsp; It is a separate template from the the Final Invoice page that is dynamically generated as an Order Confirmation page.&nbsp; It uses a separate template to allow you the
+choice of storing it to either a secure (HTTPS) or non secure (HTTP) location.&nbsp; It does not need to be stored to HTTPS, because the Web Copy of the invoice has all sensitive numbers stripped and does not store them, even as hidden
+information.&nbsp; You may have to store it as HTTPS if you are on a split server set up between your HTTP and HTTPS, and if </font>
+<font face="Fixedsys" size="1">
+mofpayment.cgi</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+ is unable to reach the absolute physical location of your HTTP (original non secure site) to create the file.&nbsp; If you do not enable this feature, then you do no need this template.</font></p>
+<p>
+<font size="-1" face="Comic Sans MS" color="#FF0000">
+Important</font>
+<font size="-1" face="Comic Sans MS" color="#000000">
+: All Objects (images) in this template must have the complete Full URL.&nbsp; No relative addressing in this template file.&nbsp; The images and anything that will display on it, need to be able to reach to the complete URL address.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#FF0000">
+Remember</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+: </font>
+<font size="-1" face="Comic Sans MS" color="#000000">
+If you are using SSL (HTTPS) protocol for the Back End then all of the objects (images) embedded within your template files will need to be referenced via the HTTPS protocol, else you will get the message &quot;non secure items loading&quot;&nbsp;
+You can find a more detailed discussion of using SSL in the Installation section.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+ WHAT IS THE INSERT MARKER NAMED ?</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This setting identifies a marker in your template files that Mof is looking for.&nbsp; Mof inserts its output and results at this marker.&nbsp; So, in building your templates put this marker where the main body of output will be.&nbsp; This marker
+must be in the format of an html comment so that it doesn't show in your output.&nbsp; You can make it anything you want.&nbsp; Just make sure what you define here is exactly what you use as the html marker when making your templates.<br>
+</font></p>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9"><b>
+<font color="#000080" size="-1" face="Comic Sans MS">
+<a name="MailingMerchant"></a>
+How to mail the Merchant an order notice&nbsp;</font></b></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Back End configuration file:
+
+<font FACE="Fixedsys" SIZE="1">
+ </font>
+<font color="#000080">
+<b>mofpayment.conf</b></font></font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+MAILING MERCHANT<br>
+MAILING MERCHANT</font><p>
+<font size="-1" face="Comic Sans MS">
+This set of options enable and configure a mail plug-in that sends all finalized orders to the Merchant via an email address.&nbsp; This is the easiest way to receive orders from online stores.&nbsp; The Merchant receives an email notice of the
+order, and then manually processes it.&nbsp; If you are starting out at online ordering, then this is the recommended way to do it.&nbsp; You don't need to outlay the fees needed for setting up online authorization gateways until you know you're
+going to get the volume.&nbsp;&nbsp;</font><p>
+<font FACE="Fixedsys" SIZE="1">
+MAIL THE MERCHANT NOTICE OF FINALIZED ORDER ?</font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Send Merchant Invoice by Email</font>
+<font FACE="Fixedsys" SIZE="1">
+ - On (1) Off (0)
+<p>
+
+WHERE TO SEND MERCHANT ORDER NOTICES<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+This is the Merchant's email address where order notices will be sent.&nbsp; The Merchant will receive notices of finalized orders at this address.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+WHAT RETURN ADDRESS TO USE IN EMAIL<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+The Merchant's Email RETURN address for Mailing Customer Receipts. This can be the same as above, but can be declared as different So the Customer will have a different &quot;Reply To&quot; location on their mail.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+PLAIN TEXT NAME OF THE MERCHANT<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+This is the Merchant's Business name in Plain Text.&nbsp; It appears throughout both Merchant notices and Customer order confirmations as the Business name.&nbsp; It also appears as the Subject header in the mail.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+MAIN WEB SITE FOR THE MERCHANT<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+This is the Web Site URL you want to use as the Main Web Site for your Business name.&nbsp; It appears in the various mail routines, to link people back to your site.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+WHICH PLUGIN TO USE FOR MAILING MERCHANT<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Mof uses an external set of instructions (plugin) for mailing.&nbsp; You can use any external file for this.&nbsp; We have included the </font>
+<font face="Fixedsys" size="1">
+merchant.mail</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+ plugin in the package.&nbsp; This is a Perl sub routine.&nbsp; Mof grabs this and runs whatever it says to do.&nbsp; This file can be modified to suit your needs.&nbsp; You'll have to know a little bit about working in Perl to modify this
+one.&nbsp;&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+The packaged plugin is set to use the Linux-Unix sendmail mailer. If you're on NT, then you'll need a plugin designed to mail from the various NT options.&nbsp; If someone wants to make one for NT, then we'll post it on our updates pages.</font></p>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: Make sure and use single quotes only when defining email addresses because the @ will trigger an error if double quotes are used to identify the string.
+</font>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+There are additional settings for the Merchant mail if you want to have the Mail plug in transpose credit card or checking account numbers before it sends an order notice to the Merchant.</font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+DO YOU WANT TO TRANSPOSE THE CREDIT CARD NUMBER ?</p>
+</font>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+This is a way of encoding the cc number as it goes out in the mail.&nbsp; This feature only effects the email notice the Merchant receives.&nbsp;You can transpose either/or the first set of four digit number or the second set of four digit
+numbers.&nbsp; Select a number between 1 and 9999 for either/or both codes.&nbsp; If you set both codes to zero, then the sets of numbers will not be affected, the resulting cc number will be the real number.</font></p>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+This only encodes the cc number that is sent via merchant mail notice.&nbsp; The number is still the real number in the raw variable.&nbsp; To resolve the correct CC number add
+your code(s) to the appropriate set of four digits.</font></p>
+<p>
+<font face="Comic Sans MS" size="-1">
+We provided ways to encode both the first and second sets of four digit numbers because Discover Cards use only one universal set of four digit numbers ( 6011 ).&nbsp; So you can chose how much coding you will do.&nbsp; If you didn't enable the
+Discover Card payment method, then using only the first set of four digits is safe.&nbsp; You could also opt to encode only the second set of four digits, and not the first.</font></p>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+<font color="#FF0000">
+Important</font>: Do not use the same number for both settings, especially if you are Taking discover cards. Finding the answer to the first would then yeild the correct answer to the second.</font></p>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+You can use any digit between 1 and 9999, and Mof will adjust the set.&nbsp; The final encoded number that appears in the Merchant mail will have the four digit sets separated spaces, each set will have necessary leading zeros, and a minus sign will preceded
+a negative encoded number.&nbsp; If you set your code to 9999 you will obviously get a negative number, which works fine, just as long as you do the math correctly.&nbsp;</font></p>
+<p>
+
+<font face="Fixedsys" size="1">
+Example:<br>
+$code_cc_number_one = 0;<br>
+$code_cc_number_two = 0;</font></p>
+<p>
+
+<font face="Comic Sans MS" size="-1" color="#000080">
+The cc number in the mail is the Real number</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+Example:<br>
+$code_cc_number_one = 3427;<br>
+$code_cc_number_two = 148;</font></p>
+<p>
+
+<font face="Comic Sans MS" size="-1" color="#000080">In the example above a cc number of</font>
+<font face="Comic Sans MS" size="-1" color="#000080">
+ </font>4321-5678-9876-4321<br>
+<font face="Comic Sans MS" size="-1" color="#000080">
+will transpose to this:</font>&nbsp; 0894&nbsp; 5530&nbsp; 9876&nbsp;&nbsp; 4321</p>
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+Example:<br>
+$code_cc_number_one = 7019;<br>
+$code_cc_number_two = 13;</font></p>
+<p>
+
+<font face="Comic Sans MS" size="-1" color="#000080">In the example above a cc number of</font>
+<font face="Comic Sans MS" size="-1" color="#000080">
+ </font>4321-5678-9876-4321<br>
+<font face="Comic Sans MS" size="-1" color="#000080">
+will transpose to this:</font>&nbsp; -2698&nbsp; 5665&nbsp; 9876&nbsp;&nbsp; 4321</p>
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+Example:<br>
+$code_cc_number_one = 0;<br>
+$code_cc_number_two = 9001;</font></p>
+<p>
+
+<font face="Comic Sans MS" size="-1" color="#000080">In the example above a cc number of</font>
+<font face="Comic Sans MS" size="-1" color="#000080">
+ </font>4321- 5678- 9876- 4321<br>
+<font face="Comic Sans MS" size="-1" color="#000080">
+will transpose to this:</font>&nbsp; 4321&nbsp; -3323&nbsp; 9876&nbsp;&nbsp; 4321</p>
+<p>
+<font face="Comic Sans MS" size="-1">
+<font color="#FF0000">
+Note</font>: It's okay for customers to enter hyphens, etc into the cc number.&nbsp; The validation routine will check out the number, if it passes validation, then it is okay to transpose.&nbsp; The full transposed cc number that appears in the
+merchant mail notice is formatted with spaces between the sets of four digits, regardless of how the original number was entered by the customer.&nbsp;</font><p>
+<font face="Comic Sans MS" size="-1">
+This seems reasonably safe, and must less trouble than un-encrypting the mail from a PGP encrypted mail message.
+</font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+DO YOU WANT TO TRANSPOSE THE CHECKING ACCOUNT NUMBER ?</p>
+</font>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+This is similar to the cc number transposing feature above.&nbsp; You can set a number to be subtracted from the checking Account Number.&nbsp; Make this Null if you don't want to enable this feature.&nbsp; If disabled the checking account number
+will appear as the real number.&nbsp; This only encodes the checking account number that is sent via merchant mail notice.&nbsp; The number is still the real number in the raw variable.&nbsp; To resolve the correct checking account number add your
+code to the checking account number you receive in the mail.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$code_check_number = 0;</p>
+</font>
+
+<p>
+
+<font face="Comic Sans MS" size="-1">
+<font color="#FF0000">
+Note</font>: this code number is subtracted from the overall checking account number, so you can make it any number you want.&nbsp; It is not limited to the first 4 digits.</font>
+
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9"><b>
+<font color="#000080" size="-1" face="Comic Sans MS">
+<a name="MailingCustomer"></a>
+How to mail the Customer an order confirmation&nbsp;</font></b></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Back End configuration file:
+
+<font FACE="Fixedsys" SIZE="1">
+ </font>
+<font color="#000080">
+<b>mofpayment.conf</b></font></font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+MAILING CUSTOMER<br>
+MAILING CUSTOMER</font>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+These settings enable and identify the plugin to use for mailing the customer an order confirmation.&nbsp; Once their order is finalized, then they will be mailed a confirmation if enabled.&nbsp; Mof will search for a customer email address from
+these fields and in this order:</font>
+<ol>
+<li>
+<font size="-1" face="Comic Sans MS">
+Who to send receipt to ?</font><li>
+<font size="-1" face="Comic Sans MS">
+Who will this be billed to ?</font><li>
+<font size="-1" face="Comic Sans MS">
+What is the Shipping Destination ?</font>
+</ol>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Mof will send an order confirmation to the Customer with the above precedence to email address.&nbsp; If no Customer email address was entered, then Mof will not send an order confirmation.&nbsp; This will be noted on the Final Invoice.</font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+MAIL CUSTOMER AN ORDER CONFIRMATION ?<br>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Send </font></font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Customer Order Confirmation </font>
+<font FACE="Fixedsys" SIZE="1">
+<font size="-1" face="Comic Sans MS" color="#000080">
+by Email</font> - On (1) Off (0)</p>
+<p>
+
+WHAT PLUGIN FOR MAILING CUSTOMER ORDER CONFIRMATION
+<font size="-1" face="Comic Sans MS" color="#000080">
+<br>
+Mof uses an external set of instructions (plugin) for mailing.&nbsp; You can use any external file for this.&nbsp; We have included the </font>customer.mail
+<font size="-1" face="Comic Sans MS" color="#000080">
+ plugin in the package.&nbsp; This is a Perl sub routine.&nbsp; Mof grabs this and runs whatever it says to do.&nbsp; This file can be modified to suit your needs.&nbsp; You'll have to know a little bit about working in Perl to modify this
+one.&nbsp;&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+The packaged plugin is set to use the Linux-Unix sendmail mailer. If you're on NT, then you'll need a plugin designed to mail from the various NT options.&nbsp; If someone wants to make one for NT, then we'll post it on our updates pages.</font></p>
+<p>
+
+IF USING MAIL-FAX PAYMENT SHOW THIS INFO<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+You'll need to set up Merchant Address, Phone, Fax number, etc. to display in the Customer mail if the Mail/Fax payment method is selected or enabled.&nbsp; This info displays in the Customer mail as the location to contact, Phone, or Fax their order
+to.<br>
+</font></p>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9"><b>
+<font color="#000080" size="-1" face="Comic Sans MS">
+<a name="SavingWebCopy"></a>
+How to save a Web copy of the Invoice&nbsp;</font></b></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Back End configuration file:
+
+<font FACE="Fixedsys" SIZE="1">
+ </font>
+<font color="#000080">
+<b>mofpayment.conf</b></font></font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+SAVE WEB COPY OF INVOICE<br>
+SAVE WEB COPY OF INVOICE</font>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+<font color="#ff0000">
+Very Important</font>: The template that makes the Web Copy of the invoice (if this feature is enabled) should always include the meta tags to prevent Robot scanning and listing in the search engines.&nbsp; You don't want your customer's invoice
+showing up at the Alta Vista search engine under their address.&nbsp; Our packaged template mofinvoice.html has this installed properly.&nbsp; If you make your own template for this function, then make sure you get this meta tag installed correctly,
+so that those pages, when they are created, will have a No Index, No Follow meta tag to the search engines.</font>
+<p>
+
+<font face="Fixedsys" size="1">
+&lt;meta name=&quot;robots&quot; content=&quot;noindex,nofollow&quot;&gt;</font></p>
+<p>
+<font size="-1" face="Comic Sans MS">
+When a customer finalizes their order, Mof sends a final order confirmation page back to their browser; however, this page is dynamically generated, and in reality, it does not exist except in virtual space.&nbsp; It does not exist on the Web site as
+other pages do.&nbsp; Enabling this feature allows that invoice to be saved as a real web page.&nbsp; The real Web Page appears as an exact replica of the customers final invoice order confirmation page,&nbsp; except that is does not have any credit
+card or checking account numbers, even as hidden fields, and none of the Navigation Menu Buttons appear.&nbsp; You can make your own custom template for this page, so the page header and footers may appear different, but the invoice information is
+the same, invoice number, products, pricing, etc.</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: Under certain cookie settings, Mof will save only the most recent invoice for a particular customer.&nbsp; If they had a previously saved invoice, then a new invoice will overwrite the previously saved one.&nbsp; This will happen if they
+return to your site for shopping within the </font>
+<font face="Fixedsys" size="1">
+$holdtime_data</font>
+<font size="-1" face="Comic Sans MS">
+ parameters you set in
+<font color="#000080">
+<b> mof15.conf</b></font>, and if the cookie is still set for their browser.&nbsp; So, whether a saved invoice will overwrite an old one for a particular customer or not, depends on your cookie setting for the cart.&nbsp; If you want' to prevent any
+overwriting of previously saved invoices for this customer, then you must disable the </font>
+<font face="Fixedsys" size="1">
+$holdtime_data</font>
+<font size="-1" face="Comic Sans MS">
+ cookie by setting it to zero.</font><p>
+<font FACE="Fixedsys" SIZE="1">
+DO YOU WANT TO SAVE A WEB COPY OF THE INVOICE ?<font size="-1" face="Comic Sans MS" color="#000080"><br>
+S</font></font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+ave Web Copy of the final invoice page to your web site </font>
+<font FACE="Fixedsys" SIZE="1">
+- On (1) Off (0)</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: If you enable this you must set both the absolute path to Save to Disk (below), and you must set the Root URL to it's location for a Full HTTP: address (below).&nbsp; If you enable this then a link to it's location will be included in
+any Emails that are sent.&nbsp; Both the Customer and Merchant will receive it's URL link in the email messages.</font></p>
+<p>
+
+<font color="#FF0000" size="-1" face="Comic Sans MS">
+Important</font>
+<font size="-1" face="Comic Sans MS">
+: If you are installing Mof under SSL, or under split HTTP and HTTPS protocols, there is much more information on saving this Web copy and the template it uses.&nbsp; You should consult all the detail in the SSL section of the Installation
+instructions.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+WHAT IS ABSOLUTE PATH TO DIRECTORY ?<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Set the absolute pathway on your server to where the files will be saved.&nbsp; This is an absolute pathway only, and not an HTTP or HTTPS URL address.&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+On NT systems this would be something like </font>
+<font face="Fixedsys" size="1">
+D:\MyWebDirectory\Cgi-Bin\\</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<br>
+For NT you must end with \\, escaping the use of the backslash for NT paths</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+On Linux type systems something like </font>
+<font face="Fixedsys" size="1">
+/home/domain/domain.com/cgi-bin/</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<br>
+Linux can use the forward backslash / only to end string and does not need to escape the forward slash</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+WHAT IS THE BASE URL FOR THE INVOICES ?<br>
+</font>
+<font size="-1" face="Comic Sans MS">
+This identifies the Root URL that will be used to call up the Web copy from a web browser.&nbsp; Mof will create a filename and add it to the Root you define here.&nbsp; This Root URL must lead to the directory where Mof is saving the Web copies, and
+it must end with the forward slash.&nbsp; Mof will then create the complete URL after it creates the Web copy file itself.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+Example:<br>
+$save_invoice_url = 'http://localhost/mof15/invoices/';</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If the above Root URL is defined, then Mof will identify the link to the Web copy as something like this:<br>
+http://localhost/mof15/invoices/200007110041133749701.html</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+WHAT PLUGIN TO USE FOR WEB COPY ?</font>
+<font size="-1" face="Comic Sans MS">
+<br>
+Name of the external file containing file building instructions.&nbsp; This is an external library file with file building instructions.&nbsp; The file is external to allow for plug-in type building instructions.&nbsp; This file should be in the same
+directory as the processing scripts.&nbsp; If you know Perl and you want to modify this plugin then it is much easier to do this way, separated from the main program code.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+ALLOW ACCESS TO INVOICE FILES RUNNING UNDER SHARED SSL (Different UID) Unix ONLY</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is a feature fix if you are saving web copies of invoices but find that you are unable to access, delete, or edit any of the invoice files that Mof is creating.&nbsp; For Unix-Linux servers only, enable this switch, and when Mof creates the
+invoce files they will be created with shared permissions, so that you will be able to access them under your normal uid (user ID).&nbsp; If you need more of an explanation of this situation, then please see our main web site, <a href="http://www.merchantorderform.com/support.html">support
+area.</a>
+</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$set_ssl_chmod = 0;</p>
+</font>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font color="#000080" size="-1" face="Comic Sans MS">
+<b><a name="MiscellaneousSettings"></a>
+Miscellaneous Settings</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Back End configuration file:
+
+<font FACE="Fixedsys" SIZE="1">
+ </font></font>
+</font>
+<font color="#000080" size="-1" face="Comic Sans MS">
+<b>mofpayment.conf</b></font>
+
+<font FACE="Fixedsys" SIZE="1">
+<font color="#000080">
+<b><br>
+</b></font> MISCELLANEOUS SETTINGS<br>
+ MISCELLANEOUS SETTINGS</p>
+</font>
+<ul>
+<li><font size="-1" face="Comic Sans MS">
+How to change the currency symbol</font><li><font size="-1" face="Comic Sans MS">
+How to change the weight symbol</font><li><font size="-1" face="Comic Sans MS">
+How to change the delimiter used</font><li><font size="-1" face="Comic Sans MS">
+How to set the default email address for error messages</font>
+</ul>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+ WHAT CURRENCY SYMBOL TO USE ?<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+This currency symbol is used throughout Mof wherever Money is displayed</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+ WHAT WEIGHT SYMBOL TO USE ?<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+This symbol is used throughout Mof if the &quot;weight&quot; system of shipping is use to compute shipping charges.&nbsp;&nbsp;</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+ WHAT DELIMITER TO USE FOR PRODUCT INFORMATION ?<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+This defines what delimiter separates the information for each product.&nbsp; You can define one different than 4 hyphens if you want.&nbsp; Be careful to assign something that is unique and won't get mixed up with other reserved characters and
+symbols that Mof uses.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+ WHAT EMAIL ADDR TO USE FOR ERROR MESSAGES ?<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+This email address is displayed if Mof triggers an Error message during operation.&nbsp; You may want to reserve this email specifically for any error messages.&nbsp; Or it can be your main email address.&nbsp; This email address doesn't have
+anything to do with where the customer or merchant mail is sent.<br>
+</font></p>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="ExpiringCart"></a>
+How to expire Mof's cart when order if finalized</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Back End configuration file:
+<font color="#000080">
+<b>mofpayment.conf</b></font></font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+EMPTYING THE CART<br>
+EMPTYING THE CART</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+When a customer completes the checkout and receives the Final order confirmation page, then Mof has several ways that it tries to update that customers cart.&nbsp; We want to update it so if the customer returns to shopping all the items they just
+purchased aren't still in the cart.&nbsp; So, we want to try to expire the cart, or zero out the items that were just purchased.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+The most professional looking way to do this is by enabling this feature. The
+Installation section: <a href="Installation.html#ExpiringCart">Expiring Mof's cart under SSL</a>
+ has a further explanation of this issue.&nbsp; Also, there is some more information on how Mof deals with the cart under the section <a href="Configurations1.html#KeepingTheCart">How to keep or not keep the cart if a purchase is not completed</a>
+ in the Front End Configurations docs.</font></p>
+<p>
+
+<font FACE="Fixedsys" SIZE="1"># WHAT TO DO WITH CART AFTER FINAL PROCESSING ?<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Enable (1) or disable (0) deleting cart contents after final invoice.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: </font>
+<font FACE="Fixedsys" SIZE="1">
+mofpayment.cgi </font>
+<font size="-1" face="Comic Sans MS">
+must have access to the cart files that</font>
+<font FACE="Fixedsys" SIZE="1">
+ mof.cgi created.&nbsp; </font><font size="-1" face="Comic Sans MS">Meaning that both scripts must be operating on the same server, and usually under the same protocol HTTP or HTTPS, but not split.&nbsp; If split protocols, then you may need to
+enable the special switch in 
+<font color="#000080">
+<b>mof15.conf</b></font> for this to operate under shared SSL: </font>
+<font face="Fixedsys" size="1">
+$set_ssl_chmod</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+WHERE ARE THE DATA STORAGE FILES LOCATED ?</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<br>
+This must be the same absolute address that you set in mof15.conf</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+WHAT FILE EXTENSION IS USED FOR DATA STORAGE FILES ?<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+This must be the same as what you defined in mof15.conf<br>
+</font></p>
+<font FACE="Fixedsys" SIZE="1">
+</font>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font color="#000080" size="-1" face="Comic Sans MS">
+<b><a name="MiscFormatting"></a>
+Formatting for Tax Flags and Description display</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><a HREF="#TableContents">
+<font size="-2">
+^&nbsp; TABLE OF CONTENTS</font></a>
+</TD>
+</TR>
+</TABLE>
+
+<font FACE="Fixedsys" SIZE="1">
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Back End configuration file:
+<font color="#000080">
+<b>mofpayment.conf<br>
+</b></font></font>MISCELLANEOUS FORMATTING<br>
+MISCELLANEOUS FORMATTING</font>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+These settings should match what you set in 
+<font color="#000080">
+<b>mof15.conf</b></font>.&nbsp; They are identical settings that tell Mof how to identify taxable items in the invoices and mail, and how to format the description if product options were used.</font></p>
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+SHOW FLAG FOR TAXABLE ITEMS IN INVOICE ?</font>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+This setting tells Mof to display some flag on the invoices and email messages next to the products that are taxable.&nbsp; Set it to Null if you Don't want this flag displayed.&nbsp; Set it to a message or html based message to display.&nbsp; Our
+example prints a small gray &quot;Tax&quot; flag on the invoices next to a taxable item.</font>
+<p>
+
+<font face="Fixedsys" size="1">
+HOW DO YOU WANT USER INPUT TO BE FORMATTED IN &quot;DESCRIPTION&quot; SECTION ?</font></p>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+All user input is listed in the &quot;Description&quot; section of the invoices.&nbsp; You can specify if you want user input criteria to appear in a string of text or if you want user input criteria to be listed in a list.&nbsp; Make list formatting
+(1), or make one line (0).&nbsp; The image example below has this feature enabled.&nbsp; If it were disabled than the text below would be formatted in one long line.</font></p>
+<font face="Fixedsys" size="1">
+<p>
+
+WHAT FONT ATTRIBUTES TO USE IN DISPLAYING COMBINED DESCRIPTION ?</p>
+</font>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+These six settings allow you to set the html formatting for displaying the product options input in the description section.&nbsp; Leave them blank for nothing.&nbsp; Make sure you start and stop them correctly, especially if you are coloring or
+bolding the string(s)&nbsp;</font></p>
+<p>
+
+<img src="DescriptionCapture.gif" border="0" width="309" height="108">
+
+</p>
+<p>
+
+<br>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font face="Comic Sans MS" size="-1" color="#000080">
+<b><a name="FormatTables"></a>
+Format colors, fonts, and backgrounds in the products tables</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Back End configuration file:
+<font color="#000080">
+<b> mofpayment.conf</b></font></font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+BACKGROUND COLORS - FONT STYLES IN FINAL INVOICE TABLES<br>
+BACKGROUND COLORS - FONT STYLES IN FINAL INVOICE TABLES</font><p>
+<font size="-1" face="Comic Sans MS">
+The 18 settings under the </font>
+<font face="Fixedsys" size="1">
+SAME IN FRONT END</font>
+<font size="-1" face="Comic Sans MS">
+ heading are the same settings you made in the front end 
+<font color="#000080">
+<b>mof15.conf</b></font> configuration file.&nbsp; Consult the diagram in the Front End Configurations section under <a href="Configurations1.html#ChangingCartAppearance">How to Change colors, fonts, and backgrounds in the cart tables</a>
+ for where these settings work.&nbsp; It might even be easier to cut and past those 18 settings over as a group.&nbsp; They have the same variable names in both files.</font>
+<p>
+
+<font face="Fixedsys" size="1">
+$tableborder_color<br>
+</font>
+<font face="Comic Sans MS" color="#000080" size="-1">
+contains both the border=1 and color attribute<br>
+This allows you to set overall border attributes like those MSIE dark-light bordercolors.</font><p>
+<font face="Fixedsys" size="1">
+$returntofont<br>
+</font>
+<font face="Comic Sans MS" color="#000080" size="-1">
+This returns everything to the font you started with in your templates</font><p>
+<font face="Comic Sans MS" color="#000080" size="-1">
+<b>These settings are specific to the Final Invoice page</b></font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$ship_to_bg_final<br>
+$bill_to_bg_final<br>
+</font>
+<font face="Comic Sans MS" color="#000080" size="-1">
+These two are background settings. You can use an image or just specify a color&nbsp;<br>
+Our example uses image files to make the tab appearance.&nbsp; One is for Ship To area (left) the other for Bill To area (right)</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$font_invoice_num_s<br>
+$font_invoice_num_e<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Invoice number start - s and end - e fonts, color</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$font_mailfax_form<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Fonts to use where mailing-faxing lines appear for that method. Mof will make lines for any credit card or checking account information to be filled in on the Final invoice, if that payment was selected.&nbsp; This allows a customer to print the web
+page, and fill in the needed information for mailing or faxing.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$font_comments<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+The font attributes to use for the comments if any were entered<br>
+</font></p>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="ChangingNavigationMenus"></a>
+How to change the Navigation menus appearing throughout the pages</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Back End configuration file:
+<font color="#000080">
+<b> mofpayment.conf</b></font></font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+NAVIGATION MENUS IN DYNAMIC PAGES<br>
+NAVIGATION MENUS IN DYNAMIC PAGES</font>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+This area has settings for all Navigation menus and links on the Back End checkout process.&nbsp; You can set any of the functions to show text, submit buttons, or images.&nbsp; Our example installation uses images.&nbsp; You can set each of these
+function with any type of HTML attribute you want.&nbsp;</font></p>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+<font color="#FF0000">
+Important</font>: Remember if you are using the Back End under an SSL location, then any objects defined here be referenced by using the Full and complete HTTPS address.</font></p>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+You can set them to display text, images, or buttons. Examples:</font></p>
+<ol>
+<li>
+<font face="Fixedsys" size="1">
+$setting = '&lt;font size=2&gt;Continue Shopping &lt;/font&gt;';</font><li>
+<font face="Fixedsys" size="1">
+$setting = &quot;&lt;img src=\&quot;../image.gif\&quot;&gt;&quot;;</font><li>
+<font face="Fixedsys" size="1">
+$setting = &quot;input type=submit value=\&quot;Update Cart\&quot;&gt;&quot;;</font></li>
+</ol>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+Mof manages what function buttons and/or links are displayed for a particular page in the checkout process.&nbsp;&nbsp; You cannot change the order that functions are displayed in, or which process they are allowed to be displayed in.&nbsp; This is
+strictly managed by Mof.&nbsp; You shouldn't attempt to re-arrange the order of the functions in the code either, since this order is very complex, and must manage all kinds of different form input.</font></p>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+If you want to eliminate any of the buttons for functions, then you can make that setting Null.&nbsp; Mof will not attempt to display a button or function that has a Null value.&nbsp; While this gives you the ability to eliminate functions, be
+careful. You could remove functions that cause a customer to get stuck at some point in the checkout process, without a function to proceed or return.</font></p>
+<font face="Fixedsys" size="1">
+<p>
+
+WHAT TO DISPLAY IN TOP NAVIGATION SCHEME ?</p>
+</font>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+Our distribution has these set to text links.&nbsp;</font></p>
+<font face="Fixedsys" size="1">
+<p>
+
+$menu_previous_top<br>
+</font>
+<font face="Comic Sans MS" color="#000080" size="-1">
+Provides a link back to last shopping page, the page you entered the cart from</font></p>
+<font face="Fixedsys" size="1">
+<p>
+
+$menu_viewcart_top<br>
+</font>
+<font face="Comic Sans MS" color="#000080" size="-1">
+Provides the Edit Cart function<br>
+Note available on the Final Invoice</font></p>
+<font face="Fixedsys" size="1">
+<p>
+
+$menu_help_top<br>
+$menu_help_top_url<br>
+</font>
+<font face="Comic Sans MS" color="#000080" size="-1">
+Provides the help function and the URL of the help file</font></p>
+<font face="Fixedsys" size="1">
+<p>
+
+WHAT TO DO WITH BOTTOM NAVIGATION SCHEME ?</font></p>
+<p>
+
+<font face="Comic Sans MS" color="#000080" size="-1">
+These are the settings for the bottom navigation scheme that appear on the Billing Information Page. Notice our settings point to an image, they could just as well be set to display text, or a submit button.</font></p>
+
+<p>
+
+<img border="0" src="FinalCapture.gif" width="360" height="173">
+
+<p>
+
+<br>
+
+<table CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+
+<tr><td bgcolor="#E9E9E9">
+<font face="Comic Sans MS" size="-1" color="#000080">
+<b><a name="ChangeFieldTables"></a>
+How to Change what the Field tables look like</b></font></td><td ALIGN="RIGHT" VALIGN="BOTTOM" bgcolor="#E9E9E9">
+<font SIZE="-2">
+<a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</font></td></tr>
+</table>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Back End configuration file:
+<font color="#000080">
+<b> mofpayment.conf</b></font></font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+BILLING INFORMATION PAGE<br>
+BILLING INFORMATION PAGE</font>
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+HOW WILL INFO INPUT PAGE SECTION HEADINGS AND PAGE TEXT LOOK ?
+<p>
+
+$final_heading<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Attributes for Shipping Address, Insurance, Method heading on Info page</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$final_text<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Attributes for any message or text display directly below the headings</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+HOW WILL THE PAYMENT INFO BOXS LOOK ?</p>
+<p>
+
+$font_outside_line<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Attributes for outside line to Table Field(s) box</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$font_left_column<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Attributes for table left column in Table Field(s) box</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$font_right_column<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Attributes for table right column in Table Field(s) box</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$font_preview_titles<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Attributes for Titles in left column of Table Field(s) box<br>
+</font></p>
+<p>
+
+&nbsp;
+
+<table CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+
+<tr><td bgcolor="#E9E9E9">
+<font face="Comic Sans MS" size="-1" color="#000080">
+<b><a name="ChangeValidationCues"></a>
+How to Change the validation cues on the Billing Info Page</b></font></td><td ALIGN="RIGHT" VALIGN="BOTTOM" bgcolor="#E9E9E9">
+<font SIZE="-2">
+<a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</font></td></tr>
+</table>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Back End configuration file:
+<font color="#000080">
+<b> mofpayment.conf</b></font></font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+BILLING INFORMATION PAGE<br>
+BILLING INFORMATION PAGE</font>
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+WHAT TO DISPLAY FOR VALIDATION CUES ?</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+You can use these settings to specify how validation cues appear on the Billing Information page.&nbsp; The examples in the package use:</font></p>
+<ol>
+<li>
+<font size="-1" face="Comic Sans MS">
+Blue Arrow - shows required fields when entering page for first time - Required</font><li>
+<font size="-1" face="Comic Sans MS">
+Red Arrow - shows empty field after form submitted and returned - Missing</font><li>
+<font size="-1" face="Comic Sans MS">
+Question Mark - shows validation problems, no enough characters, etc. - Incomplete</font><li>
+<font size="-1" face="Comic Sans MS">
+Green check Mark - shows if the Field is validated - Okay</font>
+</ol>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+You can use these settings to specify the URL of your own images, or you can put text messages and html attributes.&nbsp; You can disable any or all four of the above validation cues by putting the html &lt;br&gt; attribute as its setting.&nbsp;&nbsp;&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Important</font>:&nbsp; You must at least put the html &lt;br&gt; attribute in each setting or your form table may not display correctly.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$info_required<br>
+<font size="-1" face="Comic Sans MS" color="#000080">
+shows required fields when entering page for first time - Required</font></p>
+<p>
+
+$info_okay<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+shows if the Field is validated - Okay</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$info_missing<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+shows empty field after form submitted and returned - Missing</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$info_incomplete<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+shows validation problems, no enough characters, etc. - Incomplete</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$info_message_bg<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+This specifies a background color for the table column where the validation cues appear</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#FF0000">
+Important</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+: If you are running the Back End under an SSL protocol, you must address these objects with the Full HTTPS URL, otherwise, the &quot;loading non secure items&quot; may trigger.<br>
+</font></p>
+<p>
+
+&nbsp;
+
+<table CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+
+<tr><td bgcolor="#E9E9E9">
+<font face="Comic Sans MS" size="-1" color="#000080">
+<b><a name="ChangeDropBox"></a>
+How to Change the drop box list for Country - State in Bill To / Receipt To</b></font></td><td ALIGN="RIGHT" VALIGN="BOTTOM" bgcolor="#E9E9E9">
+<font SIZE="-2">
+<a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</font></td></tr>
+</table>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Back End configuration file:
+<font color="#000080">
+<b> mofpayment.conf</b></font></font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+BILLING INFORMATION PAGE<br>
+BILLING INFORMATION PAGE</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+These two settings allow you to define files that contain drop box data to display for State-Province or Country in the Bill To and Receipt To Fields form.&nbsp; If you make the setting Null, then a standard text box will display instead of a drop
+box.&nbsp; </font>
+<font size="-1" face="Comic Sans MS">
+We gave the Back End its own lists, so if you use a split server then the program will be able to reference a list native to the back end.</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+The package examples </font>
+<font face="Fixedsys" size="1">
+paycountries.txt</font> 
+<font size="-1" face="Comic Sans MS">
+and </font>
+<font face="Fixedsys" size="1">
+paystate.txt</font> 
+<font size="-1" face="Comic Sans MS">
+go into your cgi-bin and then we just define the file name for Mof to look for to use in creating the Select Box list(s).&nbsp; You can make these lists from any file, call them anything, locate them anywhere.&nbsp; If you locate them outside the
+native directory Mof is running in, then you'll need to define the exact absolute path for the file(s).</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Important</font>: You must be careful to use a similar list, if not an exact list, that you used in 
+<font color="#000080">
+<b>mof15.conf</b></font> for Shipping Address State and Country.&nbsp; If you don't, and a customer used the <b>shortcut</b> for entering their Bill To information, then Mof might not be able to find the matching value from the shortcut to a value in
+the current Back End list, and therefore, Mof would not be able to return to the correct selection in the list (if the page failed validation).&nbsp; The shortcut would still work correctly, but the country selected would not match the requested
+&quot;shortcut&quot; function.</font><p>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>The country Lists</b></font><p>
+<font size="-1" face="Comic Sans MS">
+Our packaged lists for countries are using the 208 countries listed in the USPS tables for Air Shipping, June 2000.&nbsp; This list of countries has long names so they appear with the full country name in all printable areas.&nbsp; You should not set
+any of the countries as the default country to be listed, but should keep the &quot;Select Countries&quot; as the default &quot;selected&quot; for this list as we have it in the package.&nbsp; We have also included the ISO 3166-1 country lists, which lists 238 countries by their 2 letter country code, if you want to use that list
+instead.</font><p>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>The State-Province Lists</b></font><p>
+<font size="-1" face="Comic Sans MS">
+Our packaged lists for states-provinces has all US states and Canadian Provinces listed by their 2 letter code.&nbsp; It also has the first value of Null, which is the default selection.&nbsp; This must be left as the first or &quot;selected&quot;
+option if you intend to require this field.&nbsp; The very next option is value=NOTINLIST&gt;.&nbsp; Whenever Mof sees NOTINLIST as the submitted State-Province, then State-Province is not printed.&nbsp; This is to allow an international country to
+be selected and a Not In List selected as State, without showing some meaningless and possible confusing item to your customers printed for the State-Province.&nbsp; You can of course make the text appearing in the actual drop box anything you want,
+but you must keep &quot;NOTINLIST&quot; as the value if you want it to function as a non-printable item in the invoices, cart, mail, etc.</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Important</font>: If you are allowing the <b>[ ] shortcut</b> feature on the Billing Information page to operate, then you should only have the first Null value set as the default in both the state and country lists.&nbsp; If you set something other
+than Null as the country or state default &quot;selected&quot; option in these lists for the Billing Info page, and a user selects the shortcut, then the default country or state will override the Shipping Information country and state, which is not
+what you are probably looking for.</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>
+You can make your own Select Lists if you want</b></font>, you don't have to use our examples.&nbsp;<br>
+Make sure you follow all the Rules for making your own lists.</font>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+Set up the ASCII list files just like you're creating an HTML OPTION list</font><li>
+<font size="-1" face="Comic Sans MS">
+Don't use any periods or special characters in your lists (.&quot;;)</font><li>
+<font size="-1" face="Comic Sans MS">
+You must include the &quot;value=definition&quot; attribute&nbsp;</font><li>
+<font color="#FF0000" size="-1" face="Comic Sans MS">
+Do not enclose anything in quotes</font><li>
+<font size="-1" face="Comic Sans MS">
+If you leave out the value the script cannot match with the info file</font><li>
+<font face="Fixedsys" size="1">
+&lt;option value=Whatever&gt;Anything or Whatever</font><li>
+<font size="-1" face="Comic Sans MS">
+Only include the
+<font color="#000080">
+<b> &lt;option value=WHAT&gt; Anything lines</b></font></font><li>
+<font size="-1" face="Comic Sans MS">
+Don't include the &lt;select&gt;&lt;/select&gt; lines, the script does that</font><li>
+<font size="-1" face="Comic Sans MS">
+Example: </font>
+<font face="Fixedsys" size="1">
+&lt;option value=United-States&gt; United States</font><li>
+<font size="-1" face="Comic Sans MS">
+Make sure you put one &lt;option value=WHAT&gt; per LINE in the file(s)</font><li>
+<font size="-1" face="Comic Sans MS">
+You can use the </font>
+<font face="Fixedsys" size="1">
+selected</font>
+<font size="-1" face="Comic Sans MS">
+ attribute or omit it in your files</font><li>
+<font size="-1" face="Comic Sans MS">
+If you use &quot;selected&quot; to default to a specific value, then it must go before the value</font><li>
+<font size="-1" face="Comic Sans MS">
+In other words, don't do this &lt;option value=WHAT 
+<font color="#FF0000">
+selected</font>&gt;. <b>Wrong</b>.</font><li>
+<font size="-1" face="Comic Sans MS">
+Why: because Mof matches on &quot;value=Something<b>&gt;</b>&quot; the right bracket marks the end of string to match</font><li>
+<font size="-1" face="Comic Sans MS">
+Mof is set to recognize value=
+<font color="#000080">
+<b>NOTINLIST</b></font>&gt; as a <b>non printable </b>value, meaning that if NOTINLIST is submitted as the State-Province selected, then Mof will not print it. Someone is outside the scope of the State-Province list, or it is not needed as is the
+case with many international destinations.</font><li>
+<font size="-1" face="Comic Sans MS">
+Also, an HTML parsing rule for these lists, is that you can't use any spaces in your <b>
+<font color="#000080">
+value=Bla-Bla&gt;.&nbsp; </font></b>Note that we used a hyphen in place of a space, as in &quot;United-States&quot;.&nbsp; Substitute any spaces with hyphens.&nbsp; Mof is already set to recognize hyphens and strip them back out when printing that
+value.</font>
+</ul>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+WILL YOU BE USING DROP BOXES OR TEXT BOXES FOR STATE and COUNTRY ?</p>
+<p>
+
+$use_country_list = &quot;paycountries.txt&quot;;<br>
+$use_state_list = &quot;paystates.txt&quot;;<br>
+</font></p>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font color="#000080" size="-1" face="Comic Sans MS">
+<b><a name="ChangeBillTo"></a>
+How to Change what Bill To fields display and validate</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Back End configuration file:
+
+<font FACE="Fixedsys" SIZE="1">
+ </font>
+<font color="#000080">
+<b>mofpayment.conf</b></font></font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+BILL TO FIELDS<br>
+BILL TO FIELDS</font>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+If you are unfamiliar with the exact syntax rules for associative arrays then you can consult the section <a href="AboutConfigurations.html#AssociativeArray">Associative array settings</a>
+</font>
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+WHAT BILL TO FIELDS TO DISPLAY - VALIDATE ?</font>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+<font color="#FF0000">
+Important</font>: You cannot require any fields here that were not required on Shipping Info, otherwise you could cause validation problems when someone uses the shortcut feature.</font>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+This associative array defines what Bill To Fields you will be using, and whether to require a Field or not.&nbsp; Any Field Name in the Master List of Bill To Fields can be used or omitted.&nbsp; The distribution package is pre set with all Fields.&nbsp;
+You may want to omit some.&nbsp; You must have at least one field defined else the Bill To table will not display.</font></p>
+<p>
+
+<font face="Fixedsys" size="1">
+'Field Name', [required &gt; 0, not required 0]</p>
+</font>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+Here's an example:</font></p>
+<font face="Fixedsys" size="1">
+<p>
+
+%billing_info_fields = (<br>
+&nbsp;&nbsp;&nbsp; 'Ecom_BillTo_Postal_Name_First',2,<br>
+&nbsp;&nbsp;&nbsp; '</font>
+<font face="Fixedsys" size="1">
+Ecom_BillTo_Postal_Name_Middle',0<br>
+);</font></p>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+This defines that two fields will display.&nbsp;&nbsp;<br>
+The First Name Field requires at least 2 characters entered, and the Middle Name Field is not required.</font></p>
+<ul>
+<li>
+<font face="Comic Sans MS" size="-1">
+You cannot leave a value Null, it must be 0 zero to display or greater than 0 for length to validate</font><li>
+<font face="Comic Sans MS" size="-1">
+You must remove the name=value pair from the list if you don't want that field to display</font><li>
+<font face="Comic Sans MS" size="-1">
+Put a zero (0) for any Field you will use but not require</font><li>
+<font face="Comic Sans MS" size="-1">
+Put a number value (minimum length of characters required) to require user input for that Field</font>
+<font face="Fixedsys" size="1">
+</li>
+</ul>
+</font>
+<p>
+
+<font face="Comic Sans MS" color="#000080" size="-1">
+<b>What is the master list of Bill To Info Field Names ?</b></font></p>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+You can have up to 14 Fields for Bill To Information.&nbsp;<br>
+We are using the 14 [Bill To] Fields in the ECML specs v1.0: <a href="http://www.ecml.org/">http://www.ecml.org/<br>
+</a>
+We substituted &quot;Company&quot; for the ECML &quot;Line3&quot; because they did not have company and we have user feedback that business name is important to customers.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<ol>
+<li>Ecom_BillTo_Postal_Name_Prefix<li>Ecom_BillTo_Postal_Name_First<li>Ecom_BillTo_Postal_Name_Middle<li>Ecom_BillTo_Postal_Name_Last<li>Ecom_BillTo_Postal_Name_Suffix<li>Ecom_BillTo_Postal_Street_Line1<li>Ecom_BillTo_Postal_Street_Line2<li>Ecom_BillTo_Postal_Company<li>Ecom_BillTo_Postal_City<li>Ecom_BillTo_Postal_StateProv<li>Ecom_BillTo_Postal_PostalCode<li>Ecom_BillTo_Postal_CountryCode<li>Ecom_BillTo_Telecom_Phone_Number<li>Ecom_BillTo_Online_Email
+</ol>
+</font>
+<p>
+
+<br>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font face="Comic Sans MS" size="-1" color="#000080">
+<b><a name="ChangeReceiptTo"></a>
+How to change what Receipt To fields display and validate</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Back End configuration file:
+<font color="#000080">
+<b>mofpayment.conf</b></font></font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+RECEIPT TO FIELDS<br>
+RECEIPT TO FIELDS</font>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+
+This section works exactly as the Bill To section above, except it enables a new set of fields for Additional customer information -- the Receipt To information.&nbsp; This section is disabled in the package.&nbsp; Just enable it if you want to use
+it.</font>
+
+<p>
+
+<font face="Comic Sans MS" color="#000080" size="-1">
+<b>What is the master list of Receipt To Info Field Names ?</b></font>
+<font FACE="Fixedsys" SIZE="1">
+<ol>
+<li>Ecom_ReceiptTo_Postal_Name_Prefix<li>Ecom_ReceiptTo_Postal_Name_First<li>Ecom_ReceiptTo_Postal_Name_Middle<li>Ecom_ReceiptTo_Postal_Name_Last<li>Ecom_ReceiptTo_Postal_Name_Suffix<li>Ecom_ReceiptTo_Postal_Street_Line1<li>Ecom_ReceiptTo_Postal_Street_Line2<li>Ecom_ReceiptTo_Postal_Company<li>Ecom_ReceiptTo_Postal_City<li>Ecom_ReceiptTo_Postal_StateProv<li>Ecom_ReceiptTo_Postal_PostalCode<li>Ecom_ReceiptTo_Postal_CountryCode<li>Ecom_ReceiptTo_Telecom_Phone_Number<li>Ecom_ReceiptTo_Online_Email
+</ol>
+</font>
+<p>
+
+<br>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9"><font face="Comic Sans MS" size="-1" color="#000080"><b>
+<a name="MethodAreaWorks"></a>
+How the Payment Method area works</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Back End configuration file:
+<font color="#000080">
+<b>mofpayment.conf</b></font></font>
+<p>
+<font size="-1" face="Comic Sans MS">
+There are four Payment Methods installed in ver 1.53.&nbsp; When you enable a particular method, then it appears in the drop down box for Payment Method on the Billing Information page.&nbsp; This page is ready to collect the last pieces of
+information from the customer before a final invoice is created.&nbsp; When the Place Order button is clicked, and all information passes validation, then a final invoice is created.&nbsp; The Billing Information page will continue to display, with
+validation cues (if enabled and configured), until all required information is present in the form.</font><p>
+<font size="-1" face="Comic Sans MS">
+When you enter the Billing Information page for the first time, it is always missing at least one piece of input -- the Payment Method. That's why Mof stops on that page instead of just skipping right past it.&nbsp;&nbsp; You can disable all the
+input boxes for credit card fields, online checking fields, comments, and cyber permission, and Mof will not require any of that information.&nbsp; But Mof will always require at least the Payment Method.&nbsp; You can find some information on how to
+bypass that page in the notes on customizing section in this doc.</font>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+You tell Mof what Payment Method options you want to allow by enabling the settings for that section&nbsp; You can enable-disable any combination of these options and the script will adjust the Billing Information Page according to your settings.</font>
+<ol>
+<li>
+<font size="-1" face="Comic Sans MS">
+Enable Only Credit Card and adjust what fields to display</font><li>
+<font size="-1" face="Comic Sans MS">
+Enable Only Mailing or Faxing (defaults payment method to this one only)</font><li>
+<font size="-1" face="Comic Sans MS">
+Enable Only Online Checking (defaults payment method to this one only)</font><li>
+<font size="-1" face="Comic Sans MS">
+Enable Only the PayPal option (defaults payment method to this one only)</font>
+</ol>
+<p>
+<font size="-1" face="Comic Sans MS">
+A positive value in any of these following settings and Mof will trigger that Payment Method.&nbsp; Each of these settings have their own section in the documentation below.</font>
+<ol>
+<li>
+<font face="Fixedsys" size="1">
+%credit_card_fields</font><li>
+<font face="Fixedsys" size="1">
+%checking_account_fields</font><li>
+<font face="Fixedsys" size="1">
+$enable_paypal</font><li>
+<font face="Fixedsys" size="1">
+$mail_or_fax_field</font>
+</ol>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: If you enable only one method, other than the credit card method, then Mof will not display the drop box, but Mof will display a custom message stating that only one Payment Method is being accepted.&nbsp; If you enable the credit cart
+method (and at least two credit cart types) or any two methods above, then the drop box will display.&nbsp; Basically, the drop box will display with two or more methods.</font>
+<p>
+
+<br>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font face="Comic Sans MS" color="#000080" size="-1">
+<b><a name="EnablingCreditCards"></a>
+Enabling credit cart options</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Back End configuration file:
+<font color="#000080">
+<b>mofpayment.conf</b></font></font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+ENABELING CREDIT CARD<br>
+ENABELING CREDIT CARD</font>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This section allows you to set which credit card types will display as payment methods, which credit card fields to display for input, whether you want to validate the number, and if you want to encode the number.</font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+WHAT CC FIELDS TO DISPLAY ?</p>
+</font>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+This is an associative array that works just like the Shipping Fields, Bill To, and Receipt To fields. You must declare what fields to display for credit card input and what the validation rule is for that field.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+'Field Name', [required &gt; 0, not required 0]</p>
+</font>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+Here's The&nbsp; example in the package:</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+%credit_card_fields = (<br>
+&nbsp;&nbsp;&nbsp; 'Ecom_Payment_Card_Name',4,<br>
+&nbsp;&nbsp;&nbsp; 'Ecom_Payment_Card_Number',4,<br>
+&nbsp;&nbsp;&nbsp; 'Ecom_Payment_Card_ExpDate_Month',1,<br>
+&nbsp;&nbsp;&nbsp; 'Ecom_Payment_Card_ExpDate_Year',4<br>
+);</p>
+</font><p>
+<font face="Comic Sans MS" size="-1">
+This defines that four fields will display.&nbsp;&nbsp;<br>
+The Card Name and Card Number which require at least 4 characters to validate.<br>
+The Expiration Month which requires at least one number to validate<br>
+The Expiration Year which requires at least 4 characters to validate</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<ul>
+<li>
+<font face="Comic Sans MS" size="-1">
+You cannot leave a value Null, it must be 0 zero to display or greater than 0 for length to validate</font><li>
+<font face="Comic Sans MS" size="-1">
+You must remove the name=value pair from the list if you don't want that field to display</font><li>
+<font face="Comic Sans MS" size="-1">
+Put a zero (0) for any Field you will use but not require</font><li>
+<font face="Comic Sans MS" size="-1">
+Put a number value (minimum length of characters required) to require user input for that Field</font>
+</li>
+</ul>
+</font>
+<p>
+
+<font color="#000080" size="-1" face="Comic Sans MS">
+<b>What's the Mast list of cc field names ?</b></font></p>
+<font FACE="Fixedsys" SIZE="1">
+<ol>
+<li>Ecom_Payment_Card_Name<li>Ecom_Payment_Card_Number<li>Ecom_Payment_Card_Verification<li>Ecom_Payment_Card_ExpDate_Day<li>Ecom_Payment_Card_ExpDate_Month<li>Ecom_Payment_Card_ExpDate_Year
+</ol>
+</font>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+You may enable any of the above field names to display in the cc info boxes for input.&nbsp; These are the ECML v1.0 Field Names for credit card input.&nbsp;</font></p>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+<font color="#FF0000">
+Important</font>: The ECML field name for Card_Type is not in the list above.&nbsp; You cannot use it for input, because it is used in the drop box to display card type.&nbsp; Mof reserves this name and uses it only if the Payment Method selected is
+a CC type.&nbsp; The ECML field standard is: 
+<font FACE="Fixedsys" SIZE="1">
+Ecom_Payment_Card_Type</font></font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+WHAT CC TYPES WILL YOU BE USING ?</p>
+</font>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+You must declare what cc types you want to include in your Payment Method drop list.&nbsp; If at least one field above is enabled then Mof will assume that you want to list cc types for selection.&nbsp; Which ones should Mof list, and in which order
+do you want them listed.</font></p>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+You can use any combination of 8 cc types,&nbsp; which are listed below.&nbsp; List each type to use by it's code in the Master List, and list the cc types to use in the order you want them listed in the drop box.</font></p>
+<p>
+
+<font face="Comic Sans MS" size="-1" color="#000080">
+Example: All 8 cc types are listed in the package.</font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+@credit_card_list = ('VISA','MAST','AMER','DISC','DINE','JCB','CART','AUST');</font></p>
+<p>
+
+<font face="Comic Sans MS" size="-1" color="#000080">
+But if you only wanted to list standard:</font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+@credit_card_list = ('VISA','MAST','AMER');</font></p>
+<p>
+
+<font color="#000080" size="-1" face="Comic Sans MS">
+<b>What is the Master List of CC types ?</b></font></p>
+<font FACE="Fixedsys" SIZE="1">
+<ol>
+<li>VISA = Visa Credit Card<li>MAST = Mastercard Credit Card<li>AMER = American Express Credit Card<li>DISC = Discover Credit Card<li>DINE = Diners Club Credit Card<li>JCB = JCB Card<li>CART = Carte Blache<li>AUST = Australian BankCard
+</ol>
+</font>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+<font color="#FF0000">
+Note</font>: You must use only the acronym we have assigned in the Master List to enable that cc type.</font></p>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+<font color="#FF0000">
+Note</font>: If you want to include a special type of cc not listed above like company card, then you will need some minor customizing in the library file.&nbsp; You must account for the new type in the sub routine that builds payment options (BuildPaymentOptions)
+in the library.&nbsp; Then Mof will be able to recognize it.&nbsp; You will also have to modify the cc validation routines to recognize that type of numbering system.&nbsp; The validation routine is set up to recognize only the above listed 8 cc
+types.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+USE CC NUMBER ALGORITHMS TO VALIDATE ?</p>
+</font>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+Enable (1) or disable (0) this feature for validating credit card numbers.&nbsp; This is not a real time validation to determine if the number is active, only a pretty good validation to see if it passes the rules for issuing credit card numbers.</font></p>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+If you are using the Mof Final processing script with an API to an authorization service, then you may want to disable this.&nbsp; It's okay to enable it for real authorization services too.&nbsp; That would be an extra check for the customer.</font></p>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+If you do not use this, then the only validation is for length of the string entered for cc number as identified in the above array.</font></p>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+If the number does not pass validation then Mof will display a message with exactly what is wrong with the number.</font></p>
+<p>
+&nbsp;
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font face="Comic Sans MS" color="#000080" size="-1">
+<b><a name="EnablingOnlineChecking"></a>
+Enabling online checking options</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Back End configuration file:
+<font color="#000080">
+<b>mofpayment.conf</b></font></font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+ENABELING ONLINE CHECKING<br>
+ENABELING ONLINE CHECKING</font>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+Same rules as building the credit card fields.&nbsp; Declare what fields to display for collecting checking account information input and what the validation rule is for that field.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+'Field Name', [required &gt; 0, not required 0]</p>
+</font>
+<ol>
+<li>
+<font face="Comic Sans MS" size="-1">
+List the Name in the array with 0 to show and not validate</font><li>
+<font face="Comic Sans MS" size="-1">
+List the Name in the array with (n=minimum characters) to show and validate</font><li>
+<font face="Comic Sans MS" size="-1">
+Do not list the Name in the array to disable from showing</font>
+</ol>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+You must enable these fields to use Online Checking.&nbsp; If you enable these fields and also enable the Mail or Fax Payment options, then the Checking Account fields will display as you have them set here.&nbsp; If only want to use Mail or Fax in
+payment as a method, then do not enable any of the Checking Account fields here.</font></p>
+<p>
+
+<font color="#000080" size="-1" face="Comic Sans MS">
+<b>What's the Master List of available Checking Field Names</b></font></p>
+<font FACE="Fixedsys" SIZE="1">
+<ol>
+<li>Check_Holder_Name<li>Check_Number<li>Check_Account_Number<li>Check_Routing_Number<li>Check_Fraction_Number<li>Check_Bank_Name<li>Check_Bank_Address
+</ol>
+</font>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+<font color="#FF0000">
+Note</font>: You must use only our field names above. That is how Mof is set to name these fields.&nbsp; We did find any ECML standard for checking account information, so we made out own names.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+WHAT CHECKING FIELDS TO DISPLAY - VALIDATE ?</p>
+</font>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+This setting is disabled in the package.&nbsp; Here's an example on how to enable all available fields.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+%checking_account_fields = (<br>
+&nbsp;&nbsp;&nbsp; 'Check_Holder_Name',4,<br>
+&nbsp;&nbsp;&nbsp; 'Check_Number',2,<br>
+&nbsp;&nbsp;&nbsp; 'Check_Account_Number',6,<br>
+&nbsp;&nbsp;&nbsp; 'Check_Routing_Number',8,<br>
+&nbsp;&nbsp;&nbsp; 'Check_Fraction_Number',4,<br>
+&nbsp;&nbsp;&nbsp; 'Check_Bank_Name',2,<br>
+&nbsp;&nbsp;&nbsp; 'Check_Bank_Address',2<br>
+);</p>
+<p>
+
+<br>
+</font>
+</p>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font face="Comic Sans MS" color="#000080" size="-1">
+<b><a name="EnablingMailFax"></a>
+Enabling Mail or Fax in option</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Back End configuration file:
+<font color="#000080">
+<b>mofpayment.conf</b></font></font>
+<font face="Fixedsys" size="1">
+<br>
+ENABLING MAIL OR FAX<br>
+ENABLING MAIL OR FAX</font>
+
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+DO YOU WANT TO ALLOW MAILING OR FAXING PAYMENT ?<br>
+</font>
+<font face="Comic Sans MS" size="-1" color="#000080">
+Enable (1) or disable (0) Mailing or Faxing payment</font>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+This just adds an extra option for Payment Methods.&nbsp; It provides an alternative to any online payment, so someone can just print the invoice and mail in payment along with a copy of the final invoice.</font></p>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+You can enable any of the </font>
+<font face="Fixedsys" size="1">
+%checking_account_fields</font>
+<font face="Comic Sans MS" size="-1">
+ above to work with this option, follow rules for required fields.&nbsp; If you use any of the </font>
+<font face="Fixedsys" size="1">
+%checking_account_fields </font>
+<font face="Comic Sans MS" size="-1">
+for this option, then you probably do not want to make the fields required fields.&nbsp;&nbsp;</font></p>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+Note: You cannot enable any of the </font>
+<font face="Fixedsys" size="1">
+%checking_account_fields</font>
+<font face="Comic Sans MS" size="-1">
+ above if you want to force the Mail or Fax in option as the only Payment Method available.&nbsp; If you enable any </font>
+<font face="Fixedsys" size="1">
+%checking_account_fields </font>
+<font face="Comic Sans MS" size="-1">
+Mof thinks you want Online Checking as a Payment Method.</font></p>
+<p>
+
+<font face="Comic Sans MS" size="-1">
+<font color="#FF0000">
+Note</font>: If you have both Online Checking fields enabled and mail or fax payment enabled, then Mof will allow any input from the checking account field(s) input to display.&nbsp; What does that mean ?&nbsp; It means if both area enabled, but a
+customer selectes mail or fax payment, then enters some checking account informatin in those fields, then Mof will accept the input and print it in the appropriate Mail or Fax lines to be printed.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+IF MAILING-FAXING ALLOW LINES TO PRINT ?<br>
+</font>
+<font face="Comic Sans MS" size="-1" color="#000080">
+Enable (1) or disable (0) printing lines for CC/Check on final invoice</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+These are lines that print to be filled in by customer if selecting Mailing or Faxing in payment.&nbsp; If you are not allowing CC or Check as a payment method then you do not want these lines printing on a printed invoice or web copy.</p>
+<p>
+
+$allow_lines_credit<br>
+</font>
+<font face="Comic Sans MS" size="-1" color="#000080">
+Print lines for credit card info for Mail or Fax method ?</font></p>
+<p>
+
+<font face="Fixedsys" size="1">
+$allow_lines_check</font>
+<font face="Comic Sans MS" size="-1" color="#000080">
+<br>
+Print lines for checking account info for Mail or Fax method ?</font></p>
+<p>
+
+<br>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font face="Comic Sans MS" color="#000080" size="-1">
+<b><a name="EnablingPayPal"></a>
+Enabling the PayPal option</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is set in the Mof Back End configuration file:
+<font color="#000080">
+<b>mofpayment.conf</b></font></font>
+<font face="Fixedsys" size="1">
+<br>
+ENABLING PAYPAL<br>
+ENABLING PAYPAL</font>
+<p>
+<font size="-1" face="Comic Sans MS">
+These settings allow Mof to display a link to the PayPal Web Accept feature.&nbsp; This is a simply web link with the information that PayPal needs to trigger the Web Accept input.&nbsp; Mof simply passes some information about Merchant name, the
+Merchant's PayPal ID (email login), the final amount, a return page.&nbsp; Simply turn it on with the main switch $enable_paypal, and then adjust all the settings for your PayPal information.</font><font FACE="Fixedsys" SIZE="1">
+<p>
+
+ DO YOU WANT TO USE PAY PAL AS A PAYMENT METHOD ?<br>
+$enable_paypal = 0;</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+&nbsp; This is off</font><font FACE="Fixedsys" SIZE="1"><br>
+$enable_paypal = 1;</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+&nbsp; This is on</font></p>
+<p>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: When you enable PayPal then it appears as a payment option in the Mof Billing Information page.&nbsp; You can use it as one of several payment methods in Mof, or as the only payment method.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+SET THE WEB ACCEPT URL</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+This is the Web Accept URL.&nbsp; Don't change this unless PayPal reconfigures the way they use the feature.&nbsp; This is set by PayPal.&nbsp; Make sure to use the final</font><font FACE="Fixedsys" SIZE="1"> /</p>
+<p>
+
+$paypal_url = 'https://secure.paypal.x.com/xclick/';</p>
+<p>
+
+WHAT IS YOUR PAYPAL EMAIL ID ?<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Must match your business or premier account ID</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+YOUR MERCHANT NAME<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+What is your Merchant name ? This will appear as the Item Name.</font></p>
+<p>
+
+<font FACE="Fixedsys" SIZE="1"> WHAT URL TO RETURN TO AFTER PAYPAL ?<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Where to return when PayPal is complete. This can be any url on your site.&nbsp; Make a Thank You page if you want. If you are using the Web Copy of the Mof invoice (below) as the return url, then leave this blank</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+ USE WEB COPY OF INVOICE AS RETURN URL ?</font>
+<font size="-1" face="Comic Sans MS">
+<br>
+<font color="#000080">
+Enable (1) or disable (0) this to redirect to the Web Copy of Invoice when the PayPal system is finished processing.&nbsp; If this is disabled then paypal_return_url above is the default redirect.&nbsp;&nbsp;</font></font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Important</font>: You MUST have save_invoice_html enabled above for this to work</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+ WHERE IS THE PAYPAL BUTTON ?<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+What button to display for PayPal submit.&nbsp; Define all html attributes here, whatever you want it to be.&nbsp; Use the Full URL if you are defining an image.&nbsp;&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: This is an HTTPS url if using SSL</font></p>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font face="Comic Sans MS" color="#000080" size="-1">
+<b><a name="EnablingComments"></a>
+Enabling the comments box &amp; Cyber Permission</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+These two switches simply enable or disable using the comments box, or the Cyber Permission feature on the Billing Information page.&nbsp;&nbsp;</font>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Note: The Cyber permission only triggers for validation if online checking or credit card are selected as a payment method.&nbsp; Even if this feature is enabled, a Yes answer is not required if the payment method is either Mail - Fax payment, or use
+PayPal Web Accept.&nbsp; These two payment methods don't collect any important information.</font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+DO YOU WANT THE SPECIAL INSTRUCTIONS / COMMENTS BOX ?<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Enable (1) or disable (0) this to display</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+DO YOU WANT TO REQUIRE A RADIO BUTTON FOR FINAL APPROVAL ?<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Enable (1) or disable (0) this feature</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Do not enable this if you are only using Mail or Faxing in Payment or only using PayPal Web Accept. MOF will override this if other Payment Options are enabled and the customer selects Mail or Faxing in Payment, otherwise Mof will require a radio
+button to be selected for approval</font></p>
+
+<P>&nbsp;
+
+<P>&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD><u>
+<font size="+1" face="Comic Sans MS">
+<a name="CustomizingTips"></a>
+Some tips on customizing</font></u></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Merchant OrderForm was built to allow easy access to its processes and code for programmers.&nbsp; Perl programmers and even Perl script hackers will know what to do.&nbsp; Here's some tips on how to get started.</font>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+There are three lists in the docs section of the package that itemize all of Mof's global variables at different points.&nbsp; These lists are provided for programmers who need a reference to available variables for different points in Mof's
+processes.</font>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+Front End Variables.html</font><li>
+<font size="-1" face="Comic Sans MS">
+Final Invoice Variables.html</font><li>
+<font size="-1" face="Comic Sans MS">
+Computations.html</font>
+</ul>
+
+<p>
+
+<font face="Fixedsys" size="1">
+Front End Variables.html</font>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This list contains all the global variables that are available when the Order Summary (Preview Invoice) process is complete.&nbsp; When the Order Summary page displays, Mof is set to POST all these variables to the next process (mofpayment.cgi).&nbsp;
+A programmer could easily take any or all of these variables, which is all pertinent information needed for a complete invoice preview, and they could set up any kind of alternate POST to any other script desired.</font>
+
+<p>
+
+<font face="Fixedsys" size="1">
+Final Invoice Variables.html</font><p>
+<font size="-1" face="Comic Sans MS">
+This list contains all the global variables that are available when Mof finalizes the invoice.&nbsp; All of these variables are available to any plugin that Mof uses.&nbsp; Both of the mailing plugins in the package use these variables, and the
+plugin that creates the Web copy of the invoice use these variables.</font><p>
+<font face="Fixedsys" size="1">
+Computations.html</font><p>
+<font size="-1" face="Comic Sans MS">
+This list is a little more complicated.&nbsp; This list has all the variables that accumulate as Mof makes its way through the various computations.&nbsp; The list shows the order of variables that are available to each successive computation.&nbsp;
+For example, if you were coding a custom shipping computation, then you would have results from all the variables preceding it in the list.</font>
+
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="CustomizingAreas"></a>
+About Mof's built in customizing areas</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+Probably the most frequently used custom code in Mof is the default shipping computation.&nbsp; Both the user selected shipping method and the default shipping method, as well as the default discount and handling charges, can be set to defer to a
+custom computation.&nbsp; When you set any of these setting to call a custom method of computation then Mof defers to an area of code in the library file where you can make your own computation, as complex or as simply as you want.&nbsp; We have some
+custom examples already installed in the Mof library where computation happen.&nbsp; The examples will give you an idea of how to plug in your own code for shipping, discount, and handling computations.</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<u>For the Default Discount:</u></font><br>
+</font>
+<font face="Fixedsys" size="1">
+@use_discount = ('custom');</font>
+<font size="-1" face="Comic Sans MS">
+ in 
+<font color="#000080">
+<b>mof15.conf</b></font></font><p>
+<font size="-1" face="Comic Sans MS">
+In the library file: 
+<font color="#000080">
+<b>mof15_lib.pl</b></font><br>
+Around LINE 
+<font color="#000080">
+<b>1489</b></font> see these comments</font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+CUSTOM DISCOUNT ------------&gt;<br>
+Variables Available --------&gt;</p>
+</font><p>
+<font size="-1" face="Comic Sans MS">
+What the code says to do is this:</font>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+Discount $ 0.00 for less than $ 50.00 purchase</font><li>
+<font size="-1" face="Comic Sans MS">
+Discount $ 6.00 between $ 50.00 and $ 99.99 purchase</font><li>
+<font size="-1" face="Comic Sans MS">
+Discount $ 9.95 between $ 100.00 and $ 199.99 purchase</font><li>
+<font size="-1" face="Comic Sans MS">
+Discount $ 12.50 between $ 200.00 and $ 349.99 purchase</font><li>
+<font size="-1" face="Comic Sans MS">
+Discount $ 1700 between $ 350.00 and $ 499.99 purchase</font><li>
+<font size="-1" face="Comic Sans MS">
+Discount $ 19.95 between $ 500.00 and $ 699.99 purchase</font><li>
+<font size="-1" face="Comic Sans MS">
+Discount $ 21.50 between $ 700.00 and $ 849.99 purchase</font><li>
+<font size="-1" face="Comic Sans MS">
+Discount $ 35.00 between $ 850.00 and $ 1099.99 purchase</font><li>
+<font size="-1" face="Comic Sans MS">
+Discount $ 50.00 between $ 1100.00 and $ 1499.99 purchase</font><li>
+<font size="-1" face="Comic Sans MS">
+Discount $ 75.00 for any purchase $ 1500.00 or over</font>
+</ul>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Your computation must return two global variables:</font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+Return: $discount<br>
+Make: $Computations{'Primary_Discount_Status'} = &quot;display message&quot;</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+The Discount example above will give you an idea of where to go and how to find these built in custom computations.&nbsp; Here's the location for the shipping and handling</font>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<u>For the Handling Charge</u></font>
+<font face="Fixedsys" size="1">
+<br>
+@use_handling = ('custom');</font>
+<font size="-1" face="Comic Sans MS">
+ in 
+<font color="#000080">
+<b>mof15.conf</b></font></font><p>
+<font size="-1" face="Comic Sans MS">
+In the library file: 
+<font color="#000080">
+<b>mof15_lib.pl</b></font><br>
+Around LINE 
+<font color="#000080">
+<b>1675</b></font> see these comments</font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+CUSTOM HANDLING ------------&gt;<br>
+Variables Available ---------&gt;</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<u>For Custom Insurance Charges</u></font><br>
+<font face="Fixedsys" size="1">
+%use_insurance = (<br>
+	'NO Do Not Add Insurance',0,<br>
+	'YES Add Insurance Please',1000000<br>
+	);</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+In the library file: 
+<font color="#000080">
+<b>mof15_lib.pl</b></font><br>
+Around LINE 
+<font color="#000080">
+<b>1731 </b></font>see these comments</font>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<u>For the Default Shipping Charge</u></font>
+<font face="Fixedsys" size="1">
+<br>
+@use_shipping = ('custom');</font>
+<font size="-1" face="Comic Sans MS">
+ in 
+<font color="#000080">
+<b>mof15.conf</b></font></font><p>
+<font size="-1" face="Comic Sans MS">
+In the library file: 
+<font color="#000080">
+<b>mof15_lib.pl</b></font><br>
+Around LINE 
+<font color="#000080">
+<b>1942 </b></font>see these comments</font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+CUSTOM DEFAULT SHIPPING ------------&gt;<br>
+Variables Available (local) --------&gt;</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<u>For the User Selected Shipping Charge</u></font>
+<font face="Fixedsys" size="1">
+<br>
+</font>
+<font FACE="Fixedsys" SIZE="1">
+%method_mode</font>
+<font face="Fixedsys" size="1">
+ = ('method key','custom');</font>
+<font size="-1" face="Comic Sans MS">
+ in 
+<font color="#000080">
+<b>mof15.conf</b></font></font><p>
+<font size="-1" face="Comic Sans MS">
+In the library file: 
+<font color="#000080">
+<b>mof15_lib.pl</b></font><br>
+Around LINE 
+<font color="#000080">
+<b>2144 </b></font>see these comments</font>
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+CUSTOM USER SELECTED SHIPPING ----------------------&gt;</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: This area requires that you also set up the appropriate branch logic for any of the </font>
+<font FACE="Fixedsys" SIZE="1">
+%method_mode </font>
+<font size="-1" face="Comic Sans MS">
+keys that trigger a custom computation.</font><p><br>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD><font face="Comic Sans MS" size="-1" color="#000080"><b><a name="BypassingMethod"></a>
+Bypassing the Payment Method page</b></font>
+
+
+</TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is a little trick that requires some minor code adjustment.&nbsp; If you are only using one payment method, say for example, you only want to allow Mail or Fax payment, or the PayPal Web Accept method, and you don't want to collect any other
+information like Billing Address, Receipt Address, Comments, then you can trick Mof into bypassing the Billing Information page.</font>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+By default, when you click the &quot;checkout&quot; button from the Order Summary page, the Billing Information page will always trigger, because it it at the very minimum looking for the Payment Method for user input.&nbsp; So, even if you only have
+one payment method enabled, Mof will stop on this page to set up the hidden input for that one payment method.</font>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If you submit that Payment Method as hidden input from the Order Summary POST, and don't have any other fields set to display or validate on the Billing Information page, then Mof will bypass that page, because Mof will be looking for at least that
+one variable, and when it finds it, and nothing else is needed, then Mof will proceed directly to the Final Invoice as if you submitted everything from the Billing Information page.</font>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Example: Let's say you were using PayPal only, and not collecting any Billing Information, but wanted to proceed directly to the Final Invoice, to display the PayPal button ..</font><p>
+<font size="-1" face="Comic Sans MS">
+In mof.cgi around LINE 1703 see comments:</font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+PAYMENT CENTER POST<br>
+PAYMENT CENTER POST</font><p>
+<font size="-1" face="Comic Sans MS">
+See the area where Mof sets up all the hidden POST input to submit to the next process.&nbsp; You'll need to include the payment method as hidden input.</font>
+
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+print &quot;&lt;input type=\&quot;hidden\&quot; name=\&quot;input_payment_options\&quot; value=\&quot;PAYPAL\&quot;&gt; \n&quot;;<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Submit this name=value for PayPal</font><p>
+<font FACE="Fixedsys" SIZE="1">
+print &quot;&lt;input type=\&quot;hidden\&quot; name=\&quot;input_payment_options\&quot; value=\&quot;MAIL\&quot;&gt; \n&quot;;<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Submit this name=value for Mail Fax only</font><p>
+<font size="-1" face="Comic Sans MS">
+Here's the full list of values for that field name:</font><p>
+<font size="-1" face="Comic Sans MS">
+&lt;select name="<b>input_payment_options</b>">&nbsp;<br>
+&lt;option selected value="">Please Select Here&nbsp;<br>
+&lt;option value=""> ------------------------------&nbsp;<br>
+&lt;option value=&quot;<b>VISA</b>&quot;&gt;Visa Credit Card&nbsp;<br>
+&lt;option value=&quot;<b>MAST</b>&quot;&gt;Mastercard Credit Card&nbsp;<br>
+&lt;option value="<b>AMER</b>">American Express Credit Card&nbsp;<br>
+&lt;option value=&quot;<b>DISC</b>&quot;&gt;Discover Credit Card&nbsp;<br>
+&lt;option value=&quot;<b>DINE</b>&quot;&gt;Diners Club Credit Card&nbsp;<br>
+&lt;option value="<b>JCB</b>">JCB Card&nbsp;<br>
+&lt;option value=&quot;<b>CART</b>&quot;&gt;Carte Blache&nbsp;<br>
+&lt;option value="<b>AUST</b>">Australian BankCard&nbsp;<br>
+&lt;option value=&quot;<b>CHECK</b>&quot;&gt;Online Checking Draft&nbsp;<br>
+&lt;option value=&quot;<b>MAIL</b>&quot;&gt;Mailing or Faxing Payment&nbsp;<br>
+&lt;option value="<b>PAYPAL</b>">Using PayPal Service&nbsp;<br>
+&lt;/select></font>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+Also, you will need to turn off all settings in mofpayment.conf that will trigger the Billing Information page to display.&nbsp; In other words, you can't expect to bypass the Billing Information page if your config file is telling Mof to stop and
+collect Billing info fields, the comments box, the cyber permission, etc.&nbsp; Mof will do as you say, even though it already knows the &quot;hidden&quot; Billing Method as set above in our little trick, it will still stop and attempt to collect any
+other info you are telling it to collect.&nbsp; All of the following settings must be set to off in 
+<font color="#000080">
+<b>mofpayment.conf</b></font></font><p>
+<font face="Fixedsys" size="1">
+%billing_info_fields = ();<br>
+%receipt_info_fields = ();<br>
+%credit_card_fields = ();<br>
+<br>
+@credit_card_list = ();<br>
+%checking_account_fields = ();<br>
+$mail_or_fax_field = 0;<br>
+$enable_comments_box = 0;<br>
+$enable_cyber_permission = 0;</font>
+
+<p>
+
+<br>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD>
+<font color="#000080" size="-1" face="Comic Sans MS">
+<b><a name="MoreCustomizing"></a>
+How to obtain more customizing information</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+Our two examples above are just some ideas on how Mof can be customized.&nbsp; We will try to keep additional information on customizing Mof on our main web site<a href="http://www.merchantorderform.com/support.html"> support pages</a>
+.&nbsp; We will try to keep some custom shipping computations as we develop them, or as others develop them and send them to us.
+
+<P>&nbsp;
+<hr>
+<P><FONT FACE="Comic Sans MS"><FONT SIZE=-1>Written and produced by </FONT><B><FONT SIZE=-2>RGA@IO.COM</FONT></B><FONT SIZE=-1>
+/ <a HREF="http://www.io.com/~rga/scripts">http://www.io.com/~rga/scripts</a>
+</FONT></FONT>
+<BR><FONT FACE="Comic Sans MS"><FONT COLOR="#000080">What do you <FONT SIZE=+1>want</FONT>
+to order <FONT SIZE=+1>today</FONT>?</FONT></FONT>
+<BR><FONT FACE="Comic Sans MS"><FONT SIZE=-1>Documentation prepared July 31, 2000</FONT></FONT>
+<P><FONT FACE="Comic Sans MS"><FONT SIZE=-1>Thanks for your interest in
+</FONT><I><FONT COLOR="#800000">Merchant
+Order Form</FONT></I><FONT SIZE=-1>
+<B>v1.53 </B></FONT></FONT><FONT FACE="Wingdings"><FONT SIZE=-1>J</FONT></FONT>
+<BR>
+<font color="#808080">
+<FONT FACE="Arial,Helvetica"><b>Explore the Internet - Create the Internet</b></FONT>
+<BR>&nbsp;</font>
+<BR>
+<font size="-1" face="Comic Sans MS">
+These programs are distributed as Trial Ware or Share Ware. You are Welcome to install and test all portions of the programs. The package is not limited in any way and code source is left readable.&nbsp; Please make arrangements for the fee if you
+continue operating it on a Web Site. Feel free to contact me if you need special arrangements for use of MOF v1.53.</font>
+<P>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>For payment arrangements</b></font>: <a href="http://www.merchantorderform.com/payment.html">http://www.merchantorderform.com/payment.html</a>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+For personal web site use: $ 15.00<br>
+For web development (3-10 sites): $ 45.00, includes limited support<br>
+For web development (above 10 sites): $ 150.00, includes limited support<br>
+Note: For Resale or hosting license please contact <a href="mailto:rga@io.com">rga@io.com</a></font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Distribution of these programs and files without owner consent is prohibited. Please contact the authors of this product for any use outside the original registration and user license.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<b>COPYRIGHT NOTICE:</b><br>
+The contents of these programs and scripts are protected under the United States copyright laws as an unpublished work, and is confidential and proprietary to Austin Contract Computing, Inc.&nbsp; Its use or disclosure&nbsp; in whole or in part
+without the expressed written permission of Austin Contract Computing, Inc. is prohibited.&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<b>DISCLAIMER:</b><br>
+By opening and configuring this for your server and application you thereby assume any and all responsibility for the use and outcomes of this program. Please read the documentation on configurations, and test your installation thoroughly.&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Please do not distribute this script, as it is not a free-ware version. Please direct any non registered users of this script to the author's Web Site for details on how to obtain a registered copy of this script.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Web: <a href="http://www.merchantorderform.com/">Merchant OrderForm v1.53<br>
+</a>
+Mail: <a href="mailto:info@merchantorderform.com">info@merchantorderform.com<br>
+</a>
+Austin, Texas<br>
+July 31, 2000</font></p>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;</p>
+<P>
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+</BODY>
+</HTML>

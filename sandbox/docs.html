@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Wikipedia - Mediawiki MySite class DOCS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+  <body bgcolor="#DDDDDD">
+<font size="2">
+<center><h1>Wikipedia - Mediawiki MySite class DOCS (ver. 0.1.0)</h1></center>
+<B>AUTHOR</B>: Piotr Maliński<BR>
+<B>Contact</B>: <a href="mailto:riklaunim@gmail.com">riklaunim@gmail.com</a><BR>
+<B>Site</B>: <a href="http://www.english.rk.edu.pl">http://www.english.rk.edu.pl</a> | <a href="http://www.cms.rk.edu.pl">http://www.cms.rk.edu.pl</a> - Polish<BR>
+<B>License</B>: GPL<BR>
+<B>Requirements</B>: PHP5<BR><BR>
+
+This class alows you to "publish" and edit pages from <B><a href="http://en.wikipedia.org">wikipedia</a></B> or other Mediawiki powered site without MediaWiki installation. The idea:
+Let say that you are a student and you study chemistry - you want to make your site about it. Using this class you can have your very own site with nice content + you can help wikipedia by adding/expanding its articles.<BR><BR>
+
+<LI><B>HOW TO USE</B></LI>
+See the two examples<BR><BR>
+
+
+<BR><BR>
+<B>CONSTRUCTOR</B><BR>
+<B><font color="blue">$x = new wikipedia('PATCH TO WIKIPEDIA');</font></B> - where the PATCH is a link to a wikipedia or other mediawiki, like - http://en.wikipedia.org/<BR><BR>
+<B><U>METHODS</U></B>:<BR>
+<B><font color="blue">get_page($page, $header = false)</font></B> - will show the content from $page (like: Content_Management_System), IF you set $header to non-false - HEAD section with encoding and Mediawiki CSS will be included)<BR><BR>
+<B><font color="blue">edit_page($page, $header = false)</font></B> - the same as get_page, but this one will display the edit page with textarea<BR>
+  </body>
+</html>

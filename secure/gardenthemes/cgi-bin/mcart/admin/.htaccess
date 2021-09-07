@@ -1,0 +1,6 @@
+AuthUserFile /home/gardenth/public_html/cgi-bin/mcart/admin/.htadmin
+AuthName "ADMIN LOGIN REQUIRED"
+AuthType Basic
+<Limit GET POST>
+require valid-user
+</Limit>

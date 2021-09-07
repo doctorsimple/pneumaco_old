@@ -1,0 +1,542 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML><HEAD><TITLE>MerchantPal.com eBusiness Products &amp; Services</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+
+<META http-equiv=EXPIRES content=0>
+<link REV="made" href="mailto:owner@merchantpal.com">
+<META NAME="Robot" CONTENT="ALL">
+<META NAME="DC.Creator" CONTENT="RGA">
+<META NAME="DC.Publisher" CONTENT="MerchantPal.com : eBusiness">
+<META content=DOCUMENT name=RESOURCE-TYPE>
+<meta content=GLOBAL name=DISTRIBUTION>
+<META content="MerchantPal.com" name=AUTHOR>
+<META content="Copyright (c) 2001-2004 by MerchantPAL.com (tm)" name=COPYRIGHT>
+<META content="INDEX, FOLLOW" name=ROBOTS>
+<META content="1 DAYS" name=REVISIT-AFTER>
+<META content=GENERAL name=RATING>
+<META content="MSHTML 6.00.2800.1170" name=GENERATOR>
+<META NAME="keywords" CONTENT="ebusiness,shopping cart,ecommerce,cart,orderform,web services,software,web application,programming,perl,php,mysql">
+<META NAME="description" CONTENT="Web based eBusiness applications, software, services, shopping cart, database">
+
+<LINK REL="Shortcut Icon" href="http://www.gardenthemes.com/mofcart/favicon.ico">
+<link rel="stylesheet" href="istyle.css" type="text/css">
+
+<style type="text/css">
+<!--
+.style2 {font-size: 9pt; font-style: normal; font-family: Verdana, sans-serif;}
+.style3 {color: #FF0000}
+.style5 {color: #FF0000; font-weight: bold; }
+-->
+</style>
+</HEAD>
+
+<body background="bgimg.gif"> 
+
+    
+      <table cellspacing=0 cellpadding=0 width="100%" align=center bgcolor=#dadada border=0>
+
+		<!-- Embed Top logo & fill into overall body -->
+		<tr><td colspan="2">
+		 <TABLE width="100%" align=center cellpadding="0" cellspacing="0">
+        <TR>
+          <TD width="18" class=tl><img src="mofl.gif" width="18" height="50"></TD>
+          <TD class="topBkgd"><IMG src="moflogo.gif" alt="MerchantOrderForm Shopping Cart" width="509" height="50" border=0></TD>
+          <TD align=right class="topBkgd"><img src="pixel.gif" width="1" height="1"><img src="pixel.gif" width="1" height="1"></TD>
+          <TD width="18" class=tr><img src="mofr.gif" width="18" height="50"></TD>
+        </TR>
+        <TR>
+          <TD class="lineLeft">&nbsp;</TD>
+			<!-- sliding menus -->
+          	<TD colspan="2" class="lineHeader"><img src="rarrow.gif" width="12" height="7" align="absmiddle">Getting Started with MOFcart v2.5</TD>
+		  	<!-- sliding menus -->
+          <TD class="lineRight">&nbsp;</TD>
+        </TR>    
+		</TABLE>
+		</td></tr>
+
+		<!-- Begin Main Body -->
+          <tr valign=top>
+            <td valign=top bgcolor="#FFFFFF" class="columns"> 
+			
+			  <div id="pageNav"> 
+			   
+
+
+              <div id="topLinks">
+			  
+			<div id="noTopLink">Install Notes </div>
+			     <a href="http://www.gardenthemes.com/mofcart/example_mofstore.html"> <img src="smpage.gif" width="16" height="16" border="0" align="absmiddle"> Examples</a>
+			     <a href="http://www.gardenthemes.com/cgi-bin/mcart/mof.cgi?viewcart"> <img src="leftcart.gif" width="19" height="15" border="0" align="absmiddle"> myCart </a>
+			  </div>
+
+					
+			<div id="spaceNav">&nbsp;</div>
+			  <div id="sectionLinks">
+			
+			    <a href="#BackUp"> Backing Up</a>
+			  
+			      <span class="menu"><a href="#Warning">Test Number</a></span>
+			  
+                  <span class="menu"><a href="#GetOrders">Order Notices</a></span><span class="menu"><a href="#RetrievingCC">Retrieving CC</a></span><span class="menu"><a href="#HookProducts">Add To Cart</a></span><span class="menu"><a href="#ExamplePages">FORM Input</a></span><span class="menu"><a href="#GetTemplates">Matching</a></span><span class="menu"><a href="#TemplateRules">Templates</a></span><span class="menu"><a href="#TemplateNames">File Names</a></span><span class="menu"><a href="#ChangeSettings">Settings</a></span><span class="menu"><a href="#FindConfigs">Config Files</a></span><span class="menu"><a href="#CheckSecurity">Security</a></span>
+
+
+			<div id="spaceNav">&nbsp;</div>					
+			<span class="menu"><a href="#sql">mySQL</a></span><span class="menu"><a href="#ares">ARES</a></span></div>
+			
+
+	
+			  <div id="spaceNav">&nbsp;</div>					
+					
+					  
+  			<div id="bottomNav">
+			<img src="bottom10.gif" width="108" height="94">
+            </div>
+
+
+			  
+			  </div>								
+					
+		
+			
+		    </td>
+            <td valign=top class="body">
+
+				<!-- Start Content -->			
+				<table class="content">
+				<tr>
+				<td class="content">
+								
+
+				  <p class="text"><strong>Congratulations</strong>! Your installation has been completed. </p>
+				  <p class="text">This page contains instructions for using your cart. </p>
+				  <p class="text">This is a <span class="boldText">Quick Reference</span> to getting started. The complete documentation can be obtained at <a href="http://www.merchantorderform.com/docs" target="_blank">MerchantOrderForm.com/docs.</a> The docs come in searchable PDF or CHM (windows help) format. Docs are also in HTML format. Study this Quick Reference first. It will give you a global view of how things work. The complete documentation can be a little overwhelming until you read this document. </p>
+				  <p class="text"><span class="textRed"><u>Very Important</u></span>: You must perform the following tasks now! You will need an FTP program to do these things (some hosting services have an online file manager for downloading files which can be used).</p>
+				  <p class="text">Obtain (download) from your <u>hosting server</u> the files &amp; directories listed below. Make sure they are downloaded completely &amp; that you know the place they are saved on your local computer. When you are sure the files have been safely saved away from the hosting server, then you must delete them from the hosting server. Do Not leave these files on the hosting server. They contain passwords.</p>
+				  <p class="text">You need to get 5 Files &amp; 2 entire Directory inside the filespace where CGI scripts are. (usually /<span class="title">cgi-bin</span>/) Note: some hosting services may use a different name for the directory where CGI scripts run. Check your hosting services tech help pages for CGI Scripts.</p>
+				  <p class="text">The installation utility reports it here:<br>
+			      <span class="menu"><img src="arrow.gif" width="12" height="7">/home/gardenth/public_html/cgi-bin/mcart<br>
+			      </span>
+				  <br>
+				  <table class="settings" width="100%"  border="1" cellspacing="0" cellpadding="2">
+                    <tr bgcolor="#CCCCCC" class="title">
+                      <td width="22%">
+                        <div align="center">name</div>
+                      </td>
+                      <td width="14%">
+                        <div align="center">type</div>
+                      </td>
+                      <td width="64%">
+                        <div align="center">location</div>
+                      </td>
+                    </tr>
+                    <tr class="text">
+                      <td nowrap class="title">setup.conf</td>
+                      <td nowrap>
+                        <div align="center">File</div>
+                      </td>
+                      <td>..<span class="title">/mcart/</span>setup.conf</td>
+                    </tr>
+                    <tr class="text">
+                      <td nowrap class="title">setup.cgi</td>
+                      <td nowrap>
+                        <div align="center">File</div>
+                      </td>
+                      <td>..<span class="title">/mcart/</span>setup.cgi</td>
+                    </tr>
+                    <tr class="text">
+                      <td nowrap class="title">&nbsp;</td>
+                      <td colspan="2"><span class="style5"><u>Very Important</u> you delete the 2 Files Above from your server, or someone could re-run the install from their web browser. </span></td>
+                    </tr>
+                    <tr bgcolor="#FFFFCC" class="text">
+                      <td nowrap class="title">settings.html</td>
+                      <td nowrap>
+                        <div align="center">File</div>
+                      </td>
+                      <td>..<span class="title">/mcart/admin/</span>settings.html</td>
+                    </tr>
+                    <tr class="text">
+                      <td nowrap class="title">&nbsp;</td>
+                      <td nowrap>&nbsp;</td>
+                      <td bgcolor="#FFFFCC">Keep this file in a safe place. You will need the passwords &amp; information in it </td>
+                    </tr>
+                    <tr class="text">
+                      <td nowrap class="title">message.txt</td>
+                      <td nowrap>
+                        <div align="center">File</div>
+                      </td>
+                      <td>..<span class="title">/mcart/admin/</span>message.txt</td>
+                    </tr>
+                    <tr class="text">
+                      <td nowrap class="title">?????.txt </td>
+                      <td nowrap>
+                        <div align="center">File</div>
+                      </td>
+                      <td>..<span class="title">/mcart/logs/</span>(MMDDYYYYHHMMSS).txt or numbers.txt, where the &quot;numbers&quot; correspond to Installation DateTime stamp</td>
+                    </tr>
+                    <tr class="text">
+                      <td nowrap class="title">/copy</td>
+                      <td nowrap>
+                        <div align="center">Directory<br>
+&amp; Files </div>
+                      </td>
+                      <td>..<span class="title">/mcart/copy/</span>(All Dirs, All Files) Make sure you downlad All the Files &amp; sub directories inside the &quot;copy&quot; directory. This is your installation Backup. </td>
+                    </tr>
+                    <tr class="text">
+                      <td nowrap class="title">/unpack</td>
+                      <td nowrap>
+                        <div align="center">Directory<br>
+&amp; Files </div>
+                      </td>
+                      <td>Delete this entire directory. It is the install pkg. You already have it downloaded </td>
+                    </tr>
+                  </table>
+				  <p class="text">Are the files &amp; folders listed above saved to a safe location away from the <u>hosting server</u>? Did you remember to delete all the files &amp; folders listed above from your <u>hosting server</u>?</p>
+					<p class="text">&nbsp;</p>
+				  <p class="text"><a href="#Top"><img src="favicon.gif" width="16" height="16" border="0" align="absbottom"></a> <strong><a name="BackUp"></a> Backup your site</strong></p>
+				  <p class="text">We suggest you backup your entire site, especially the cart installation. To backup the complete cart installation copy all files on your remote server in the following folders:</p>
+				  <ul>
+                    <li>/home/gardenth/public_html/ares</li>
+                    <li>/home/gardenth/public_html/invoices</li>
+                    <li>/home/gardenth/public_html/mofcart</li>
+                    <li>/home/gardenth/public_html/cgi-bin/mcart</li>
+			      </ul>
+				  <p><span class="textBold"><a href="#Top"><br>
+                          <img src="favicon.gif" width="16" height="16" border="0" align="absbottom"></a> <a name="Warning"></a></span><span class="textRed"> Warning ! </span></p>
+				  <p class="text">Do not use real credit card numbers for testing unless you have the cart installed and running under SSL. Use <span class="textBold">VISA</span> test number : <span class="textBold">4321 5678 9876 4321</span></p>
+				  <p><span class="textBold"><span class="title"><a href="#Top"><br>
+                            <img src="favicon.gif" width="16" height="16" border="0" align="absbottom"></a> <strong><a name="GetOrders"></a></strong></span></span><span class="textBold"><strong> How do I get the orders ? </strong></span></p>
+				  <p class="text">Each time an order is completed on your site, the cart will send an email notice to the Merchant. The cart also sends an email summary to the customer. New order notices are sent to:</p>
+				  <ul>
+                    <li> <span class="textBold"> orders@gardenthemes.com</span> </li>
+			      </ul>
+				  <p class="text"><a name="RetrievingCC"></a>The mail notice does not include sensitive information like credit card numbers. To obtain a credit card number you must log into the CC retrieval utility, and obtain the card numbers over a secure connection. <span class="textRed">You will need the login &amp; password</span> (listed in the settings.html reference you downloaded &amp; saved on your local computer).</p>
+				  <p class="text">The CC retrieval utility is located here:</p>
+				  <ul>
+                    <li><span class="text"> <a href="https://secure32.elinuxservers.com/~gardenth/cgi-bin/mcart/admin/mofcc.cgi" target="_blank">https://secure32.elinuxservers.com/~gardenth/cgi-bin/mcart/admin/mofcc.cgi </a></span><br>
+                    </li>
+			      </ul>
+				  <p class="textBold"><span class="title"><a href="#Top"><img src="favicon.gif" width="16" height="16" border="0" align="absbottom"></a> <strong><a name="HookProducts"></a></strong></span><strong> How do I hook up my products to the cart ? </strong></p>
+				  <p class="text">Standard HTML Forms hook your products to the cart. You can place &quot;Add to Cart&quot; buttons anywhere on your site, on any page, and in a variety of ways. If you are familiar with HTML Forms, just point the POST action to the cart's Front End script here:</p>
+				  <ul>
+                    <li>http://www.gardenthemes.com/cgi-bin/mcart/<strong>mof.cgi</strong> </li>
+			      </ul>
+				  <p class="text">MerchantOrderForm Cart accepts almost unlimited types of input, but you must follow the input rules. The rules range from very simple to extremely complex. Consult the main documentation section <span class="textBold">Building Input Pages</span> for detailed information on the input rules.<br>
+                  </p>
+				  <p class="text"><span class="textBold"><span class="title"><a href="#Top"><img src="favicon.gif" width="16" height="16" border="0" align="absbottom"></a></span> <a name="ExamplePages"></a> Example pages</span>:</p>
+				  <p class="text">A variety of example input pages were installed to your site. You can test the cart from the example pages. The example pages also display the FORM code which can be cut &amp; pasted into your own pages. An index &lt;<a href="http://www.gardenthemes.com/mofcart/example_mofstore.html" target="_blank">example_mofstore.html</a>&gt; page shows an example of how you can organize a &quot;Catalogue&quot; page. </p>
+				  <span class="text"> <img src="arrow.gif" width="12" height="7"><a href="http://www.gardenthemes.com/mofcart/example_viewcart.html" target="_blank">http://www.gardenthemes.com/mofcart/example_viewcart.html</a><br>
+                  <img src="arrow.gif" width="12" height="7"><a href="http://www.gardenthemes.com/mofcart/example_single1.html" target="_blank">http://www.gardenthemes.com/mofcart/example_single1.html</a><br>
+                  <img src="arrow.gif" width="12" height="7"><a href="http://www.gardenthemes.com/mofcart/example_single2.html" target="_blank">http://www.gardenthemes.com/mofcart/example_single2.html</a><br>
+                  <img src="arrow.gif" width="12" height="7"><a href="http://www.gardenthemes.com/mofcart/example_single3.html" target="_blank">http://www.gardenthemes.com/mofcart/example_single3.html</a><br>
+                  <img src="arrow.gif" width="12" height="7"><a href="http://www.gardenthemes.com/mofcart/example_options1.html" target="_blank">http://www.gardenthemes.com/mofcart/example_options1.html</a><br>
+                  <img src="arrow.gif" width="12" height="7"><a href="http://www.gardenthemes.com/mofcart/example_options2.html" target="_blank">http://www.gardenthemes.com/mofcart/example_options2.html</a><br>
+                  <img src="arrow.gif" width="12" height="7"><a href="http://www.gardenthemes.com/mofcart/example_options3.html" target="_blank">http://www.gardenthemes.com/mofcart/example_options3.html</a><br>
+                  <img src="arrow.gif" width="12" height="7"><a href="http://www.gardenthemes.com/mofcart/example_complex1.html" target="_blank">http://www.gardenthemes.com/mofcart/example_complex1.html</a><br>
+                  <img src="arrow.gif" width="12" height="7"><a href="http://www.gardenthemes.com/mofcart/example_complex2.html" target="_blank">http://www.gardenthemes.com/mofcart/example_complex2.html</a><br>
+                  <img src="arrow.gif" width="12" height="7"><a href="http://www.gardenthemes.com/mofcart/example_orderform1.html" target="_blank">http://www.gardenthemes.com/mofcart/example_orderform1.html</a><br>
+                  <img src="arrow.gif" width="12" height="7"><a href="http://www.gardenthemes.com/mofcart/example_orderform2.html" target="_blank">http://www.gardenthemes.com/mofcart/example_orderform2.html</a><br>
+                  <img src="arrow.gif" width="12" height="7"><a href="http://www.gardenthemes.com/mofcart/example_orderform3.html" target="_blank">http://www.gardenthemes.com/mofcart/example_orderform3.html</a><br>
+                  <img src="arrow.gif" width="12" height="7"><a href="http://www.gardenthemes.com/mofcart/example_priceinput1.html" target="_blank">http://www.gardenthemes.com/mofcart/example_priceinput1.html</a><br>
+                  <img src="arrow.gif" width="12" height="7"><a href="http://www.gardenthemes.com/mofcart/example_priceinput2.html" target="_blank">http://www.gardenthemes.com/mofcart/example_priceinput2.html</a><br>
+                  <img src="arrow.gif" width="12" height="7"><a href="http://www.gardenthemes.com/mofcart/example_priceinput3.html" target="_blank">http://www.gardenthemes.com/mofcart/example_priceinput3.html</a><br>
+                  <img src="arrow.gif" width="12" height="7"><a href="http://www.gardenthemes.com/mofcart/example_matrix.html" target="_blank">http://www.gardenthemes.com/mofcart/example_matrix.html</a><br>
+                  <img src="arrow.gif" width="12" height="7"><a href="http://www.gardenthemes.com/mofcart/example_textarea.html" target="_blank">http://www.gardenthemes.com/mofcart/example_textarea.html</a><br>
+                  <img src="arrow.gif" width="12" height="7"><a href="http://www.gardenthemes.com/mofcart/example_pricechanges.html" target="_blank">http://www.gardenthemes.com/mofcart/example_pricechanges.html</a><br>
+                  <img src="arrow.gif" width="12" height="7"><a href="http://www.gardenthemes.com/mofcart/example_popupordering.html" target="_blank">http://www.gardenthemes.com/mofcart/example_popupordering.html</a><br>
+                  <img src="arrow.gif" width="12" height="7"><a href="http://www.gardenthemes.com/mofcart/example_memberships.html" target="_blank">http://www.gardenthemes.com/mofcart/example_memberships.html</a><br>
+                  </span>
+                  <p><span class="title"><a href="#Top"><br>
+                          <img src="favicon.gif" width="16" height="16" border="0" align="absbottom"></a> <strong><a name="GetTemplates"></a></strong></span><strong class="textBold">How do I make the cart look like my site ? </strong></p>
+                  <p class="text">MerchantOrderForm cart uses 13 templates that show up at various points in the ordering process. The 13 templates are standard HTML pages, and can be designed to match your site layout. You will need to be familiar with basic web page editing concepts to create your templates. </p>
+                  <p><span class="text">Consult the main documentation section <span class="textBold">Formatting Templates </span></span><span class="text">for detailed information on making your own templates.</span></p>
+                  <p class="text">The packaged templates were placed in the <span class="textBold">/mofcart/</span> directory on your site. Use the same location and filenames for your templates, and just replace the ones that came with the installation. You must follow the rules below when making your templates. </p>
+                  <p class="textBold"><a name="TemplateRules"></a> Rules for making templates:</p>
+                  <ul>
+                    <li>The <span class="textRed">Input Marker</span> below must be placed in your template. The marker must appear as an HTML comment line at the place in the template where you want the cart to insert its dynamic output. It must be on a line by itself. Double check that your html editor has kept it on a line by itself. The marker must be exactly like this <br>
+                        <br>
+                        <strong>&lt;!--MOF-INPUT-AREA--&gt; </strong><br>
+                    </li>
+                    <li>The Window Naming JavaScript <span class="textRed">MAIN</span> is also  needed in each of the (non PopUp) Templates<br>
+                      <br>
+                      &lt;script type="text/javascript" language="JavaScript"&gt;<BR>
+                      &lt;!-- name and focus window<BR>
+window.name = 'MAIN';<BR>
+window.focus();<BR>
+// End --&gt;<BR>
+&lt;/SCRIPT&gt;<strong> </strong><br>
+                    </li>
+                    <li><span class="textRed">Always use a Full URL</span> (http(s)://www.something.com/image.gif) to address all objects within your template page. The templates are processed through the CGI environment on your server, which do not consistently handle relative addressing correctly. If the cart is running via a secure (SSL) environment, then all objects in your templates must also be referenced using the secure (SSL) address (HTTPS), i.e., mofstyle.css, images.gif, other-objects.etc. If you are getting browser SSL &quot;items insecure&quot; messages when running the templates via SSL, then you have some object that is being called via standard HTTP protocol. Remember, even the nested objects must be addressed via HTTPS (SSL). For example, the mofstyle.css has URL image settitngs that must also be SSL addresses. <br>
+                        <br>
+                    </li>
+                    <li><span class="textRed">Always include </span><span class="text">the</span> <span class="textBold">mofstyle.css</span> CSS (style sheet) file in your templates. The cart's output is formatted entirely with CSS, which loads as part of your template. You can add more styles to the <span class="textBold">mofstyle.css</span>, but do not delete any of the existing styles, or the dynamic output will not have the needed styles for formatting. <br>
+                        <br>
+    IF you already have a complicated CSS style for your site layoug, then you can just add the &quot;boxed&quot; &lt;mofstyle.css&gt; that is smaller, containing just the CSS for dynamic output. You can find that in the /copy/mofcart/boxed/mofstyle.css, which you saved as backup. <br>
+                    </li>
+                    <li>The templates can be any HTML design.&nbsp; Avoid anything too fancy, like a reloading Java menu.&nbsp; When operating out of a server's CGI only your browser should be allowed to reload a script, so that it can rePOST the necessary data.</li>
+                  </ul>
+                  <p class="textBold"><a name="TemplateNames"></a>Here is a quick reference to the 13 templates</p>
+                  <p class="headArticle"><strong> MOFcart Front End Templates - REGULAR - Controlled by &lt;mof.cgi&gt; </strong></p>
+                  <ul>
+                    <li>FileName : <span class="textAlice">mofcookies.html</span><br>
+    Error message that displays if cookies not working on browser:<a href="http://www.gardenthemes.com/mofcart/mofcookies.html" target="_blank"><br>
+    http://www.gardenthemes.com/mofcart/mofcookies.html </a><br>
+    <br>
+                    </li>
+                    <li>FileName : <span class="textAlice">moferrors.html</span><br>
+    Error message that displays for all errors (other than cookie errors)<br>
+    <a href="http://www.gardenthemes.com/mofcart/moferrors.html" target="_blank">http://www.gardenthemes.com/mofcart/moferrors.html </a><br>
+    <br>
+                    </li>
+                    <li> FileName : <span class="textAlice">mofvalidate.html</span><br>
+    Message that displays if product input is not complete <a href="http://www.gardenthemes.com/mofcart/mofvalidate.html" target="_blank"><br>
+    http://www.gardenthemes.com/mofcart/mofvalidate.html </a><br>
+    <br>
+                    </li>
+                    <li>FileName :<strong><span class="textAlice"> mofviewcart.html</span><br>
+    Step 1. View Cart</strong> screen. Appears when putting item in cart <br>
+    <a href="http://www.gardenthemes.com/mofcart/mofviewcart.html" target="_blank">http://www.gardenthemes.com/mofcart/mofviewcart.html </a><br>
+    <br>
+                    </li>
+                    <li>FileName : <span class="textAlice">mofshipping.html<strong></strong></span><strong><br>
+    Step 2</strong>. <strong>Shipping Information</strong> screen. <br>
+    <a href="http://www.gardenthemes.com/mofcart/mofshipping.html" target="_blank">http://www.gardenthemes.com/mofcart/mofshipping.html </a><br>
+    <br>
+                    </li>
+                    <li>FileName : <span class="textAlice">mofsummary.html<strong></strong></span><strong><br>
+    Step 3</strong>.<strong> Order Summary</strong> screen. Shows preview of order, tax, shipping, etc. <br>
+    <a href="http://www.gardenthemes.com/mofcart/mofsummary.html" target="_blank">http://www.gardenthemes.com/mofcart/mofsummary.html </a><br>
+                    </li>
+                  </ul>
+                  <p class="headArticle"> MOFcart Front End templates - POP-UP - Controlled by &lt;mof.cgi&gt; </p>
+                  <ul>
+                    <li> FileName : <span class="textAlice">moferrors-pop.html</span><br>
+    Pop-Up Mode Only : Error message that displays for all errors <a href="http://www.gardenthemes.com/mofcart/moferrors-pop.html" target="_blank"><br>
+    http://www.gardenthemes.com/mofcart/moferrors-pop.html</a><br>
+    <br>
+                    </li>
+                    <li>FileName : <span class="textAlice">mofvalidate-pop.html</span><br>
+    Pop-Up Mode Only : Message that displays if product input is not complete <a href="http://www.gardenthemes.com/mofcart/mofvalidate.html"></a><br>
+    <a href="http://www.gardenthemes.com/mofcart/mofvalidate-pop.html" target="_blank">http://www.gardenthemes.com/mofcart/mofvalidate-pop.html</a><br>
+    <br>
+                    </li>
+                    <li>FileName : <span class="textAlice">mofviewcart-pop.html</span><br>
+    Pop-Up Mode Only<strong> : Step 1. View Cart</strong> screen. Appears when putting item in cart <br>
+    <a href="http://www.gardenthemes.com/mofcart/mofviewcart-pop.html" target="_blank">http://www.gardenthemes.com/mofcart/mofviewcart-pop.html </a><br>
+    <br>
+    <br>
+    <strong>Note</strong>: Steps 2 &amp; 3 are processed through the Regular cart screens. Only the product input results can be viewed in a Pop Up window. <br>
+                    </li>
+                  </ul>
+                  <p class="headArticle">MOFcart web copy of invoice template - Controlled by &lt;mofpay.cgi&gt; </p>
+                  <ul>
+                    <li>FileName : <span class="textAlice">mofinvoice.html</span><br>
+    Copy of Invoice screen. Shows invoice saved to web <a href="https://secure32.elinuxservers.com/~gardenth/mofcart/mofinvoice.html" target="_blank"><br>
+    https://secure32.elinuxservers.com/~gardenth/mofcart/mofinvoice.html </a><br>
+                    </li>
+                  </ul>
+                  <p class="headArticle"> MOFcart Back End templates - REGULAR - Controlled by &lt;mofpay.cgi&gt; </p>
+                  <ul>
+                    <li>FileName : <span class="textAlice">moferrors-ssl.html</span><br>
+    Error message that displays for all errors during checkout process<a href="https://secure32.elinuxservers.com/~gardenth/mofcart/moferrors-ssl.html" target="_blank"><br>
+    https://secure32.elinuxservers.com/~gardenth/mofcart/moferrors-ssl.html</a><br>
+    <br>
+                    </li>
+                    <li>FileName : <span class="textAlice">mofbilling.html<strong></strong></span><strong><br>
+    Step 4</strong>.<strong> Billing Information</strong> screen. Collects billing info as configured <br>
+    <a href="https://secure32.elinuxservers.com/~gardenth/mofcart/mofbilling.html" target="_blank">https://secure32.elinuxservers.com/~gardenth/mofcart/mofbilling.html </a><br>
+    <br>
+                    </li>
+                    <li>FileName : <span class="textAlice">mofconfirmation.html<strong></strong></span><strong><br>
+    Step 5</strong>.<strong> Order Confirmation</strong> screen. Final screen <br>
+    <a href="https://secure32.elinuxservers.com/~gardenth/mofcart/mofconfirmation.html" target="_blank">https://secure32.elinuxservers.com/~gardenth/mofcart/mofconfirmation.html </a><br>
+                    </li>
+                  </ul>
+                  <p class="text"><strong>Note</strong>: the /<strong>copy</strong>/ directory &amp; files you saved and deleted from the hosting server contains two (2) complete sets of examples &amp; templates. Inside the <strong>/copy/mofcart/</strong> directory find the following directories: (1) /<strong>boxed</strong>/ &amp; (2) /<strong>ver25</strong>/ .. The &quot;ver25&quot; set uses some pretty complicated CSS. If you want a simpler set of examples to work with, then just upload the entire contents of the /<strong>boxed</strong>/ directory into the /<strong>mofcart</strong>/ directory on your hosting server. <br>
+                  </p>
+                  <p><span class="textBold"><span class="title"><a href="#Top"><img src="favicon.gif" width="16" height="16" border="0" align="absbottom"></a> <strong><a name="ChangeSettings"></a></strong></span><strong>How do I change settings for the cart ? </strong></span> </p>
+                  <p><span class="text">MerchantOrderForm cart does not have an online admin utility. You must make all setting changes in the configuration files. If you are not familiar with editing Perl configuration files, then you should start with the documentation section <strong>About Configurations</strong>. You can find detailed explanations of all the cart settings in the documentation sections: <strong>Configurations Front End</strong> &amp; <strong>Configurations Checkout</strong></span>.<br>
+                      <br>
+                      <span class="textBold"><span class="title"><a href="#Top"><br>
+                      <img src="favicon.gif" width="16" height="16" border="0" align="absbottom"></a> <strong><a name="FindConfigs"></a></strong></span><strong>Where are the configuration files ? </strong></span> </p>
+                  <p class="text">There are 3 configuration files which direct the cart's behavior. We recommend that you <strong>backup the original installation configuration files</strong> and set them aside in a safe place. It is also a good idea to make backups of the configuration files as you make changes. Always make sure you upload the configuration files back to the same location on your server. </p>
+                  <ul>
+                    <li>FileName : <span class="textAlice">common.conf</span><br>
+    Keeps common path settings<br>
+    /home/gardenth/public_html/cgi-bin/mcart/common.conf<br>
+    <br>
+                    </li>
+                    <li>FileName : <span class="textAlice">mof.conf</span><br>
+    Keeps all settings for the cart Front End, products, shipping, tax, etc.<br>
+    /home/gardenth/public_html/cgi-bin/mcart/lib/mof.conf<br>
+    <br>
+                    </li>
+                    <li>FileName : <span class="textAlice">mofpay.conf</span><br>
+    Keeps all settings for the cart Back End, billing, checkout, etc.<br>
+    <span class="settings">/home/gardenth/public_html/cgi-bin/mcart/lib/mofpay.conf<br>
+    <br>
+  </span></li>
+                  </ul>
+                  <p><strong><span class="textBold"><span class="title"><a href="#Top"><img src="favicon.gif" width="16" height="16" border="0" align="absbottom"></a></span><a name="sql"></a>Saving Order Data in a mySQL database</span></strong></p>
+                  <p class="text">This package of MOFcart (v2.5 10-21-03) has only the datasave utilities, and will be of little use to you unless you are developing your own mySQL interface to do something with the MOFcart order data once it is saved. You can use any of the commercially available mySQL tools for mySQL dB management to build queries, etc.</p>
+                  <p class="text">Lots more mySQL stuff is planned for evolving versions. Hopefully, you will just need to &quot;drop in&quot; the evolving mySQL scripts as they are developed. Check the <a href="http://www.merchantorderform.com/updates.html " target="_blank">updates area</a> for anything new along the mySQL lines. </p>
+                  <p class="text">Follow the steps below to enable mySQL datasave from MOFcart orders. We recommend that you not use a remote dB, since the data transfer is only secure within the same server as the MOFcart scripts. </p>
+                  <table class="settings" width="100%"  border="0" cellspacing="0" cellpadding="2">
+                    <tr bgcolor="#CCCCCC" class="title">
+                      <td width="8%">
+                        <div align="center"></div>
+                      </td>
+                      <td width="34%">
+                        <div align="center">Do</div>
+                      </td>
+                      <td width="58%">
+                        <div align="center">How</div>
+                      </td>
+                    </tr>
+                    <tr class="text">
+                      <td valign="top" nowrap class="title">&nbsp;</td>
+                      <td valign="top">&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr class="text">
+                      <td valign="top" nowrap class="title">1.</td>
+                      <td valign="top" bgcolor="#FFFFF0">Have one (1) empty <br>
+      mySQL database set<br>
+      up on Your hosting <br>
+      server </td>
+                      <td bgcolor="#FFFFF0">
+                        <p>This can be set up via an online control panel with many commercial hosting services. Make sure the dB is password protected </p>
+                      </td>
+                    </tr>
+                    <tr class="text">
+                      <td valign="top" nowrap class="title">&nbsp;</td>
+                      <td valign="top">&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr class="text">
+                      <td colspan="3" valign="top" class="menu" style="color: Black;" #invalid_attr_id="bold 10pt Verdana, sans-serif">You will need to be familiar with <span class="style3">editing the config files</span> to do this next part. If you don't know how to edit ascii files and download/upload to your server, then you should probably stop and look at Documentation &gt; About Configurations</td>
+                    </tr>
+                    <tr class="text">
+                      <td valign="top" nowrap class="title">&nbsp;</td>
+                      <td valign="top">&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr class="text">
+                      <td valign="top" nowrap class="title">2.</td>
+                      <td valign="top" bgcolor="#FFFFF0">Activate mySQL logging <br>
+      in MOFcart v2.5 <br>
+      Checkout Configs </td>
+                      <td bgcolor="#FFFFF0">
+                        <p>In &lt;mofpay.conf&gt; /mcart/lib/ define your database settings in section # 6 <br>
+                            <strong># 6. MySQL DATA STORAGE</strong><br>
+                            <span class="textGreen">$save_mysql_data = 1;</span><br>
+        $log_sql_errs = 1;<br>
+        $save_mysql_file = 'mof_savesql.pl';<br>
+        <span class="textGreen">$dbHost = 'host';<br>
+        $dbName = 'dBname';<br>
+        $dbUser = 'username';<br>
+        $dbPswd = 'password';</span></p>
+                      </td>
+                    </tr>
+                    <tr class="text">
+                      <td valign="top" nowrap>note</td>
+                      <td colspan="2" valign="top">Make sure you use only an Ascii text editor, and always upload/download using Ascii transfer mode with FTP program. If you test the MOFcart checkout before you do step 3 you will get an error at checkout. </td>
+                    </tr>
+                    <tr class="text">
+                      <td valign="top" nowrap class="title">&nbsp;</td>
+                      <td valign="top">&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr class="text">
+                      <td valign="top" nowrap class="title">3.</td>
+                      <td valign="top">Run the create table<br>
+      structure script </td>
+                      <td>/mcart/admin/mofsql.cgi</td>
+                    </tr>
+                    <tr class="text">
+                      <td valign="top" nowrap>where</td>
+                      <td colspan="2" valign="top"><img src="arrow.gif" width="12" height="7" border="0"><a href="https://secure32.elinuxservers.com/~gardenth/cgi-bin/mcart/admin/mofsql.cgi" target="_blank" class="settings">https://secure32.elinuxservers.com/~gardenth/cgi-bin/mcart/admin/mofsql.cgi</a></td>
+                    </tr>
+                    <tr class="text">
+                      <td valign="top" nowrap>note</td>
+                      <td colspan="2" valign="top" class="menu">You will need the login &amp; password (listed in the <strong>settings.html</strong> reference you downloaded &amp; saved on your local computer). </td>
+                    </tr>
+                    <tr class="text">
+                      <td valign="top" nowrap class="title">&nbsp;</td>
+                      <td colspan="2" valign="top">MOFcart datasave will use the same settings and structure to save the data to your database </td>
+                    </tr>
+                  </table>
+                  <p>&nbsp;</p>
+                  <p><strong><span class="textBold"><span class="title"><a href="#Top"><img src="favicon.gif" width="16" height="16" border="0" align="absbottom"></a></span> <a name="ares"></a>What about ARES (Affiliate Referral Earnings System)?</span></strong></p>
+                  <p><span class="text">The ARES v2.5 affiliate earnings system is installed with MOFcart v2.5.</span></p>
+                  <p><span class="text"><span class="settings"><a href="http://www.gardenthemes.com/ares/" target="_blank"><img src="arrow.gif" width="12" height="7" border="0">http://www.gardenthemes.com/ares/</a></span></span></p>
+                  <p><span class="text"> It is an entirely ascii flat file based system. Future versions of ARES &amp; MOFcart <strong>v3.0 </strong></span><span class="style2">will evolve to complete mySQL based systems</span><span class="text">. Check the <a href="http://www.merchantorderform.com/updates.html " target="_blank">updates area</a> for anything new along the mySQL lines. </span></p>
+                  <p class="text">By default, ARES tracking is not activated in the MOFcart v2.5 configs, and MOFcart will not track Affiliates until you turn on the MOFcart ARES settings. </p>
+                  <p class="text">I have not spent time matching the templates for ARES to the MOFcart package layouts. You'll need to do that yourself. You can find the complete ARES v2.4 documentation here:</p>
+                  <p class="text"><span class="settings"><a href="http://www.gardenthemes.com/ares/docs/readme.html"><img src="arrow.gif" width="12" height="7" border="0">http://www.gardenthemes.com/ares/docs/readme.html</a></span></p>
+                  <p class="text"><span class="textRed">You will need the login &amp; password</span> (listed in the settings.html reference you downloaded &amp; saved on your local computer).</p>
+                  <p class="text"> <br>
+                      <span class="textBold"><span class="title"><a href="#Top"><img src="favicon.gif" width="16" height="16" border="0" align="absbottom"></a></span></span> <strong><a name="CheckSecurity"></a><span class="textBold">What about security ? </span></strong> </p>
+                  <p> <span class="text">Always host with a reputable company. Most commercial servers have good security. It is in their best interest to do so. We recommend you read the section Security Issues in the documentation. </span><span class="textRed">Security is your responsibility</span><span class="text">! Inexperienced CGI installers often leave common, yet fixable, security flaws when installing an application of this type. Do not be one of them. </span></p>
+                  <p class="text">One of the important security measures is to make sure that your configuration files are not accessible to unauthorized users, either by vieweing them from the web, or from traveling on the server. </p>
+                  <p class="text">From your web browser, click on the links below . If you can view the configuration files from your browser, then you have bad security. Consult Documentation &gt; Security Issues.</p>
+                  <ul class="settings">
+                    <li><a href="http://www.gardenthemes.com/cgi-bin/mcart/common.conf" target="_blank" class="settings">http://www.gardenthemes.com/cgi-bin/mcart/common.conf</a> </li>
+                    <li><a href="http://www.gardenthemes.com/cgi-bin/mcart/lib/mof.conf" target="_blank" class="settings">http://www.gardenthemes.com/cgi-bin/mcart/lib/mof.conf</a></li>
+                    <li><a href="http://www.gardenthemes.com/cgi-bin/mcart/lib/mofpay.conf" target="_blank">http://www.gardenthemes.com/cgi-bin/mcart/lib/mofpay.conf</a></li>
+                    <li><a href="https://secure32.elinuxservers.com/~gardenth/cgi-bin/mcart/common.conf" target="_blank">https://secure32.elinuxservers.com/~gardenth/cgi-bin/mcart/common.conf</a></li>
+                    <li><a href="https://secure32.elinuxservers.com/~gardenth/cgi-bin/mcart/lib/mof.conf" target="_blank">https://secure32.elinuxservers.com/~gardenth/cgi-bin/mcart/lib/mof.conf</a></li>
+                    <li><a href="https://secure32.elinuxservers.com/~gardenth/cgi-bin/mcart/lib/mofpay.conf" target="_blank">https://secure32.elinuxservers.com/~gardenth/cgi-bin/mcart/lib/mofpay.conf</a></li>
+                  </ul>
+                  <p><span class="textBold"><span class="title"><a href="#Top"><img src="favicon.gif" width="16" height="16" border="0" align="absbottom"></a> <strong><a name="GoFromHere"></a></strong></span><strong>Where to go from here ? </strong></span> </p>
+                  <p class="text">MerchantOrderForm cart has some impressive customizing potential, and tons of features. After you become familiar with the cart basics, then consult the documentation for information on all the features and customizing areas.<br>
+                      <br>
+  Happy Ordering <br>
+  MerchantPal.com / MerchantOrderForm.com </p>
+                  <p>&nbsp;</p>
+				</td>
+				</tr>
+			  </table>
+				<!-- End Content -->
+				
+				
+				 <br><div align="left">				 <br>                
+                 </div> 
+				                
+                <div align="center">
+                  <TABLE cellSpacing=0 cellPadding=2 align=center border=0>
+                  <TR>
+                    <TD align="center" valign="middle"><span class="FooterText"><a href="http://www.merchantpal.com" target="_blank">MerchantPal</a>.com &amp; <a href="http://www.merchantorderform.com" target="_blank">MerchantOrderForm</a> Shopping Cart are registered TradeMarks<br>
+&copy; 2001-2004 All Rights Reserved. Austin Contract Computing, Austin, Texas USA</span> </TD>
+                  </TR>
+                  <TR>
+                    <TD align="center" valign="middle"><img src="mplogo150x33.gif" width="150" height="33"></TD>
+                  </TR>
+                </TABLE>
+                  <br>
+              </div>
+            </td>
+</tr>
+
+
+	<!-- Footer embedded as Top logo images & span -->
+	<tr><td colspan="2">
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
+        <TR>
+          <TD vAlign=bottom align=left width=18><img src="mofbl.gif" width="18" height="20"></TD>
+		   <TD align=right class="footer">           
+          <a href="http://www.gardenthemes.com/mofcart/license.html" onClick="window.open(this.href,'INFO','directories=no,location=no,menubar=no,status=no,titlebar=no,toolbar=no,scrollbars=yes,width=450,height=500,resizable=yes');return false">License</a> |
+          <a href="http://www.gardenthemes.com/mofcart/about.html" onClick="window.open(this.href,'INFO','directories=no,location=no,menubar=no,status=no,titlebar=no,toolbar=no,scrollbars=yes,width=450,height=500,resizable=yes');return false">About Us</a> | 
+          <a href="http://www.gardenthemes.com/mofcart/privacy.html" onClick="window.open(this.href,'INFO','directories=no,location=no,menubar=no,status=no,titlebar=no,toolbar=no,scrollbars=yes,width=450,height=500,resizable=yes');return false">Privacy Info</a> | 
+		   Austin Contract Computing &copy; MerchantOrderForm.com, MerchantPal.com 2004&nbsp; </TD>
+		  <TD vAlign=bottom align=right width=18><img src="mofbr.gif" width="18" height="20"></TD>
+        </TR>
+	  </TABLE>	
+		</td></tr>
+
+
+
+</table>
+
+</BODY>
+</HTML>
+

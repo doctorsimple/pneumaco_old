@@ -1,0 +1,3 @@
+name = Unit Converter Service
+description = provides retrieval and storage of unit conversion data to a custom table
+core = 7.x

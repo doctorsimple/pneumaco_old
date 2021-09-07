@@ -1,0 +1,122 @@
+
+<HTML>
+<HEAD>
+<TITLE>MOFcart Example Pop Up</TITLE>
+
+<link rel="stylesheet" href="popstyle.css" type="text/css">
+
+
+
+<script type="text/javascript" LANGUAGE="JavaScript">
+<!-- name and focus window
+window.name = 'POPUP';
+window.focus();
+// End -->
+</SCRIPT>
+
+
+
+</HEAD>
+<BODY>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td class="DefaultText">
+      <p class="SectionHeadings"><strong><span class="SectionHeadings">Another Pop Up Example:</span></strong>
+</p>
+      <p><strong>Instructions</strong>: </p>
+      <ul>
+        <li>Check the items you wish to purchase</li>
+        <li class="DefaultText">Click the <strong>
+    
+    add to cart</strong>  button</li>
+        <li class="DefaultText">The Item(s)  will be added to your basket<br>
+          or you can 
+		  
+		  <a href="javascript:;" onClick="window.close()">close </a> this window</li>
+    </ul>    </td>
+  </tr>
+</table>
+
+
+	<FORM method=POST action="http://www.gardenthemes.com/cgi-bin/mcart/mof.cgi">
+	<INPUT type="hidden" name="postmode" value="CHECKBOXES">
+
+
+	<!-- POP UP INPUT MODE FIELDS -->
+
+    <input type="hidden" name="POP_TARGET" value="POPUP">
+
+    <input type="hidden" name="REDIRECT_URL" value="">
+  
+    <input type="hidden" name="POP_AUTOCLOSE" value="16">
+	
+    <input type="hidden" name="POP_VIEWCART" value="12345678">
+
+    <input type="hidden" name="POP_MSG" value="SENT MESSAGE HERE ..">
+	
+
+  
+
+
+	<table align=center border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td>
+          <table border="0" cellpadding="0" cellspacing="2" width="100%" bgcolor="#CCCCCC">
+            <tr bgcolor="E3F2FF">
+              <td bgcolor="E3F2FF"> <br>
+              </td>
+              <td align="center" class="DefaultText"> <strong>Price</strong></td>
+              <td align="center" class="DefaultText"> <strong>Our List of Book, Videos, and Tapes</strong></td>
+            </tr>
+            <tr>
+              <td bgcolor="E3F2FF">
+                <INPUT type=checkbox value="1----The Road To The White House----[b]An upcoming book by Bill Gates[/b][br]The Road To The White House[br]A behind the sceens look at Microsoft and the man behind the legend----19.95----1----1" name="order">
+              </td>
+              <td align="right" bgcolor="#F5F5F5" class="DefaultText"><strong> &nbsp;$ 19.95<img src="images/rarrow.gif" width="12" height="7"> </strong></td>
+              <td bgcolor="#F5F5F5" class="DefaultText"> &nbsp;The Road To The White House, by Bill Gates, 2004 &nbsp; </td>
+            </tr>
+            <tr>
+              <td bgcolor="E3F2FF">
+                <input type=checkbox value="1----Artificial Intelligence For Dummies----[b]A book by Dr. Eye Que, III[/b][br]Dr. Que presents a no-nonsense approach for understanding the mysteries of Artificial Intelligence----29.95----1----1" name="order">
+              </td>
+              <td align="right" bgcolor="#F5F5F5" class="DefaultText"><strong> &nbsp;$ 29.95 <img src="images/rarrow.gif" width="12" height="7"> </strong></td>
+              <td bgcolor="#F5F5F5" class="DefaultText"> &nbsp;Artificial Intelligence For Dummies, by Eye Que, 2004&nbsp; </td>
+            </tr>
+            <tr>
+              <td bgcolor="E3F2FF">
+                <INPUT type=checkbox value="1----Silent Meditations (Tape)----Presented in [b]12 audio cassette tapes[/b], this set has become the World standard for learning the art of silent meditation. Note: presented in audio format to faciliate mastery of this ancient art----35.00----1----1 " name="order">
+              </td>
+              <td align="right" bgcolor="#F5F5F5" class="DefaultText"><strong> &nbsp;$ 35.00<img src="images/rarrow.gif" width="12" height="7"> </strong></td>
+              <td bgcolor="#F5F5F5" class="DefaultText"> &nbsp;101 Great Silent Meditations, (12) Tape Audio Set &nbsp; </td>
+            </tr>
+            <tr>
+              <td bgcolor="E3F2FF">
+                <INPUT type=checkbox value="1----Internet Success Video Set----[b]How To Succeed on the Internet[/b][br]An (8) Video Tape library[br]This course teaches Internet Success like no other. 30 day money back guarentee----359.95----1----1" name="order">
+              </td>
+              <td align="right" bgcolor="#F5F5F5" class="DefaultText"><strong> &nbsp;$ 359.95<img src="images/rarrow.gif" width="12" height="7"> </strong></td>
+              <td bgcolor="#F5F5F5" class="DefaultText"> &nbsp;How To Succeed On The Internet, (8) Video Tapes &nbsp; </td>
+            </tr>
+            <tr>
+              <td bgcolor="E3F2FF">
+                <INPUT type=checkbox value="1----Internet Dating 101----[b]Searching For The Right Stuff[/b][br] ** Internet Dating 101[br]This book covers search engine advances in technology----29.95----1----1" name="order">
+              </td>
+              <td align="right" bgcolor="#F5F5F5" class="DefaultText"><strong> &nbsp;$ 29.95<img src="images/rarrow.gif" width="12" height="7"> </strong></td>
+              <td bgcolor="#F5F5F5" class="DefaultText"> &nbsp;Searching For The Right Stuff, Internet Dating 101 &nbsp; </td>
+            </tr>
+          </table>
+          <table border="0" cellpadding="6" cellspacing="0" width="190">
+            <tr>
+              <td align="right">
+                <input type="image" src="images/addtocart2.gif" width=98 height=19 border=0 alt="Click Here to Add To Cart">
+              </td>
+            </tr>
+        </table></td>
+      </tr>
+	  </table>
+	</FORM>
+
+
+</BODY>
+</HTML>
+

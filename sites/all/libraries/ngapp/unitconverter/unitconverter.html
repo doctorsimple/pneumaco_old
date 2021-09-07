@@ -1,0 +1,75 @@
+<div ng-controller="UnitConverter as uc">
+<div ng-if="false">
+    <div id='loadingthrobber' class='grid-item'><i class='glyphicon glyphicon-refresh glyphicon-spin'></i></div>
+</div>
+    <form id="unitconverterform" name="unitconverterform">
+        <div class="form-group container" ng-cloak>
+            <div class="row">
+                <label class="text-right control-label col-sm-2" for="firstunit">HOW MANY</label>
+                <div class="col-sm-2">
+                    <select class="form-control ansiunit" id="firstunit" ng-model="firstunit"
+                            ng-change="changeunitname(firstunit, 'first')">
+                        <option value="">Choose one..</option>
+                        <option ng-cloak ng-repeat="unit in unitlist" value="{{unit.id}}">{{unit.name | pluralizer}}
+                        </option>
+                    </select>
+                </div>
+                <label class="control-label col-sm-1 squeezein" for="secondunit">IN A</label>
+                <div class="col-sm-2">
+                    <select class="form-control ansiunit" id="secondunit" ng-model="secondunit"
+                            ng-options="unit.name for unit in unitlist | filter : {id : '!'+firstunit} track by unit.id " ng-change="changeunitname(secondunit, 'second')">
+                        <option value="">Choose one..</option>
+                       <!-- <option ng-cloak ng-repeat="unit in unitlist " value="{{unit.id}}">{{unit.name}}</option>-->
+                    </select>
+                </div>
+                <div class="col-sm-2"><strong>?</strong>
+                    <button class="btn btn-primary pull-right" ng-click="uc.findanswer()">Find answer</button>
+                </div>
+            </div>
+
+            <div ng-show="showanswercallback" id="checkcontrol" class="container">
+                <div class="row">
+                    <div id="answercallback" class="col-sm-9 ng-cloak" ng-cloak>{{answercallbacktext}}
+                        <br/>
+                        <button class="btn btn-primary" name="resetform" id="resetform" ng-click="resetForm()">
+                            Find Another Conversion
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container infobox" ng-show="showcollectionform" id="collectratioform" ng-cloak>
+                <div class="row">
+                    <div class="col-sm-9">
+                        I don't know! <br/>You tell me how many {{firstunitname | pluralizer}} in a {{secondunitname}},
+                        and I'll
+                        remember in the future.
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <input class="form-control" type="text" name="newratio" id="newratio" ng-model="newratio"/>
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-primary" name="addratio" id="addratio" ng-click="addratios()">Submit value </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container infobox" ng-show="showresults">
+                <div class="row">
+                    <div class="col-sm-9" id="results" ng-cloak>There are {{firstunitcount}}
+                        {{firstunitname | pluralizer}} in a
+                        {{secondunitname}}
+                        <br/>
+                        <button class="btn btn-primary" name="resetform" id="resetformbutton" ng-click="resetForm()">
+                            Find Another  Conversion
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+</div>

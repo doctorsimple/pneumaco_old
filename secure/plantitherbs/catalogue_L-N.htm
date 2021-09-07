@@ -1,0 +1,414 @@
+ 
+<HTML>
+<!-- #BeginTemplate "/Templates/template1.dwt" --> 
+<HEAD>
+<!-- #BeginEditable "doctitle" --> 
+<TITLE>L_N</TITLE>
+<!-- #EndEditable --> 
+<meta http-equiv="Content-Type" content="text/html; charset=">
+</HEAD>
+<BODY BGCOLOR="#999999" text="#003300" link="#660000">
+<div align="center"><!-- #BeginEditable "whole%20thing" --> 
+  <p><font size="3"> 
+    <script><!--
+  function OpenNewWindow(cPicture,nWidth,nHeight,cMessage,nBorder)       
+		{
+ NewWindow=window.open("","NewOne","HEIGHT="+nHeight+",WIDTH="+nWidth+",scrollbars=yes,resizable=no,top=5,left=5");
+        NewWindow.document.write ("<HTML><HEAD>");
+        NewWindow.document.write ("</HEAD>");
+        NewWindow.document.write ("<BODY BGCOLOR='#999999'>");
+        NewWindow.document.write ("<P ALIGN=CENTER>");
+        NewWindow.document.write ("<FONT FACE='Georgia' SIZE='+1'COLOR='#003300'><B>");           
+        NewWindow.document.write (cMessage);
+        NewWindow.document.write ("</B><FONT>");
+        NewWindow.document.write ("<IMG SRC=");
+        NewWindow.document.write (cPicture);
+        NewWindow.document.write (">");
+        NewWindow.document.write ("</P>");
+        NewWindow.document.write ("<bottom><FORM><INPUT TYPE='button'VALUE='Close This Window' onClick='self.close()'>"); 
+        NewWindow.document.write ("</FORM></CENTER></BODY></HTML>");
+        NewWindow.document.write ("</BODY></HTML>");
+        NewWindow.document.close();
+        return false;
+        }
+  
+
+if (!parent.control)
+{window.location="shoppingarea.htm?catalogue_a-c.htm"}
+
+function LineOnForm(plantname,number,price)
+	{ 
+	this.plantname=plantname;
+	this.number=number;
+	this.price=price;
+	}
+var Entries = new Array();
+var countStart=0;
+var Placeholder=0;
+function AddToCart(plantname,number,price)
+	{
+	 Entries[Placeholder]=new LineOnForm(plantname,number,price);
+	 ++Placeholder;
+	 showCart();
+	 }
+
+function ParseArray()
+	{
+	
+	for (x=countStart;x<Entries.length;++x)
+		{
+ 		 parent.control.document.catalogue.qstring.value += Entries[x].plantname;
+		 parent.control.document.catalogue.qstring.value += '-';
+		 parent.control.document.catalogue.qstring.value +=Entries[x].number;
+		 parent.control.document.catalogue.qstring.value +='-';
+		 parent.control.document.catalogue.qstring.value +=Entries[x].price;
+		 parent.control.document.catalogue.qstring.value +='--';
+		 countStart++;
+			}
+	}	
+	
+
+function makeSpace(latinname)
+	{
+		 chopped=latinname.split('+');
+		 n=0;holder='';
+		 while (chopped[n])
+		 	{
+			holder+=(chopped[n]+' ');
+			n++;
+			}
+		 return holder;
+	} 
+ function showCart()
+ 	{
+	ParseArray(Placeholder);
+	var showme="";
+	var args=parent.control.document.catalogue.qstring.value;
+	lines = args.split('--');
+	 for (x=0;(x<((lines.length)-1));++x)
+	 {
+	  parts = lines[x].split('-');
+	  showme+=(makeSpace(parts[1])+"\n")
+	  }
+	 
+	 alert('Your shopping cart contains:\n'+showme+'\nWhen you are ready to place your order, click the submit button to choose a quantity for each item and to enter your shipping and billing information');
+
+				return true;
+	} 
+	
+	
+	
+	//-->
+	</script>
+    </font></p>
+  <p><img src="graphics_garden/PIH2.jpg" width="500" height="100"></p>
+  <p><font color="#999999">Plant It Herbs - Specializing in Chinese Medicinal 
+    Plants</font></p>
+  <p><font color="#999999">n<b><a href="index.htm">Home</a></b><font color="#999999">---</font> 
+    <b><a href="workshops.htm">Workshops</a><font color="#999999">--</font> <a href="mailto:plantit@plantitherbs.com">Contact 
+    Plant It Herbs</a><font color="#999999">---</font> <a href="shoppingarea.htm?order_form.htm">Order 
+    Form</a><font color="#999999">---</font> <a href="links.htm">Links</a></b>g</font></p>
+  <p><a href="catalogue_A.htm"><font color="#000066"><b><i>A</i></b></font></a> 
+    <i><b><a href="catalogue_B.htm"><font color="#000066">B</font></a><font color="#000066"> 
+    </font><a href="catalogue_C.htm"><font color="#000066">C</font></a><font color="#000066"> 
+    </font><a href="catalogue_D-G.htm"><font color="#000066">DEFG</font></a> </b></i><font color="#999999"><b><i><a href="catalogue_H-K.htm"><font color="#000066">HIJK</font></a><font color="#000066"> 
+    </font><a href="catalogue_L-N.htm"><font color="#000066">LMN</font></a><font color="#000066"> 
+    </font><a href="catalogue_O-Q.htm"><font color="#000066">OPQ</font></a><font color="#000066"> 
+    </font><a href="catalogue_R-S.htm"><font color="#000066">RS</font></a><font color="#000066"> 
+    </font><a href="catalogue_T-Z.htm"><font color="#000066">TUVWXYZ</font></a></i></b>i</font> 
+  </p>
+  <p><font size="+3"><b>2005 Catalogue</b></font></p>
+  <p><b><font size="+3">- L, M, N -</font></b></p>
+  <form action="order_form.htm" method=GET name=catalogue>
+    <p><font size="3"><a name="Leonurus heterophyllus"></a></font><i><font size="3" face="Georgia">#10580 
+      </font></i><font size="3" face="Georgia" color="#000066"><b>Leonurus heterophyllus</b></font><font size="3" face="Georgia">, 
+      yi mu cao, Chinese motherwort,Labiatae/Lamiaceae - <i>Erect annual from 
+      China with branched stems and deep green veined leaves, small white or reddish 
+      purple flowers bloom in late summer; grows to about 3' in well-drained, 
+      moist soil in sun or part shade, research has proved that it has calming 
+      properties and all species are thought to have similar properties; whole 
+      plant is said to invigorate blood, diuretic, the seeds are also used as 
+      medicine "chong wei zi" and have similar properties including as an internal 
+      tea for cataracts.</i></font></p>
+    <p><font size="3"><font face="Georgia" color="#660000"></font></font><font size="3" face="Georgia" color="#003300"><b><font face="Georgia"><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_d-m/Leonurus_heterophyllus.jpg',450,450,'Leonurus heterophyllus'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></font>Click 
+      for Picture</b></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $5.00</i></font></p>
+    <p><font size="3"> 
+      <input type=button name=Button value="add to shopping cart" onClick="AddToCart(10580,'Leonurus heterophyllus',5.00)">
+      <input type=submit name=Submit2 value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p align=right>&nbsp;</p>
+    <p><font size="3"><a name="Leonurus sp."></a></font><font size="3" face="Georgia"><i>#10581 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Leonurus sp. 
+      (L. sibiricus?)</b>,</font><font size="3" face="Georgia"> xi ye yi mu cao, 
+      Chinese motherwort, Labiatae/Lamiaceae - <i>This species is the same in 
+      appearance as the L. heterophyllus material although there are slight differences 
+      in the flowers of the two species, growing requirements are also the same; 
+      first mentioned in the Illustrated Classic of the Materia Medica by Su Song 
+      in AD 106, it is considered unusual because it is one of the rare herbs 
+      used in traditional Chinese medicine by itself; whole plant is said to invigorate 
+      blood, regulates menstruation.</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $5.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10581,'Leonurus sp. L. sibiricus?',5.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+    <p><font size="3"><a name="Ligusticum jeholense"></a></font><font size="3" face="Georgia"><i>#10590 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Ligusticum jeholense</b></font><font size="3" face="Georgia">, 
+      gao ben, Chinese lovage root, Umbelliferae/Apiacea<i> Resembles parsley 
+      in appearance but grows much bigger, original seed is from IMPLAD in Beijing; 
+      delicate white flowers bloom in spring, a hardy perennial that grows 3' 
+      in well-drained to dry soil in sun; roots are said to ease the aches and 
+      pains caused by cold, and poor circulation.</i></font></p>
+    <p><b><font face="Georgia"><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_d-m/Ligusticum_jeholense.jpg',450,450,'Ligusticum jeholense'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></font><font face="Georgia"><i></i></font>Click 
+      for Picture<font size="3" face="Georgia"><i> </i></font></b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $7.50</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10590,'Ligusticum jeholense',6.50)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+    <p align=right><font size="3"><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size="3"><a name="Lillium formosum"></a><font face="Georgia">#10600 
+      </font></font><font size="3" face="Georgia" color="#000066"><b>Lillium formosum</b></font><font size="3" face="Georgia">, 
+      Liliaceae - <i>This beautiful lily has numerous dark green, linear lance-shaped 
+      leaves, very fragrant white trumpet shaped flowers flushed with reddish 
+      purple bloom in summer, grow in moist, acidic soil, hardy, in Taiwan markets 
+      the dried seed is used as a substitute for birthwort.</i></font></p>
+    <p><b><font face="Georgia"><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_d-m/Lillium_formosum.jpg',450,450,'Lillium formosum'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></font>Click 
+      for Picture</b></p>
+    <p><font size="3" face="Georgia" color="#660000">Plant = $8.50</font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10600,'Lillium formosum',5.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+    <p><font size="3"><a name="Lithospermum sp."></a></font><font size="3" face="Georgia"><i>#10610 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Lithospermum 
+      sp. (probably L. erythrorhizon)</b></font><font size="3" face="Georgia">, 
+      zu cai, purple gromwell root, Boraginaceae - <i>Roots of this perennial 
+      herb are dark red and contain an abundant supply of purple dye, grows naturally 
+      in meadows on slopes in the southern part of China, grow in well-drained 
+      soil in sun, said to have a sweet, salty flavor with a cold property, removes 
+      toxins, smoothes intestines, removes heat, cools blood, disperses swelling.</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $7.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10610,'Lithospermum sp. (probably L erythrorhizon',5.50)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+    <p><font size="3" color="#660000"><a name="Lobelia chinensis"></a></font><font size="3" face="Georgia"><i>#10620 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Lobelia chinensis</b></font><font size="3" face="Georgia">, 
+      ban bian lian, Chinese lobelia, Campanulaceae -<i>Creeping perennial with 
+      slender leaves, pale-purple flowers bloom in summer, grows to 8" in rich, 
+      moist, soil in sun or part shade, in its natural habitat it grows in damp 
+      fields and on the edges of ditches; said to be used for snake bites, and 
+      has antifungal properties, used by qualified practitioners only.</i></font></p>
+    <p><b><font face="Georgia"><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_d-m/Lobelia_chinensis.jpg',450,450,'Lobelia chinensis'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></font>Click 
+      for Picture</b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $5.50</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10620,'Lobelia chinensis',5.50)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i><a name="Lonicera japonica"></a></i></font><font size="3" face="Georgia" color="#003300"><i>#10630 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Lonicera japonica</b></font><font size="3" face="Georgia" color="#003300"><i>, 
+      </i>jin yin hua, Japanese honeysuckle, Caprifoliaceae <i>- Collected in 
+      Japan it's medicinal history dates to AD659, twining evergreen climber has 
+      ovate downy leaves, aromatic white flowers bloom in summer and fall, can 
+      become invasive, grow in well drained soil in sun to part shade; stems and 
+      floral buds are said to clear heat , relieves fire toxicity, upper respiratory 
+      tract infections, including pneumonia, wound infections.</i></font></p>
+    <p><b><font face="Georgia"><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_d-m/Lonicera_japonica.jpg',450,450,'Lonicera japonica'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></font>Click 
+      for Picture</b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $5.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10630,'Lonicera japonica',5.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+    <p><font size="3" face="Georgia" color="#FFFF33"><b><a name=Aureoreticulata></a></b></font><font size="3" face="Georgia" color="#003300"><i>#10631 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Lonicera japonica,</b></font><font size="3" face="Georgia" color="#FFFF33"><b> 
+      </b></font><font size="3" face="Georgia" color="#000066"><b>Aureoreticulata</b></font><font size="3" face="Georgia" color="#003300"><i>, 
+      </i>Caprifoliaceae<i> - This honeysuckle cultivar has yellow veined leaves 
+      and provides nice color in the garden growing along a wall or on a trellis; 
+      grow in well drained soil in sun to part shade.</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $6.50</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10631,'Lonicera japonica Aureoreticulata',6.50)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p align=right><font size="3"><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size="3"><a name="Lycium barbarum"></a></font><font size="3" face="Georgia"><i>#10640</i> 
+      </font><font size="3" face="Georgia" color="#000066"><b>Lycium barbarum</b></font><font size="3" face="Georgia">, 
+      gou qi zi and di gu pi, matrimony vine, Solanaceae -</font><font size="3"> 
+      </font><font size="3" face="Georgia"><i>Ning Xia is a province in Northwestern 
+      China and the pinyin is also known as Ning Xia Gou Qi Zi and Di Gu Pi and 
+      refers to both L. barbarum and L. chinense. L. barbarum is considered the 
+      main species used for gou qi zi, however both can be used for gou qi zi 
+      and di gu pi; deciduous arching shrub with funnel shaped purple flowers 
+      that bloom in summer and turn to deep orange berries, grow in sandy, alkaline, 
+      moist, well-drained soil in sun; root bark is said to be used to lower blood 
+      pressure, diabetes, poor eyesight, vertigo, seeds are said to be used for 
+      menopausal complaints.</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $8.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10640,'Lycium barbarum',7.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+    <p><font size="3"><a name="Lycopus lucidus"></a></font><font size="3" face="Georgia"><i>#10650 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Lycopus lucidus</b></font><font size="3" face="Georgia">, 
+      ze lan or di sun, marsh orchid, Labiatae<i> - Tall slender stemmed perennial 
+      with nodes tinged purple-red, leaves are thin and toothed, tiny white flowers 
+      bloom at the nodes in summer; grows naturally in marshy areas, grasslands 
+      and streamsides; said to be used to promote movement of blood, and has been 
+      used in Chinese medicine for over 2,000 years to treat menstrual pain, painful 
+      injuries, incontinence.</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $6.50</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10650,'Lycopus lucidus',5.50)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p align=right><font size="3"><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size="3"><a name="Melaleuca alternifolia"></a></font><font size="3" face="Georgia"><i>#10660</i></font><font size="3" face="Georgia" color="#FFFF33"><b> 
+      </b></font><font size="3" face="Georgia" color="#000066"><b>Melaleuca alternifolia</b></font><font size="3" face="Georgia">, 
+      medicinal tea tree, Myrtaceae<i> - Original seed is from an Australian source 
+      and native to New South Wales and Queensland; aromatic shrub or small tree 
+      with papery bark in several layers, pointed leaves up to 2" long, hardy 
+      to 32 degrees, grows 15- 22' in neutral to acid soil in sun, likes to stay 
+      on the moist side; said to be antiseptic and is effective against bacterial 
+      and fungal infections, invasive in tropics. </i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $10.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10660,'Melaleuca alternifolia',10.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p><font size="3"><a name="Mentha sp."></a></font><font size="3" face="Georgia"><i>#10670 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Mentha sp. (probably 
+      M. haplocalyx?)</b></font><font size="3" face="Georgia">, bo he, Japanese 
+      mint, Labiatae/Lamiaceae -<i>This aromatic, cooling perennial was collected 
+      near Lainguan Mt. in Kunming and grows vigorously in rich, moist soil in 
+      sun, small lavender flowers bloom in summer, attracts butterflies; whole 
+      plant is said to be used for fever, headache, cough, speeds recovery from 
+      rashes (such as measles), clears head and eyes, benefits throat.</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $7.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10670,'Mentha sp.(probably M. haplocalyx?)',6.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p align=right><font size="3" color="#660000">&nbsp;</font><font size="3"><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size="3"><a name="Mentha arvensis var.canadensis"></a></font><font size="3" face="Georgia"><i>#10671</i></font><font size="3" face="Georgia" color="#000066"><i> 
+      </i><b>Mentha arvensis var. canadensis</b></font><font size="3" face="Georgia">, 
+      bo he, corn mint, Labiatae/Lamiaceae - <i>Fragrant, hairy perennial grows 
+      4-24" in rich moist soil in sun, lilac flowers bloom in summer, attracts 
+      butterflies, in its natural habitat it grows in wet areas in all provinces 
+      of Cambodia, Japan, Korea, Laos, Malaysia, Russia, Thailand, Vietnam and 
+      North America; source of the mint oil is used in cigarettes, pharmaceuticals, 
+      and oral preparations, said to be used mainly on the lung and liver energies.</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $6.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10671,'Mentha arvensis var. canadensis',6.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p><font size="3" color="#660000"><a name="Mentha x gracilis"></a></font><font size="3" face="Georgia"><i>#10672</i></font><font size="3" face="Georgia" color="#000066"><i> 
+      </i><b>Mentha x gracilis</b></font><font size="3" face="Georgia">, gingermint, 
+      Labiatae/Lamiaceae<i> - A nice sweet smelling perennial with red-tinged 
+      leaves, grows 12-36" in rich moist soil in sun, lavender flowers bloom in 
+      summer, butterfly plant; considered a stimulant with a spicy, fruity aroma, 
+      said to be used for digestion and spasms, can be used fresh as a flavoring.</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $6.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10672,'Mentha x gracilis',6.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p align=right><font size="3" color="#660000">&nbsp;</font><font size="3"><a href="https://secure32.elinuxservers.com/~plantit/catalogue_a-c.htmplant_index.htm#Indexplant_index.htm#Index"><font color="#660000">&nbsp;</font></a><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size="3"><a name="Mentha spicata"></a></font><font size="3" face="Georgia"><i>#10673</i></font><font size="3" face="Georgia" color="#000066"> 
+      <b>Mentha spicata</b></font><font size="3" face="Georgia">, liu lan xiang, 
+      spearmint, Labiatae/Lamiaceae<i> - Cultivated in China this herb is the 
+      source of spearmint oil, an essential oil used for flavoring candies, toothpaste, 
+      chewing gum; grows 12-36" in rich moist soil in sun, light lavender to white 
+      flowers bloom in summer; leaves are said to be spicy, sweet and warming, 
+      stops pain and clears colds and flu, used for cough, headache, abdominal 
+      pain and menses pain</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $5.50</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10673,'Mentha spicata',5.50)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p><font size="3"><a name="Momordica balsamina"></a></font><font size="3" face="Georgia"><i>#10680 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Momordica balsamina 
+      (aka M. charantia)</b></font><font size="3" face="Georgia">, ku gua, bitter 
+      melon, Cucurbitaceae - <i>Climbing annual with rich, dark green leaves, 
+      small yellow flowers form deep colored orange fruits that split and reveal 
+      brown speckled seeds; original seed from the U.S. Botanical Gardens; trellis 
+      or grow</i></font><font size="3"> </font><font size="3" face="Georgia"><i>along 
+      a fence in neutral soil in sun; said to clear heat and relieve toxins, Prof. 
+      Chen Chong-ming of Nanjing Institute of Botany has found it VERY good for 
+      blood sugar imbalances in diabetes and for obesity, also promising research 
+      is being conducted for use in patients with HIV and cancer.</i></font></p>
+    <p><b><font face="Georgia"><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_d-m/Momordica_balsamina.jpg',450,450,'Momordica balsamina'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></font>Click 
+      for Picture</b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>not available at this 
+      time </i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10680,'Momordica balsamina (aka M. charantia)',0.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+    <p align=right><font size="3">&nbsp;</font><font size="3" color="#660000">&nbsp;</font><font size="3"><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size="3"><a name="Monarda fistulosa"></a></font><font size="3" face="Georgia"><i>#10690 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Monarda fistulosa</b></font><font size="3" face="Georgia">, 
+      wild bergamot, Labiatae/Lamiaceae <i>- Pungent, aromatic perennial attracts 
+      butterflies and hummingbirds, it can grow to 48" in light, dry, alkaline 
+      soil in sun,</i></font> <font size="3" face="Georgia"><i>lilac flowers bloom 
+      summer to fall; whole plant and leaves are used to stimulate the digestion 
+      and increase perspiration.</i></font></p>
+    <p><b><font face="Georgia"><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_d-m/Monarda_fistulosa.jpg',450,450,'Mondarda fistulosa'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></font>Click 
+      for Picture</b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $4.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10690,'Monarda fistulosa',4.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p> 
+  </form>
+  <p align="center"><b><a href="index.htm">Home</a></b> <b><a href="links.htm">Links</a></b> 
+    <b> </b><b><a href="workshops.htm">Workshops</a></b></p>
+  <p align="center"><b> <a href="mailto:plantit@plantitherbs.com">Contact Plant 
+    It Herbs</a> </b></p>
+  <p align="center"><b><a href="shoppingarea.htm?order_form.htm">Order Form</a> 
+    </b></p>
+  <p></p>
+  <p></p>
+  <p>&nbsp;</p>
+  <!-- #EndEditable --> 
+  <p>&nbsp;</p>
+</div>
+</BODY>
+<!-- #EndTemplate -->
+</HTML>

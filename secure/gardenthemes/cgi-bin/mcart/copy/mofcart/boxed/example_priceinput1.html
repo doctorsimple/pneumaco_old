@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>MOFcart v2.5 Examples</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 5.50.4611.1300" name=GENERATOR>
+<META name="ROBOTS" content="NOINDEX,NOFOLLOW">
+<link rel="stylesheet" type="text/css" href="examples.css">
+
+<script type="text/javascript" language=javascript>
+function change (obj) {
+var value=(document.Form1.PriceInput.value);
+var newtext='Add $ ';
+newtext += (value);
+newtext += ' to Cart';
+document.Form1.update_btn.value=(newtext);
+}
+
+
+</SCRIPT>
+
+
+<script type="text/javascript" LANGUAGE="JavaScript">
+<!-- name and focus window
+window.name = 'MAIN';
+window.focus();
+// End -->
+</SCRIPT>
+
+</HEAD>
+<BODY>
+
+
+
+<TABLE cellSpacing=0 cellPadding=0 width=640 align=center bgColor=#E8E8E8 border=0>
+  <TBODY>
+  <TR>
+    <TD height="48" valign="top">
+	
+	      <img src="images/moflogo640.gif" width="640" height="50"></TD>
+    </TR>
+  </TBODY>
+</TABLE>
+
+
+
+
+<TABLE cellSpacing=0 cellPadding=1 width=640 align=center bgColor=#578BEA border=0>
+<TBODY>
+<TR>
+<TD>
+
+
+<TABLE cellSpacing=0 cellPadding=25 width="100%" align=center bgColor=#ffffff border=0>
+<TBODY>
+<TR>
+<TD> 
+            <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="57%" class="SmTxt"><strong>Price Input Field 1</strong></td>
+                <td width="25%" class="SmTxt"><strong><a href="example_mofstore.html"><img src="images/larrow.gif" width="12" height="7" border="0"></a></strong><a href="example_mofstore.html">Return to Examples</a></td>
+                <td width="18%"><div align="right" class="SmTxt"><strong><strong><a href="http://www.gardenthemes.com/cgi-bin/mcart/mof.cgi?viewcart"><img src="images/yourbasket.gif" width="106" height="20" border="0" alt="Go To Your Shopping Basket"></a></strong></strong></div></td>
+              </tr>
+            </table>
+            <p class="SmTxt"><strong>Use:</strong> You need the  ability for the customer to enter  a main price for a product or service..</p>
+            <p class="SmTxt"><strong>Instructions</strong>: Enter the price for this service, and click the <strong>Add to Cart</strong> button. The item will be added to your cart.</p>
+
+ 
+	<FORM name="Form1" method=POST action="http://www.gardenthemes.com/cgi-bin/mcart/mof.cgi">
+	<INPUT type="hidden" name="postmode" value="SINGLEPOST">
+	<INPUT type="hidden" name="quantity" value="1">
+	<INPUT type="hidden" name="order" value="Agency Donation----Tax FREE Donation for our Agency or Cause----0----0----0">
+  
+
+              <table align=center border="0" cellspacing="0" cellpadding="4">
+                <tr>
+                  <td nowrap bgcolor="#FFFFFF"><span class="SmTxt">Enter <strong>Amount</strong> of Donation <img src="images/rarrow.gif" width="12" height="7"></span></td>
+                  <td nowrap bgcolor="#FFFFFF">
+ 	<span class="SmTxt"> </span>	<INPUT onchange="change(this)" Class="BoxFormat" type="text" name="PriceInput" size=15 value="25.00">	                  </td>
+                </tr>
+                <tr>
+                  <td nowrap bgcolor="#FFFFFF">&nbsp;</td>
+                  <td nowrap bgcolor="#FFFFFF"><input class="ButtonFormat" name="update_btn" type=submit value="Add To Cart"></td>
+                </tr>
+              </table>
+
+
+
+	</FORM></TD>
+</TR>
+</TBODY>
+</TABLE>
+
+</TD>
+</TR>
+</TBODY>
+</TABLE>
+
+<br>
+
+
+<TABLE cellSpacing=0 cellPadding=4 width=640 align=center border=0>
+<TBODY>
+<TR>
+<TD class="SmTxt">
+
+
+<strong>FORM syntax ..</strong> &nbsp;
+
+
+</TD>
+</TR>
+</TBODY>
+</TABLE>
+
+
+
+<TABLE cellSpacing=0 cellPadding=1 width=640 align=center bgColor=#578BEA border=0>
+<TBODY>
+<TR>
+<TD>
+
+
+<TABLE cellSpacing=0 cellPadding=10 width="100%" align=center bgColor=#ffffff border=0>
+<TBODY>
+<TR>
+          <TD Class="CodeFormat"> 
+
+	        <p>&lt;FORM method=POST action=&quot;http://www.gardenthemes.com/cgi-bin/mcart/mof.cgi&quot;&gt;<br>
+            	&lt;INPUT type=&quot;hidden&quot; name=&quot;<span class="SmMaroon">postmode</span>&quot; value=&quot;<span class="SmBlack">SINGLEPOST</span>&quot;&gt;<br>
+            	&lt;INPUT type=&quot;hidden&quot; name=&quot;<span class="SmMaroon">quantity</span>&quot; value=&quot;<span class="SmBlack">1</span>&quot;&gt;</p>
+            <p>&lt;INPUT type=&quot;<strong>hidden</strong>&quot; name=&quot;<span class="SmMaroon">order</span>&quot; <br>
+              value=&quot;<span class="SmBlack">Agency Donation----Tax FREE Donation for our Agency or Cause----0----0----0</span>&quot;&gt;</p>
+            <p>&lt;INPUT type=&quot;<strong>text</strong>&quot; name=&quot;<span class="SmMaroon">PriceInput</span>&quot; size=15 value=&quot;25.00&quot;&gt;</p>
+            <p>&lt;input name=&quot;update_btn&quot; type=submit value=&quot;Add To Cart&quot;&gt;<br>
+            &lt;/FORM&gt;</p>
+            </TD>
+</TR>
+</TBODY>
+</TABLE>
+
+</TD>
+</TR>
+</TBODY>
+</TABLE>
+
+<br>
+
+
+<TABLE cellSpacing=0 cellPadding=1 width=640 align=center bgColor=#578BEA border=0>
+<TBODY>
+<TR>
+<TD>
+
+
+<TABLE cellSpacing=0 cellPadding=25 width="100%" align=center bgColor=#ffffff border=0>
+<TBODY>
+        <TR>
+          <TD> 
+		  
+            <p>
+
+              <span class="SmTxt"><strong>Notes</strong></span></p>
+            <p class="SmTxt">This is how to submit price input that shows up as the item's main price.</p>
+            <p class="SmTxt">Note the main product data is submitted as hidden input</p>
+            <p class="SmTxt">Note that the name of the price input field is <strong>PriceInput</strong><br>
+  .. 
+              as defined in the &lt;mof.conf&gt; setting <strong>$price_input</strong></p>
+            <p class="SmTxt">Also note that the input has Price, ShipCode, and TaxCode set to <strong>0</strong><br>
+              .. denoting that it will be have no shipping costs and be tax free</p>
+            <p class="SmTxt">Note you can allow zero based input by enabling <strong>$allow_zeros</strong> in &lt;mof.conf&gt;
+            </p>
+            </TD>
+</TR>
+</TBODY>
+</TABLE>
+
+</TD>
+</TR>
+</TBODY>
+</TABLE>
+
+
+<br>
+<TABLE cellSpacing=0 cellPadding=2 align=center bgColor=#ECECEC border=0>
+  <TR>
+    <TD align="center" valign="middle" class="menu">	
+	<span class="FooterText">
+    	<a href="license.html" onClick="window.open(this.href,'INFO','directories=no,location=no,menubar=no,status=no,titlebar=no,toolbar=no,scrollbars=yes,width=450,height=500,resizable=yes');return false">License</a> |
+    <a href="about.html" onClick="window.open(this.href,'INFO','directories=no,location=no,menubar=no,status=no,titlebar=no,toolbar=no,scrollbars=yes,width=450,height=500,resizable=yes');return false">About Us</a> |
+    <a href="privacy.html" onClick="window.open(this.href,'INFO','directories=no,location=no,menubar=no,status=no,titlebar=no,toolbar=no,scrollbars=yes,width=450,height=500,resizable=yes');return false">Privacy Info</a> 
+	<br>
+	<a href="http://www.merchantpal.com" target="_blank">MerchantPal</a>.com &amp; <a href="http://www.merchantorderform.com" target="_blank">MerchantOrderForm</a> Shopping Cart are registered TradeMarks<br>
+	&copy; 2001-2004 All Rights Reserved. Austin Contract Computing, Austin, Texas USA
+	</span> 
+	 </TD>
+  </TR>
+  <TR>
+    <TD align="center" valign="middle"><img src="images/mplogo150x33.gif" width="150" height="33"></TD>
+  </TR>
+</TABLE>
+</BODY>
+</HTML>
+
+
+

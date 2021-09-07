@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>MOFcart v2.5 Examples</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 5.50.4611.1300" name=GENERATOR>
+<META name="ROBOTS" content="NOINDEX,NOFOLLOW">
+<link rel="stylesheet" type="text/css" href="examples.css">
+
+<script type="text/javascript" LANGUAGE="JavaScript">
+<!-- name and focus window
+window.name = 'MAIN';
+window.focus();
+// End -->
+</SCRIPT>
+
+</HEAD>
+<BODY bgColor=#E8E8E8>
+
+
+
+<TABLE cellSpacing=0 cellPadding=0 width=640 align=center bgColor=#E8E8E8 border=0>
+  <TBODY>
+  <TR>
+    <TD height="48" valign="top">
+	
+	<strong><img src="images/moflogo640.gif" width="640" height="50"></strong></TD>
+    </TR>
+  </TBODY>
+</TABLE>
+
+
+
+
+<TABLE cellSpacing=0 cellPadding=1 width=640 align=center bgColor=#578BEA border=0>
+<TBODY>
+<TR>
+<TD>
+
+
+<TABLE cellSpacing=0 cellPadding=25 width="100%" align=center bgColor=#ffffff border=0>
+<TBODY>
+        <TR>
+          <TD> 
+
+            <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="57%"><strong class="SmTxt">Main Store Portal </strong></td>
+                <td width="25%" class="SmTxt">&nbsp;</td>
+                <td width="18%"><div align="right"><strong><strong><a href="http://www.gardenthemes.com/cgi-bin/mcart/mof.cgi?viewcart"><img src="images/yourbasket.gif" width="106" height="20" border="0" alt="Go To Your Shopping Basket"></a></strong></strong></div></td>
+              </tr>
+            </table>
+            <p class="SmTxt">
+			
+
+			SSI Call to list cart contents, summary, etc. <br>
+			<!-- SSI to call cart contents & summary -->
+            <!--#include virtual="../cgi-bin/mcart/mofget.cgi"-->
+			
+			</p>
+            <table width="100%"  border="0" cellspacing="0" cellpadding="4">
+              <tr bgcolor="#578BEA" class="SmWhite">
+                <td width="7%" align="right" bgcolor="#578BEA">&nbsp;</td>
+                <td width="61%"><div align="center"><strong>Example Type </strong></div></td>
+                <td width="32%"><div align="center"><strong>Link</strong></div></td>
+              </tr>
+              <tr bgcolor="#F0F8FF" class="SmTxt">
+                <td align="right" bgcolor="#FFFFFF"><img src="images/blue1.gif" width="9" height="16" align="absmiddle"></td>
+                <td>Various buttons for linking to the <strong>ViewCart</strong> Screen </td>
+                <td><a href="example_viewcart.html"><img src="images/rarrow.gif" width="12" height="7" border="0">example_viewcart.html</a></td>
+              </tr>
+              <tr bgcolor="#FFFFFF" class="SmTxt">
+                <td align="right" nowrap bgcolor="#FFFFFF"><img src="images/blue2.gif" width="12" height="16"></td>
+                <td nowrap>Single Item GET &amp; HREF links </td>
+                <td nowrap><a href="example_viewcart.html"><img src="images/rarrow.gif" width="12" height="7" border="0"></a><a href="example_single1.html">example_single1.html</a></td>
+              </tr>
+              <tr bgcolor="#F0F8FF" class="SmTxt">
+                <td align="right" bgcolor="#FFFFFF"><img src="images/blue3.gif" width="12" height="16"></td>
+                <td><strong>One Click</strong> Product Purchase by &quot;Add To Cart&quot; Image</td>
+                <td><a href="example_viewcart.html"><img src="images/rarrow.gif" width="12" height="7" border="0"></a><a href="example_single2.html">example_single2.html</a></td>
+              </tr>
+              <tr bgcolor="#FFFFFF" class="SmTxt">
+                <td align="right" nowrap bgcolor="#FFFFFF"><img src="images/blue4.gif" width="12" height="16"></td>
+                <td nowrap><strong>Single Product</strong> Input by Drop Box &amp; Quantity Box </td>
+                <td nowrap><a href="example_viewcart.html"><img src="images/rarrow.gif" width="12" height="7" border="0"></a><a href="example_single3.html">example_single3.html</a></td>
+              </tr>
+              <tr bgcolor="#F0F8FF" class="SmTxt">
+                <td align="right" bgcolor="#FFFFFF"><img src="images/blue5.gif" width="12" height="16"></td>
+                <td>Input Quantity with 3 input <strong>options</strong> (size,color,etc.) </td>
+                <td><span class="SmTxt"><a href="example_viewcart.html"><img src="images/rarrow.gif" width="12" height="7" border="0"></a><a href="example_options1.html">example_options1.html</a></span></td>
+              </tr>
+              <tr bgcolor="#FFFFFF" class="SmTxt">
+                <td align="right" nowrap bgcolor="#FFFFFF"><img src="images/blue6.gif" width="12" height="16"></td>
+                <td nowrap>Input Quantity with 3 input <strong>options</strong> (size,color,etc.) GRID </td>
+                <td nowrap><a href="example_viewcart.html"><img src="images/rarrow.gif" width="12" height="7" border="0"></a><a href="example_options2.html">example_options2.html</a></td>
+              </tr>
+              <tr bgcolor="#F0F8FF" class="SmTxt">
+                <td align="right" bgcolor="#FFFFFF"><img src="images/blue7.gif" width="12" height="16"></td>
+                <td>Input Quantity with 3 input <strong>options</strong> (size,color,etc.) GRID </td>
+                <td><a href="example_viewcart.html"><img src="images/rarrow.gif" width="12" height="7" border="0"></a><a href="example_options3.html">example_options3.html</a></td>
+              </tr>
+              <tr bgcolor="#FFFFFF" class="SmTxt">
+                <td align="right" nowrap bgcolor="#FFFFFF"><img src="images/blue8.gif" width="12" height="16"></td>
+                <td nowrap>Input Main Item with many kinds of <strong>options</strong> </td>
+                <td nowrap><a href="example_viewcart.html"><img src="images/rarrow.gif" width="12" height="7" border="0"></a><a href="example_complex1.html">example_complex1.html</a></td>
+              </tr>
+              <tr bgcolor="#F0F8FF" class="SmTxt">
+                <td align="right" bgcolor="#FFFFFF"><img src="images/blue9.gif" width="12" height="16"></td>
+                <td>Input Main Item with many kinds of <strong>options</strong> </td>
+                <td><a href="example_viewcart.html"><img src="images/rarrow.gif" width="12" height="7" border="0"></a><a href="example_complex2.html">example_complex2.html</a></td>
+              </tr>
+              <tr bgcolor="#FFFFFF" class="SmTxt">
+                <td align="right" nowrap bgcolor="#FFFFFF"><img src="images/blue1.gif" width="9" height="16"><img src="images/blue0.gif" width="12" height="16"></td>
+                <td nowrap><strong>Checkbox</strong> OrderForm - Add multiple items to cart </td>
+                <td nowrap><span class="SmTxt"><a href="example_viewcart.html"><img src="images/rarrow.gif" width="12" height="7" border="0"></a><a href="example_orderform1.html">example_orderform1.html</a></span></td>
+              </tr>
+              <tr bgcolor="#F0F8FF" class="SmTxt">
+                <td align="right" nowrap bgcolor="#FFFFFF"><img src="images/blue1.gif" width="9" height="16"><img src="images/blue1.gif" width="9" height="16"></td>
+                <td nowrap><strong>Checkbox</strong> OrderForm - Add multiple items to cart </td>
+                <td><a href="example_viewcart.html"><img src="images/rarrow.gif" width="12" height="7" border="0"></a><a href="example_orderform2.html">example_orderform2.html</a></td>
+              </tr>
+              <tr bgcolor="#FFFFFF" class="SmTxt">
+                <td align="right" nowrap bgcolor="#FFFFFF"><img src="images/blue1.gif" width="9" height="16"><img src="images/blue2.gif" width="12" height="16"></td>
+                <td nowrap><strong>Listbox</strong> OrderForm - Add multiple items to cart </td>
+                <td nowrap><a href="example_viewcart.html"><img src="images/rarrow.gif" width="12" height="7" border="0"></a><a href="example_orderform3.html">example_orderform3.html</a></td>
+              </tr>
+              <tr bgcolor="#F0F8FF" class="SmTxt">
+                <td align="right" bgcolor="#FFFFFF"><img src="images/blue1.gif" width="9" height="16"><img src="images/blue3.gif" width="12" height="16"></td>
+                <td>Input the <strong>Price Amount</strong> for a Product </td>
+                <td><a href="example_viewcart.html"><img src="images/rarrow.gif" width="12" height="7" border="0"></a><a href="example_priceinput1.html">example_priceinput1.html</a></td>
+              </tr>
+              <tr bgcolor="#FFFFFF" class="SmTxt">
+                <td align="right" nowrap bgcolor="#FFFFFF"><img src="images/blue1.gif" width="9" height="16"><img src="images/blue4.gif" width="12" height="16"></td>
+                <td nowrap>Input Several Price Amounts for a Product </td>
+                <td nowrap><span class="SmTxt"><a href="example_viewcart.html"><img src="images/rarrow.gif" width="12" height="7" border="0"></a><a href="example_priceinput2.html">example_priceinput2.html</a></span></td>
+              </tr>
+              <tr bgcolor="#F0F8FF" class="SmTxt">
+                <td align="right" bgcolor="#FFFFFF"><img src="images/blue1.gif" width="9" height="16"><img src="images/blue5.gif" width="12" height="16"></td>
+                <td>Input Multiple Products with various Price Input Amounts </td>
+                <td><a href="example_viewcart.html"><img src="images/rarrow.gif" width="12" height="7" border="0"></a><a href="example_priceinput3.html">example_priceinput3.html</a></td>
+              </tr>
+              <tr bgcolor="#FFFFFF" class="SmTxt">
+                <td align="right" nowrap bgcolor="#FFFFFF"><img src="images/blue1.gif" width="9" height="16"><img src="images/blue6.gif" width="12" height="16"></td>
+                <td nowrap><strong>Matrix</strong> of 54 Items with Quantity Box input </td>
+                <td nowrap><a href="example_viewcart.html"><img src="images/rarrow.gif" width="12" height="7" border="0"></a><a href="example_matrix.html">example_matrix.html</a></td>
+              </tr>
+              <tr bgcolor="#F0F8FF" class="SmTxt">
+                <td align="right" bgcolor="#FFFFFF"><img src="images/blue1.gif" width="9" height="16"><img src="images/blue7.gif" width="12" height="16"></td>
+                <td>Input <strong>TextArea</strong> with Products</td>
+                <td><a href="example_viewcart.html"><img src="images/rarrow.gif" width="12" height="7" border="0"></a><a href="example_textarea.html">example_textarea.html</a></td>
+              </tr>
+              <tr bgcolor="#FFFFFF" class="SmTxt">
+                <td align="right" nowrap bgcolor="#FFFFFF"><img src="images/blue1.gif" width="9" height="16"><img src="images/blue8.gif" width="12" height="16"></td>
+                <td nowrap> Using <strong>PopUp Windows</strong> for Putting Items in Cart </td>
+                <td nowrap><a href="example_viewcart.html"><img src="images/rarrow.gif" width="12" height="7" border="0"></a><a href="example_popupordering.html">example_popupordering.html</a></td>
+              </tr>
+              <tr bgcolor="#F0F8FF" class="SmTxt">
+                <td align="right" bgcolor="#FFFFFF"><img src="images/blue1.gif" width="9" height="16"><img src="images/blue9.gif" width="12" height="16"></td>
+                <td>Quantity Rates &amp; Dynamic Price Changes </td>
+                <td><a href="example_viewcart.html"><img src="images/rarrow.gif" width="12" height="7" border="0"></a><a href="example_pricechanges.html">example_pricechanges.html</a></td>
+              </tr>
+              <tr bgcolor="#FFFFFF" class="SmTxt">
+                <td align="right" nowrap bgcolor="#FFFFFF"><img src="images/blue2.gif" width="12" height="16"><img src="images/blue0.gif" width="12" height="16"></td>
+                <td nowrap><strong>Memberships</strong> with Required Info </td>
+                <td nowrap><a href="example_viewcart.html"><img src="images/rarrow.gif" width="12" height="7" border="0"></a><a href="example_memberships.html">example_memberships.html</a></td>
+              </tr>
+            </table>            </TD>
+</TR>
+</TBODY>
+</TABLE>
+
+</TD>
+</TR>
+</TBODY>
+</TABLE>
+
+<br>
+
+
+<TABLE cellSpacing=0 cellPadding=2 align=center bgColor=#ECECEC border=0>
+  <TR>
+    <TD align="center" valign="middle" class="menu">	
+	<span class="FooterText">
+    	<a href="license.html" onClick="window.open(this.href,'INFO','directories=no,location=no,menubar=no,status=no,titlebar=no,toolbar=no,scrollbars=yes,width=450,height=500,resizable=yes');return false">License</a> |
+    <a href="about.html" onClick="window.open(this.href,'INFO','directories=no,location=no,menubar=no,status=no,titlebar=no,toolbar=no,scrollbars=yes,width=450,height=500,resizable=yes');return false">About Us</a> |
+    <a href="privacy.html" onClick="window.open(this.href,'INFO','directories=no,location=no,menubar=no,status=no,titlebar=no,toolbar=no,scrollbars=yes,width=450,height=500,resizable=yes');return false">Privacy Info</a> 
+	<br>
+	<a href="http://www.merchantpal.com" target="_blank">MerchantPal</a>.com &amp; <a href="http://www.merchantorderform.com" target="_blank">MerchantOrderForm</a> Shopping Cart are registered TradeMarks<br>
+	&copy; 2001-2004 All Rights Reserved. Austin Contract Computing, Austin, Texas USA
+	</span> 
+	 </TD>
+  </TR>
+  <TR>
+    <TD align="center" valign="middle"><img src="images/mplogo150x33.gif" width="150" height="33"></TD>
+  </TR>
+</TABLE>
+</BODY>
+</HTML>
+
+
+

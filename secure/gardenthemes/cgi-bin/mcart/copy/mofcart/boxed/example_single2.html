@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>MOFcart v2.5 Examples</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 5.50.4611.1300" name=GENERATOR>
+<META name="ROBOTS" content="NOINDEX,NOFOLLOW">
+<link rel="stylesheet" type="text/css" href="examples.css">
+
+<script type="text/javascript" LANGUAGE="JavaScript">
+<!-- name and focus window
+window.name = 'MAIN';
+window.focus();
+// End -->
+</SCRIPT>
+
+</HEAD>
+<BODY>
+
+
+
+<TABLE cellSpacing=0 cellPadding=0 width=640 align=center bgColor=#E8E8E8 border=0>
+  <TBODY>
+  <TR>
+    <TD height="48" valign="top">
+		<img src="images/moflogo640.gif" width="640" height="50"></TD>
+    </TR>
+  </TBODY>
+</TABLE>
+
+
+
+
+<TABLE cellSpacing=0 cellPadding=1 width=640 align=center bgColor=#578BEA border=0>
+<TBODY>
+<TR>
+<TD>
+
+
+<TABLE cellSpacing=0 cellPadding=25 width="100%" align=center bgColor=#ffffff border=0>
+<TBODY>
+<TR>
+<TD> 
+		  
+            <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="57%" class="SmTxt"><strong>One Click Product Purchase</strong></td>
+                <td width="25%" class="SmTxt"><strong><a href="example_mofstore.html"><img src="images/larrow.gif" width="12" height="7" border="0"></a></strong><a href="example_mofstore.html">Return to Examples</a></td>
+                <td width="18%"><div align="right" class="SmTxt"><strong><strong><a href="http://www.gardenthemes.com/cgi-bin/mcart/mof.cgi?viewcart"><img src="images/yourbasket.gif" width="106" height="20" border="0" alt="Go To Your Shopping Basket"></a></strong></strong></div></td>
+              </tr>
+            </table>
+            <p class="SmTxt"><strong>Use:</strong> You offer items for sale
+    on various pages on your site. Your customers add those items to their &quot;basket&quot; from any page as they browse through your site.<strong><br>
+&nbsp;&nbsp;<br>
+    Instructions</strong>: Click the <strong>Buy
+    </strong>
+    button next to this item to add it to your cart.</p>
+            <FORM method=POST action="http://www.gardenthemes.com/cgi-bin/mcart/mof.cgi">
+	<INPUT type="hidden" name="postmode" value="SINGLEPOST">
+	<INPUT type="hidden" name="quantity" value="1">
+	<INPUT type="hidden" name="order" value="Wooden Buddha----[b]Handcrafted Buddha[/b]: Made in Thailand----129.00----1----0">
+
+
+	<table border="0" cellpadding="2" align="center">
+    <tr><td>
+    <img border="0" src="images/buddha.gif" align="left" width="120" height="138">    
+    </td>
+
+    <td>
+  	
+    <span class="SmTxt">Wooden Buddha <strong>
+    
+	$ 129.00<br>
+    </strong><br>
+    Handcrafted wooden Buddha made in Thailand</span><br>
+    <br>
+
+        <input type="image" align="absmiddle" src="images/buynow.gif" width=25 height=36 border=0 alt="Click Here to Add To Cart">
+
+    
+	</td></tr>
+    </table>
+
+	</FORM></TD>
+</TR>
+</TBODY>
+</TABLE>
+
+</TD>
+</TR>
+</TBODY>
+</TABLE>
+
+<br>
+
+
+<TABLE cellSpacing=0 cellPadding=4 width=640 align=center border=0>
+<TBODY>
+<TR>
+<TD class="SmTxt">
+
+
+<strong>FORM syntax ..</strong> &nbsp;
+
+
+</TD>
+</TR>
+</TBODY>
+</TABLE>
+
+
+
+<TABLE cellSpacing=0 cellPadding=1 width=640 align=center bgColor=#578BEA border=0>
+<TBODY>
+<TR>
+<TD>
+
+
+<TABLE cellSpacing=0 cellPadding=10 width="100%" align=center bgColor=#ffffff border=0>
+<TBODY>
+<TR>
+          <TD Class="CodeFormat">	        <p>&lt;FORM method=POST action=&quot;http://www.gardenthemes.com/cgi-bin/mcart/mof.cgi&quot;&gt;<br>
+            	&lt;INPUT type=&quot;hidden&quot; name=&quot;<span class="SmMaroon">postmode</span>&quot; value=&quot;<strong class="SmTxt">SINGLEPOST</strong>&quot;&gt;<br>
+            	&lt;INPUT type=&quot;hidden&quot; name=&quot;<span class="SmMaroon">quantity</span>&quot; value=&quot;<span class="SmTxt">1</span>&quot;&gt;</p>
+            <p>&lt;INPUT type=&quot;<strong>hidden</strong>&quot; name=&quot;<span class="SmMaroon">order</span>&quot; <br>
+              value=&quot;<span class="SmTxt">Wooden Buddha----[b]Handcrafted Buddha[/b]: Made in Thailand----129.00----1----0&quot;</span>&gt;</p>
+            <p>&lt;input type=&quot;image&quot; src=&quot;buynow.gif&quot; width=25 height=36 border=0 <br>
+              alt=&quot;Click Here to Add To Cart&quot;&gt;<br>
+            &lt;/FORM&gt;</p>
+            </TD>
+</TR>
+</TBODY>
+</TABLE>
+
+</TD>
+</TR>
+</TBODY>
+</TABLE>
+
+<br>
+
+
+<TABLE cellSpacing=0 cellPadding=1 width=640 align=center bgColor=#578BEA border=0>
+<TBODY>
+<TR>
+<TD>
+
+
+<TABLE cellSpacing=0 cellPadding=25 width="100%" align=center bgColor=#ffffff border=0>
+<TBODY>
+<TR>
+<TD> 
+		  
+            <p>
+
+              <span class="SmTxt"><strong>Notes</strong></span></p>
+
+
+            <p class="SmTxt">This submits one  product at a time to the cart by clicking on the buy button</p>
+            <p class="SmTxt">The main product is submitted as <strong>hidden</strong> input. Also, note  the use of HTML [ pseudo tags ] for sending the image to the cart</p>
+            <p class="SmTxt">If you wanted to add product options to this see: example_options1.html</p>
+            </TD>
+</TR>
+</TBODY>
+</TABLE>
+
+</TD>
+</TR>
+</TBODY>
+</TABLE>
+
+
+<br>
+<TABLE cellSpacing=0 cellPadding=2 align=center bgColor=#ECECEC border=0>
+  <TR>
+    <TD align="center" valign="middle" class="menu">	
+	<span class="FooterText">
+    	<a href="license.html" onClick="window.open(this.href,'INFO','directories=no,location=no,menubar=no,status=no,titlebar=no,toolbar=no,scrollbars=yes,width=450,height=500,resizable=yes');return false">License</a> |
+    <a href="about.html" onClick="window.open(this.href,'INFO','directories=no,location=no,menubar=no,status=no,titlebar=no,toolbar=no,scrollbars=yes,width=450,height=500,resizable=yes');return false">About Us</a> |
+    <a href="privacy.html" onClick="window.open(this.href,'INFO','directories=no,location=no,menubar=no,status=no,titlebar=no,toolbar=no,scrollbars=yes,width=450,height=500,resizable=yes');return false">Privacy Info</a> 
+	<br>
+	<a href="http://www.merchantpal.com" target="_blank">MerchantPal</a>.com &amp; <a href="http://www.merchantorderform.com" target="_blank">MerchantOrderForm</a> Shopping Cart are registered TradeMarks<br>
+	&copy; 2001-2004 All Rights Reserved. Austin Contract Computing, Austin, Texas USA
+	</span> 
+	 </TD>
+  </TR>
+  <TR>
+    <TD align="center" valign="middle"><img src="images/mplogo150x33.gif" width="150" height="33"></TD>
+  </TR>
+</TABLE>
+</BODY>
+</HTML>
+
+
+

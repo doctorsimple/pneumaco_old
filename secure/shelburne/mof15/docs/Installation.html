@@ -1,0 +1,2388 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+   <meta name="Author" content="Russell Alexander">
+   <meta name="Description" content="The complete set of Documentation for Merchant OrderForm v1.5 - WebWare written and produced by RGA">
+   <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+   <meta name="ProgId" content="FrontPage.Editor.Document">
+   <meta name="subject" content="Merchant OrderForm">
+   <meta name="Template" content="C:\MICROSOFT OFFICE\OFFICE\html.dot">
+   <TITLE>Merchant OrderForm v1.5 Documentation</TITLE>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#3333FF" VLINK="#3333FF" ALINK="#FF0000">
+<b>
+<font size="4">
+<font face="Comic Sans MS">
+Installing <I><FONT COLOR="#800000">Merchant Order Form</FONT></I> </font></font></b>
+<font size="-1" face="Comic Sans MS">
+version 1.53, 8/15/2000, Updated 9/15/2000</font>
+<BR><FONT FACE="Comic Sans MS"><FONT SIZE=-1>Copyright by </FONT><B><FONT SIZE=-2>RGA@IO.COM</FONT></B><FONT SIZE=-1>
+/ <A HREF="http://www.io.com/~rga/scripts">http://www.io.com/~rga/scripts<br>
+</A>Internet Location: <a href="http://www.merchantorderform.com">http://www.merchantorderform.com<br>
+</a>
+Use our web site for <a href="http://www.merchantorderform.com/updates.html">current issues or updates to this product</a>
+ <a href="http://www.merchantorderform.com"><br>
+</a>
+Documentation prepared July 31, 2000.
+</FONT></FONT><p>
+
+<font size="-1" face="Comic Sans MS">
+This file will walk you through installing Merchant OrderForm step by step.&nbsp; Even if you are an experienced cgi installer, you will save yourself some time by following this document.&nbsp; There are many installation settings that need to be
+set, and we have detailed the quickest way.</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+The other documentation files are:</font>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS"><a href="ReadMe.html">ReadMe.html</a>
+ &nbsp;-- Introductory information about Merchant OrderForm</font><li>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>Installation.html&nbsp;</b></font> -- 
+<font color="#000080">
+<b>You Are Here</b></font></font><li>
+<font size="-1" face="Comic Sans MS"><a href="BuildingPages.html">BuildingPages.html</a>
+&nbsp; -- All about Building the Input Pages for your Store</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="AboutConfigurations.html">AboutConfigurations.html</a>
+ -- Basics about editing Perl configuration files</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="Configurations1.html">Configurations1.html</a>
+&nbsp; -- Front End settings (Cart and Order Summary)</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="Configurations2.html">Configurations2.html</a>
+ -- Back End settings (Check out and Final invoice)</font><li>
+<font size="-1" face="Comic Sans MS"><a href="Troubleshooting.html">Troubleshooting.html</a>
+&nbsp; -- Information on error messages and troubleshooting</font>
+</ul>
+<p><u>
+<font size="+1" face="Comic Sans MS">
+Shareware statement</font></u>
+
+<font size="-1" face="Comic Sans MS">
+&nbsp;<br>
+<br>
+You are authorized to install, test, and explore your copy of Merchant OrderForm.  When you are satisfied that it will do the job for you, then you are expected to make arrangements for the Shareware fees.&nbsp;</font><p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#000080"><b>Payment arrangements</b></font> @ <a href="http://www.merchantorderform.com/payment.html">http://www.merchantorderform.com/payment.html</a>
+&nbsp;<br>
+<br>
+-- Or you can Send Check or Money Order To:&nbsp;</font><br>
+<br>
+<font size="-1" face="Comic Sans MS">
+        RUSSELL ALEXANDER&nbsp;<br>
+        1904 INVERNESS BLVD.&nbsp;<br>
+        AUSTIN, TEXAS 78745&nbsp;</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+
+
+-- Or you can use </font>
+
+<!-- Begin PayPal Logo -->
+<A HREF="https://secure.paypal.x.com/xclick/business=rga%40io.com&undefined_quantity=1&item_name=Merchant+OrderForm+v1.5&return=http%3A//www.merchantorderform.com/" target="_blank">
+<font size="-1" face="Comic Sans MS">
+Pay Pal</font>
+&nbsp;
+</a>
+<p>
+
+&nbsp;
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9"><FONT SIZE=+1><a name="TableContents"></a>
+Table
+of Contents for this Documentation</FONT></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT FACE="Comic Sans MS"><FONT COLOR="#800000">Merchant
+OrderForm</FONT>
+<B><FONT SIZE=-1>v</FONT></B></FONT>
+ <font size="-1" face="Comic Sans MS">
+ <b>1.53</b></font></TD>
+</TR>
+</TABLE>
+
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+<b>
+<font color="#000080">
+<a href="#Installation">Installation<br>
+</a></font></b>Step by step instructions on installing Merchant OrderForm<b>
+<br>
+</b></font>
+
+<p>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#BeforeYouBegin">Before you begin<br>
+</a>
+Tips and what you need to get started</font>
+
+<p>
+
+<ol>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#FindAbsolutePath">You need the exact absolute pathway to your domain</a>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="#MakeDirectories">Make directories on your server</a>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="#AdjustDirectoryPermissions">Adjust directory permissions on the server<br>
+</a>
+</font>
+</ol>
+
+<p>
+
+<li><font size="-1" face="Comic Sans MS"><a href="#BasicInstallation">Installation of the scripts<br>
+</a>Adjusting and installing the scripts</font>
+</ul>
+<blockquote>
+<ol start="4">
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#AdjustAbsolutePath">Adjust absolute pathways in configuration files for your server</a>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="#AdjustConfigURLs">Adjust the URL addressing in configuration files</a>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="#AdjustMail">One Final adjustment to both configuration files</a>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="#SendScripts">Send the script files over to your server</a>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="#SetPermissions"> Set permissions on CGI files</a>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="#TestMain"> Test the main program files</a>
+</font>
+</ol>
+</blockquote>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#ExampleInstallation">Installation of the Example input pages and templates<br>
+</a>
+Installing all the example pages</font>
+</ul>
+<blockquote>
+<ol start="10">
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#AdjustExampleURLs">Adjust URL pathways in Example and template pages</a>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="#SendExamples"> Send all Example and template files over to your server</a>
+</font>
+</ol>
+</blockquote>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#TestingInstallation"><b>
+<font color="#3333FF">
+Testing your installation<br>
+</font></b></a>
+How to test the cart installation</font>
+</ul>
+
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#OtherInstallIssues"><b>
+<font color="#3333FF">
+Other installation Issues<br>
+</font></b></a>
+Miscellaneous installation topics</font>
+</ul>
+<blockquote>
+<ul type="circle">
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#NoRootAccess">What if I don't have root access to my account ?</a>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="#MakeTemplates">How to make your own templates</a>
+</font>
+</ul>
+</blockquote>
+
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>
+<a href="#SecurityIssues">Security Issues<br>
+</a>
+</b>
+</font>
+<font size="-1" face="Comic Sans MS">
+Security is your responsibility - Read This Section</font>
+</ul>
+
+
+<blockquote>
+
+
+<ul type="circle">
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#IsCGISecure">Is your cgi-bin secure ?</a>
+ <font color="#FF0000">
+ <b>Very Important</b></font></font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#UsingSSL">How to install Mof under SSL<br>
+<br>
+</a>
+</font>
+<ul type="square">
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#WhatPortions">What portions of Mof are installed using the SSL ?</a>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="#ConfingsMOF15">Configuratinos for mof.cgi (mof15.conf)</a>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="#ConfigsMOFPAY">Configurations for mofpayment.cgi (mofpayment.conf)</a>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="#ExpiringCart">Expiring Mof's cart under SSL</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#Robots">Turn Away those search Robots</a>
+</font>
+</ul>
+</ul>
+</blockquote>
+
+
+<blockquote>
+
+
+<ul type="circle">
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#Encryption">
+Encrypting the Mail</a>
+</font>
+</ul>
+</blockquote>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="+1" face="Comic Sans MS">
+<a name="Installation"></a>
+Installation</font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+You will save yourself a lot of time if you follow our directions step by step.&nbsp; We have MOF set up in the package to use Search and Replace to make most of the adjustments for you. In a few places you'll need to modify an actual setting.&nbsp;
+But your best bet is to start at the beginning and let us walk you through it.&nbsp; Even if you have cgi experience we can walk you through it easier than you can sort through the configuration files line by line analyzing what you need to change to
+install it on your site.&nbsp; We know exactly where the minimum settings are to get it running in test mode on your site.</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+The configuration files look a little intimidating, even to some experienced cgi installers, but we will get the system up and running in test mode first, which requires only some minor adjustments.&nbsp; MOF's behavior is stripped down to a very
+basic install when it comes out of the package, and you should not try to make behavior adjustments when you first install it.&nbsp; The bulk of settings in the two MOF configuration files are used for different behavior options.&nbsp; We will
+address that later, after you get it up and running.</font>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="BeforeYouBegin"></a>
+Before you begin</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: Do not try to use Front Page or any other HTML editor to install the Merchant OrderForm scripts.&nbsp; You can use your editor to work with the Example Input Pages, but not the actual script files.&nbsp;&nbsp;</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Suggestion</font>: Do not try to install Merchant OrderForm under any SSL (Secure Sockets Layers) at first.&nbsp; Get everything operating in test mode from a plain non-SSL location.&nbsp; We will address using SSL as a separate installation
+issue.&nbsp; SSL is done very different from server to server, and can cause server specific installation problems.&nbsp; So, the easiest thing is to omit this for now, get it all working, then tackle transferring the back end through your SSL.&nbsp;
+If you are not collecting credit card or checking account numbers over your web site, then you will not even be using SSL.&nbsp;&nbsp;</font><p>
+<font size="-1" face="Comic Sans MS">
+If you're ready to install Merchant OrderForm on your Web Site, then we'd like to walk you through it step by step. Our instructions are designed to get the Merchant OrderForm program files, and all of our example pages, up and running on your
+site.&nbsp; You don't have to use any of our example pages, images, or templates, but let's get them all going for you to use as a working reference. As you begin to build your own templates, product pages and images, then you can use the examples to
+troubleshoot your own work.&nbsp; Once you have a feel for how the system works, how to build and link product input pages, then you can delete all of the packaged example pages.&nbsp; We will place all of Merchant OrderForm's example pages in one
+directory for easy reference. You can build your product input pages wherever you like--alongside the Example Input Pages or in a separate directory.</font><p>
+<font size="-1" face="Comic Sans MS">
+We recommend that the zipped&nbsp; package you obtained be unzipped into a working directory on your local PC, and that when you extract all the files you find the setting on whatever Zip Utility you are using to &quot;preserver folder
+names.&quot;&nbsp; This will place all of Merchant OrderForm's files under the same folder names they need to end up in on your server. This will help you keep all the files together.</font><p>
+<font size="-1" face="Comic Sans MS">
+We're going to be making some adjustments to the files before you FTP them over to your server, but here's what the directory structure should look like when you unzip the files.</font>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+orderform&nbsp; (the package)</font>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS" color="#800000">
+docs</font><li>
+<font size="-1" face="Comic Sans MS" color="#800000">
+www</font>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS" color="#000080">
+--&gt; cgi-bin</font><li>
+<font size="-1" face="Comic Sans MS" color="#000080">
+--&gt; mof15</font>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS" color="#008000">
+--&gt; invoices</font>
+</ul>
+</ul>
+<li>
+<font size="-1" face="Comic Sans MS" color="#800000">
+orderinfo</font><li>
+<font size="-1" face="Comic Sans MS" color="#800000">
+orderdata</font>
+</ul>
+</ul>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<a name="FindAbsolutePath"></a>
+ 1.</font> <font face="Comic Sans MS" color="#000080" size="2">
+&nbsp;&nbsp; You need the exact absolute pathway to your domain:</font>
+</TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+You need some preparatory information about your particular Web Server Account.&nbsp; You may already know this information, or you may have to consult your hosting service
+help pages, or you may have to contact the help desk for your hosting service, but if you have this information on hand before we begin it will go much smoother. 
+<font color="#FF0000">
+ Do not guess at this part.</font>&nbsp; Guessing at it will not get things working.&nbsp;&nbsp;</font>
+<p>
+<font size="-1" face="Comic Sans MS">
+This is
+<font color="#FF0000">
+ not a web URL</font>, or web location address.&nbsp; A web address is the URL (universal resource locator) to a web page.&nbsp; What we are after does not have anything to do with where the files reside on the Web.&nbsp; We are looking for the actual server pathway to the files residing in your domain space.&nbsp;
+Servers do this differently, but on Unix-Linux you are looking for something like the following examples, which
+all point to the Root location of a web site:</font><p>
+<font face="Fixedsys" size="1">
+/home/users/mysite.com/<br>
+/home/r/rga/public-web/</font>
+<font size="-1" face="Comic Sans MS">
+<br>
+<font FACE="Fixedsys" SIZE="1">
+/u/web/</font></font>
+<font face="Fixedsys" size="1">
+mysite/</font><p>
+<font size="-1" face="Comic Sans MS">
+If you are using WS-FTP then you should be able to log in to your account and see the pathway we are looking for in the right side of the screen (remote site) drop box.&nbsp; This should show you where you logged into in relation to the server.&nbsp; You
+most likely landed at the Root directory of your account space.&nbsp; Get that pathway, you will need it to make Merchant OrderForm work.</font><p>
+<font size="-1" face="Comic Sans MS">
+On NT you are looking for something more like a Disk Location.&nbsp; Here's a possible NT example:</font><p>
+<font face="Fixedsys" size="1">
+D:\HTTPd\yoursite\</font><p>
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font face="Comic Sans MS" color="#000080" size="2">
+<a name="MakeDirectories"></a>
+ 2.&nbsp;&nbsp; Make directories on your server:</font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+ We need to reproduce the exact directory scheme that we unzipped.&nbsp; So, start up your FTP, log in to your web space, and on the Root
+Directory of the remote site (your server) make these exact directories:&nbsp; (On Ws-Ftp use the MkDir button).</font><p>
+<font face="Fixedsys" size="1">
+orderdata<br>
+orderinfo</font><p>
+<font size="-1" face="Comic Sans MS">
+Make the above directories directly off the root.&nbsp; This places the directories that hold the scratch files outside any public web access.&nbsp; Here's an example point of reference.&nbsp; It shows where to place the directories in relation to
+your opening index.htm page, your .htaccess file, and your cgi-bin.</font><p><font FACE="Fixedsys" SIZE="1">/u/web/mysite/www/index.htm<br>
+/u/web/mysite/www/.htaccess<br>
+/u/web/mysite/www/cgi-bin/your_scripts.cgi</font><p><font FACE="Fixedsys" SIZE="1">/u/web/mysite/orderdata/<br>
+/u/web/mysite/orderinfo/</font><p>
+<font size="-1" face="Comic Sans MS">
+If you do not have root access to your account, then it's okay to place these two directories inside the public web access area.&nbsp; These directories hold scratch files which contain cart contents and shipping address.&nbsp; MOF does not store any
+other information to disk.&nbsp; So, it is perfectly safe to put these directories anywhere, since no sensitive information is stored</font><p>
+<font size="-1" face="Comic Sans MS">
+Now on the remote site with your FTP proceed into your actual public web access area.&nbsp; This can be named differently between servers, but usually it's something like: Htdocs, www, public-web, maybe even yourdomainname.com.&nbsp;
+You'll know you're in the public web area when you see the cgi-bin directory.&nbsp; Now make one more directory in your public web area called:</font><p>
+<font face="Fixedsys" size="1">
+mof15</font><p>
+<font size="-1" face="Comic Sans MS">
+Here's an example point of reference:</font><p>
+<font FACE="Fixedsys" SIZE="1">/u/web/mysite/orderdata/<br>
+/u/web/mysite/orderinfo/<br>
+<br>
+/u/web/mysite/www/mof15/</font><p>
+<font size="-1" face="Comic Sans MS">
+Then proceed into the mof15 directory, and make a subordinate directory there called:</font><p>
+<font face="Fixedsys" size="1">
+invoices</font><p>
+<font size="-1" face="Comic Sans MS">
+Here's an example point of reference:</font><p>
+<font FACE="Fixedsys" SIZE="1">/u/web/mysite/orderdata/<br>
+/u/web/mysite/orderinfo/<br>
+<br>
+/u/web/mysite/www/mof15/<br>
+/u/web/mysite/www/mof15/invoices/</font><p>
+<font size="-1" face="Comic Sans MS">
+Now you should have a directory structure on your server similar to what is on your local PC when you unzipped the package.&nbsp; The www directory may be named differently on your server.&nbsp; 
+<font color="#FF0000">
+Important: Don't rename what the public web directory is called on your server</font>.&nbsp; Your server is configured to recognize only a specifically named directory where your Web files will reside.&nbsp;</font><p>
+<font size="-1" face="Comic Sans MS">
+The </font>
+<font face="Fixedsys" size="1">
+ cgi-bin</font>
+<font size="-1" face="Comic Sans MS">
+ directory should already be in your public web area.&nbsp; It is sometimes named </font>
+<font face="Fixedsys" size="1">
+cgi-local</font><font size="-1" face="Comic Sans MS">.&nbsp; Use the name on your server.&nbsp; If it isn't there contact the help desk of your hosting service and have them set it up.&nbsp; It may not work if you simply
+create it.&nbsp; The web server software has to be configured to execute scripts in that directory.&nbsp; This is especially true with NT machines.</font><p>
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font face="Comic Sans MS" color="#000080" size="2">
+<a name="AdjustDirectoryPermissions"></a>
+ 3.&nbsp;&nbsp; Adjust directory permissions on the server:</font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+Now you need to adjust the permissions (Unix-Linux) on these new directories so the server will allow the Merchant OrderForm scripts to use them to write files to.&nbsp; The simplest way to do this is to use an FTP program that has a CHMOD feature,
+or permissions feature.&nbsp; If you're using Ws-Ftp: line up the two directories </font>
+<font face="Fixedsys" size="1">
+orderdata</font><font size="-1" face="Comic Sans MS"> and</font>
+<font face="Fixedsys" size="1">
+ orderinfo</font><font size="-1" face="Comic Sans MS"> in the right remote site window.&nbsp; Right click on the folder icon, and select the chmod(unix) function. Select all the radio
+buttons to make these folders readable, executable, and writable for everyone (owner, group, other).&nbsp; If you telnet there, then you know what to do: Chmod dirname 777.</font><p>
+<font size="-1" face="Comic Sans MS">
+Now, do the same thing with the </font>
+<font face="Fixedsys" size="1">
+mof15</font>
+<font size="-1" face="Comic Sans MS">
+ and </font>
+<font face="Fixedsys" size="1">
+invoices</font>
+<font size="-1" face="Comic Sans MS">
+ folder.&nbsp; Make them both readable, writable, executable by owner, group, and other.&nbsp; This will make our new directories ready to be used by MOF.</font>
+<p>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: Some Unix-Linux servers handle permissions differently.&nbsp; Some large hosting services require you to use a Web based control panel.&nbsp; In some rare cases, servers can be set to run scripts under the users permissions, and they
+don't want you to adjust the permissions to any files yourself.&nbsp; Please consult your hosting help pages or call the help desk to get more information about how your server handles permissions.&nbsp; Most servers will follow the guidelines that
+we outlines above.</font>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="BasicInstallation"></a>Installation of the scripts</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Okay, you should have the absolute pathway to your domain ready.<br>
+And you should have the directories ready to receive the files on your server.</font><p>
+<font size="-1" face="Comic Sans MS">
+You need to adjust both of MOF's configuration files to match your server layout.&nbsp; So, you're going to have to modify these files using a plain ASCII text editor.&nbsp; Do not use a word processor, because the programming language must not be
+messed up by formatting characters.&nbsp; If you don't have a plain ASCII text editor consult the section <a href="ReadMe.html#AbleToInstall">Will I be able to install it </a>
+.&nbsp; When you are editing these files be careful not to alter any of the important Perl syntax, meaning that you can't just start deleting things like semicolons, quotes, line endings, comment characters.&nbsp; For more information on how to work
+in these files see the section: <a href="AboutConfigurations.html">Basics of editing configuration files</a>
+</font><p>
+<font size="-1" face="Comic Sans MS">
+Find these two files to work with in your ASCII editor: They are in the&nbsp;&nbsp;</font>
+<font face="Fixedsys" size="1">
+ /www/cgi-bin/</font><font size="-1" face="Comic Sans MS">&nbsp; folder that you unzipped.</font><p>
+<font face="Fixedsys" size="1">
+mof15.conf<br>
+mofpayment.conf</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: You may want to work with them in a different folder, or keep a backup of the original. Keep your original zip package in case you need to extract some of the files again.</font><p>
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<a name="AdjustAbsolutePath"></a>
+ 4.&nbsp; Adjust absolute pathways in configuration files for your server</font>
+</TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This is the most difficult part for beginners. Stick with the instructions.</font>
+<ol>
+<li>
+<font size="-1" face="Comic Sans MS">
+Open up&nbsp; <font color="#000080"><b>mof15.conf</b></font> and scroll down to about line 98.</font><li>
+<font size="-1" face="Comic Sans MS">
+Replace </font>
+<font FACE="Fixedsys" SIZE="1">
+ABSOLUTE_PATH_TO_ORDERDATA</font>
+<font size="-1" face="Comic Sans MS">
+ with the pathway to your server's&nbsp;&nbsp; /orderdata/&nbsp;&nbsp; directory</font><li>
+<font size="-1" face="Comic Sans MS">
+Don't accidentally erase the single quotes enclosing this</font><li>
+<font size="-1" face="Comic Sans MS">
+For Unix-Linux the path line should end like this&nbsp; /orderdata/</font><li>
+<font size="-1" face="Comic Sans MS">
+It must end with the forward backslash</font>
+</ol>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+That setting should look like this example, your actual server path substituted:<br>
+<font FACE="Fixedsys" SIZE="1">
+$datadirectory = '/u/web/</font></font><font face="Fixedsys" size="1">mysite/orderdata/';</font><p>
+<font size="-1" face="Comic Sans MS">
+Now make the same adjustment around line 111, the location of the&nbsp;&nbsp; /orderinfo/&nbsp; directory</font>
+<ol>
+<li>
+<font size="-1" face="Comic Sans MS">
+Replace </font>
+<font FACE="Fixedsys" SIZE="1">
+ABSOLUTE_PATH_TO_ORDERINFO</font>
+<font size="-1" face="Comic Sans MS">
+ with the pathway to your server's&nbsp;&nbsp; /orderinfo/&nbsp; directory</font><li>
+<font size="-1" face="Comic Sans MS">
+For Unix-Linux the path line should end like this&nbsp;&nbsp; /orderinfo/</font><li>
+<font size="-1" face="Comic Sans MS">
+It must end with the forward backslash</font>
+</ol>
+<p>
+<font size="-1" face="Comic Sans MS">
+That setting should look like this example, your actual server path substituted:<br>
+</font>
+<font FACE="Fixedsys" SIZE="1">
+$infodirectory = '/u/web/mysite/orderinfo/';</font><p>
+<font size="-1" face="Comic Sans MS">
+Now adjust the locations for 4 template files in&nbsp; <font color="#000080"><b>mof15.conf</b></font>. These settings begin around line 130<br>
+Tip: Use Search and Replace for precisely changing this<br>
+Search For: 
+<font color="#000080">
+/ABSOLUTE_PATH/</font><br>
+Replace With: 
+<font color="#000080">
+/your/absolute/server/path/to/www-area/</font><br>
+Note: You should have only 4 replacements for this string</font><p>
+<font size="-1" face="Comic Sans MS">
+Following the point of reference examples we started in Step 2, your Search and Replace would look like this:</font><p>
+<font size="-1" face="Comic Sans MS">
+Search For: </font>
+<font face="Fixedsys" size="1">
+/ABSOLUTE_PATH/</font>
+<font size="-1" face="Comic Sans MS">
+<br>
+Replace With: </font><font FACE="Fixedsys" SIZE="1">/u/web/mysite/www/</font><p>
+<font size="-1" face="Comic Sans MS">
+Below are examples what those 4 final settings might look like for Unix-Linux type server.&nbsp;&nbsp;</font><p>
+<font FACE="Fixedsys" SIZE="1">
+$accept_order_template = '/u/web/mysite/www/mof15/mofmain.html';<br>
+$validation_template = '/u/web/mysite/www/mof15/mofvalidate.html';<br>
+$preview_template = '/u/web/mysite/www/mof15/mofpreview.html';<br>
+$preview_info_template = '/u/web/mysite/www/mof15/mofinformation.html';</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: In the above examples, everything from the /mof15/filename.html&nbsp;&nbsp;is already accurate and set to run the correct file.&nbsp; You don't need to modify that</font><p>
+<font size="-1" face="Comic Sans MS">
+Now save the changes you made to&nbsp; <font color="#000080"><b>mof15.conf</b></font>, and open up&nbsp; <font color="#000080"><b>mofpayment.conf</b></font> for adjustments</font>
+<ol>
+<li>
+<font size="-1" face="Comic Sans MS">
+Open up 
+<font color="#000080">
+<b>mofpayment.conf</b></font> and scroll down to about line 269.</font><li>
+<font size="-1" face="Comic Sans MS">
+Replace </font>
+<font face="Fixedsys" size="1">
+ ABSOLUTE_PATH_TO_ORDERDATA</font>
+<font size="-1" face="Comic Sans MS">
+ with the pathway to your server's   /orderdata/   directory</font><li>
+<font size="-1" face="Comic Sans MS">
+Don't accidentally erase the single quotes enclosing this</font><li>
+<font size="-1" face="Comic Sans MS">
+For Unix-Linux the path line should end like this  /orderdata/</font><li>
+<font size="-1" face="Comic Sans MS">
+It must end with the forward backslash</font>
+</ol>
+<p>
+
+T<font size="-1" face="Comic Sans MS">hat setting should look like this example, your actual server path substituted:<br>
+</font>
+<font face="Fixedsys" size="1">
+$datadirectory = '/u/web/mysite/orderdata/';</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: The above setting should be exactly the same as the </font>
+<font face="Fixedsys" size="1">
+$datadirectory</font>
+<font size="-1" face="Comic Sans MS">
+ setting you made in
+<b> 
+<font color="#000080">
+mof15.conf.&nbsp;</font></b> This is also an optional setting and not required to get MOF in test mode, because the feature using this directory is disabled in the packaged distribution.</font><p>
+<font size="-1" face="Comic Sans MS">Now adjust absolute pathways on 3 other settings in&nbsp; <font color="#000080"><b>mofpayment.conf<br>
+</b></font>
+Beginning around line 115, there are settings for 3 template files.<br>
+And around line 242 there is 1 setting for the </font>
+<font face="Fixedsys" size="1">
+invoices</font><font size="-1" face="Comic Sans MS"> directory<br>
+<br>
+These are Unix-Linux examples of what those settings might look like.</font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$payment_info_template = '/u/web/mysite/www/mof15/mofpayinfo.html';<br>
+$final_template = '/u/web/mysite/www/mof15/mofpayfinal.html';<br>
+$save_invoice_template = '/u/web/mysite/www/mof15/mofinvoice.html';<br>
+</font><font FACE="Fixedsys" SIZE="1">$save_invoice_path = '/u/web/mysite/www/mof15/invoices/';</p>
+</font><p>
+<font size="-1" face="Comic Sans MS">
+Search For: 
+<font color="#000080">
+/ABSOLUTE_PATH/</font><br>
+Replace With: 
+<font color="#000080">
+/your/absolute/server/path/to/www-area/<br>
+</font>Note: You should have only 4 replacements for this string </font>
+<p>
+<font size="-1" face="Comic Sans MS">
+Following the point of reference examples we started in Step 2, your Search and Replace would look like this:</font><p>
+<font size="-1" face="Comic Sans MS">
+Search For: </font>
+<font face="Fixedsys" size="1">
+/ABSOLUTE_PATH/</font>
+<font size="-1" face="Comic Sans MS">
+<br>
+Replace With: </font><font FACE="Fixedsys" SIZE="1">/u/web/mysite/www/</font><p>
+<font size="-1" face="Comic Sans MS">
+Important: the </font>
+<font face="Fixedsys" size="1">
+$save_invoice_path</font>
+<font size="-1" face="Comic Sans MS">
+ settings must end with the forward backslash as in the above example.&nbsp; It's already set this way in the package distribution, and will remain if you use the search replace as described above.</font><p>
+<font size="-1" face="Comic Sans MS">
+Save the changes made to&nbsp; <font color="#000080"><b>mofpayment.conf</b></font> and exit.</font>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<a name="AdjustConfigURLs"></a>
+ 5&nbsp;&nbsp; Adjust the URL addressing in configuration files</font>
+</TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+Now we'll open up both configuration files again and do a Search and Replace on each file to adjust the necessary settings that have to do with all the URL locations of images and hyperlinks.&nbsp; The URL (Universal Resource Locator) address is
+where files reside in relation to the Web.&nbsp; This is a very different address than the absolute location of files on the server we were working with above in Step 4.&nbsp; The URL is the address used by the Web to find a file,&nbsp; whereas the absolute
+address is how the actual operating system finds a file on its hard drives.</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Important</font>: Do not use relative addressing for the URL Replace With string.&nbsp; It will go much smoother if you use the complete and Full URL -- the address that a Web browser on the Internet must use to find your domain.</font><p>
+<font size="-1" face="Comic Sans MS">
+Do a careful Search and Replace on both 
+<font color="#000080">
+<b>mof15.conf</b></font> and 
+<font color="#000080">
+<b>mofpayment.conf</b></font></font><br>
+<font size="-1" face="Comic Sans MS">
+Search for</font>: 
+<font face="Fixedsys" size="1">
+http://localhost/</font>
+<font size="-1" face="Comic Sans MS">
+<br>
+Replace with:</font> 
+<font face="Fixedsys" size="1">
+http://www.yourdomain.com/</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Be careful to type in the exact Search For string, ending the string with the forward backslash.&nbsp; And also make sure to end the Replace With string with the forward backslash.&nbsp; If you do not include these endings correctly, then the URL
+will not line up correctly, and MOF will not be able to find the files it will be looking for.&nbsp; Make sure to Replace With only the Root URL location to your domain.&nbsp;</font><p>
+<font size="-1" face="Comic Sans MS">
+You should have done 21 replacements on 
+<font color="#000080">
+<b>mof15.conf</b></font> and 17 replacements on 
+<font color="#000080">
+<b>mofpayment.conf</b></font></font><p>&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080"><a name="AdjustMail"></a>
+ 6.&nbsp;&nbsp; One Final adjustment to both configuration files</font>
+</TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Put in your merchant email address for error notices in both configuration files</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+In<b>
+<font color="#000080">
+ mof15.conf</font></b> around line 185 find this line:<br>
+</font>
+<font face="Fixedsys" size="1">
+$merchantmail = 'merchant@yourdomain.com';</font><p>
+<font size="-1" face="Comic Sans MS">
+Then in</font> 
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>mofpayment.conf </b></font>around line 163 find this line:<br>
+</font>
+<font face="Fixedsys" size="1">
+$merchantmail = 'merchant@yourdomain.com';</font><p>
+<font size="-1" face="Comic Sans MS">
+Be careful not to accidentally erase or alter the surrounding single quotes or the ending semicolon on these lines.&nbsp; Just carefully change the actual email address.&nbsp; Do not change the surrounding single quotes to double quotes.&nbsp; Single
+quotes and double quotes have different meanings in Perl.</font><p>
+<font size="-1" face="Comic Sans MS">
+Put in an email address that MOF will display to notify you in case a customer encounters any errors using the system.&nbsp; If any errors are encountered, Merchant OrderForm will display an error message, which will be useful to you when testing
+your installation,
+and also useful for your customers to know who to report any future errors to.</font>
+<p>
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+
+<font size="-1" face="Comic Sans MS" color="#000080"><a name="SendScripts"></a>
+ 7.&nbsp;&nbsp; Send the script files over to your server</font>
+</TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Load up your FTP program, log in and get ready to upload the program script files to your server.&nbsp; You will be uploading all the files that unzipped into the&nbsp;&nbsp; /www/cgi-bin/&nbsp;&nbsp; directory.&nbsp; Make sure you are uploading the
+modified config files that you adjusted in the above Steps 4 - 6.</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+<b><a name="WhichConfigFile"></a>
+Important</b></font>: You must upload the files in ASCII mode only.&nbsp; If you are using Ws-Ftp then make this setting by selecting the &quot;ASCII&quot; type at the bottom area of the Ws-Ftp program.&nbsp; Deselect &quot;auto&quot; for Ws-Ftp to
+force uploading in ASCII mode only.&nbsp; If you are using a different FTP program then you must find the settings that instruct the FTP upload to transfer the files in ASCII mode.&nbsp; If the program accidentally transfers the files in binary mode
+the system will not work correctly and when you try to run the scripts you will get the dreaded
+<font color="#000080">
+ 500 internal server error </font>messages.</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Here is a list of what you should be uploading:</font>
+
+<table border="1" cellpadding="0" cellspacing="0" width="57%">
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mof.cgi</font></td><td width="50%" rowspan="3">
+<font size="-1" face="Comic Sans MS" color="#000080">
+&nbsp;The Front End Cart&nbsp;</font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mof15.conf</font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mof15_lib.pl</font></td></tr>
+
+<tr><td width="50%" bgcolor="#F4F4F4" nowrap>&nbsp;</td><td width="50%" bgcolor="#F4F4F4">&nbsp;</td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mofpayment.cgi</font></td><td width="50%" rowspan="3">
+<font color="#000080">
+&nbsp;
+<font size="-1" face="Comic Sans MS">
+The Back End Checkout</font></font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mofpayment.conf</font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mofpayment_lib.pl</font></td></tr>
+
+<tr><td width="50%" bgcolor="#F4F4F4" nowrap>&nbsp;</td><td width="50%" bgcolor="#F4F4F4">&nbsp;</td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mofnumber.dat</font></td><td width="50%" rowspan="9">
+<font color="#000080">
+&nbsp;
+<font size="-1" face="Comic Sans MS">
+Support Files</font></font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; invoice.pl</font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; merchant.mail</font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; customer.mail</font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; coupons.txt</font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; countries.txt</font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; states.txt</font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; paycountries.txt</font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; paystates.txt</font></td></tr>
+
+<tr><td width="50%" bgcolor="#F4F4F4" nowrap>&nbsp;</td><td width="50%" bgcolor="#F4F4F4">&nbsp;</td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mofpaytest.cgi</font></td><td width="50%">
+<font color="#000080">
+&nbsp;
+<font size="-1" face="Comic Sans MS">
+You don't need this file</font></font></td></tr>
+
+<tr><td width="50%" nowrap>&nbsp;</td><td width="50%">&nbsp;</td></tr>
+</table>
+
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<a name="SetPermissions"></a>
+ 8.&nbsp; Set permissions on CGI files</font>
+</TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+At this point you should have all necessary adjustments completed in both configuration files, and you should have all of the actual program scripts, and program support files uploaded to your server's cgi-bin</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+On most Unix-Linux type servers you should only need to set permissions on 3 of the above files.&nbsp; We need to give both of the program files with the cgi extension full read and execute permissions for owner, group, and other.</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If you're using Ws-Ftp then find and select both of the program cgi files on the right remote site window.&nbsp; You are looking for 
+<font color="#000080">
+<b>mof.cgi</b></font> and 
+<font color="#000080">
+<b>mofpayment.cgi&nbsp;</b></font>&nbsp; Right click on those files to get the context menu and select the chmod(unix) function on the menu.&nbsp; Enable all of the boxes for Read and Execute, and only the Owner box for Write permissions.&nbsp; If
+you are there via telnet then you know what to do: chmod filename 755.&nbsp; Make sure you adjust both of the cgi program files this way.</font><p>
+<font size="-1" face="Comic Sans MS">
+Now you need to adjust one file with complete Read, Write, and Execute permissions.&nbsp; Find the 
+<font color="#000080">
+<b>mofnumber.dat</b></font> file and select the chmod(unix) function.&nbsp; Enable all 9 of the boxes for complete Read, Write, and Execute permissions.&nbsp; MOF must be able to write to this file.&nbsp; If you're using telnet: chmod filename 777.</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Okay, that should do it.&nbsp; Merchant OrderForm should be installed in test mode. Easy enough. Now move to the testing section below.&nbsp; When you move to test your installation of the program scripts, if you get an Internal 500 Server error, then the first thing you should do is go back to this
+permission process and set chmod 755 permissions on 
+<font color="#FF0000">
+ALL</font> of the other MOF files in your cgi-bin.&nbsp; Usually you only need to adjust permissions on the three files mentioned above, but some servers may require you to set execute permissions on the
+others as well.&nbsp; Normally those other files are not executable by the server.&nbsp; The two main MOF cgi program files have their own way of executing all the support files and shouldn't need the server to execute them.</font>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<a name="TestMain"></a>
+ 9.&nbsp; Test the main program files</font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+At this point the Merchant OrderForm system should be installed and ready to go to work for you.&nbsp; To run a simple test on it to see if it is installed properly, simply call up each one of the processing scripts in your Web browser.&nbsp; You'll
+need to enter the complete URL to mof.cgi and then mofpayment.cgi as they are on your server.&nbsp; Don't try to use any of the example input pages yet to test things. We don't want to send anything to the system,&nbsp; just call up the system on
+your browser.</font><p>
+<font size="-1" face="Comic Sans MS">
+To test
+<font color="#000080">
+<b> mof.cgi</b></font> goto<br>
+<b>http://www.yourdomain.com/cgi-bin/mof.cgi</b></font><p>
+<font size="-1" face="Comic Sans MS">
+This is the Front End cart process. It manages the cart and shipping information.&nbsp; If it is operating correctly then you should get an Error Message from the MOF system informing you of a &quot;Data Processing Error&quot;&nbsp; -- <b>Unable to
+determine input mode</b>.&nbsp; Congratulations !&nbsp; It's working correctly, telling you it has a problem.&nbsp; Good.</font><p>
+<font size="-1" face="Comic Sans MS">
+To test 
+<font color="#000080">
+<b>mofpayment.cgi</b></font> goto:<br>
+<b>http://www.yourdomain.com/cgi-bin/mofpayment.cgi</b></font><p>
+<font size="-1" face="Comic Sans MS">
+The is the Back End Checkout or payment processing program.&nbsp; It takes over when someone clicks the Checkout function on their cart and leads them through the payment process.&nbsp; Make a direct call to that script as in the above example.&nbsp;
+Do not attempt to send anything to it.&nbsp; If it is operating correctly then you should get the <b>Merchant OrderForm v1.53 Copyright Notice </b>displayed in your browser.&nbsp; Congratulations !&nbsp; It's working correctly.&nbsp; You're getting
+that message because it was called in an abnormal way -- it was not used by the Front End Cart, which is what it is expecting.&nbsp; It will not behave that way when the actual cart is used.&nbsp; It will only behave that way when someone is
+attempting to use it in an abnormal way.</font><p>
+<font size="-1" face="Comic Sans MS">
+Use the examples from our demo site to see how this is supposed to work:</font>
+<ul>
+<li><a href="http://www.io.com/~rga/cgi-bin/mof.cgi">
+<font size="-1" face="Comic Sans MS">
+http://www.io.com/~rga/cgi-bin/mof.cgi</font></a>
+<li><a href="http://www.io.com/~rga/cgi-bin/mofpayment.cgi">
+<font size="-1" face="Comic Sans MS">
+http://www.io.com/~rga/cgi-bin/mofpayment.cgi</font></a>
+</ul>
+<p>
+<font size="-1" face="Comic Sans MS">
+Problems ?</font><p>
+<font size="-1" face="Comic Sans MS">
+If you cannot get both cgi files on your web site to test out as mentioned in the above examples, then you should consult the </font><font size="-1" face="Comic Sans MS" color="#000080"><a href="Troubleshooting.html">Troubleshooting</a>
+ </font>
+<font size="-1" face="Comic Sans MS">
+section before you proceed any further.&nbsp; You must get both main program scripts operating as described in the test mode above before you can hope to have any success in connecting your products to the system.</font><p>
+<font size="-1" face="Comic Sans MS">
+&nbsp;</font>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="ExampleInstallation"></a>
+Installation of the Example input pages and templates</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Now we need to install all the example input pages, images, templates, pop up examples, and help file. You don't have to use any of our example pages, images, or templates, but let's get them all going for you to use as a working reference. As you begin to build your own templates, product pages and images, then you can use the examples to
+troubleshoot your own work.&nbsp; Once you have a feel for how the system works, how to build and link product input pages, then you can delete all of the packaged example pages.&nbsp; We will place all of Merchant OrderForm's example pages in the
+/mof15/ directory that you created on your server.&nbsp; You can build your own Input Pages alongside the examples or in another directory.</font>
+
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<a name="AdjustExampleURLs"></a>
+ 10.&nbsp; Adjust URL pathways in Example and template pages</font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+We need to adjust the URL addressing in some of the html files before we FTP them to the 
+<font color="#000080">
+<b>/mof15/</b></font> directory on your server.&nbsp; The surest and easiest way to do this is to perform a Search and Replace operation on the files we need to adjust.&nbsp; There are 16 of them.&nbsp; Use your ASCII text editor to open these files
+one at a time, and then use the Search-Replace utility to perform a global replacement substituting your domain root URL.&nbsp; These files were not created with an HTML Editor, so if you try to use one to do this you may get unpredictable
+results.&nbsp; You can try it if you want to, but it goes really fast with Search-Replace in your ASCII text editor, and a plain ASCII text editor will not change any of the syntax.&nbsp; Front page is notorious for changing the html coding
+underneath, especially if you have some of the formatting settings enabled in Front Page.</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Search for</font>: 
+<font face="Fixedsys" size="1">
+http://localhost/</font>
+<font size="-1" face="Comic Sans MS">
+<br>
+Replace with:</font> 
+<font face="Fixedsys" size="1">
+http://www.yourdomain.com/</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Here are the 16 files to adjust</font>
+
+<table border="1" cellpadding="0" cellspacing="0" width="57%">
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mofmain.html</font></td><td width="50%" rowspan="4" valign="middle" align="center">
+<font size="-1" face="Comic Sans MS" color="#000080">
+&nbsp;Output templates for the MOF Front End Cart Manager</font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mofinformation.html</font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mofpreview.html</font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mofvalidate.html</font></td></tr>
+
+<tr><td width="50%" bgcolor="#F4F4F4" nowrap>&nbsp;</td><td width="50%" bgcolor="#F4F4F4" valign="middle" align="center">&nbsp;</td></tr>
+
+<tr><td width="50%" bgcolor="#FFFFFF" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mofpayinfo.html</font></td><td width="50%" rowspan="3" valign="middle" align="center">
+<font size="-1" face="Comic Sans MS" color="#000080">
+Output templates for the MOF Back End Payment Manager</font></td></tr>
+
+<tr><td width="50%" bgcolor="#FFFFFF" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mofpayfinal.html</font></td></tr>
+
+<tr><td width="50%" bgcolor="#FFFFFF" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mofinvoice.html</font></td></tr>
+
+<tr><td width="50%" bgcolor="#F4F4F4" nowrap>&nbsp;</td><td width="50%" bgcolor="#F4F4F4" valign="middle" align="center">&nbsp;</td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; ExampleOrderForm.html</font></td><td width="50%" rowspan="8" valign="middle" align="center">
+<font size="-1" face="Comic Sans MS" color="#000080">
+Example HTML Product Input pages</font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; ExampleMSBorders.html</font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; ExampleTextBox.html</font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; ExampleDropBoxes.html</font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; ExampleSingleInput.html</font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; ExamplePictures.html</font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; ExamplePriceMultiple.html</font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; ExamplePriceAdjust.html</font></td></tr>
+
+<tr><td width="50%" bgcolor="#F4F4F4" nowrap>&nbsp;</td><td width="50%" bgcolor="#F4F4F4" valign="middle" align="center">&nbsp;</td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; nocookies.html</font></td><td width="50%" valign="middle" align="center">
+<font size="-1" face="Comic Sans MS" color="#000080">
+Cart Message for cookie errors</font></td></tr>
+</table>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+This goes really fast with my text editor.&nbsp; Once I load the Search-Replace criteria for the first file, the Search-Replace utility remembers it for each file that I open.&nbsp; So, I can simply open all subsequent files and Replace All.&nbsp;
+Save the file.&nbsp; I can do it in under two minutes.</font><p>
+<font size="-1" face="Comic Sans MS">
+If you want to put some power in your Search-Replace then check out this little jewel.<br>
+<a href="http://www.orbit.org/replace/">http://www.orbit.org/replace/</a>
+&nbsp; -- BK Replace Em v2.0</font><p>
+<font size="-1" face="Comic Sans MS">
+It does all files at one time, but you'll have to spend a little time getting used to operating it.&nbsp; If you're a Web Developer and don't have a utility like this, then you should probably check it out.</font><p>
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<a name="SendExamples"></a>
+ 11.&nbsp; Send all Example and template files over to your server</font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">FTP the 
+<font color="#000080" face="Comic Sans MS" size="-1">
+<b>16</b></font> 
+<font color="#000080" face="Comic Sans MS" size="-1">
+<b>html</b></font> files you just modified over to the 
+<font color="#000080">
+<b>/mof15/</b></font> directory on your server,
+<font color="#FF0000">
+ using ASCII mode</font> only.</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">Then send the remaining <b>
+<font color="#000080">
+11 </font>
+<font color="#000080" face="Comic Sans MS" size="-1">
+html</font></b> files to the <font color="#000080"><b>/mof15/</b></font> directory on your server, 
+<font color="#FF0000">
+ using ASCII mode</font> only.</font>&nbsp;<br>
+<font size="-1" face="Comic Sans MS">You did not need to modify these 11 html files. Just send them over as they are</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">You should have sent 27 html files to your server in ASCII mode.</font><p>
+<font size="-1" face="Comic Sans MS">
+Next send all the image files over to the
+<font color="#000080">
+<b> /mof15/</b></font> directory on your server, 
+<font color="#FF0000">
+ using Binary mode</font>.<br>
+You should have sent 38 gif files and 3 jpg files in Binary mode.</font>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<b>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<a name="TestingInstallation"></a></font></b><font size="+1" face="Comic Sans MS">
+Testing your installation</font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If all went well, then the Merchant OrderForm system is up and operating on your new Web site.&nbsp; Call up some of the example pages and take it for a test ride.&nbsp; Everything should be set to operate with our Example product input pages on your
+site.</font><p>
+<font size="-1" face="Comic Sans MS">
+Call up the example pages on your site in your favorite Web Browser:<br>
+These are example URLs to call them on your site:</font>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+http://www.yourdomain.com/mof15/ExampleOrderForm.html</font><li>
+<font size="-1" face="Comic Sans MS">
+http://www.yourdomain.com/mof15/ExampleMSBorders.html</font><li>
+<font size="-1" face="Comic Sans MS">
+http://www.yourdomain.com/mof15/ExampleTextBox.html</font><li>
+<font size="-1" face="Comic Sans MS">
+http://www.yourdomain.com/mof15/ExampleDropBoxes.html</font><li>
+<font size="-1" face="Comic Sans MS">
+http://www.yourdomain.com/mof15/ExampleSingleInput.html</font><li>
+<font size="-1" face="Comic Sans MS">
+http://www.yourdomain.com/mof15/ExamplePictures.html</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+http://www.yourdomain.com/mof15/ExamplePriceMultiple.html</font><li>
+<font size="-1" face="Comic Sans MS">
+http://www.yourdomain.com/mof15/ExamplePriceAdjust.html</font>
+</ul>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<br>
+If all went well you will be able to run Merchant OrderForm on your site from the example pages on your site.&nbsp; Test it up really good to make sure that everything is working properly.&nbsp; As you're testing it and running through all the
+various functions of Merchant OrderForm, you will begin to get MOF Error messages where things are not installed correctly.</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Merchant OrderForm has almost flawless error trapping installed internally, so it will give you messages where it cannot access files, find files, find or access directories, read or write to and from files, set cookies, validate input, etc.&nbsp;
+Anywhere an error is possible Merchant OrderForm will give you back a message if your cart is not working properly.&nbsp; So at this point test it up real good looking for all those possible error messages.&nbsp; Better you find them than your
+customers who might be ready to checkout with their $27, 000.00 purchase.</font><p>
+<font size="-1" face="Comic Sans MS">
+If you get any error messages from the Merchant OrderForm system, then pay close attention to the exact message.&nbsp; This is your clue to where the problem is.&nbsp; Don't worry about validation message errors.&nbsp; These are intended if a
+customer doesn't submit all the necessary information.&nbsp; The error messages you are looking for are plain page black messages that say:</font><p>
+<font size="-1" face="Comic Sans MS">
+<b>Merchant OrderForm v1.53 Data Processing Error</b></font><p>
+<font size="-1" face="Comic Sans MS">
+Consult the<a href="Troubleshooting.html"> troubleshooting </a>
+section for this type of error for suggestions:</font>
+<P>&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<b>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<a name="OtherInstallIssues"></a></font></b><font size="+1" face="Comic Sans MS">
+Other Installation Issues</font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+We've placed a few other installation issues here that don't really belong in the step by step instructions.</font>
+
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="NoRootAccess"></a>
+What if I don't have root access to my account ?</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+Only the data and info directories should be installed at the root level of your domain.&nbsp;&nbsp; If you don't have root access to your account, then just install the</font>
+<font face="Fixedsys" size="1">
+ /orderdata/</font> 
+<font size="-1" face="Comic Sans MS">
+and</font>
+<font face="Fixedsys" size="1">
+ /orderinfo/</font> 
+<font size="-1" face="Comic Sans MS">
+directories anywhere you want.&nbsp; Keep the directories separate and don't use them for anything else.&nbsp; Merchant OrderForm uses these directories to write and read scratch files that contain information about someone's cart and their shipping
+information.&nbsp; The shipping information is needed to compute a Preview Invoice.&nbsp;</font>
+
+<p> 
+<font size="-1" face="Comic Sans MS">
+&nbsp;If you do not use any of the shipping, insurance, or coupon features, and don't require any computations for the Preview Invoice, then MOF will not use the /orderinfo/ directory.&nbsp; You don't even need it.</font><p>
+<font size="-1" face="Comic Sans MS">
+Wherever you place these directories, make sure you give them full 777 permissions so the scripts can read and write to them</font>
+
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="MakeTemplates"></a>
+How to make your own templates</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<P>
+<font size="-1" face="Comic Sans MS">
+Merchant OrderForm coordinates all of it's output with 7 template files.&nbsp; These 7 template files are used to surround all of MOF's output so the output can be enclosed in a design that fits your site layout.&nbsp; The templates are regular html
+pages and can be designed any way you want.&nbsp; You can build or modify these templates with your favorite HTML editor.&nbsp; When building these templates keep in mind that Mof will insert all of it's output at a designated point in the template
+page.&nbsp; So you don't want to crowd up the template file, but make it with plenty of middle space to house Mof's output.</font><P>
+<font size="-1" face="Comic Sans MS">
+When Mof begins to return pages from it's functions, it grabs the appropriate template for that function, and prints out the template file, with it's function output inserted wherever the</font> 
+<font FACE="Fixedsys" SIZE="1">
+&lt;!--MOF V1.5 INPUT AREA--&gt;</font>
+<font size="-1" face="Comic Sans MS">
+ comment marker appears in your html template page.&nbsp; Make sure this comment marker is embedded in your template where you want Mof to insert it's results.&nbsp; The marker must appear exactly as you specify in both of the configuration
+files.&nbsp; The distribution package has the marker set this way:&nbsp;</font>
+
+<P>
+<font FACE="Fixedsys" SIZE="1">
+$insertion_marker = '&lt;!--MOF V1.5 INPUT AREA--&gt;';</font>
+
+<P>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<u>Some advice on making templates</u></font><P>
+<font size="-1" face="Comic Sans MS">
+It's probably a good rule to keep the templates simple.&nbsp; Remember that Mof will read your template files line for line, consolidate it's output with the file, and spit back a complete html page to the browser via the cgi gateway.&nbsp; So you
+won't be able to include anything like SSI calls in the templates.&nbsp; The cgi gateway will not process SSI directives.&nbsp; Also, you don't want to place anything in your templates that would trigger a reload or OnLoad() scripting directive.&nbsp;
+You cannot reload a cgi script from the browser unless you do it manually from the refresh button.&nbsp; Cgi scripts are looking for input, and an OnLoad() script directive in your template will trigger an OnLoad Event if the browser is
+resized.&nbsp; This results in an error message because nothing was submitted to the mof scripts, so Mof will send an error message.&nbsp; There should be only one way to trigger a reload of the script output, and that is when someone clicks the
+reload or refresh button on their browser.&nbsp; Only then, does the browser know that it's supposed to submit any input that is in cache from the script.</font><P>
+<font size="-1" face="Comic Sans MS">
+The OnLoad() Events scripted into web pages are often used with a dynamic java script menu system.&nbsp; You can use java script or fancy stuff, but just be careful.&nbsp; Make sure any fancy Java Script or anything else will be compatible processing
+through the cgi gateway.&nbsp; You can use CSS style sheets, images, links, and all kinds of other stuff in your templates.&nbsp; Java script will process via the cgi gateway fine, as long as it doesn't trigger reload events.&nbsp;&nbsp;</font><P>
+<font size="-1" face="Comic Sans MS">
+When building your templates use the Full URL for any links, images, CSS, etc.&nbsp; The cgi gateway looks for this stuff from a&nbsp; position relative to the cgi-bin, which is not necessarily the same position as if you were calling up the template
+file via the world wide web.&nbsp; The surest fix to any of these types of problems with your templates, is to simply use the Full URL for any objects the page needs.&nbsp;&nbsp;</font><P>
+<font size="-1" face="Comic Sans MS">
+If you are using SSL, then your templates will need to reference only objects via the HTTPS protocol, otherwise, a user will get the browser message &quot;viewing non secure items over a secure page.&quot;&nbsp; We'll cover more about that in the SSL
+section.&nbsp;</font>
+
+<P>
+<font size="-1" face="Comic Sans MS">
+Here's a table of the example templates and what they do:<br>
+</font>
+
+<table border="1" cellpadding="0" cellspacing="0" width="640">
+
+<tr><td width="32%" nowrap bgcolor="#F4F4F4" align="center">
+<font size="-1" face="Comic Sans MS">
+file</font></td><td width="98%" nowrap bgcolor="#F4F4F4" align="center">
+<font size="-1" face="Comic Sans MS">
+where is it used</font></td></tr>
+
+<tr><td width="32%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mofmain.html</font></td><td width="98%" nowrap>
+<font size="-1" face="Comic Sans MS" color="#000080">
+&nbsp;Viewing items in your cart - The viewcart or add to cart page</font></td></tr>
+
+<tr><td width="32%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mofinformation.html</font></td><td width="98%" nowrap>
+<font size="-1" face="Comic Sans MS" color="#000080">
+&nbsp;Page with Shipping information, insurance, coupons</font></td></tr>
+
+<tr><td width="32%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mofpreview.html</font></td><td width="98%" nowrap>
+<font size="-1" face="Comic Sans MS" color="#000080">
+&nbsp;Order Summary page: shows all computations for invoice</font></td></tr>
+
+<tr><td width="32%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mofvalidate.html</font></td><td width="98%" nowrap>
+<font size="-1" face="Comic Sans MS" color="#000080">
+&nbsp;User input validation messages: a customer submitted an incomplete request</font></td></tr>
+
+<tr><td width="32%" bgcolor="#F4F4F4" nowrap>&nbsp;</td><td width="98%" bgcolor="#F4F4F4" nowrap>&nbsp;</td></tr>
+
+<tr><td width="32%" bgcolor="#FFFFFF" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mofpayinfo.html</font></td><td width="98%" bgcolor="#FFFFFF" nowrap>
+<font size="-1" face="Comic Sans MS" color="#000080">
+&nbsp;Page with Payment Method, Billing Information, Comments&nbsp;</font></td></tr>
+
+<tr><td width="32%" bgcolor="#FFFFFF" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mofpayfinal.html</font></td><td width="98%" bgcolor="#FFFFFF" nowrap>
+<font size="-1" face="Comic Sans MS" color="#000080">
+&nbsp;Final invoice page: Order confirmation page that order is complete</font></td></tr>
+
+<tr><td width="32%" bgcolor="#FFFFFF" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mofinvoice.html</font></td><td width="98%" bgcolor="#FFFFFF" nowrap>
+<font size="-1" face="Comic Sans MS" color="#000080">
+&nbsp;Template for the Web copy of final invoice if using this feature</font></td></tr>
+
+</table>
+
+<P>
+<font size="-1" face="Comic Sans MS">
+You can make your templates to include whatever messages you want.&nbsp; Our example templates have been refined from various feedback, and have messages that are short and simple.&nbsp; But, you can put longer messages at the top of each of those
+pages if you think you need to explain things more to those who will be using your cart.</font><P>
+<font size="-1" face="Comic Sans MS">
+There's two other files that Mof uses which are not template files.&nbsp; They are regular html pages, and you can design them anyway you want.&nbsp; Here's a table of those two files and what they do:<br>
+</font>
+
+<table border="1" cellpadding="0" cellspacing="0" width="640">
+
+<tr><td width="32%" bgcolor="#F4F4F4" nowrap align="center">
+<font size="-1" face="Comic Sans MS">
+file</font></td><td width="98%" bgcolor="#F4F4F4" nowrap align="center">
+<font size="-1" face="Comic Sans MS">
+where is it used</font></td></tr>
+
+<tr><td width="32%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; nocookies.html</font></td><td width="98%" nowrap>
+<font size="-1" face="Comic Sans MS" color="#000080">
+&nbsp;Mof redirects to this file if it finds cookie problems&nbsp;</font></td></tr>
+
+<tr><td width="32%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; help.html</font></td><td width="98%" nowrap>
+<font size="-1" face="Comic Sans MS" color="#000080">
+&nbsp;The pop up help file that's available on the Mof menu</font></td></tr>
+</table>
+
+<P>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Important</font>: The template that makes the Web Copy of the invoice (if this feature is enabled) should always include the meta tags to prevent Robot scanning and listing in the search engines.&nbsp; You don't want your customer's invoice showing
+up at the Alta Vista search engine under their address.&nbsp; Our packaged template mofinvoice.html has this installed properly.&nbsp; If you make your own template for this function, then make sure you get this meta tag installed correctly, so that
+those pages, when they are created, will have a No Index, No Follow meta tag to the search engines.</font><P>
+<font FACE="Fixedsys" SIZE="1">
+&lt;meta name=&quot;robots&quot; content=&quot;noindex,nofollow&quot;&gt;</font>
+
+<P>&nbsp;
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="+1" face="Comic Sans MS">
+<a name="SecurityIssues"></a>
+Security Issues</font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p><font size="-1" face="Comic Sans MS">
+Merchant OrderForm has precautions built in to prevent its program flow from being used by anyone to damage your web site, and it does not store any credit card or checking account numbers on the server.&nbsp; The only information Mof stores on the
+server are scratch files that contain a cart's products and the shipping destination.&nbsp; It can be customized to store any information you want, but unless this is programmed in, then Mof will not store any logs with important information.&nbsp;
+So unless you re-programmed Mof, then it is impossible for anyone to get credit card or checking account numbers from any files on your server.</font><p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Important</font>: Installing Merchant OrderForm on your server in a secure way is your responsibility.&nbsp; While the program itself has been carefully thought through to prevent any internal security holes, it is possible to create security holes
+with a faulty installation.&nbsp; Faulty installations are by far the most common security holes found when running cgi scripts on a web site.&nbsp; Faulty installations are responsible for more security holes in cgi scripts than all of the fanfare
+about encryption.</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: You have little security to be worried about if you are only using Merchant OrderForm to Mail or Fax payments, or with a feature like PayPal.&nbsp; In the PayPal feature, all security and sensitive information is handled by the PayPal
+site.&nbsp; Merchant OrderForm simply passes the customer off to the PayPal site to finalize payment.&nbsp; If this is the case you won't be encoding or mailing any cc or check account number.</font><p>&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b><a name="IsCGISecure"></a>Is your cgi-bin secure ?</b></font> 
+<font color="#FF0000">
+<b>Very Important</b></font></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<u>What are the problems ?</u></font><p>
+<font size="-1" face="Comic Sans MS">
+The most common security hole is running your cgi scripts on a poorly configured web server.&nbsp; A well configured web server will not allow any outside access to your cgi-bin from the world wide web except to execute specified scripts.&nbsp; A
+poorly configured web server's cgi-bin will execute the specified script file if called from your browser, but will also allow any other file in your cgi-bin to be called by the browser.&nbsp; So, with a poorly configured web server's cgi-bin, anyone
+on the world wide web could pull up a standard *.txt file, or even the *.conf or *.pl files for Merchant OrderForm and see them front and center in their browser.</font><p>
+<font size="-1" face="Comic Sans MS">
+This would be a serious security hole if you are using the encoding settings in Merchant OrderForm.&nbsp; One would only need to call up your <b>
+<font color="#000080">
+mofpayment.conf</font></b> file and they could see from anywhere in the world what your exact encoding numbers were.&nbsp; If you're not using the encoding settings, then it couldn't really cause any harm if someone saw your configuration files;
+however, you generally don't want someone having access to these files.</font><p>
+<font size="-1" face="Comic Sans MS">
+A well configured server's cgi-bin would not allow that.&nbsp; If you attempted to call up the 
+<font color="#000080">
+<b>mofpayment.conf</b></font> file on a properly configured virtual domain's cgi-bin then you would simply get error messages from the server saying you don't have permission to access that file, etc.</font><p>
+<font size="-1" face="Comic Sans MS">
+Poorly configured cgi-bins also allow a browser to list the contents of the cgi-bin directory.&nbsp; You generally don't want anyone listing all the files in that directory.&nbsp; A properly designed cgi-bin will prohibit a browser from calling up
+the contents of your cgi-bin directory and all the files living there.</font><p>
+<font size="-1" face="Comic Sans MS" color="#FF0000">
+You should run tests to see if your cgi-bin passes as well configured.&nbsp;</font><p>
+<font size="-1" face="Comic Sans MS">
+Try to access the *.conf or *.pl files in your cgi-bin by a direct browser request<br>
+Example: 
+<font color="#000080">
+<b>http://www.yourdomain.com/cgi-bin/mof15.conf</b></font></font><p>
+<font size="-1" face="Comic Sans MS">
+Try to list the contents of your cgi-bin by a direct browser request<br>
+Example: 
+<font color="#000080">
+<b>http://www.yourdomain.com/cgi-bin/</b></font></font><p>
+<font size="-1" face="Comic Sans MS">
+If your cgi-bin passes these tests, then you have a well configured cgi-bin and it is secure.&nbsp; We do not mean secure with regard to encryption, but secure in that no one can access files in your cgi-bin they are not allowed to.</font><p>
+<font size="-1" face="Comic Sans MS">
+Here are examples from two different demo sites:<br>
+Bad: <a href="http://www.io.com/~rga/cgi-bin/mofpayment.conf">http://www.io.com/~rga/cgi-bin/mofpayment.conf<br>
+</a>
+Good: <a href="http://www.merchantorderform/cgi-bin/mofpayment.conf">http://www.merchantorderform/cgi-bin/mofpayment.conf</a>
+</font><p>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<u>What are the solutions ?</u></font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Most virtual domain accounts with a reputable hosting service have properly designed cgi-bins.&nbsp; If you are not on a virtual domain, but running out of a subordinate domain set up, then you run into more risk of an improperly configured
+cgi-bin.&nbsp; The best solution is to get a virtual domain with a host that has properly configured cgi-bins.</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If you don't have a properly configured virtual domain account, or can't afford one, then there are some work arounds, but they are not as good as the properly configured cgi-bin.</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>1.&nbsp;</b></font> Place a plain
+<font color="#000080">
+<b> index.htm</b></font> file in your cgi-bin. Give it a message like &quot;<b>no access to this area</b>.&quot; If someone attempts to list the contents of your cgi-bin from the world wide web then they will get the no access message.&nbsp; This
+strategy prevents a browser from listing the files in your cgi-bin.&nbsp; It's also a good idea to do with all of your directories on your web site.</font><p>
+<font size="-1" face="Comic Sans MS">
+This measure only prevents a directory listing.&nbsp; One could still make a direct call to the exact file they wanted and would be able to get it.&nbsp; That would be easy to do once someone saw you were running Merchant OrderForm on your
+site.&nbsp; Anyone can read the docs and see what the configuration files are.&nbsp; So they simply ask for that file.</font><p>
+<font size="-1" face="Comic Sans MS">
+To prevent an exact file listing you can use these solutions:</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>2.&nbsp;</b></font> Rename both of Mof's configuration files (*.conf) to a complex name that someone will not be able to guess.&nbsp; Example: make your 
+<font color="#000080">
+<b>mofpayment.conf</b></font> file into: <b>
+<font color="#000080">
+ab-999-vbxvbs-3212.</font></b> You don't even have to put an extension on it.&nbsp; It would be pretty hard for someone to make a direct browser request for that file.&nbsp; But make sure solution number 1 is in place, else they could simply list the
+contents of your cgi-bin and see your new file name.</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Important</font>: If you rename your *.conf files associated with Mof scripts, then you must adjust each of the two scripts to be able to find the files by the new name you gave them.</font><p>
+<font size="-1" face="Comic Sans MS">
+In both of the main program scripts,&nbsp; 
+<font color="#000080">
+<b>mof.cgi</b></font> and 
+<font color="#000080">
+<b>mofpayment.cgi</b></font> there are a few lines directly below all the copyright and disclaimer notices.&nbsp; These settings in each of the two main program files must be changed to match your new file names or Mof will not be able to find the
+files it needs to run.&nbsp; The settings you need to adjust look like this:</font><p>
+<font FACE="Fixedsys" SIZE="1">
+# DO NOT CHANGE ANY OF THESE SETTINGS<br>
+# ===================================<br>
+require 5.001;<br>
+require 'mofpayment.conf';<br>
+require 'mofpayment_lib.pl';</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>3.</b></font>&nbsp; A more complicated, yet more secure solution, is to re-configure the Merchant OrderForm system where both configuration files and both library files run as cgi scripts--meaning that we change their behavior from a *.conf and
+*.pl file to *.cgi files.&nbsp; To make this work you'll need to alter a few lines in both configuration files and both library files.</font><p>
+<font size="-1" face="Comic Sans MS">
+As they come in the distribution package the two configuration files and two library files will not run as script files, but are used by the script files to load configurations and sub routines.&nbsp; To make them act like script files, so the server
+executes them, instead of sends contents to the browser, we need to do the following:</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+First</font>: rename the files</font>
+
+<table border="1" cellpadding="0" cellspacing="0" width="60%">
+
+<tr><td width="172" nowrap align="center">
+<font size="-1" face="Comic Sans MS">
+&nbsp;file</font></td><td width="220" nowrap align="center">
+<font size="-1" face="Comic Sans MS">
+rename to</font></td></tr>
+
+<tr><td width="172" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mof15.conf</font></td><td width="220" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp;mof15.cgi</font></td></tr>
+
+<tr><td width="172" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mof15_lib.pl</font></td><td width="220" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp;mof15_lib.cgi</font></td></tr>
+
+<tr><td width="172" bgcolor="#F4F4F4" nowrap>&nbsp;</td><td width="220" bgcolor="#F4F4F4" nowrap>&nbsp;</td></tr>
+
+<tr><td width="172" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mofpayment.conf</font></td><td width="220" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp;mofpayment15.cgi</font></td></tr>
+
+<tr><td width="172" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mofpayment_lib.pl</font></td><td width="220" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp;mofpayment_lib.cgi</font></td></tr>
+
+</table>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+Second</font>: Place the Unix-Linux Perl executable identifier as the first line in each of these file.<br>
+<font FACE="Fixedsys" SIZE="1">
+#!/usr/bin/perl</font></font><p>
+<font size="-1" face="Comic Sans MS">
+This is the standard line, but some servers may have it defined differently. It tells the server where Perl is when the file is executed.</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+Third</font>: Remove the very last line in each of those files.&nbsp; The last line is simply a 1 and semicolon.&nbsp; It must be removed to run as a cgi script.</font><p>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+Fourth</font>: The two main program files must now have their require settings adjusted to match the new file names you just created.&nbsp; The require settings will be looking for a something.
+<font color="#000080" face="Comic Sans MS" size="-1">
+<b>cgi</b></font> instead of a something.
+<font color="#000080" face="Comic Sans MS" size="-1">
+<b>conf</b></font> or something.
+<font color="#000080" face="Comic Sans MS" size="-1">
+<b>pl</b></font>.</font>
+
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080"><b><a name="SSLBasics"></a>
+The basics of SSL (Secure Sockets Layers)</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<P>
+<font size="-1" face="Comic Sans MS">
+SSL is set up many ways on servers, and so can cause lots of variation when installing Merchant OrderForm under an SSL connection.&nbsp; Here are some basic questions if you need, then we will go on to address some of the various situations one might
+find themselves in when using SSL and Merchant OrderForm.</font><P>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<u>Does Merchant OrderForm come with SSL</u></font> ?</font><P>
+<font size="-1" face="Comic Sans MS">
+No.&nbsp; SSL is a feature of a web server's software.&nbsp; SSL is a standard part of most e-Commerce hosting packages.&nbsp; It is generally not a feature of cgi scripts themselves.&nbsp; You should obtain this feature as part of your virtual
+domain hosting package.</font><P>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<u>What is SSL</u></font> ?</font><P>
+<font size="-1" face="Comic Sans MS">
+SSL (Secure Sockets Layers) is an encryption scheme acting between your web browser and the web server your browser is communicating with.&nbsp; Once an SSL session is started on your browser, then everything between the server and your browser is
+encrypted, making it possible to send credit card numbers or other information between browser and server that is encrypted.</font><P>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<u>Do You need SSL with your installation of Merchant OrderForm</u></font> ?</font><P>
+<font size="-1" face="Comic Sans MS">
+You only need to install Merchant OrderForm under SSL if you will be accepting live credit card numbers or live checking account numbers via the Web when Using the Payment Method area of Merchant OrderForm.&nbsp; If you have not enabled Merchant
+OrderForm to accept this input, then you obviously do not need to encrypt the other stuff.&nbsp; If you are only using a feature like PayPal Web Accept, then you won't be accepting any credit card numbers via the Mof system.&nbsp; With something like
+PayPal the customer is passed from the Mof system to make payment via the PayPal system, and PayPal handles all numbers and security.</font>
+
+<P>&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="UsingSSL"></a>
+Using SSL (Secure Sockets Layers) with Mof</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<P>
+<font size="-1" face="Comic Sans MS">
+As mentioned, SSL is set up many ways on servers, and so can cause lots of variation when installing Merchant OrderForm under an SSL connection.&nbsp; We'll address some of the various situations one might find themselves in when using SSL and
+Merchant OrderForm.</font><P>
+<font size="-1" face="Comic Sans MS">
+The BIG issues when installing Merchant OrderForm under an SSL connection is this: You have to get all the template objects and configuration file objects referenced under the SSL correctly</font>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font face="Comic Sans MS" color="#000000" size="3">
+<a name="WhatPortions"></a>
+ 1. <u>What portions of Mof are installed using the SSL ?</u></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<P>
+<font size="-1" face="Comic Sans MS">
+The Merchant OrderForm front end cart program does not need to be installed under the SSL.&nbsp; You will only be installing the payment processing back end under the SSL.&nbsp; It is the only piece of the system that can collect card or account
+numbers.</font><P>
+<font size="-1" face="Comic Sans MS">
+Some folks go ahead and install the whole system under SSL, but this is not only unnecessary, but can seem awkward to a customer who gets the &quot;entering secure area&quot; each time they put an item in their cart, and it can seriously slow down
+cart operation trying to run through some shared SSL on a mega hosting server.</font><P>
+<font size="-1" face="Comic Sans MS">
+These files will be installed under the SSL:<br>
+</font>
+
+<table border="1" cellpadding="0" cellspacing="0" width="57%">
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mofpayment.cgi</font></td><td width="50%" rowspan="3">
+<font color="#000080">
+&nbsp;
+<font size="-1" face="Comic Sans MS">
+The Back End Checkout</font></font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mofpayment.conf</font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mofpayment_lib.pl</font></td></tr>
+
+<tr><td width="50%" bgcolor="#F4F4F4" nowrap>&nbsp;</td><td width="50%" bgcolor="#F4F4F4">&nbsp;</td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mofnumber.dat</font></td><td width="50%" rowspan="6">
+<font color="#000080">
+&nbsp;
+<font size="-1" face="Comic Sans MS">
+Support Files</font></font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; invoice.pl</font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; merchant.mail</font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; customer.mail</font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; paycountries.txt</font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; paystates.txt</font></td></tr>
+
+<tr><td width="50%" nowrap bgcolor="#F4F4F4">
+&nbsp;</td><td width="50%" bgcolor="#F4F4F4">
+&nbsp;</td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mofpayinfo.html</font></td><td width="50%" rowspan="3">
+<font size="-1" face="Comic Sans MS" color="#000080">
+Output templates for the MOF Back End Payment Manager</font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mofpayfinal.html</font></td></tr>
+
+<tr><td width="50%" nowrap>
+<font face="Fixedsys" size="1">
+&nbsp; mofinvoice.html&nbsp; 
+<font color="#FF0000">
+*</font></font></td></tr>
+
+</table>
+
+<P>
+<font size="-1" face="Comic Sans MS">
+You will also have to install any and all 
+<font color="#000080">
+<b>objects</b></font> that may be referenced in the files above under the SSL so that the SSL connection is not compromised by attempting to access an object outside the HTTPS protocol.&nbsp;&nbsp;</font>
+<ol>
+<li>
+<font size="-1" face="Comic Sans MS">
+ All of the image files that are used by your templates
+will have to be referenced by the <b>HTTPS</b> protocol, referring to them using the full HTTPS url.&nbsp; You cannot use the standard HTTP protocol.&nbsp;&nbsp;<br>
+ <br>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+ All of the image locations that are referenced in the
+<font color="#000080">
+<b> mofpayment.conf</b></font> configuration file will need to be adjusted to refer to the HTTPS location and not the standard HTTP location.</font>
+</ol>
+<P>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+* Note</font>: This particular template is used to save a web copy of the invoice to a location on your domain.&nbsp; It doesn't contain any sensitive information, therefore, you don't need to save it under any SSL location.&nbsp; You can direct this
+template to reference regular HTTP objects and not HTTPS objects when it creates and stores the file.&nbsp; Mof creates this file in the background, and it is not used for any dynamic cgi output back to the browser as the other templates are, so even
+though you have it referencing regular HTTP objects, it never triggers an &quot;un secure items&quot; message.&nbsp; You can also save the web copy of the invoice under the SSL location if you want.</font><P>
+<font size="-1" face="Comic Sans MS">
+When 
+<font color="#000080">
+<b>mofpayment.cgi</b></font> runs then all references to images must be directed to HTTPS, else your browser will trigger the message &quot;loading un secure items,&quot; which doesn't look good to your customers.</font><P>
+<font size="-1" face="Comic Sans MS">
+On some servers this means that you'll have to duplicate all images under a second directory where your HTTPS is pointing. This scenario means that your server is running scripts under the SSL by a virtual pointer to a different set of directories
+under your account.&nbsp; The web server software has a standard <b>HTTP</b> virtual pointer to one set of directories, and an <b>HTTPS</b> virtual pointer to a completely different set of directories.&nbsp; Both sets are usually off the same root
+account.&nbsp; So, in this scenario you'll need to locate the actual files for each protocol in the appropriate set of directories.&nbsp; That means all images, templates, scripts, and script support files.&nbsp; You'll also need to change all object
+references to </font><b>
+<font color="#000080" size="-1" face="Comic Sans MS">
+&lt;img src=&quot;https://www.domain.com/ ..&gt;</font></b>
+<font size="-1" face="Comic Sans MS">
+, so that all objects occur under the HTTPS protocol.</font><P>
+<font size="-1" face="Comic Sans MS">
+Some servers use an <b>HTTPS</b> virtual pointer to the exact same set of directories that the<b> HTTP</b> virtual pointer is pointing to on your account.&nbsp; In this scenario you don't need to duplicate the templates or images under a second
+directory, but you will need to change all object references to </font><b>
+<font color="#000080" size="-1" face="Comic Sans MS">
+&lt;img src=&quot;https://www.domain.com/ ..&gt;</font></b>
+<font size="-1" face="Comic Sans MS">
+, again, so that all objects occur under the HTTPS protocol.</font><P>
+<font size="-1" face="Comic Sans MS">
+You can even install the Mof Front End on one server, and the Mof Back End on a server across the world, and use split servers.&nbsp; Handle this the same way as the first scenario above.&nbsp; Make sure that the distant SSL server has all the Mof
+scripts, templates, images, and script support files installed under the SSL, and change all object references to </font><b>
+<font color="#000080" size="-1" face="Comic Sans MS">
+&lt;img src=&quot;https://www.domain.com/ ..&gt;</font></b>
+<font size="-1" face="Comic Sans MS">
+, again, so that all objects occur under the HTTPS protocol.</font>
+
+<P>
+<font size="-1" face="Comic Sans MS">
+If you install the Front End under HTTP and the Back End under HTTPS (recommended), then here's the important thing you need to watch as you're sorting out all the references to objects, templates, scripts, etc.&nbsp; This can get a little confusing,
+even to experienced cgi installers.&nbsp; <b>
+<font color="#000080">
+This is your guide to making it work, with a detail example</font></b>:</font>
+<ol>
+<li>
+<font size="-1" face="Comic Sans MS">
+mof15.conf must set a Full HTTPS URL for the $paymentfile</font><li>
+<font size="-1" face="Comic Sans MS">
+mof15.conf objects (images) are referenced by standard HTTP URL</font><li>
+<font size="-1" face="Comic Sans MS">
+Template file(s) used in mof15.conf should have their objects (images) referenced by standard HTTP URL</font>
+</ol>
+<ol>
+<li>
+<font size="-1" face="Comic Sans MS">
+mofpayment.conf must set a Full HTTP non-secure URL for the $programfile</font><li>
+<font size="-1" face="Comic Sans MS">
+mofpayment.conf objects (images) must be referenced by secure HTTPS URL</font><li>
+<font size="-1" face="Comic Sans MS">
+Template file(s) used in mofpayment.conf must have their objects (images) referenced by secure HTTPS URL.&nbsp; Note: the template file used for the save web copy of invoice function can be handled either way (providing your SSL cgi-bin has access
+back to the original non-secure directories to write this file.)</font>
+</ol>
+<P>
+<font size="-1" face="Comic Sans MS">
+An Example: Running mof.cgi under HTTP and mofpayment.cgi under HTTPS:</font>
+<P>
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font face="Comic Sans MS" color="#000000" size="3">
+<u><a name="ConfingsMOF15"></a>
+ Configuratinos for mof.cgi (mof15.conf)</u></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<P>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>1. Reference the scripts this way (mof15.conf)</b></font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$programfile = 'mof.cgi';<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+This simply needs to reference itself in the native directory it is already running in.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$paymentfile = 'https://www.domain.com/secure/cgi-bin/mofpayment.cgi';<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+This will need the Full HTTPS URL because it must call the script via the SSL protocol.&nbsp; Do not reference this script as simply by filename, because you are referencing it in the native directory then.&nbsp; You need the HTTPS URL.</font></p>
+<P>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>2.&nbsp; Reference any object (images) in the configurations with HTTP (mof15.conf)</b></font><P>
+<font face="Fixedsys" size="1">
+WHAT TO DISPLAY FOR VALIDATION CUES ?<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+In the package mof15.conf there are 4 images referenced as validation images.&nbsp;&nbsp;</font><P>
+<font FACE="Fixedsys" SIZE="1">
+WHAT FORMATTING TO SHOW IN THE INVOICE TABLE ?<br>
+</font>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+This section has two references to background images.&nbsp;&nbsp;</font></font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$action_message_bg<br>
+$action_message_bg_preview</p>
+</font><P>
+<font FACE="Fixedsys" SIZE="1">
+NAVIGATION MENUS IN DYNAMIC PAGES<br>
+</font>
+<font color="#000080" size="-1" face="Comic Sans MS">
+There are 11 references to image objects in this section that are used for the Menu buttons throughout the Front End (Cart and Order Summary).&nbsp; There are also some references to hyperlinks in this section which should be standard HTTP</font><P>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>3.&nbsp; Template file objects used by mof.cgi (mof15.conf)</b></font><P>
+<font size="-1" face="Comic Sans MS">
+These files are referenced by absolute path to their physical location on the non-secure server.<br>
+<font color="#FF0000">
+Note</font>: this may or may not be the same location as the physical location on the secure server.</font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$accept_order_template = mofmain.html<br>
+$validation_template = mofvalidate.html<br>
+$preview_template = mofpreview.html<br>
+$preview_info_template = mofinformation.html</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+All URL references in the 4 template files above can have standard HTTP URL references.&nbsp; This does not mean hyper links, but any images that go into the page should have regular HTTP URLs.&nbsp; So, if you are building you own templates, then
+all references to images in those templates can have the standard HTTP URL.&nbsp; It's best to use the Full URL and not relative addressing, that way things are less confusing.<br>
+</font></p>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font face="Comic Sans MS" color="#000000" size="3">
+<u><a name="ConfigsMOFPAY"></a>
+ Configurations for mofpayment.cgi (mofpayment.conf)</u></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<P>
+<font size="-1" face="Comic Sans MS">
+The rule for the Back End Config file&nbsp; is this: All objects (images) referenced by the template pages must be referenced as HTTPS, all objects (images) referenced by the configuration file must be HTTPS, and the only objects that should have a
+standard HTTP URL are hyperlinks and the </font>
+<font face="Fixedsys" size="1">
+$programfile</font>
+<font size="-1" face="Comic Sans MS">
+ location.</font><P>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>1. Reference the scripts this way (mofpayment.conf)</b></font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$programfile = 'http://www.domain.com/original/cgi-bin/mof.cgi';<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+This needs to reference back to the original un secure cgi-bin using the Full HTTP URL</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$paymentfile = 'mofpayment.cgi';<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+This simply needs to reference itself running in the native directory.&nbsp; If you put a Full URL here it must be the Full HTTPS URL and not the standard non secure HTTP URL.</font></p>
+<P>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>2.&nbsp; Reference any objects (images) in the configurations with HTTPS (mofpayment.conf)</b></font><P>
+<font FACE="Fixedsys" SIZE="1">
+$paypal_button<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+If you enable the PayPal feature along with other Payment Methods then it will display a button at the Final Invoice should someone select this payment method.&nbsp; It will need to be referenced using HTTPS.</font><P>
+<font FACE="Fixedsys" SIZE="1">
+WHAT TO DISPLAY FOR VALIDATION CUES ?<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+All 4 validation images must be referenced by HTTPS URL</font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$info_required<br>
+$info_okay<br>
+$info_missing<br>
+$info_incomplete</p>
+</font><P>
+<font FACE="Fixedsys" SIZE="1">
+WHAT FORMATTING TO SHOW IN THE INVOICE TABLE ?<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+There are 2 background images that must be referenced by HTTPS URL</font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$ship_to_bg_final<br>
+$bill_to_bg_final</p>
+</font><P>
+<font FACE="Fixedsys" SIZE="1">
+NAVIGATION MENUS IN DYNAMIC PAGES<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+There are 5 references to images in this section that must be called by HTTPS URL</font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$menu_home_bottom<br>
+$menu_previous_bottom<br>
+$menu_editcart_bottom<br>
+$menu_payment_bottom<br>
+$menu_help_bottom</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>
+: You should also set up the actual link to the help file using HTTPS, and locate a copy of this help file for the SSL to use it without triggering the HTTP location.&nbsp; So the actual hyperlink to the help file must be HTTPS, and the 3 images
+within that help file must be referenced using HTTPS.</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$menu_help_bottom_url = &quot;https://secure.com/your/mof15/help.html&quot;;<br>
+</font>
+<font size="-1" face="Comic Sans MS" color="#000080">
+There are 3 images this file uses which must be referenced by HTTPS URL</font></p>
+<P>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>3.&nbsp; Template file objects used by mofpayment.cgi (mofpayment.conf)</b></font><P>
+<font size="-1" face="Comic Sans MS">
+These files are referenced by absolute path to their physical location on the 
+<font color="#000080">
+<b>secure</b></font> server.<br>
+<font color="#FF0000">
+Note</font>: this may or may not be the same location as the physical location on the non-secure server.<br>
+The best scenario is when both the non-secure and secure absolute locations are the same physical location on the server.</font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$payment_info_template = mofpayinfo.html<br>
+$final_template = mofpayfinal.html</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+All URL references to objects (images) in the 2 template files above must have the Full HTTPS (secure) URL.&nbsp; This does not mean hyper links, but any images that go into the page should have regular 
+<font color="#000080">
+<b>HTTPS</b></font> URLs.&nbsp; So, if you are building you own templates, then all references to images in those templates must have 
+<font color="#000080">
+<b>secure</b></font> HTTPS URLs.&nbsp; It's best to use the Full URL and not relative addressing, that way things are less confusing.</font></p>
+<p>
+<font size="-1" face="Comic Sans MS">
+If you want to test to see if those two templates above are secure: Then call them up in your browser independent of the script.&nbsp; Just put in the Full HTTPS url to your browser address.&nbsp; Does the template page load without any
+&quot;insecure items&quot; messages ? If it doesn't load in the plain browser as secure, then it will not load as secure when the script uses it.&nbsp; Make these tests to any templates that the script will be using under the SSL.</font></p>
+<p>
+<font size="-1" face="Comic Sans MS">
+Also, if you are placing images into the cart, passing images along as a feature, then your Final Invoice, if running under SSL, will obviously call the URLs that you have used to place the images of a product into the cart.&nbsp; If you will be
+running under SSL, then you should have defined these images by referencing the Full HTTPS (SSL) location when you set up the product input.&nbsp; The non-secure cart portion will reference the images via the HTTPS (SSL) location, but that is okay,
+they may just load a little slower.&nbsp; But, you will need to do it this way, so that when the images show up at the Final Invoice page, then they will be referenced properly, from the SSL url and not a standard url.</font></p>
+<P>
+<font face="Fixedsys" size="1">
+$save_invoice_template = mofinvoice.html</font>
+<font size="-1" face="Comic Sans MS">
+<br>
+This template can be used by mofpayment.cgi either way.&nbsp; It is not necessary to set it up with HTTPS references to objects, because Mof does not output any cc or checking numbers to this process.&nbsp; You must set up the object (image)
+references inside this template to which protocol you are saving it under.&nbsp;&nbsp;</font><P>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Note</font>: If this feature is enabled, Mof will be saving a file based on this template and the final invoice output.&nbsp; It is important to understand here that if you are running mofpayment.cgi under SSL, then you can only save this web copy
+file to wherever your SSL protocol allows you to have actual disk access.&nbsp; To save it under your standard domain HTTP location, then mofpayment.cgi will, of course, need to access the physical part of that Non-secure server to save the
+file.&nbsp;&nbsp;</font><P>
+<font size="-1" face="Comic Sans MS">
+Whatever you do with this feature, then you must have the corresponding settings ready to work the way you defined.</font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$save_invoice_path = '/ABSOLUTE_PATH/mof15/invoices/';<br>
+</font>
+<font size="-1" face="Comic Sans MS">
+Absolute path to the actual physical file that mofpayment.cgi will create as a web copy of the invoice.&nbsp; So if you want this to be the original HTTP non-secure location, then your SSL mofpayment.cgi must be able to write to that physical section
+on the server.&nbsp;&nbsp;</font></p>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$save_invoice_url = 'http://localhost/mof15/invoices/';<br>
+</font>
+<font size="-1" face="Comic Sans MS">
+What is the base URL for where these files will be accessed via the WEB.&nbsp; This will be an HTTPS base if you save it at the actual SSL physical location, or it may be the original HTTP url back to your non-secure domain.<br>
+</font></p>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font face="Comic Sans MS" color="#000000" size="3">
+<a name="ExpiringCart"></a>
+ 2. <u>Expiring Mof's cart under SSL</u></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+The most professional looking way to have Mof empty the cart contents once an order is finalized is to set the feature for deleting the cart in 
+<font color="#000080">
+<b>mofpayment.conf. </b></font>However there are several ways to deal with emptying the cart at final invoice.</font>
+<p>
+
+<font FACE="Fixedsys" SIZE="1">
+$delete_cart_final = 1;</font><P>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<u>Here's a further explanation of emptying the cart:</u></font><P>
+<font size="-1" face="Comic Sans MS">
+Merchant OrderForm has the ability to keep a visitors cart contents once they leave your site.&nbsp; You can set the cart holdtime, and the visitors cart will still be there for that duration of time should they return to the site.</font><P>
+<font size="-1" face="Comic Sans MS">
+When the visitor completes the ordering process and finalized the invoice, then Mof needs a way of emptying the cart if it is being held as specified in the holdtime setting.&nbsp; Mof has two ways of doing this: 1. Expire the cookie, and 2. go in
+and actually empty the cart file that the cookie is referring to.</font><P>
+<font size="-1" face="Comic Sans MS">
+There is an advantage to holding the cart and physically emptying it when an order is finalized -- a visitor still has those items in their cart if they failed to purchase them, but returned to your site at a later date.&nbsp; And, even when a
+visitor finalizes an order, when the holdtime remains and the cart is emptied, then clicking on the viewcart function will give them an empty cart, instead of the nocookies message.</font><P>
+<font size="-1" face="Comic Sans MS">
+Enable the </font>
+<font face="Fixedsys" size="1">
+delete_cart_final</font>
+<font size="-1" face="Comic Sans MS">
+ switch in
+<font color="#000080">
+<b> mofpayment.conf </b></font>to turn on this method of emptying the cart.&nbsp; If you are running the back end under shared SSL, and even some original SSL certificate sites, then you may get an error message when you enable this feature.&nbsp;
+You could get a Mof Data Processing Error saying it &quot;Can't Access the Data Files.&quot;&nbsp; If this is the case, then it is because the two scripts are operating at different uid (User IDs), and the Front End created the order data files under
+it's uid, so when the back end attempts to access the files, it can't because of file permissions or access restrictions.&nbsp; If this is your case, then enable the switch we have provided in 
+<font color="#000080">
+<b>mof15.conf </b></font>called:</font><P>
+<font face="Fixedsys" size="1">
+	# ALLOW CART DELETE RUNNING UNDER SHARED SSL (Different UID) Unix ONLY<br>
+	# ====================================================================<br>
+<br>
+$set_ssl_chmod = 1;</font><P>
+<font size="-1" face="Comic Sans MS">
+This switch will direct the Front End script to create all the order scratch files where the Back End script can access them, and delete the cart contents.</font>
+
+<P>
+<br>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font face="Comic Sans MS" color="#000000" size="3">
+<u><a name="Encryption"></a>
+ Encrypting the mail</u></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<P>
+<font size="-1" face="Comic Sans MS">
+The current distribution package does not have a plug in for sending mail via an encryption scheme like PGP.&nbsp; What we have provided is a simple encoding method where the first set of four numbers and/or the second set of four number of the credit card are altered based on a setting in
+your configuration file.&nbsp; These settings are in mofpayment.conf, close to the mail settings, and simply provide any integer from 1 - 9999 that will be subtracted from those sets of numbers on the credit card number.&nbsp; The checking account number has a number that is subtracted from
+the overall account number.&nbsp; These encoding settings are known only to the script and the Merchant designated mail address - receiving the mail.&nbsp; So, you simply add your code number back into the credit card digits, or the checking account number and you will have the
+real number.&nbsp;&nbsp;</font>
+
+<P>
+<font size="-1" face="Comic Sans MS">
+We will post any PGP encryption plug in mail modules to our update pages, as soon as we build one, or someone builds one and sends it to us.</font>
+
+<P>
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font face="Comic Sans MS" color="#000000" size="3">
+<u><a name="Robots"></a>
+Turn away the search robots</u></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<P>
+<font size="-1" face="Comic Sans MS">
+<font color="#FF0000">
+Important</font>: The template that makes the Web Copy of the invoice (if this feature is enabled) should always include the meta tags to prevent Robot scanning and listing in the search engines.&nbsp; You don't want your customer's invoice showing
+up at the Alta Vista search engine under their address.&nbsp; Our packaged template
+<font color="#000080">
+<b> mofinvoice.html</b></font> has this installed properly.&nbsp; If you make your own template for this function, then make sure you get this meta tag installed correctly, so that those pages, when they are created, will have a No Index, No Follow
+meta tag to the search engines.</font><P>
+<font FACE="Fixedsys" SIZE="1">
+&lt;meta name=&quot;robots&quot; content=&quot;noindex,nofollow&quot;&gt;</font>
+<P>
+<font size="-1" face="Comic Sans MS">
+Also, some folks have come up with the idea of password protecting the /invoices/ directory, and including a general logon and password in the customer mail message, telling the customer how to access the Web Copy of the invoice.&nbsp; This might be
+an added security against listing a customers shipping address on the web.</font>
+<P>
+<font size="-1" face="Comic Sans MS">
+Please note: that No payment information is stored with the Web Copy of the invoice.&nbsp; There is No hidden data stored for that page.</font>
+<P>&nbsp;
+<hr>
+<P><FONT FACE="Comic Sans MS"><FONT SIZE=-1>Written and produced by </FONT><B><FONT SIZE=-2>RGA@IO.COM</FONT></B><FONT SIZE=-1>
+/ <a HREF="http://www.io.com/~rga/scripts">http://www.io.com/~rga/scripts</a>
+</FONT></FONT>
+<BR><FONT FACE="Comic Sans MS"><FONT COLOR="#000080">What do you <FONT SIZE=+1>want</FONT>
+to order <FONT SIZE=+1>today</FONT>?</FONT></FONT>
+<BR><FONT FACE="Comic Sans MS"><FONT SIZE=-1>Documentation prepared July 31, 2000</FONT></FONT>
+<P><FONT FACE="Comic Sans MS"><FONT SIZE=-1>Thanks for your interest in
+</FONT><I><FONT COLOR="#800000">Merchant
+Order Form</FONT></I><FONT SIZE=-1>
+<B>v1.53 </B></FONT></FONT><FONT FACE="Wingdings"><FONT SIZE=-1>J</FONT></FONT>
+<BR>
+<font color="#808080">
+<FONT FACE="Arial,Helvetica"><b>Explore the Internet - Create the Internet</b></FONT>
+<BR>&nbsp;</font>
+<BR>
+<font size="-1" face="Comic Sans MS">
+These programs are distributed as Trial Ware or Share Ware. You are Welcome to install and test all portions of the programs. The package is not limited in any way and code source is left readable.&nbsp; Please make arrangements for the fee if you
+continue operating it on a Web Site. Feel free to contact me if you need special arrangements for use of MOF v1.53.</font>
+<P>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>For payment arrangements</b></font>: <a href="http://www.merchantorderform.com/payment.html">http://www.merchantorderform.com/payment.html</a>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+For personal web site use: $ 15.00<br>
+For web development (3-10 sites): $ 45.00, includes limited support<br>
+For web development (above 10 sites): $ 150.00, includes limited support<br>
+Note: For Resale or hosting license please contact <a href="mailto:rga@io.com">rga@io.com</a></font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Distribution of these programs and files without owner consent is prohibited. Please contact the authors of this product for any use outside the original registration and user license.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<b>COPYRIGHT NOTICE:</b><br>
+The contents of these programs and scripts are protected under the United States copyright laws as an unpublished work, and is confidential and proprietary to Austin Contract Computing, Inc.&nbsp; Its use or disclosure&nbsp; in whole or in part
+without the expressed written permission of Austin Contract Computing, Inc. is prohibited.&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<b>DISCLAIMER:</b><br>
+By opening and configuring this for your server and application you thereby assume any and all responsibility for the use and outcomes of this program. Please read the documentation on configurations, and test your installation thoroughly.&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Please do not distribute this script, as it is not a free-ware version. Please direct any non registered users of this script to the author's Web Site for details on how to obtain a registered copy of this script.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Web: <a href="http://www.merchantorderform.com/">Merchant OrderForm v1.53<br>
+</a>
+Mail: <a href="mailto:info@merchantorderform.com">info@merchantorderform.com<br>
+</a>
+Austin, Texas<br>
+July 31, 2000</font></p>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;</p>
+<P>
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+</BODY>
+</HTML>

@@ -1,0 +1,389 @@
+ 
+<HTML>
+<!-- #BeginTemplate "/Templates/template1.dwt" --> 
+<HEAD>
+<!-- #BeginEditable "doctitle" --> 
+<TITLE>H_K</TITLE>
+<!-- #EndEditable --> 
+<meta http-equiv="Content-Type" content="text/html; charset=">
+</HEAD>
+<BODY BGCOLOR="#999999" text="#003300" link="#660000">
+<div align="center"><!-- #BeginEditable "whole%20thing" --> 
+  <p><font size="3"> 
+    <script><!--
+  function OpenNewWindow(cPicture,nWidth,nHeight,cMessage,nBorder)       
+		{
+ NewWindow=window.open("","NewOne","HEIGHT="+nHeight+",WIDTH="+nWidth+",scrollbars=yes,resizable=no,top=5,left=5");
+        NewWindow.document.write ("<HTML><HEAD>");
+        NewWindow.document.write ("</HEAD>");
+        NewWindow.document.write ("<BODY BGCOLOR='#999999'>");
+        NewWindow.document.write ("<P ALIGN=CENTER>");
+        NewWindow.document.write ("<FONT FACE='Georgia' SIZE='+1'COLOR='#003300'><B>");           
+        NewWindow.document.write (cMessage);
+        NewWindow.document.write ("</B><FONT>");
+        NewWindow.document.write ("<IMG SRC=");
+        NewWindow.document.write (cPicture);
+        NewWindow.document.write (">");
+        NewWindow.document.write ("</P>");
+        NewWindow.document.write ("<bottom><FORM><INPUT TYPE='button'VALUE='Close This Window' onClick='self.close()'>"); 
+        NewWindow.document.write ("</FORM></CENTER></BODY></HTML>");
+        NewWindow.document.write ("</BODY></HTML>");
+        NewWindow.document.close();
+        return false;
+        }
+  
+
+if (!parent.control)
+{window.location="shoppingarea.htm?catalogue_a-c.htm"}
+
+function LineOnForm(plantname,number,price)
+	{ 
+	this.plantname=plantname;
+	this.number=number;
+	this.price=price;
+	}
+var Entries = new Array();
+var countStart=0;
+var Placeholder=0;
+function AddToCart(plantname,number,price)
+	{
+	 Entries[Placeholder]=new LineOnForm(plantname,number,price);
+	 ++Placeholder;
+	 showCart();
+	 }
+
+function ParseArray()
+	{
+	
+	for (x=countStart;x<Entries.length;++x)
+		{
+ 		 parent.control.document.catalogue.qstring.value += Entries[x].plantname;
+		 parent.control.document.catalogue.qstring.value += '-';
+		 parent.control.document.catalogue.qstring.value +=Entries[x].number;
+		 parent.control.document.catalogue.qstring.value +='-';
+		 parent.control.document.catalogue.qstring.value +=Entries[x].price;
+		 parent.control.document.catalogue.qstring.value +='--';
+		 countStart++;
+			}
+	}	
+	
+
+function makeSpace(latinname)
+	{
+		 chopped=latinname.split('+');
+		 n=0;holder='';
+		 while (chopped[n])
+		 	{
+			holder+=(chopped[n]+' ');
+			n++;
+			}
+		 return holder;
+	} 
+ function showCart()
+ 	{
+	ParseArray(Placeholder);
+	var showme="";
+	var args=parent.control.document.catalogue.qstring.value;
+	lines = args.split('--');
+	 for (x=0;(x<((lines.length)-1));++x)
+	 {
+	  parts = lines[x].split('-');
+	  showme+=(makeSpace(parts[1])+"\n")
+	  }
+	 
+	 alert('Your shopping cart contains:\n'+showme+'\nWhen you are ready to place your order, click the submit button to choose a quantity for each item and to enter your shipping and billing information');
+
+				return true;
+	} 
+	
+	
+	
+	//-->
+	</script>
+    </font></p>
+  <p><font size="3"><img src="graphics_garden/PIH2.jpg" width="500" height="100"> 
+    </font></p>
+  <p><font size="3" color="#999999">Plant It Herbs - Specializing in Chinese Medicinal 
+    Plants</font></p>
+  <p><font color="#999999">n<b><a href="index.htm">Home</a></b><font color="#999999">---</font> 
+    <b><a href="workshops.htm">Workshops</a> <font color="#999999">-</font> <a href="mailto:plantit@plantitherbs.com">Contact 
+    Plant It Herbs</a><font color="#999999">---</font> <a href="shoppingarea.htm?order_form.htm">Order 
+    Form</a><font color="#999999">---</font> <a href="links.htm">Links</a></b>g</font></p>
+  <p><a href="catalogue_A.htm"><font color="#000066"><b><i>A</i></b></font></a> 
+    <i><b><a href="catalogue_B.htm"><font color="#000066">B</font></a><font color="#000066"> 
+    </font><a href="catalogue_C.htm"><font color="#000066">C</font></a><font color="#000066"> 
+    </font><a href="catalogue_D-G.htm"><font color="#000066">DEFG</font></a> </b></i><font color="#999999"><b><i><a href="catalogue_H-K.htm"><font color="#000066">HIJK</font></a><font color="#000066"> 
+    </font><a href="catalogue_L-N.htm"><font color="#000066">LMN</font></a><font color="#000066"> 
+    </font><a href="catalogue_O-Q.htm"><font color="#000066">OPQ</font></a><font color="#000066"> 
+    </font><a href="catalogue_R-S.htm"><font color="#000066">RS</font></a><font color="#000066"> 
+    </font><a href="catalogue_T-Z.htm"><font color="#000066">TUVWXYZ</font></a></i></b>i</font> 
+  </p>
+  <p><font size="+3" color="#003300"><b>2006 Catalogue</b></font></p>
+  <p><b><font size="+3" color="#003300">- H, I, J, K-</font></b></p>
+  <form action="order_form.htm" method=GET name=catalogue>
+    <p>&nbsp;</p>
+    <p><font size="3" face="Georgia" color="#660000"><i><a name="Hibiscus trionum"></a></i></font><font size="3" face="Georgia" color="#003300"><i>#10470 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Hibiscus trionum</b></font><font size="3" face="Georgia" color="#003300">, 
+      ye xi gua miao, wild watermelon sprout, Malvaceae<i> - Easy annual with 
+      soft creamed colored flowers that bloom most of the summer through fall, 
+      grow in sun in neutral soil; whole plant is said to clear heat and relieve 
+      toxins, internally to treat acute rheumatoid arthritis, cough with cold/flu, 
+      externally for burns, seeds are used to tonify/nourish the kidneys. </i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $5.00 </i></font></p>
+    <p><font size="3"> 
+      <input type=button name=Button3 value="add to shopping cart" onClick="AddToCart(10470,'Hibiscus trionum',5.00)">
+      <input type=submit name=Submit22 value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button3 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p><font size="3"> </font></p>
+    <p><font size="3"><a name="Hippeastrum papilio"></a><font face="Georgia">#10480 
+      </font></font><font size="3" face="Georgia" color="#000066"><b>Hippeastrum 
+      'papilio',</b></font><font size="3" face="Georgia"><b> </b>Butterfly amaryllis, 
+      Amaryllidaceae. - <i>Exotially different species from Argentina with glossy 
+      everygreen leaves, petals are ivory tinged lime colored and heavily striped 
+      with cranberry; grow bulb in well drained soil, in full sun to partial shade, 
+      hardy </i></font><font size="3" face="Georgia"><i>in Zone 9-10.</i></font></p>
+    <p><b><font face="Georgia"><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_d-m/Hippeastrum_papilio.jpg',450,450,'Hippeastrum papilio'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></font>Click 
+      for Picture</b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $10.00</i></font></p>
+    <p><font size="3">&nbsp; 
+      <input type=button name=Button value="add to shopping cart" onClick="AddToCart(10480,'Hippeastrum 'papilio',10.00)">
+      <input type=submit name=Submit2 value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p align="left">&nbsp;</p>
+    <p align="left"><i><font size="3"><a name="Houttuynia cordata"></a></font><font size="3" face="Georgia"></font><font size="3" face="Georgia">#10490 
+      </font></i><font color="#1D1D80" size="3" face="Georgia"><strong>Houttuynia 
+      cordata</strong></font><font size="3" face="Georgia">, yu xing cao, Saururaceae<i> 
+      - Very hardy Chinese native; aromatic, aquatic herb grows in moist to wet 
+      soil, can withstand shallow water in partial shade, white bracet-like flowers 
+      bloom in summer, rich autumn color; whole plant is said to be used for upper 
+      respiratory tract infections and urinary tract problems, externally for 
+      skin disorders, used in Vietnamese cooking.</i></font></p>
+    <p align="center"><b><font face="Georgia"><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_d-m/Houttuynia_cordata.jpg',450,450,'Houttuynia cordata'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></font>Click 
+      for Picture</b></p>
+    <p align="center"><font color="#73180A"><em>Plant = $8.00</em></font></p>
+    <p align="center"><font size="3">&nbsp; 
+      <input type=button name=Button4 value="add to shopping cart" onClick="AddToCart(10490,'Houttuynia cordata',6.50)">
+      <input type=submit name=Submit23 value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button4 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p align="left">&nbsp;</p>
+    <p align="left"><font size="3"><a name="Hypericum chinense"></a></font><font size="3" face="Georgia"><i>#10500 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Hypericum chinense</b></font><font size="3" face="Georgia">, 
+      jin si tao, Guttiferae<i> - This pretty perennial stands about 3' with oval 
+      leaves and grows in well-drained soil in sun, yellow flowers bloom in summer; 
+      leaves are said to be used for snake bites, bee stings and wounds; roots 
+      are said to be used for wind and damp, low back pain from wind and damp, 
+      clears heat and reduces toxins, used for arthritic type pains, swelling, 
+      edema, stiffness.</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $8.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10500,'Hypericum chinensis',7.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p align=right><font size="3"><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size "3"><a name="Hypericum patulum"></a></font><font size="3" face="Georgia"><i>#10502 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Hypericum patulum</b></font><font size="3" face="Georgia">, 
+      jin si mei, metal silk plum, Guttiferae<i> - Original material collected 
+      in Yunnan, also called "mang zhong hua"; this perennial grows in well-drained 
+      soil in sun, lobed green leaves with yellow flowers that bloom in summer; 
+      roots are said to be bitter, spicy and cold, clears heat and toxins, relax 
+      the tendons (tissues of the liver), moves blood, promote lactation, moves 
+      blockages, colds and flu, diarrhea, urinary difficulty and pain (as in infections), 
+      hepatitis. </i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = out of stock at 
+      this time</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10502,'Hypericum patulum',0.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p><font size="3"><font face="Georgia"><a name="Hypericum perforatum"></a>#10503 
+      </font></font><font size="3" face="Georgia" color="#000066"><b>Hypericum 
+      perforatum</b>,</font><font size="3" face="Georgia"> St. John's wort, Guttiferae 
+      - <i>Perennial evergreen shrub, yellow conspicuous flowers bloom in summer, 
+      grow in well drained soil in full sun. Yields red dye, hypericin, used as 
+      an antidepressant.</i></font></p>
+    <p><b><font face="Georgia"><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_d-m/Hypericum_perforatum.jpg',450,450,'Hypericum perforatum'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></font>Click 
+      for Picture</b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $5.50</i></font></p>
+    <p><font size="3" color="#660000">&nbsp;</font> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10503,'Hypericum perforatum',5.50)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+    <p align=right><font size="3">&nbsp;<a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size="3"><a name="Impatiens balsamina"></a><font face="Georgia"><i>#10510 
+      </i></font></font><font size="3" face="Georgia" color="#000066"><b>Impatiens 
+      balsamina</b></font><font size="3" face="Georgia">, ji xing zi, touch me 
+      not, Balsaminaceae<i>- Large annual with red, salmon, coral to white flowers, 
+      re-seeds easily, grow in rocks to well-drained soil in sun; dried seed is 
+      said to disperse stagnant blood, increases uterine contradiction, promotes 
+      contraception, removes toxin, disperses tumor.</i></font></p>
+    <p><b><font face="Georgia"><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_d-m/Impatiens_balsamina.jpg',450,450,'Impatiens balsamina'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></font>Click 
+      for Picture</b></p>
+    <p><font color="#79091A" size="3" face="Georgia"><i>Plant = $4.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10510,'Impatients balsamina',4.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+    <p><font size="3"><a name="Indigofera suffucticosa"></a></font><font size="3" face="Georgia"><i>#10520 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Indigofera suffruticosa</b></font><font size="3" face="Georgia">, 
+      jia lan dian, false blue indigo, Leguminosae - <i>Source of bluish-black 
+      dye, which is made from steeping and fermenting leaves just before the plant 
+      flowers, perennial grows 3-5' in well-drained soil in sun, woody stemmed 
+      with compound leaves that close up at night, small flowers bloom in summer; 
+      stems, leaves and seeds are said to be bitter and cold, cools blood, relieves 
+      toxins, stops nose bleeds, also for skin itching and skin eruptions.</i></font></p>
+    <p><b><font face="Georgia"><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_d-m/Indigofera_suffructicosa.jpg',450,450,'Indigofera suffruticosa'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></font>Click 
+      for Picture</b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $7.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10520,'Indigofera suffruticosa',5.50)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p><font size="3">&nbsp;</font></p>
+    <p><font size="3"><a name="Inula japonica"></a></font><font size="3" face="Georgia"><i>#10530 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Inula japonica</b></font><font size="3" face="Georgia">, 
+      xuan fu hua, Japanese elecampane, Compositae<i> - Original seed from IMPLAD 
+      in Beijing; sturdy perennial has upright stems and thick rhizomes, yellow 
+      daisy-like flowers bloom in summer into fall, grows 8-12" in moist well-drained 
+      soil in sun, native to wetlands in China, Japan, Korea and Manchuria; flowers 
+      are said to be used as an expectorant and have antibacterial properties, 
+      stimulates the digestive system.</i></font></p>
+    <p><b><font face="Georgia"><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_d-m/Inula_japonica.jpg',450,450,'Inula japonica'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></font>Click 
+      for Picture</b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Not for sale at this time</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10530,'Inula japonica',5.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p align=right><font size="3"><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size="3"><a name="Isatis indigotica"></a></font><font size="3" face="Georgia"><i>#10540 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Isatis indigotica</b></font><font size="3" face="Georgia">, 
+      ban lan gen, woad root, Cruciferae/Brassicaceae<i> -</i></font><font size="3"> 
+      </font><font size="3" face="Georgia"><i>Original seed from IMPLAD in Beijing 
+      and is the main/correct/true plant used for ban lan gen; thick, pale green 
+      leaves that seem to last forever, grow this perennial in rich well-drained 
+      neutral to alkaline soil in sun, clusters of yellow flowers are the first 
+      to bloom in spring, move every two years for best results; pigment, root 
+      and leaves are said to be used for fevers, clearing heat and toxins heat 
+      rash, sore throat, abscesses and swellings, recent research suggests antiviral 
+      effects.</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $7.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10540,'Isatis indigotica',6.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p><font size="3" color="#660000"><a name="Jasminum mesnyi"></a></font><font size="3" face="Georgia"><i>#10550</i></font><font size="3" face="Georgia" color="#FFFF33"><b><i> 
+      </i></b></font><font size="3" face="Georgia" color="#000066"><b>Jasminum 
+      mesnyi</b></font><font size="3" face="Georgia">, ye ying chun, Primrose 
+      jasmine, Oleaceae<i> - Native to warm temperate areas of China and found 
+      in ravines and woods; rambling evergreen shrub, glabrous branches with shining 
+      green leaves and showy free-flowering yellow blossoms; grow in rich well 
+      drained soil in part sun.</i></font></p>
+    <p><b><font face="Georgia"><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_d-m/Jasminum_mesnyi.jpg',450,450,'Jasminum mesnyi'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></font>Click 
+      for Picture</b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $7.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10550,'Jasminum mesnyi',7.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p align=right><font size="3"><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p>&nbsp;</p>
+    <p><font size="3" color="#660000"><a name="Jasminum polyanthum"></a></font><font size="3" face="Georgia"><i>#10551 
+      </i></font><font size="3" face="Georgia" color="#000066"><i> </i><b>Jasminum 
+      polyanthum</b></font><font size="3" face="Georgia">, duo hua su xin, jasmine, 
+      Oleaceae<i> - Vines are woody and twining with angular opposite leaves, 
+      grow in well-drained soil in sun, exquisitely scented white flowers bloom 
+      in summer, grows in valleys, thickets and woods in Guizhou, Sichuan and 
+      Yunnan, has a long history of use in perfumery, medicine and for flavoring 
+      tea, cultivated for aromatic oil; in traditional Chinese medicine the whole 
+      plant is used or just the flowers and is said to clear heat, relieve toxins, 
+      stops infections, moves blood, regulates qi.</i></font></p>
+    <p><b><font face="Georgia"><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_d-m/Jasminium_polyanthum.jpg',450,450,'Jasminum polyanthum'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></font>Click 
+      for Picture</b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $7.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10551,'Jasminum polyanthum',6.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+    <p><font size="3" face="Georgia" color="#660000"><i><a name="Kalanchoe pinnata"></a></i></font><font size="3" face="Georgia" color="#003300"><i>#10560 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Kalanchoe pinnata</b></font><font size="3" face="Georgia" color="#003300">, 
+      air plant, Crassulaceae<i> - Primarily from Africa and Asia this herbaceous 
+      plant has thick, succulent, scalloped leaves with dark red or purple edges, 
+      inflorescence consists of a large number of green and purple flowers; cultivated 
+      as an ornamental grow in rich sandy soil in sun; leaves are said to be used 
+      in treating boils, internal bruises and broken bones, intestinal problems, 
+      also used to promote the healing of sores.</i></font></p>
+    <p><b><font face="Georgia"><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_d-m/Kalanchoe_pinnata.jpg',450,450,'Kalanchoe pinnata'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></font>Click 
+      for Picture</b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $6.00 </i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10560,'Kalanchoe pinnata',6.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+    <p><font size="3"><a name="Kalanchoe verticillata"></a></font><font size="3" face="Georgia"><i>#10561 
+      </i></font><font size="3" face="Georgia" color="#000066"><b>Kalanchoe verticillata</b></font><font size="3" face="Georgia">, 
+      hanging bell/cups, Crassulaceae<i> - Everyone comments on this unique succulent 
+      from the Guangxi Botanical Gardens, originally from Africa and Madagascar, 
+      plant name is yang diao zhong; stout and slender with fleshy green speckled 
+      leaves, beautiful clusters of salmon-orange belled flowers bloom in winter; 
+      grow in rich, sandy soil in sun; whole plant is said to be used to clear 
+      heat and relieves toxins, external use for burns, wounds from scalds; also 
+      external for injuries with bleeding.</i></font></p>
+    <p><b><font face="Georgia"><i><a href=# onClick="OpenNewWindow('https://secure32.elinuxservers.com/~plantit/images_d-m/Kalanchoe_verticillata.jpg',450,450,'Kalanchoe verticillata'); return false;"><img src="graphics_garden/irsbug.jpg" width="50" height="38" border="0" align="center "></a></i></font>Click 
+      for Picture</b></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $7.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10561,'Kalanchoe verticillata',7.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p align=right><font size="3"><a href="plant_index.htm#Index"><font face="Georgia" color="#330066"><i>Return 
+      to Index</i></font></a></font></p>
+    <p><font size="3" color="#660000"><a name="Kochia scoparia"></a>&nbsp;</font><font size="3" face="Georgia"><i>#10570</i></font><font size="3" face="Georgia" color="#FFFF33"><b><i> 
+      </i></b></font><font size="3" face="Georgia" color="#000066"><b>Kochia scoparia</b></font><font size="3" face="Georgia">, 
+      di fu zi, broom cypress, Chenopodiaceae<i> - This annual resembles a miniature 
+      pine tree with a red trunk, grows about 2' in rich moist soil in sun, keep 
+      under control because it will self-seed, fruit is said to be used to promote 
+      urination, stop itching, also clears heat and eliminates dampness.</i></font></p>
+    <p><font size="3" face="Georgia" color="#660000"><i>Plant = $5.00</i></font></p>
+    <p> <font size="3"> 
+      <input type=button name=Button2 value="add to shopping cart" onClick="AddToCart(10570,'Kochia scoparia',5.00)">
+      <input type=submit name=Submit value="go to order form/submit" onClick="ParseArray()">
+      <input type=button name=Button2 value="See contents of cart" onClick="showCart()">
+      </font></p>
+    <p>&nbsp;</p>
+  </form>
+  <p></p>
+  <p align="center"><b><a href="index.htm">Home</a></b> <b><a href="links.htm">Links</a></b> 
+    <b> </b><b><a href="workshops.htm">Workshops</a></b></p>
+  <p align="center"><b> <a href="mailto:plantit@plantitherbs.com">Contact Plant 
+    It Herbs</a> </b></p>
+  <p align="center"><b><a href="shoppingarea.htm?order_form.htm">Order Form</a> 
+    </b></p>
+  <p></p>
+  <!-- #EndEditable --> 
+  <p>&nbsp;</p>
+</div>
+</BODY>
+<!-- #EndTemplate -->
+</HTML>

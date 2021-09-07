@@ -1,0 +1,54 @@
+<?php
+
+/* @file
+* Service to add and fetch data for unit conversions
+ */
+
+function unitconverterservice_help($path, $arg) {
+    switch($path) {
+        case 'admin/help#unitconverterservice' :
+            return ''.t("Service to be called to fetch and update conversion table") .'';
+    }
+}
+
+
+
+function unitconverterservice_query_unit($unit) { //Given a unit, will return it's ratio, or null
+    $result = db_query('SELECT ratio FROM `unit_conversions` WHERE id= :id', array(':id' => $unit));
+    if ($result) {
+        $val = $result->fetchCol();
+        drupal_json_output($val);
+        drupal_exit();
+
+    }
+    else {
+       drupal_json_output(0);
+        drupal_exit();
+    }
+}
+
+function unitconverterservice_add_conversion_ratio($unit, $ratio) {
+    $query = db_update('unit_conversions')
+        ->fields(array('ratio'=>$ratio))
+        ->condition('id', $unit, '=')
+        ->execute();
+    drupal_json_output($unit);
+    drupal_exit();
+}
+
+function unitconverterservice_menu() {
+    $items = array();
+    $items['unitconverterservice-check'] = array(
+        'title' => t('unit converter service check value'),
+        'type' => MENU_CALLBACK,
+        'page callback' => 'unitconverterservice_query_unit',
+        'access arguments' => array('access content')
+    );
+    $items['unitconverterservice-update'] = array(
+        'title' => t('unit converter service update ratio'),
+        'type' => MENU_CALLBACK,
+        'page callback' => 'unitconverterservice_add_conversion_ratio',
+        'access arguments' => array('access content')
+    );
+    return $items;
+}

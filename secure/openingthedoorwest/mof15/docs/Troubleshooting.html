@@ -1,0 +1,1035 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+   <meta name="Author" content="Russell Alexander">
+   <meta name="Description" content="The complete set of Documentation for Merchant OrderForm v1.5 - WebWare written and produced by RGA">
+   <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+   <meta name="ProgId" content="FrontPage.Editor.Document">
+   <meta name="subject" content="Merchant OrderForm">
+   <meta name="Template" content="C:\MICROSOFT OFFICE\OFFICE\html.dot">
+   <TITLE>Merchant OrderForm v1.5 Documentation</TITLE>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#3333FF" VLINK="#3333FF" ALINK="#FF0000">
+<b>
+<font face="Comic Sans MS" size="4">
+Troubleshooting <I><FONT COLOR="#800000">Merchant Order Form</FONT></I> </font></b>
+<font size="-1" face="Comic Sans MS">
+version 1.53, 8/15/2000, Updated 9/15/2000</font>
+<BR><FONT FACE="Comic Sans MS"><FONT SIZE=-1>Copyright by </FONT><B><FONT SIZE=-2>RGA@IO.COM</FONT></B><FONT SIZE=-1>
+/ <A HREF="http://www.io.com/~rga/scripts">http://www.io.com/~rga/scripts<br>
+</A>Internet Location: <a href="http://www.merchantorderform.com">http://www.merchantorderform.com<br>
+</a>
+Use our web site for <a href="http://www.merchantorderform.com/updates.html">current issues or updates to this product</a>
+ <a href="http://www.merchantorderform.com"><br>
+</a>
+Documentation prepared July 31, 2000.
+</FONT></FONT><p>
+
+<font size="-1" face="Comic Sans MS">
+This file contains Troubleshooting and Error Message information.&nbsp; We can't possibly cover all the problems that you may have with particular servers, server cgi configurations, different operating systems, etc., but we have tried to cover some
+of the common problems people encounter with installation, and some of the problems that you may be having with Merchant OrderForm's operation.</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+The other documentation files are:</font>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS"><a href="ReadMe.html">ReadMe.html</a>
+ &nbsp;-- Introductory information about Merchant OrderForm</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="Installation.html">Installation.html&nbsp;</a>
+ -- Step by step instructions for installing these scripts</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="BuildingPages.html">BuildingPages.html</a>
+ &nbsp;-- All about Building the Input Pages for your Store</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="AboutConfigurations.html">AboutConfigurations.html</a>
+ -- Basics about editing Perl configuration files</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="Configurations1.html">Configurations1.html</a>
+&nbsp;-- Front End settings (Cart and Order Summary)</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="Configurations2.html">Configurations2.html</a>
+ -- Back End settings (Check out and Final invoice)</font><li>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080"><b>Troubleshooting.html&nbsp;</b></font>-- 
+<font color="#000080">
+<b> You are here</b></font></font>
+</ul>
+<p>
+
+T<FONT FACE="Comic Sans MS"><FONT SIZE=-1>hanks for your interest in </FONT><I><FONT COLOR="#800000">Merchant
+Order Form</FONT></I><FONT SIZE=-1>
+<B>v1.53.</B>&nbsp;</FONT></FONT>
+<p>
+
+&quot;
+<font size="-1" face="Comic Sans MS">
+After examining countless shopping carts, this was the only solution providing the flexibility to customize it precisely to my business needs.&quot; --</font>
+<font face="Comic Sans MS" size="1">
+ Comments: <a href="http://www.cgi-resources.com/">CGI Resource Index</a>
+</font><p><u>
+<font size="+1" face="Comic Sans MS">
+Shareware statement</font></u>
+
+<font size="-1" face="Comic Sans MS">
+&nbsp;<br>
+<br>
+You are authorized to install, test, and explore your copy of Merchant OrderForm.  When you are satisfied that it will do the job for you, then you are expected to make arrangements for the Shareware fees.&nbsp;</font><p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#000080"><b>Payment arrangements</b></font> @ <a href="http://www.merchantorderform.com/payment.html">http://www.merchantorderform.com/payment.html</a>
+&nbsp;<br>
+<br>
+-- Or you can Send Check or Money Order To:&nbsp;</font><br>
+<br>
+<font size="-1" face="Comic Sans MS">
+        RUSSELL ALEXANDER&nbsp;<br>
+        1904 INVERNESS BLVD.&nbsp;<br>
+        AUSTIN, TEXAS 78745&nbsp;</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+
+
+-- Or you can use </font>
+
+<!-- Begin PayPal Logo -->
+<A HREF="https://secure.paypal.x.com/xclick/business=rga%40io.com&undefined_quantity=1&item_name=Merchant+OrderForm+v1.5&return=http%3A//www.merchantorderform.com/" target="_blank">
+<font size="-1" face="Comic Sans MS">
+Pay Pal</font>
+&nbsp;
+</a>
+<p>
+
+&nbsp;
+<p>
+
+&nbsp;
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9"><FONT SIZE=+1><a name="TableContents"></a>
+Table
+of Contents for this Documentation</FONT></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT FACE="Comic Sans MS"><FONT COLOR="#800000">Merchant
+OrderForm</FONT>
+<B><FONT SIZE=-1>v</FONT></B></FONT>
+ <font size="-1" face="Comic Sans MS">
+ <b>1.53</b></font></TD>
+</TR>
+</TABLE>
+
+<ul>
+<li><b>
+<font size="-1" face="Comic Sans MS" color="#000080">
+<a href="#Troubleshooting">Troubleshooting</a></font></b>
+<font size="-1" face="Comic Sans MS">
+<br>
+Some suggestion on solving common problems</font>
+</ul>
+<blockquote>
+<ul type="circle">
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#Troubleshooting">An overview of problem solving</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#500Errors">500 Internal Server Error</a>
+</font><li>
+<font size="-1" face="Comic Sans MS">
+<a href="#DataProcessingError">Merchant OrderForm v1.53 Data Processing Error</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#FormatErrors">Formatting, Layout, and Product Input </a>
+</font><a href="#FormatErrors">
+<font size="-1" face="Comic Sans MS">
+problems</font></a>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#Maintenance">Maintenance Issues (data and info files)</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS"><a href="#NTandMIIS">Some tips for NT and MIIS</a>
+</font>
+</ul>
+</blockquote>
+
+<ul>
+<li><b>
+<font size="-1" face="Comic Sans MS" color="#000080">
+Specific problems</font></b>
+<font size="-1" face="Comic Sans MS">
+<br>
+Some specific problems folks have run into</font>
+</ul>
+<blockquote>
+<ul type="circle">
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#InvoiceFiles">
+Can't access the invoice files</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#DeleteCartFinal">
+Data Processing Error when enabling Delete Cart Final</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#UnsecuredItems">
+When using SSL I get &quot;unsecured items&quot; messages</a>
+</font>
+<li>
+<font size="-1" face="Comic Sans MS">
+<a href="#MailNotWorking">
+I can't get the mail to work</a>
+</font>
+</ul>
+<p>
+
+&nbsp;
+</blockquote>
+
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="+1" face="Comic Sans MS">
+<a name="Troubleshooting"></a>
+Troubleshooting</font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+Please note, we have included some of the more common problems that folks have in getting Merchant OrderForm up and running.&nbsp; Overwhelmingly, most questions we get for help installing Merchant OrderForm are from those inexperienced in installing
+CGI scripts.&nbsp; Seasoned cgi installers, have made it through the learning curve, and can usually troubleshoot their installation.&nbsp; Those not so experienced with cgi installations, can miss some very subtle things, and can get stuck.&nbsp;
+The less experienced cgi installer's problems are invariably a subtle oversight with some small setting, some small procedure.&nbsp; There are lots of different procedures, configuration settings, server settings, server protocols, files, images that
+must come together for Mof to be installed and operating flawlessly.</font><p>
+<font size="-1" face="Comic Sans MS">
+The distribution package has all configuration settings at a minimum, so we can eliminate some of the more complex installation issues at first.&nbsp; The idea is to get Mof up and running with all the examples as they come out of the package, and
+then you can begin to customize your install to fit your site, one thing at a time.</font><p>
+<font size="-1" face="Comic Sans MS">
+We'll put a little section on the problems most folks encounter when attempting to install on an NT server, under MIIS, but you really should know what you're doing with cgi installs under NT and MIIS, before you even try to do this on NT, else
+you're in for a pretty good struggle.&nbsp; You have to clearly know the ins and outs of how NT and MIIS handle absolute pathways and file-directory privileges, and especially how to use a sendmail compatible mailer under your MIIS so that Mof can
+mail your stuff.</font><p>
+<font size="-1" face="Comic Sans MS">
+For Unix-Linux type servers, running Apache (or anything else is fine), then the less experienced cgi installer will usually encounter three levels of problems:&nbsp;&nbsp;</font><p>
+<font size="-1" face="Comic Sans MS">
+The <b>first</b> level of problem has to do with getting the scripts to run on the server. These type of problems cause Internal Server Errors.&nbsp; This is a message from the server that the cgi program you attempted to run did not run correctly on
+the server.&nbsp; This is not a Merchant OrderForm error.&nbsp; It is your server telling you it could not run the script for one reason or another.&nbsp; Follow the 500 Internal Server Error checklist until you get it right.&nbsp; When both main
+script files are up and running in<a href="file:///C:/Working4/Installation.html#TestMain"> test mode</a>
+ as we have described in the Installation, then you are ready to tweak out all the ways that Mof will operate on your site.</font><p>
+<font size="-1" face="Comic Sans MS">
+The <b>second</b> level of problems occur after the main Mof script files are running on the server, but Mof is not operating successfully in one or more processes.&nbsp; This is the number one, hands down, most common request we get from folks about
+installation problems.</font><p>
+<font size="-1" face="Comic Sans MS">
+Once Mof is running on the server, then any messages you receive in your browser that say ..</font><p><b>Merchant OrderForm v1.53 Data Processing Error</b><p>
+<font size="-1" face="Comic Sans MS">
+.. are messages from Mof to you telling you exactly where the problem is.&nbsp; You must look very closely at what this message is saying to you.&nbsp; This is your clue where the problem is.&nbsp; Mof will tell you exactly what is is unable to do
+that it is trying to do.&nbsp; These messages are your troubleshooting clues.&nbsp; Don't fall prey to reading the first line and freaking out.&nbsp; Read what it says underneath that.&nbsp; More about that in the section below</font><p>
+<font size="-1" face="Comic Sans MS">
+The <b>third</b> level of problems is when Mof is running in all processes with no file access errors, but things like templates, images, buttons, etc, just aren't doing what you expected them to do.&nbsp; Products are not showing up like you
+expected, templates don't look right, etc.&nbsp; These are problems getting the layout, formatting, and product input to work as you want.&nbsp;</font>
+<p>
+
+<br>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="500Errors"></a>
+ Can't get main program files running - 500 Internal Server Error</b></font>
+</TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+These troubleshooting checkpoints are for Unix-Linux type servers only.&nbsp;&nbsp;Double and triple check everything carefully.&nbsp; Many less experienced cgi installers overlook a very simple little procedure, like proper permissions, and seem to
+get stuck.&nbsp; Use this as a checklist for your 500 Server Errors.&nbsp; This checklist is not for NT.</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If you cannot get the main program files running in simple test mode as described in the Installation section and are getting the error message from your server: <b>500 Internal Server Error</b></font>
+<ol>
+<li>
+<p style="line-height: 100%">
+
+<font size="-1" face="Comic Sans MS">Check and double check that you FTP transferred all script files in ASCII mode only. See <a href="Installation.html#SendScripts">Sending the Files<br>
+<br>
+</a>
+</font>
+<li>
+<p style="line-height: 100%">
+
+<font size="-1" face="Comic Sans MS">Check and double check that you have followed the section on <a href="Installation.html#SetPermissions">Setting Permissions<br>
+<br>
+</a>
+</font>
+<li>
+<p style="line-height: 100%">
+
+<font size="-1" face="Comic Sans MS">Go back and set all of the MOF files in your cgi-bin with chmod 755 permissions <a href="Installation.html#SetPermissions">Setting Permissions<br>
+<br>
+</a>
+</font>
+<li>
+<p style="line-height: 100%">
+
+<font size="-1" face="Comic Sans MS">If on NT your cgi-bin must be ready to execute, set by whoever administers your NT account<br>
+<br>
+</font>
+<li>
+<p style="line-height: 100%">
+
+<font size="-1" face="Comic Sans MS">Check that you are calling the correct URL in your web browser.&nbsp; Refresh your browser, delete the browser cache.<br>
+<br>
+</font><li>
+<p style="line-height: 100%">
+
+<font size="-1" face="Comic Sans MS">Check that both main cgi system files have the correct location for Perl. See <a href="#WhereIsPerl">Where Is Perl<br>
+<br>
+</a>
+</font>
+<li>
+<p style="line-height: 100%">
+
+<font size="-1" face="Comic Sans MS">It's possible the scripts are corrupted, either by a faulty download, or from editing.&nbsp; See <a href="#CorruptedScripts">Corrupted Scripts.<br>
+<br>
+</a>
+</font>
+<li>
+<p style="line-height: 100%">
+
+<font size="-1" face="Comic Sans MS">I have seen rare cases where the Hosting Service is running strict Unix and requires that the scripts actually be in Unix format to run.&nbsp; I think concentric.net does this. So, if you're working on a Windows PC, then you'll have to
+obtain a plain ASCII text editor capable of SavingAs in Unix format.&nbsp; SaveAs in Unix format before you FTP to your server.&nbsp; This is rare, so I would try this as a last resort.</font>
+</ol>
+<p>
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="DataProcessingError"></a>
+ Merchant OrderForm v1.53 Data Processing Error</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+If you find any of these type of errors you must troubleshoot the problem.&nbsp; The most common error message is when MOF can't find files or directories, or when it can't read or write to files or directories.&nbsp; The message will tell you which
+file it is attempting to work with and can't find or use.&nbsp; You'll have to figure out why.&nbsp;&nbsp;Most likely, you have not defined the absolute path correctly in the configuration file.&nbsp; Mof will tell you what file it is trying to
+access, not by name but by its function:&nbsp;&nbsp;</font><p><b>
+<font size="-1" face="Comic Sans MS">
+Unable to Locate-Make Data File: 20000909081224-3938445<br>
+Unable to Write To Orders Data File: 20000909081224-3938445</font></b>
+<ul>
+<li type="circle">
+<font size="-1" face="Comic Sans MS">
+Mof cannot create and/or update your order data files</font><li type="circle">
+<font size="-1" face="Comic Sans MS">
+Mof cannot access the orderdata directory</font><li type="circle">
+<font size="-1" face="Comic Sans MS">
+Absolute path defined in mof15.conf for $datadirectory is not correct</font><li type="circle">
+<font size="-1" face="Comic Sans MS">
+The orderdata directory does not have full write permissions</font>
+</ul>
+<p>
+
+<b>
+<font size="-1" face="Comic Sans MS">
+Unable to Write To Preview Information File: 20000909081226-3938057</font></b>
+<ul>
+<li type="circle">
+<font size="-1" face="Comic Sans MS">
+Mof cannot create and/or update your order info files</font><li type="circle">
+<font size="-1" face="Comic Sans MS">
+Mof cannot access the orderinfo directory</font><li type="circle">
+<font size="-1" face="Comic Sans MS">
+Absolute path defined in mof15.conf for $infodirectory is not correct</font><li type="circle">
+<font size="-1" face="Comic Sans MS">
+The orderinfo directory does not have full write permissions</font>
+</ul>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If you're getting Unable to Read Template file errors, Mof is saying it can't get to the template files.&nbsp; Either you don't have them unloaded to the server, you don't have the proper absolute pathway defined in mof15.conf for each of these
+templates.&nbsp; As per the installation instructions, you should have uploaded all of the 7 template files and 1 no cookies file into the ../mof15/&nbsp; directory.&nbsp;</font>
+<p>
+
+<b>
+<font size="-1" face="Comic Sans MS">
+Here are the 7 template file error messages and corresponding setting.</font></b>
+<p>
+
+&nbsp;
+
+<table border="1" width="640" cellspacing="0" cellpadding="2">
+
+<tr><td nowrap width="399" align="center" bgcolor="#F0F3F9">
+<font size="-1" face="Comic Sans MS">
+Error Message</font></td><td width="167" nowrap align="center" bgcolor="#F0F3F9">
+<font size="-1" face="Comic Sans MS">
+<b>mof15.conf</b> setting</font></td><td width="126" nowrap align="center" bgcolor="#F0F3F9">
+<font size="-1" face="Comic Sans MS">
+template file</font></td></tr>
+
+<tr><td nowrap width="399">
+<font size="-1" face="Comic Sans MS">
+Unable to Read Template File: Main Template File</font></td><td width="167" nowrap>
+<font size="-1" face="Comic Sans MS">
+$accept_order_template</font></td><td width="126" nowrap>
+<font size="-1" face="Comic Sans MS">
+mofmain.html</font></td></tr>
+
+<tr><td nowrap width="399">
+<font size="-1" face="Comic Sans MS">
+Unable to Read Template File: Validation File</font></td><td width="167" nowrap>
+<font size="-1" face="Comic Sans MS">
+$validation_template</font></td><td width="126" nowrap>
+<font size="-1" face="Comic Sans MS">
+mofvalidate.html</font></td></tr>
+
+<tr><td nowrap width="399">
+<font size="-1" face="Comic Sans MS">
+Unable to Read Template File: Preview Information File</font></td><td width="167" nowrap>
+<font size="-1" face="Comic Sans MS">
+$preview_template</font></td><td width="126" nowrap>
+<font size="-1" face="Comic Sans MS">
+mofpreview.html</font></td></tr>
+
+<tr><td nowrap width="399">
+<font size="-1" face="Comic Sans MS">
+Unable to Read Template File: Preview Template File</font></td><td width="167" nowrap>
+<font size="-1" face="Comic Sans MS">
+$preview_info_template</font></td><td width="126" nowrap>
+<font size="-1" face="Comic Sans MS">
+mofinformation.html</font></td></tr>
+</table>
+
+<p>
+
+&nbsp;
+
+<table border="1" width="640" cellspacing="0" cellpadding="2">
+
+<tr><td nowrap width="399" bgcolor="#F0F3F9" align="center">
+<font size="-1" face="Comic Sans MS">
+Error Message</font></td><td width="167" nowrap bgcolor="#F0F3F9" align="center">
+<font size="-1" face="Comic Sans MS">
+mofpayment.conf setting</font></td><td width="126" nowrap bgcolor="#F0F3F9" align="center">
+<font size="-1" face="Comic Sans MS">
+template file</font></td></tr>
+
+<tr><td nowrap width="399">
+<font size="-1" face="Comic Sans MS">
+Unable to Read Template File: Payment Information File</font></td><td width="167" nowrap>
+<font size="-1" face="Comic Sans MS">
+$payment_info_template</font></td><td width="126" nowrap>
+<font size="-1" face="Comic Sans MS">
+mofpayinfo.html</font></td></tr>
+
+<tr><td nowrap width="399">
+<font size="-1" face="Comic Sans MS">
+Unable to Read Template File: Payment Final Template File</font></td><td width="167" nowrap>
+<font size="-1" face="Comic Sans MS">
+$final_template</font></td><td width="126" nowrap>
+<font size="-1" face="Comic Sans MS">
+mofpayfinal.html</font></td></tr>
+
+<tr><td nowrap width="399">
+<font size="-1" face="Comic Sans MS">
+Unable to Read Template File: Save Invoice Template File</font></td><td width="167" nowrap>
+<font size="-1" face="Comic Sans MS">
+$save_invoice_template</font></td><td width="126" nowrap>
+<font size="-1" face="Comic Sans MS">
+mofinvoice.html</font></td></tr>
+</table>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+Check to make sure the configuration settings are correct for the file MOF is attempting to access.&nbsp; You'll have to track down the appropriate configuration file (Tip: which script is running ? mof.cgi or mofpayment.cgi), and the applicable
+configuration setting variable.&nbsp; Make sure that you have the correct Absolute Pathway defined for the setting, and make sure the absolute pathway you defined in the setting is exactly where the file resides on the server
+and your domain file structure.&nbsp; This is probably the most common installation error.</font><p>
+<font size="-1" face="Comic Sans MS">
+Merchant OrderForm should give you few errors outside file usage errors.&nbsp; The other possible places Merchant OrderForm will give you error messages is when you start to Build your own Store Front and mess up some of the Rules for submitting a
+POST to the Merchant OrderForm system.&nbsp; But this should not happen with the example input pages, since they are already thoroughly tested, and are set up correctly.</font><p>
+<font size="-1" face="Comic Sans MS">
+If you are Building your HTML Product Input Pages to POST to the Merchant OrderForm system, and getting these messages:</font>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+Unable to determine input mode</font><li>
+<font size="-1" face="Comic Sans MS">
+Product order data not available</font>
+</ul>
+<p>
+<font size="-1" face="Comic Sans MS">
+Then you have errors in how you are constructing your HTML Product Input Pages.&nbsp; Consult the section on <a href="BuildingPages.html">Building your Online store </a>
+ and consult the Example Input Pages in the package.&nbsp; The Example Input pages have all sorts of instructions, and hidden comments inside the HTML code.&nbsp; View the HTML source for those Example pages to troubleshoot a particular method.</font>
+<p>
+
+<br>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="FormatErrors"></a>
+Formatting, Layout, and Product Input problems</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><a HREF="#TableContents">
+<font size="-1" face="Comic Sans MS">
+^&nbsp; TABLE OF CONTENTS</font></a>
+</TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Once the Merchant OrderForm scripts and support files are operating correctly on your web site, then a third level of problems might be from the interaction of Product Input pages, templates, images, etc.</font>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If your products are not entering the cart, or the cart does not see the products as you intended, the first thing you should carefully check is the exact syntax underlying your product input pages.&nbsp; Consult the documentation on <a href="BuildingPages.html">Building
+Input Pages.</a>
+&nbsp;&nbsp;</font><p>
+<font size="-1" face="Comic Sans MS">
+You must follow the exact rules for submitting product information to the cart.&nbsp; Remember that different postmodes have different rules, and that product options must be declared in the configuration file.&nbsp; Make sure if you are using
+postmode=QUANTITYBOXES that your product numbering scheme is accurate, and that each product's number matches any product options input number.&nbsp; Make sure you are using the correct value for a particular input mode.&nbsp; Some postmodes submit 5
+pieces of information for the product, some submit 6.</font><p>
+<font size="-1" face="Comic Sans MS">
+The best thing you can do to sort out these type of errors is to gain a better understanding of how html forms work.&nbsp;&nbsp;</font>
+<p>
+
+<br>
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="NTandMIIS"></a>
+Some tips for NT and MIIS</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+Our best advice for those of you wanting to install Mof on an NT and MIIS system, is to know what you are doing.&nbsp; If you are experienced with cgi Perl script installations under NT and MIIS, then you will know what to do to make it work.&nbsp;
+If you are not experienced with NT and MIIS, then we will offer some very sparse tips:</font><p>
+<font size="-1" face="Comic Sans MS">
+You must realign everything to run as *.pl files.&nbsp; Rename the two main script files to *.pl files instead of *.cgi files.&nbsp; Most NT and MIIS servers run Perl cgi scripts under the extension PL.</font><p>
+<font size="-1" face="Comic Sans MS">
+Don't worry about the first line in the two main script files, Whereis Perl.&nbsp; NT doesn't use this, it uses the PL extension to identify what type of file it is.</font><p>
+<font size="-1" face="Comic Sans MS">
+Force all Full and absolute pathways for all your file, template, and URL settings.&nbsp; Don's use any relative addressing, but use the complete pathways.&nbsp;&nbsp;</font><p>
+<font size="-1" face="Comic Sans MS">
+Example: refer to the processing script files with rull URL, don't take it for granted that NT will automatically understand that you want to run mof.pl from the native directory that cgi is running from.</font><p>
+<font face="Fixedsys" size="1">
+$programfile = 'http://www.domain.net/cgi-bin/mof.pl';</font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+$paymentfile = 'http://www.domain.net/cgi-bin/mofpayment.pl';</font><p>
+<font size="-1" face="Comic Sans MS">
+Again, use very complete absolute addressing for any template file locations:<br>
+Make sure you use the backslask and not the forward slash.<br>
+Make sure the setting is not enclosed in double quotes.<br>
+Using the backslash inside double quotes causes malformed addresses that don't work.</font><p>
+<font FACE="Fixedsys" SIZE="1">
+$accept_order_template = 'e:\websites\domain\mof15\mofmain.html';</font><p>
+<font size="-1" face="Comic Sans MS">
+If you are referencing a directory then you'll need two ending backslashes.&nbsp; If you don't do this you'll get a 500 Internal Server Error.&nbsp; What happens is that the backslash has powerful meaning in Perl, and you need to tell Perl that you
+want a backslash as an literal ending character on the pathway, else, Perl will truncate the ending quote.</font><p>
+<font face="Fixedsys" size="1">
+$infodirectory = 'e:\websites\domain\orderinfo
+<font color="#FF0000">
+\\</font>';</font>
+<p>
+<font size="-1" face="Comic Sans MS">
+MIIS does not necessarily want to run cgi scripts, since that is a little outside the BG empire, and you could encounter all kinds of problems configuring MIIS to run Perl scripts.</font><p>
+<font size="-1" face="Comic Sans MS">
+It's possible that MIIS won't run Perl scripts because of 'require' problems.&nbsp; Mof uses standard directives to require certain support files to run when it loads up.&nbsp; MIIS might not recognize these support files as valid unless you declare
+them as valid in @INC and require them using the Full absolute pathway.</font><p>
+<font size="-1" face="Comic Sans MS">
+An example using the above pathways to your cgi-bin to force MIIS to run the required support files from the cgi-bin might look like this:</font><p>
+<font size="-1" face="Comic Sans MS">
+Declare your support files in @INC when the script starts up.<br>
+You'll need to insert lines similar to this as your script starts up.</font>
+<p>
+<font face="Fixedsys" size="1">
+BEGIN {<br>
+     push(@INC, 'e:\websites\domain\cgi-bin\mof15.conf');<br>
+     push(@INC, 'e:\websites\domain\cgi-bin\mof15_lib.pl');<br>
+}</font>
+<p>
+<font size="-1" face="Comic Sans MS">
+Then all require lines will reference the full absolute address</font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+require 'e:\websites\domain\cgi-bin\mof15.conf';<br>
+require 'e:\websites\domain\cgi-bin\mof15_lib.pl';</p>
+</font><p>
+<font size="-1" face="Comic Sans MS">
+The rule if you're having trouble under NT and MIIS is to not leave anything for MIIS or NT to interpret, but force all settings to their absolute location, so NT doesn't have to try to understand what you want to do.</font><p>
+<font size="-1" face="Comic Sans MS">
+All settings that would normally run under the native cgi-bin relative location via Unix-Linus should be given full pathways for NT.&nbsp; Don't allow NT to think anything out.</font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+$use_country_list = 'e:\websites\domain\cgi-bin\countries.txt';<br>
+$use_state_list = 'e:\websites\domain\cgi-bin\states.txt';</p>
+</font><p>
+<font size="-1" face="Comic Sans MS">
+The above examples should solve your file pathway problems, but the most common problem installing under NT and MIIS is making sure that MIIS and NT are allowing all the required file and directory access privileges.&nbsp; These file and directory
+access privileges do not operate like on Unix-Linux.&nbsp; You'll have to contact your admin or hosting help pages to determine what you need to do to get all privilages operating correctly.&nbsp; Sometimes, the cgi-bin under NT systems is not even
+set up to execute PL files, so you'll need to contact someone to even have that enabled.</font><p>
+<font size="-1" face="Comic Sans MS">
+Lastly, before Mof will be able to mail you anything, you'll need to have a sendmail compatible mailer installed under the NT and MIIS system.&nbsp; We'll try to construct a Mof plugin that works with SMTP directly for NT.&nbsp; You can check out <a href="http://www.merchantorderform.com/support.html">support
+pages.</a>
+</font>
+<p>
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="Maintenance"></a>
+Maintenance Issues</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+Merchant OrderForm uses two directories to read, write, and store data for cart products and shipping information.&nbsp; Mof creates a separate file for each customer, for both cart products and shipping address information.&nbsp; The current version
+1.53 of Mof does not have any provisions for cleaning out these scratch files.&nbsp; Scratch files are made in these directories.</font><p>
+<font face="Fixedsys" size="1">
+../orderdata/<br>
+../orderinfo/</font><p>
+<font size="-1" face="Comic Sans MS">
+You should periodically check these directories, sort them by date files were created or modified, and delete any files in either of those directories that are older than the corresponding cookies settings you have for the cart and shipping
+information.</font><p>
+<font size="-1" face="Comic Sans MS">
+I have several thousand files operating out of one of my directories, so you don't need to worry that you may have accumulated many files.&nbsp; Unix-Linus is capable of housing many files without problems.&nbsp;&nbsp;</font><p>
+<font size="-1" face="Comic Sans MS">
+You have cookie settings in <b>
+<font color="#000080">
+mof15.conf</font></b> for how long to keep a customer's cart file and shipping information file.&nbsp; See the sections:</font><p>
+<font face="Comic Sans MS" color="#000080" size="-1">
+<a href="Configurations1.html#KeepingTheCart">How to keep or not keep the cart if a purchase is not completed<br>
+How to keep or not keep a visitor's shipping information</a>
+</font><p>
+<font size="-1" face="Comic Sans MS">
+Any files that are older than your cookie settings can be safely deleted.&nbsp; Any scratch files that are older than the cookie settings you have will not be used by Mof because even if the customer does return to your site, their reference number
+for stored information has been expired as an active cookie.&nbsp; So go ahead and delete any of these files.</font><p>
+<font size="-1" face="Comic Sans MS">
+Don't worry.&nbsp; It's okay to delete all the files if you want to.&nbsp; The worst that will happen is the customer will have to complete their shipping information again, or they will not have a saved cart.&nbsp; Mof will know to create them a new
+file, even if there is a cookie reference, but their file has been deleted.</font>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="WhereIsPerl"></a>
+Where is your Perl ?</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+<font size="-1" face="Comic Sans MS">
+The two main cgi files for Merchant OrderForm called 
+<font color="#000080">
+<b>mof.cgi </b></font>and 
+<font color="#000080">
+<b>mofpayment.cgi</b></font> identify where the Perl interpreter is located on your server.&nbsp; This is done on the very first line of each of these script files.&nbsp; They are set in the package for the standard location of Perl on most
+Unix-Linux type servers.&nbsp; In rare cases you may need to modify this line to point to the location of the Perl interpreter if your server has it located in a different place than the one we have set:</font><p>
+<font size="-1" face="Comic Sans MS">
+Most Unix-Linux type servers use this location for Perl:</font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+#!/usr/bin/perl</font><p>
+<font size="-1" face="Comic Sans MS">
+If your server uses a different location, then you should be certain what that location is, and replace the first line in both 
+<font color="#000080">
+<b>mof.cgi</b></font> and
+<font color="#000080">
+<b> mofpayment.cgi </b></font>with your server's location of Perl.&nbsp; Important: The line must be the first line in the script, and it must start with</font>
+<font face="Fixedsys" size="1">
+ #!&nbsp;&nbsp;</font><p>
+<font size="-1" face="Comic Sans MS">
+Here's an example of a different location:</font>
+<font FACE="Fixedsys" SIZE="1">
+<br>
+#!/usr/local/bin/perl</font>
+<p>
+
+&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="CorruptedScripts"></a>
+Are the scripts corrupted ?</b></font></TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If the Perl syntax has been corrupted in any of the program files:</font>
+<ul>
+<li>
+<font size="-1" face="Comic Sans MS">
+2 *.cgi files</font><li>
+<font size="-1" face="Comic Sans MS">
+3 *.pl files</font><li>
+<font size="-1" face="Comic Sans MS">
+2 *.conf files</font><li>
+<font size="-1" face="Comic Sans MS">
+2 *.mail files</font>
+</ul>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Then Merchant OrderForm will not operate.&nbsp; You could get the server message: 500 Internal Server Error.&nbsp; This is not common and you shouldn't assume this is the case unless you have reason to suspect it.&nbsp;&nbsp;</font><p>
+<font size="-1" face="Comic Sans MS">
+The most common cause of corruption with these files is when you are editing them.&nbsp; Beginners make mistakes, leaving off a quote, changing a single quote to double quote or visa versa, accidentally deleting the semicolon which ends every
+function or command.&nbsp; Any erroneous alteration of the Perl language syntax within the scripts will cause the script to fail when the Perl interpreter attempts to compile or execute the script.&nbsp; The language within the scripts themselves is
+not forgiving like html.</font>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Unfortunately, the only way to check if the scripts are corrupted is to use the Perl interpreter to check them.&nbsp; The beginner cgi installer may not have access to this or know how to call it directly.&nbsp; So, if you suspect the files are
+corrupted then you might try downloading the package again, and moving through the initial install carefully.</font>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If you have access to the Perl interpreter then you simply need to call a -c (code check) on the file.<br>
+</font>
+<font face="Fixedsys" size="1">
+perl -c filename.cgi</font>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+This will tell you if the code is okay or what line there are syntax errors.<br>
+You can do this from Telnet, from the Unix-Linux command shell, or from a DOS shell if on NT or Winxx</font>
+<P>&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="InvoiceFiles"></a>
+Can't access the invoice files</b></font>
+</TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<p>
+
+<font size="-1" face="Comic Sans MS">
+When running under shared SSL you may be unable to access, delete, or change the web copies of the invoice files that were created.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>The Cause:</b></font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Usually the Back End final invoice script is running under shared SSL, and the server has designated all scripts running thusly as either &quot;www&quot; or some other UID (User ID). So when you log in under you normal FTP User ID, you don't have
+permissions to mess with those files.</font></p>
+<P>
+<font size="-1" face="Comic Sans MS">
+In 
+<font color="#000080">
+<b>mofpayment.conf</b></font> enable the setting in the Save Web Copy of Invoice section:</font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+SAVE WEB COPY OF INVOICE<br>
+SAVE WEB COPY OF INVOICE</p>
+<p>
+
+ALLOW ACCESS TO INVOICE FILES RUNNING UNDER SHARED SSL (Different UID) Unix ONLY</p>
+<p>
+
+$set_ssl_chmod = 0;</p>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Enable this switch to have the Mof Back End create invoice files under shared uid (user Id's).&nbsp; Note this is for Unix-Linux servers only and we have not worked with this problem under NT.</font></p>
+<P>&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080"><b><a name="DeleteCartFinal"></a>
+Data Processing Error when enabling Delete Cart Final</b></font>
+</TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<P>
+<font size="-1" face="Comic Sans MS">
+The error is usually from the same cause as the above error.&nbsp; You are running under shared SSL and the Front End and Back End are running under different uid (user ID's).&nbsp; When the Delete Cart Final feature is enabled, then the Back End
+cannot access the cart data files that were created by the Front End.&nbsp; Enable this fix switch to have the Front End create shared permissions so both ends of the cart can use those files.&nbsp; This is for Unix-Linux only.</font>
+<P>
+<font size="-1" face="Comic Sans MS">
+In 
+<font color="#000080">
+<b>mof15.conf </b></font>enable the setting in the&nbsp;</font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+COOKIE SETTINGS<br>
+COOKIE SETTINGS</p>
+</font>
+<font FACE="Fixedsys" SIZE="1">
+<p>
+
+ALLOW CART DELETE RUNNING UNDER SHARED SSL (Different UID) Unix ONLY</p>
+<p>
+
+$set_ssl_chmod = 0;</p>
+</font>
+<P>&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="UnsecuredItems"></a>
+When using SSL I get &quot;unsecured items&quot; messages</b></font>
+</TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<P>
+<font size="-1" face="Comic Sans MS">
+If you have the Mof front end installed under regular non-secure HTTP protocol, and have the Mof back end installed under the secure HTTPS (SSL) protocol, then you have some meticulous double checking to do.&nbsp; The rule is this: any object that
+could possibly come up under the SSL connection (being run via mofpayment.cgi), just have a reference to the secure HTTPS location of that object.&nbsp; This means any image, cart buttons, logos, template images, images for products placed in your
+cart, etc.&nbsp; You'll have to track down just exactly where the culprit is, which image is still being called via the non-secure HTTP URL.&nbsp;</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+You may want to consult the sections of the Installation instructions for SSL:</font></p>
+<ul>
+<li type="circle">
+<font face="Comic Sans MS" size="-1">
+<a href="Installation.html#ConfingsMOF15">Configuratinos for mof.cgi (mof15.conf)</a>
+</font><li type="circle">
+<font face="Comic Sans MS" size="-1">
+<a href="Installation.html#ConfigsMOFPAY">Configurations for mofpayment.cgi (mofpayment.conf)</a>
+</font>
+</ul>
+<p>
+
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b>There are three places non-secure images could be coming from.</b></font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>First</b></font>, the configuration file itself.&nbsp; See the section above for mofpayment.conf for a detailed list of what images are referenced by this file.&nbsp; These settings will call on navigation buttons, validation cue images, the
+paypal button, and background images for the Ship To and Bill To tabs on the Final invoice.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>Second</b></font>, the two templates that the Final Processing uses to collect Billing information and display the Final Invoice could have standard references to images, rather than the SSL reference.</font></p>
+<ul type="circle">
+<li>
+<font face="Comic Sans MS" size="-1">
+../mof15/<b>mofpayinfo.html</b></font><li>
+<font face="Comic Sans MS" size="-1">
+../mof15/<b>mofpayfinal.html</b></font>
+</ul>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+If you want to test to see if those two templates above are secure: Then call them up in your browser independent of the script.  Just put in the Full HTTPS url to your browser address.  Does the template page load without any "insecure items" messages ? If it doesn't load in the plain browser as secure, then it will not load as secure when the script uses it.  Make these tests to any templates that the script will be using under the SSL.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>Third</b></font>, you could be using the picture function in your cart, placing images of your products into your cart, and those image src img=&quot;HTTP ..&quot; regular image references. You must reference any of these images from the beginning
+as under SSL, so that when you get to the Final Invoice the URL is HTTPS.&nbsp; They will end up however they start out.&nbsp; The Final Invoice doesn't magically know to convert how you referenced them.</font></p>
+<P>
+<font size="-1" face="Comic Sans MS">
+Tip: To trouble shoot where the non-secure image is coming from, view the html source for the page that triggers the non-secure message. Then do a search for http, not https.&nbsp; Look closely at every image reference in the source and make sure if
+it is an image then it is referenced using HTTP only.&nbsp; Any HTTP reference for an image call will trigger the dreaded message you are so diligently trying to get rid of.&nbsp; Remember: a reference in the html source may have its origins in
+either the configuration file, one of the template files, or even from placing pictures into your cart.</font>
+<P>&nbsp;
+
+<TABLE CELLSPACING=0 CELLPADDING=0 WIDTH="100%" >
+<TR>
+<TD bgcolor="#E9E9E9">
+<font size="-1" face="Comic Sans MS" color="#000080">
+<b><a name="MailNotWorking"></a>
+I can't get the mail to work</b></font>
+</TD>
+
+<TD ALIGN=RIGHT VALIGN=BOTTOM bgcolor="#E9E9E9"><FONT SIZE=-2><a HREF="#TableContents">^&nbsp; TABLE OF CONTENTS</a>
+</FONT></TD>
+</TR>
+</TABLE>
+
+<P>
+<font size="-1" face="Comic Sans MS">
+There is a test file in the ../docs/ directory that came in the package.&nbsp; We put it there becasue we didn't want folks uploading this file unwittingly.&nbsp; If you upload the test file, then you MUST make sure to remove it when you are done
+running it.&nbsp; If you don't then anyone that has a copy of this documentation can easily run the file.&nbsp; The test file can't do anything like delete or edit files, but it can give out the absolute addressing to your site.&nbsp; So make sure
+you unload it if you use it.&nbsp; Don't leave it on the server.</font>
+<P>
+<font size="-1" face="Comic Sans MS">
+The test file &lt;mof_path_test.cgi&gt; will test for 3 know locations of mail programs, 2 for sendmail, and one for qmail. It will tell you if any, and which ones, of those locations are good.</font>
+<P>
+<font size="-1" face="Comic Sans MS">
+If you can't get the mail to work, then first make sure you have it turned on, and that you have put in good return addresses in the settings for Merchant mail.</font>
+<P>
+<font size="-1" face="Comic Sans MS">
+If that is correct, then you should run the test from your server's cgi-bin or cgi-local, wherever the scripts are located, and match one of the good Mail settings to the sendmail settings in your mail plugins.</font>
+<P>
+<font size="-1" face="Comic Sans MS">
+In merchant.mail and customer.mail close to the top there is a setting for where the sendmail program is: double check to see that you have the correct location for your server.&nbsp; If not you'll need to assign the correct location for your mail
+program in this setting for both mail plugins.</font>
+<P>
+<font FACE="Fixedsys" SIZE="1">
+$mail_program = '/usr/sbin/sendmail -t';</font>
+<P>&nbsp;
+<hr>
+<P><FONT FACE="Comic Sans MS"><FONT SIZE=-1>Written and produced by </FONT><B><FONT SIZE=-2>RGA@IO.COM</FONT></B><FONT SIZE=-1>
+/ <a HREF="http://www.io.com/~rga/scripts">http://www.io.com/~rga/scripts</a>
+</FONT></FONT>
+<BR><FONT FACE="Comic Sans MS"><FONT COLOR="#000080">What do you <FONT SIZE=+1>want</FONT>
+to order <FONT SIZE=+1>today</FONT>?</FONT></FONT>
+<BR><FONT FACE="Comic Sans MS"><FONT SIZE=-1>Documentation prepared July 31, 2000</FONT></FONT>
+<P><FONT FACE="Comic Sans MS"><FONT SIZE=-1>Thanks for your interest in
+</FONT><I><FONT COLOR="#800000">Merchant
+Order Form</FONT></I><FONT SIZE=-1>
+<B>v1.53 </B></FONT></FONT><FONT FACE="Wingdings"><FONT SIZE=-1>J</FONT></FONT>
+<BR>
+<font color="#808080">
+<FONT FACE="Arial,Helvetica"><b>Explore the Internet - Create the Internet</b></FONT>
+<BR>&nbsp;</font>
+<BR>
+<font size="-1" face="Comic Sans MS">
+These programs are distributed as Trial Ware or Share Ware. You are Welcome to install and test all portions of the programs. The package is not limited in any way and code source is left readable.&nbsp; Please make arrangements for the fee if you
+continue operating it on a Web Site. Feel free to contact me if you need special arrangements for use of MOF v1.53.</font>
+<P>
+<font size="-1" face="Comic Sans MS">
+<font color="#000080">
+<b>For payment arrangements</b></font>: <a href="http://www.merchantorderform.com/payment.html">http://www.merchantorderform.com/payment.html</a>
+</font>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+For personal web site use: $ 15.00<br>
+For web development (3-10 sites): $ 45.00, includes limited support<br>
+For web development (above 10 sites): $ 150.00, includes limited support<br>
+Note: For Resale or hosting license please contact <a href="mailto:rga@io.com">rga@io.com</a></font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Distribution of these programs and files without owner consent is prohibited. Please contact the authors of this product for any use outside the original registration and user license.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<b>COPYRIGHT NOTICE:</b><br>
+The contents of these programs and scripts are protected under the United States copyright laws as an unpublished work, and is confidential and proprietary to Austin Contract Computing, Inc.&nbsp; Its use or disclosure&nbsp; in whole or in part
+without the expressed written permission of Austin Contract Computing, Inc. is prohibited.&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+<b>DISCLAIMER:</b><br>
+By opening and configuring this for your server and application you thereby assume any and all responsibility for the use and outcomes of this program. Please read the documentation on configurations, and test your installation thoroughly.&nbsp;</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Please do not distribute this script, as it is not a free-ware version. Please direct any non registered users of this script to the author's Web Site for details on how to obtain a registered copy of this script.</font></p>
+<p>
+
+<font size="-1" face="Comic Sans MS">
+Web: <a href="http://www.merchantorderform.com/">Merchant OrderForm v1.53<br>
+</a>
+Mail: <a href="mailto:info@merchantorderform.com">info@merchantorderform.com<br>
+</a>
+Austin, Texas<br>
+July 31, 2000</font></p>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;</p>
+<p>
+
+&nbsp;</p>
+<P>
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+</BODY>
+</HTML>

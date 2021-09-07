@@ -1,0 +1,66 @@
+Billing Information
+-----------------------------------------
+Name: <output name="billing_name">
+Address:
+       <output name="billing_address">
+       <output name="billing_city">, <output name="billing_state"> <output name="billing_zip">
+Phone: <output name="billing_phone">
+Email: <output name="billing_email">
+Fax  : <output name="billing_fax">
+
+Shipping Information
+-----------------------------------------
+Name: <output name="shipping_name">
+Address:
+      <output name="shipping_address">
+      <output name="shipping_city">, <output name="shipping_state"> <output name="shipping_zip">
+
+Order Information
+----------------------------------------
+Line1: <output name="num1"> <output name="name1"> 
+       Q: <output name="q1"> PE:<output name="p1"> TOTAL:<output name="t1">
+Line2: <output name="num2"> <output name="name2"> 
+       Q: <output name="q2"> PE:<output name="p2"> TOTAL:<output name="t2">
+Line3: <output name="num3"> <output name="name3"> 
+       Q: <output name="q3"> PE:<output name="p3"> TOTAL:<output name="t3">
+Line4: <output name="num4"> <output name="name4"> 
+       Q: <output name="q4"> PE:<output name="p4"> TOTAL:<output name="t4">
+Line5: <output name="num5"> <output name="name5"> 
+       Q: <output name="q5"> PE:<output name="p5"> TOTAL:<output name="t5">
+Line6: <output name="num6"> <output name="name6"> 
+       Q: <output name="q6"> PE:<output name="p6"> TOTAL:<output name="t6">
+Line7: <output name="num7"> <output name="name7"> 
+       Q: <output name="q7"> PE:<output name="p7"> TOTAL:<output name="t7">
+Line8: <output name="num8"> <output name="name8"> 
+       Q: <output name="q8"> PE:<output name="p8"> TOTAL:<output name="t8">
+Line9: <output name="num9"> <output name="name9"> 
+       Q: <output name="q9"> PE:<output name="p9"> TOTAL:<output name="t9">
+Line10: <output name="num10"> <output name="name10"> 
+       Q: <output name="q10"> PE:<output name="p10"> TOTAL:<output name="t10">
+Line11: <output name="num11"> <output name="name11"> 
+       Q: <output name="q11"> PE:<output name="p11"> TOTAL:<output name="t11">
+Line12: <output name="num12"> <output name="name12"> 
+       Q: <output name="q12"> PE:<output name="p12"> TOTAL:<output name="t12">
+Line13: <output name="num13"> <output name="name13"> 
+       Q: <output name="q13"> PE:<output name="p13"> TOTAL:<output name="t13">
+
+Substitutions
+----------------------------------------
+1) <output name="sub1">
+2) <output name="sub2">
+3) <output name="sub2">
+
+Duplicate: <output name="duplicate">
+Refund: <output name="refund">
+Gift Certificate: <output name="giftcertificate">
+Amount oF GC: <output name="giftcertificateamount">
+
+Card To Be Signed
+---------------------------------------
+<output name="cardsigned">
+
+Credit Card Information
+---------------------------------------
+CC#: <output name="ccn" format="%cccc%">
+EXP: <output name="cce">
+

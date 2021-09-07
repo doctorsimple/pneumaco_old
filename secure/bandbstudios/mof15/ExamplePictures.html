@@ -1,0 +1,524 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<!-- Merchant Ordering Form v1.53  -->
+<!-- CGI script by RGA@IO.com -->
+<!-- http://www.io.com/~rga -->
+<!-- This is an example web page on how to set up OrderForm pages on your site -->
+<!-- MOF accepts input of many kinds, consult the documentation for assistance -->
+
+<html>
+
+<head>
+<title>Example OrderForm MOF v1.53</title>
+</head>
+
+<BODY BACKGROUND="mofback.jpg" TOPMARGIN="0" LEFTMARGIN="0" MARGINWIDTH="0" MARGINHEIGHT="0" BGCOLOR=FFFFFF>
+
+<a href="http://bandbstudios.com/"><img src="mofsplash_ex.gif" border=0 width=468 height=60></a>
+<br>
+
+
+<blockquote>
+
+<font face="Arial,Helvetica" size="3">
+<font color=navy>
+<h3>Merchant OrderForm v1.53 OrderForm Examples
+<a href="http://bandbstudios.com/cgi-bin/mof.cgi?viewcart">
+<img align=top src="viewcartlink.gif" border=0 width=60 height=30 alt="View Cart Contents">
+</a>
+</h3>
+<font color=black>
+
+<font face="Arial,Helvetica" size="3">
+
+This example page is a copy of the OrderForm page with user input, except 
+ that it sends the images along with the post, so that the images show 
+ up throughout the cart pages. Nice, huh ?  Suggestion: I would use the
+ full URL for the image location, that way there's no mix up when pages
+ are stored.  The only trick is that you can't use quotes.  The quotes 
+ confuse the html already embedded in quotes.
+<p>
+
+
+
+
+
+<!-- END OF CHECKBOXES -->
+<!-- END OF CHECKBOXES -->
+<!-- END OF CHECKBOXES -->
+
+
+<font size=3>
+<font color=navy><strong>
+The Web World Ordering Form with User Input & Pictures
+</strong><font color=black>
+<p>
+
+
+
+
+
+
+<!-- QUANTITYBOXES -->
+<!-- QUANTITYBOXES -->
+<!-- QUANTITYBOXES -->
+<!-- QUANTITYBOXES -->
+<!-- QUANTITYBOXES -->
+<!-- QUANTITYBOXES -->
+
+
+<!-- THIS WILL POINT TO THE FIRST PROCESSING SCRIPT-->
+<!-- IT IS A RELATIVE OR FULL HTTP URL ONLY-->
+<!-- IT CANNOT BE AN ABSOLUTE ADDRESS-->
+
+<FORM method=POST action="http://bandbstudios.com/cgi-bin/mof.cgi">
+
+<!-- THE POSTMODE IS REQUIRED HIDDEN INFO -->
+
+<INPUT type="hidden" name="postmode" value="QUANTITYBOXES">
+
+<table border=0 cellpadding=2 cellspacing=0 width=500>
+
+
+<!-- Propeller Hat Example -->
+<!-- Propeller Hat Example -->
+
+<tr><td colspan=2 bgcolor=#DDFFDD>
+<font face="Arial,Helvetica" size="3" color=navy>
+<strong>The World Famous Propeller Hat</strong> 
+
+<font face="Arial,Helvetica" size="2" color=black>
+<strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+ $ 19.99
+</strong>
+
+</td></tr>
+
+<tr bgcolor=#FFFFEE>
+
+<td width=60>
+<img src="propellerhat.gif" width=60 height=60 border=0>
+</td>
+
+<td width=440>
+
+<input type="hidden" name="order1" 
+value="Propeller Hat----[img align=left hspace=10 src=http://bandbstudios.com/mof15/propellerhat.gif width=60 height=60 border=0]World Famous Propeller Hat----19.99----2----1">
+
+<font face="Arial,Helvetica" size="3" color=black>
+
+
+<table border=0 cellpadding=1 cellspacing=0>
+<tr>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Qty</strong><br>
+<font face="Arial,Helvetica" size="3" color=black>
+<input type="text" name="quantity1" size=3 maxlength=3>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Hat Color</strong><br>
+<SELECT name=HatColor1>
+ <OPTION selected value="">Select Color
+ <OPTION value="Rainbow">Rainbow
+ <OPTION value="Purple Stripe">Purple Stripes
+ <OPTION value="Yellow Solid">Yellow Solid
+ <OPTION value="Sunburst Red">Sunburst Red
+</SELECT>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Size</strong><br>
+<SELECT name=HatSize1>
+ <OPTION selected value="">Select Size
+ <OPTION value="Small">Small
+ <OPTION value="Medium">Medium
+ <OPTION value="Large">Large
+ <OPTION value="Extra Large">Extra Large
+</SELECT>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Prop Color</strong><br>
+<SELECT name=PropellerColor1>
+ <OPTION selected value="">Propeller Color
+ <OPTION value="Bright Red">Bright Red
+ <OPTION value="Dull Green">Dull Green
+ <OPTION value="Metallic Purple">Metallic Purple
+ <OPTION value="Shinny Yellow">Shinny Yellow
+</SELECT>
+</td>
+
+<td><strong>1</strong></td>
+
+</tr></table>
+
+</td></tr>
+
+
+
+
+<!-- Work Hat Example -->
+<!-- Work Hat Example -->
+
+<tr><td colspan=2 bgcolor=#DDFFDD>
+<font face="Arial,Helvetica" size="3" color=navy>
+<strong>The Industrial Work Hat</strong> 
+
+<font face="Arial,Helvetica" size="2" color=black>
+<strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+ $ 24.99
+</strong>
+
+</td></tr>
+
+<tr bgcolor=#FFE8E8>
+
+<td width=60>
+<img src="workhat.gif" width=60 height=60 border=0>
+</td>
+
+<td width=440>
+
+<input type="hidden" name="order2" value="Work Hat----[img align=left hspace=10 src=http://bandbstudios.com/mof15/workhat.gif width=60 height=60 border=0]The Industrial Work Hat----24.99----2----1">
+
+<font face="Arial,Helvetica" size="3" color=black>
+
+<table border=0 cellpadding=1 cellspacing=0>
+<tr>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Qty</strong><br>
+<font face="Arial,Helvetica" size="3" color=black>
+<input type="text" name="quantity2" size=3 maxlength=3>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Hat Color</strong><br>
+<SELECT name=HatColor2>
+ <OPTION selected value="">Select Color
+ <OPTION value="Red">Red
+ <OPTION value="Blue">Blue
+ <OPTION value="Yellow">Yellow
+ <OPTION value="Black">Black
+</SELECT>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Size</strong><br>
+<SELECT name=HatSize2>
+ <OPTION selected value="">Select Size
+ <OPTION value="Small">Small
+ <OPTION value="Medium">Medium
+ <OPTION value="Large">Large
+ <OPTION value="Extra Large">Extra Large
+</SELECT> 
+</td>
+
+<td><strong>2</strong></td>
+
+</tr></table>
+
+</td></tr>
+
+
+
+<!-- Caravan Hat Example -->
+<!-- Caravan Hat Example -->
+
+<tr><td colspan=2 bgcolor=#DDFFDD>
+<font face="Arial,Helvetica" size="3" color=navy>
+<strong>The Hardy Caravan Hat</strong> 
+
+<font face="Arial,Helvetica" size="2" color=black>
+<strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+ $ 32.50
+</strong>
+
+</td></tr>
+
+<tr bgcolor=#FFFFEE>
+
+<td width=60>
+<img src="caravanhat.gif" width=60 height=60 border=0>
+</td>
+
+<td width=440>
+
+
+<input type="hidden" name="order3" value="Caravan Hat----[img align=left hspace=10 src=http://bandbstudios.com/mof15/caravanhat.gif width=60 height=60 border=0]The Hardy Go-Anywhere Hat----32.50----2----1">
+
+
+<font face="Arial,Helvetica" size="3" color=black>
+
+<table border=0 cellpadding=1 cellspacing=0>
+<tr>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Qty</strong><br>
+<font face="Arial,Helvetica" size="3" color=black>
+<input type="text" name="quantity3" size=3 maxlength=3>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Hat Color</strong><br>
+<SELECT name=HatColor3>
+ <OPTION selected value="">Select Color
+ <OPTION value="Red">Red
+ <OPTION value="Blue">Blue
+ <OPTION value="Yellow">Yellow
+ <OPTION value="Black">Black
+</SELECT>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Size</strong><br>
+<SELECT name=HatSize3>
+ <OPTION selected value="">Select Size
+ <OPTION value="Small">Small
+ <OPTION value="Medium">Medium
+ <OPTION value="Large">Large
+ <OPTION value="ExtraLarge">Extra Large
+</SELECT>
+</td>
+
+<td><strong>3</strong></td>
+
+</tr></table>
+
+</td></tr>
+
+
+
+
+
+<!-- Mountie Hat Example -->
+<!-- Mountie Hat Example -->
+
+<tr><td colspan=2 bgcolor=#DDFFDD>
+<font face="Arial,Helvetica" size="3" color=navy>
+<strong>The Canadian Mountie Hat</strong> 
+
+<font face="Arial,Helvetica" size="2" color=black>
+<strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+ $ 39.98
+</strong>
+
+</td></tr>
+
+<tr bgcolor=#FFE8E8>
+
+<td width=60>
+<img src="mountiehat.gif" width=60 height=60 border=0>
+</td>
+
+<td width=440>
+
+<input type="hidden" name="order4" value="Mountie Hat----[img align=left hspace=10 src=http://bandbstudios.com/mof15/mountiehat.gif width=60 height=60 border=0]The Canadian Mountie Hat----39.98----2----1">
+
+<font face="Arial,Helvetica" size="3" color=black>
+
+<table border=0 cellpadding=1 cellspacing=0>
+<tr>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Qty</strong><br>
+<font face="Arial,Helvetica" size="3" color=black>
+<input type="text" name="quantity4" size=3 maxlength=3>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Hat Color</strong><br>
+<SELECT name=HatColor4>
+ <OPTION selected value="">Select Color
+ <OPTION value="Navy Blue">Navy Blue
+ <OPTION value="Desert Brown">Desert Brown
+ <OPTION value="Great Green">Great Green
+ <OPTION value="Bear Black">Bear Black
+</SELECT>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Size</strong><br>
+<SELECT name=HatSize4>
+ <OPTION selected value="">Select Size
+ <OPTION value="Size 10">Size 10
+ <OPTION value="Size 11">Size 11
+ <OPTION value="Size 12">Size 12
+ <OPTION value="Size 13">Size 13
+ <OPTION value="Size 14">Size 14
+ <OPTION value="Size 15">Size 15
+ <OPTION value="Size 16">Size 16
+ <OPTION value="Size 17">Size 17
+</SELECT> 
+</td>
+
+<td><strong>4</strong></td>
+
+</tr></table>
+
+</td></tr>
+
+
+
+
+<!-- Saddle Hat Example -->
+<!-- Saddle Hat Example -->
+
+<tr><td colspan=2 bgcolor=#DDFFDD>
+<font face="Arial,Helvetica" size="3" color=navy>
+<strong>The Western Saddle Hat</strong> 
+
+<font face="Arial,Helvetica" size="2" color=black>
+<strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+ $ 45.00
+</strong>
+
+</td></tr>
+
+<tr bgcolor=#FFFFEE>
+
+<td width=60>
+<img src="saddlehat.gif" width=60 height=60 border=0>
+</td>
+
+<td width=440>
+
+<input type="hidden" name="order15" value="Saddle Hat----[img align=left hspace=10 src=http://bandbstudios.com/mof15/saddlehat.gif width=60 height=60 border=0]The Western Saddle Hat----45.00----2----1">
+
+<font face="Arial,Helvetica" size="3" color=black>
+
+<table border=0 cellpadding=1 cellspacing=0>
+<tr>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Qty</strong><br>
+<font face="Arial,Helvetica" size="3" color=black>
+<input type="text" name="quantity15" size=3 maxlength=3>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Hat Color</strong><br>
+<SELECT name=HatColor15>
+ <OPTION selected value="">Select Color
+ <OPTION value="Dark Brown">Dark Brown
+ <OPTION value="Desert Brown">Desert Brown
+ <OPTION value="Black Brown">Black Brown
+ <OPTION value="Bear Brown">Bear Brown
+</SELECT>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Size</strong><br>
+<SELECT name=HatSize15>
+ <OPTION selected value="">Select Size
+ <OPTION value="Size 10">Size 10
+ <OPTION value="Size 11">Size 11
+ <OPTION value="Size 12">Size 12
+ <OPTION value="Size 13">Size 13
+ <OPTION value="Size 14">Size 14
+ <OPTION value="Size 15">Size 15
+ <OPTION value="Size 16">Size 16
+ <OPTION value="Size 17">Size 17
+</SELECT> 
+</td>
+
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Band</strong><br>
+<SELECT name=BandType15>
+ <OPTION selected value="">Select Band
+ <OPTION value="Squirrel Tail">Squirrel Tail
+ <OPTION value="Rattle Snake">Rattle Snake
+ <OPTION value="Bear Tooth">Bear Tooth
+ <OPTION value="Garden Hose">Garden Hose
+</SELECT> 
+</td>
+
+
+<td><strong>15</strong></td>
+
+</tr></table>
+
+</td></tr>
+
+
+
+
+
+<!-- New items go here -->
+<!-- New items go here -->
+<!-- New items go here -->
+
+
+
+
+</td></tr></table>
+
+
+<p>
+<font size=2>
+<input type=submit value="Add To Cart">
+<input type=reset value="Reset Form">
+
+</FORM>
+
+
+<font face="Arial,Helvetica" size="3" color=black>
+
+
+
+<!-- END QUANTITY BOXES -->
+<!-- END QUANTITY BOXES -->
+<!-- END QUANTITY BOXES -->
+<!-- END QUANTITY BOXES -->
+<!-- END QUANTITY BOXES -->
+<!-- END QUANTITY BOXES -->
+<!-- END QUANTITY BOXES -->
+
+
+<font face="Arial,Helvetica" size="3" color=black>
+
+
+
+<br><br>
+
+<font face="Arial,Helvetica" size="2">
+
+Happy Ordering<br>
+
+Copyright &copy; 
+<a href="http://www.io.com/~rga/scripts/">
+Merchant OrderForm </a> v1.53
+<br>
+All Rights Reserved, April 2000 by
+<a href="http://www.io.com/~rga/">RGA</a>
+<br>
+These programs may not be distributed without consent of owner.
+<br>
+
+<br><br><br>
+
+</blockquote>
+
+
+</body>
+</html>

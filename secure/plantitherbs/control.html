@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<script>
+<!--
+
+
+function LineOnForm(plantname,number,price)
+	{ 
+	this.plantname=plantname;
+	this.number=number;
+	this.price=price;
+	}
+var Entries = new Array();
+var countStart=0;
+var Placeholder=0;
+var qstring="";
+function ParseArray()
+	{
+	for (x=countStart;x<Entries.length;++x)
+		{
+ 		 document.catalogue.qstring.value += Entries[x].plantname;
+		 document.catalogue.qstring.value += '-';
+		 document.catalogue.qstring.value +=Entries[x].number;
+		 document.catalogue.qstring.value +='-';
+		 document.catalogue.qstring.value +=Entries[x].price;
+		 document.catalogue.qstring.value +='--';
+		 countStart++;
+			}
+	}	
+	function makeSpace(latinname)
+	{
+		 chopped=latinname.split('+');
+		 n=0;holder='';
+		 while (chopped[n])
+		 	{
+			holder+=(chopped[n]+' ');
+			n++;
+			}
+		 return holder;
+	} 
+ function showCart()
+ 	{
+	ParseArray(Placeholder);
+	var showme="";
+	var args=document.catalogue.qstring.value;
+	lines = args.split('--');
+	 for (x=0;(x<((lines.length)-1)) && (x<13);++x)
+	 {
+	  parts = lines[x].split('-');
+	  showme+=(makeSpace(parts[1])+"\n")
+	  }
+	 alert('Your shopping cart contains:\n'+showme+'\nWhen you are ready to place your order, click the submit button to choose a quantity for each item and to enter your shipping and billing information');
+	} 
+	//-->
+</script>
+</head>
+
+<body>
+<form name="catalogue">
+<input type="hidden" name="qstring">
+</form>
+
+
+</body>
+</html>

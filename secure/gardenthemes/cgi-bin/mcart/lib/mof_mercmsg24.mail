@@ -1,0 +1,395 @@
+# ==================== MOFcart v2.5.02.20.04 ====================== #
+# === MAIL MERCHANT NOTICE EXAMPLE ================================ #
+# === REMOVAL OF COPYRIGHT NOTICE IS PROHIBITED =================== #
+# === MERCHANT ORDERFORMcart ver 2.5 (PKG: 10-21-03) ============== #
+# === All Rights Reserverd  © 2000-2004 rga@merchantpal.com ======= #
+# === This Software Package, either individually or together, ===== #
+# === may not be sold, distributed, modified, or otherwise ======== #
+# === used in anyway outside the License Agreement limitations ==== #
+# === Consult the License Agreement with any questions: =========== #
+# === LICENSE: http://www.merchantpal.com/license.html ============ #
+# ================================================================= #
+
+# This is an example sub routine for Mailing the Merchant Notice
+# You can build your Merchant Notice with any of the Final Vars (see docs)
+# and using any text arrangement you want
+
+# Tip: organize all your data from Final Variables into my $string .= "$frm{'VarName'}" 
+#        before you set up  the  $msg .= qq~ MESSAGE ~; (see example below)
+#        this allows you to work with perl conditionals and populate strings easily
+#        without jumping in & out of the $msg .= qq~ ~; to do conditionals
+
+# Tip: when using the &doSpace function to format space per string do not use {{VarReplacer}}
+#        but use the real var from $frm{'VarName'} so the proper string is sent to the &doSpace
+#       alignment needs unicode characters, true type fonts vary in spacing
+
+# Tip: you must strip all pseudo html in the Item & Description fields since text mail
+#        can't use them (see example below to strip Item field)
+
+# Tip: if you are running the mySQL datastorage <mof_savesql.pl> then any of
+#        the global variables established from the data storage can be available
+#        in your mail messages also. Example: 
+#	$myUsr, $myPsw, $cryptPsw; $recid, $usrid, $sqlDate
+
+# Tip: you can also use any other variables that are global and made from other
+#       custom sub routines, like the <mof_invoice.pl>, etc. and remember the
+#       unlimited number & type of custom fields that can be added to the Billing Info screen
+#       any of those vars are RealVars, available globally in $frm{'VarName'}
+
+# make a message using $msg .= qq~ text ~; line endings, spacing is preserved, 
+# if you want word wrap do not enter line ending for that line
+# if you need conditionals, terminate the qq~ with ~; and then use perl
+# when the conditional is finished, continue appending to the $msg .= qq~ string ~;
+# you'll need to CommifyMoney, since money values are stored 00000000.00
+
+#       Sections in Making your Merchant Mail sub routine
+#       First sections populate some strings to print later
+# (1) Split up individual item(s) to list, note: example does not include description
+# (2) format money & numbers in the $frm{'RealVars'}
+# (3) Set up the totals lines, appended to the $totals string
+# (4) Set up the Shipping Label 
+# (5) Set up the message using text, populated strings, {{VarReplacer}} & $frm{'RealVars'}
+#       Everything below that section are mail & sub routines
+
+# Notes on how the &doSpace function works
+# The &doSpace function allows you to match a line length, spacing for string variations
+#  var = &doSpace(nn,"text","chr",1/0);
+# nn   = length of whole string
+# text = string to mix with spacing (only use $frm{'RealVars'}
+# chr = what character is the fill ?
+# final flag is (R) = text is on Right Side of Fill
+# otherwise the default = text is on the Left Side of Fill
+
+
+sub MailMerchantInvoice {
+my ($mailto) = @_;
+my $msg = "";
+$todisk=0;
+
+# You can edit this Subject Line to fit your business
+# The Invoice number is appended ..
+my ($mail_subject_line) = "$mail_merchant_name Order # $InvoiceNumber";
+	
+	# DO YOU WANT TO USE Net::SMTP EXTERNAL MAILER ?
+	# ============================================
+	# Specify an SMTP server available to MOFcart
+	# You can specify your domain SMTP or any Relay SMTP
+	# Note: used for NT/WinXX
+	# uncomment both lines below to use Net::SMTP
+
+# $use_external_smtp_server = 'yoursmtp.com';
+# use Net::SMTP;
+
+# CUSTOMIZE THE CONTENTS BELOW FOR MESSAGE
+# ==========================================
+
+# (1) Split up individual item(s) to list, description included in this example
+
+	my $pt,$tt,$p2,$p3,$p4,$q,$i,$d,$p,$s,$t;
+
+	# make null to prevent duplicates
+	my ($label,$name,$csz,$l,$mitm,$totals) = ('','','','','','');
+
+	foreach(@orders) {
+		($q,$i,$d,$p,$s,$t) = split (/$delimit/,$_);
+		$pt = ($q * $p);
+		$tt += $pt;
+		$p = sprintf "%.2f",$p;
+      	$pt = sprintf "%.2f",$pt;
+		$p = CommifyMoney ($p);	
+		$pt= CommifyMoney ($pt);	
+
+		# strip pseudo html (if any) from item, no pictures, etc.
+		$i =~ s/\[/</g;
+		$i =~ s/\]/>/g;
+ 		$i =~ s/<([^>]|\n)*>//g;
+
+		# strip pseudo html (if any) from desc, no pictures, etc.
+		$d =~ s/\[/</g;
+		$d =~ s/\]/>/g;
+ 		$d =~ s/<([^>]|\n)*>//g;
+
+ 			# split up options
+			$opts_count = 0;
+			$d =~ s/::/: /g;
+			@opts = split (/\|/,$d);
+			$desc = shift (@opts);
+			$desc .="\n";
+
+				foreach $op (@opts) {
+				$opts_count++;
+				$desc .= " ($opts_count) $op \n";
+				}
+
+		# this is how to use the &doSpace function for string spacing variations
+		$mitm .= &doSpace(5,$q," ");
+		$mitm .= &doSpace(45,"$i ",".");
+		$mitm .= " $currency";
+		$mitm .=  &doSpace(10,$pt," ","R");
+		$mitm .= "\n";
+		$mitm .= "$desc \n";
+		$mitm .= "---------------------------------------------------- \n\n";
+
+		}
+
+
+# (2) format money & numbers in the $frm{'RealVars'}
+#       Note: many of these RealVars may already be Commified as printed
+#       from the &PaymentAccepted sub Routine, which is the last browser
+#       screen printed, and last sub routine before the mail.
+#       Mail messages are the very last function (in case of sendmail failure)
+
+	$frm{'Primary_Price'} = CommifyMoney($frm{'Primary_Price'});
+	$frm{'Primary_Products'} = CommifyNumbers($frm{'Primary_Products'});
+	$frm{'Primary_Discount'} = CommifyMoney($frm{'Primary_Discount'});
+	$frm{'Sub_Primary_Discount'} = CommifyMoney($frm{'Sub_Primary_Discount'});
+	$frm{'Coupon_Discount'} = CommifyMoney($frm{'Coupon_Discount'});
+	$frm{'Sub_Coupon_Discount'} = CommifyMoney($frm{'Sub_Coupon_Discount'});
+	$frm{'Combined_Discount'} = CommifyMoney($frm{'Combined_Discount'});
+	$frm{'Sub_Final_Discount'} = CommifyMoney($frm{'Sub_Final_Discount'});
+	$frm{'Handling'} = CommifyMoney($frm{'Handling'});
+	$frm{'Insurance'} = CommifyMoney($frm{'Insurance'});
+	$frm{'Shipping_Amount'} = CommifyMoney($frm{'Shipping_Amount'});
+	$frm{'Combined_SHI'} = CommifyMoney($frm{'Combined_SHI'});
+	$frm{'Sub_SHI'} = CommifyMoney($frm{'Sub_SHI'});
+	$frm{'Tax_Amount'} = CommifyMoney($frm{'Tax_Amount'});
+	$frm{'Initial_Taxable_Amount'} = CommifyMoney($frm{'Initial_Taxable_Amount'});
+	$frm{'global_CodCharges'} = CommifyMoney($frm{'global_CodCharges'});
+	$frm{'Final_Amount'} = CommifyMoney($frm{'Final_Amount'});
+	$frm{'Deposit_Amount'} = CommifyMoney($frm{'Deposit_Amount'});
+	$frm{'Remaining_Balance'} = CommifyMoney($frm{'Remaining_Balance'});
+
+# (3) Set up the totals lines, appended to the $totals string
+	$totals .= "Total items: ( $frm{'Primary_Products'} )\n";
+	$totals .= " Sub Total ";
+	$totals .= &doSpace(30," $currency $frm{'Primary_Price'}",".","R") . "\n";
+
+#		$frm{'Primary_Discount'} = ('00.00') unless ($frm{'Primary_Discount'} > 0);
+#		$totals .= " Discount ";
+#	$totals .= &doSpace(31," - $currency $frm{'Primary_Discount'}",".","R") . "\n";
+
+#		$frm{'Compute_Coupons'} = ('00.00') unless ($frm{'Compute_Coupons'} > 0);
+#		$totals .= " $frm{'Compute_Coupons'} ";
+#	$totals .= &doSpace(29," - $currency $frm{'Coupon_Discount'}",".","R") . "\n";
+
+#		$frm{'Sub_Final_Discount'} = ('00.00') unless ($frm{'Sub_Final_Discount'} > 0);
+#		$totals .= " Sub Total ";
+#	$totals .= &doSpace(30," $currency $frm{'Sub_Final_Discount'}",".","R") . "\n";
+
+		$frm{'Tax_Amount'} = ('00.00') unless($frm{'Tax_Amount'} > 0);
+		$totals .= " Tax ";
+	$totals .= &doSpace(37," $currency $frm{'Tax_Amount'}",".","R") . "\n";
+
+#		$frm{'handling'} = ('00.00') unless ($frm{'handling'} > 0);
+#		$totals .= " Handling ";
+#	$totals .= &doSpace(32," $currency  $frm{'Handling'}",".","R") . "\n";
+
+#		$frm{'Insurance'} = ('00.00') unless ($frm{'Insurance'} > 0);
+#		$totals .= " Insurance ";
+#	$totals .= &doSpace(30," $currency $frm{'Insurance'}",".","R") . "\n";
+
+		$frm{'Shipping_Amount'} = ('00.00') unless ($frm{'Shipping_Amount'} > 0);
+		$totals .= " Shipping ";
+	$totals .= &doSpace(32," $currency $frm{'Shipping_Amount'}",".","R") . "\n";
+
+#		$frm{'global_CodCharges'} = ('00.00') unless ($frm{'global_CodCharges'} > 0);
+#	$totals .= " COD Fee ";
+#	$totals .= &doSpace(31," $currency $frm{'global_CodCharges'}",".","R") . "\n";
+
+		$frm{'Final_Amount'} = ('00.00') unless ($frm{'Final_Amount'} > 0);
+	$totals .= " Final Total ";
+	$totals .= &doSpace(29," $currency $frm{'Final_Amount'}",".","R") . "\n";
+
+#		$frm{'Deposit_Amount'} = ('00.00') unless ($frm{'Deposit_Amount'} > 0);
+#	$totals .= " Payment ";
+#	$totals .= &doSpace(31," $currency $frm{'Deposit_Amount'}",".","R") . "\n";
+
+#		$frm{'Remaining_Balance'} = ('00.00') unless ($frm{'Remaining_Balance'} > 0);
+#	$totals .= " Balance ";
+#	$totals .= &doSpace(32," $currency $frm{'Remaining_Balance'}",".","R") . "\n";
+
+
+# (4) Set up the Shipping Label 
+	my $label,$name,$csz,$l;
+	$name .= "$frm{'Ecom_ShipTo_Postal_Name_Prefix'} " if ($frm{'Ecom_ShipTo_Postal_Name_Prefix'});
+	$name .= "$frm{'Ecom_ShipTo_Postal_Name_First'} " if ($frm{'Ecom_ShipTo_Postal_Name_First'});
+	$name .= "$frm{'Ecom_ShipTo_Postal_Name_Middle'} " if ($frm{'Ecom_ShipTo_Postal_Name_Middle'});
+	$name .= "$frm{'Ecom_ShipTo_Postal_Name_Last'} " if ($frm{'Ecom_ShipTo_Postal_Name_Last'});
+	$name .= "$frm{'Ecom_ShipTo_Postal_Name_Suffix'} " if ($frm{'Ecom_ShipTo_Postal_Name_Suffix'});
+
+	if ($name) {
+		$l = (80 - (length($name) + 41));
+		$label .= "                                    $name";
+		$label .= " " x $l;
+		$label .= "\n";
+		}
+	if ($frm{'Ecom_ShipTo_Postal_Company'}) {
+		$l = (80 - (length($frm{'Ecom_ShipTo_Postal_Company'}) + 41));
+		$label .= "                                    $frm{'Ecom_ShipTo_Postal_Company'}";
+		$label .= "\n";
+		}
+	if ($frm{'Ecom_ShipTo_Postal_Street_Line1'}) {
+		$l = (80 - (length($frm{'Ecom_ShipTo_Postal_Street_Line1'}) + 41));
+		$label .= "                                    $frm{'Ecom_ShipTo_Postal_Street_Line1'}";
+		$label .= "\n";
+		}
+	if ($frm{'Ecom_ShipTo_Postal_Street_Line2'}) {
+		$l = (80 - (length($frm{'Ecom_ShipTo_Postal_Street_Line2'}) + 41));
+		$label .= "                                    $frm{'Ecom_ShipTo_Postal_Street_Line2'}";
+		$label .= "\n";
+		}
+	$csz .= "$frm{'Ecom_ShipTo_Postal_City'}, " if ($frm{'Ecom_ShipTo_Postal_City'});
+	$csz .= "$frm{'Ecom_ShipTo_Postal_Region'} " if ($frm{'Ecom_ShipTo_Postal_Region'});
+	$csz .= "$frm{'Ecom_ShipTo_Postal_StateProv'}   " if ($frm{'Ecom_ShipTo_Postal_StateProv'});
+	$csz .= "$frm{'Ecom_ShipTo_Postal_PostalCode'} " if ($frm{'Ecom_ShipTo_Postal_PostalCode'});
+	if ($csz) {
+		$l = (80 - (length($csz) + 41));
+		$label .= "                                    $csz";
+		$label .= "\n";
+		}
+	if ($frm{'Ecom_ShipTo_Postal_CountryCode'}) {
+		$l = (80 - (length($frm{'Ecom_ShipTo_Postal_CountryCode'}) + 41));
+		$label .= "                                    $frm{'Ecom_ShipTo_Postal_CountryCode'}";
+		$label .= "\n";
+		}
+
+# (4.5) Set up the Billing INfo Label 
+	my $bblabel,$bbname,$bbcsz,$bbl;
+	$bbname .= "$frm{'Ecom_BillTo_Postal_Name_Prefix'} " if ($frm{'Ecom_BillTo_Postal_Name_Prefix'});
+	$bbname .= "$frm{'Ecom_BillTo_Postal_Name_First'} " if ($frm{'Ecom_BillTo_Postal_Name_First'});
+	$bbname .= "$frm{'Ecom_BillTo_Postal_Name_Middle'} " if ($frm{'Ecom_BillTo_Postal_Name_Middle'});
+	$bbname .= "$frm{'Ecom_BillTo_Postal_Name_Last'} " if ($frm{'Ecom_BillTo_Postal_Name_Last'});
+	$bbname .= "$frm{'Ecom_BillTo_Postal_Name_Suffix'} " if ($frm{'Ecom_BillTo_Postal_Name_Suffix'});
+
+	if ($bbname) {
+		$bbl = (67 - (length($bbname) + 10));
+		$bblabel .= "    $bbname";
+		$bblabel .= " " x $bbl;
+		$bblabel .= "\n";
+		}
+	if ($frm{'Ecom_BillTo_Postal_Company'}) {
+		$bbl = (67 - (length($frm{'Ecom_BillTo_Postal_Company'}) + 10));
+		$bblabel .= "    $frm{'Ecom_BillTo_Postal_Company'}";
+		$bblabel .= "\n";
+		}
+	if ($frm{'Ecom_BillTo_Postal_Street_Line1'}) {
+		$bbl = (67 - (length($frm{'Ecom_BillTo_Postal_Street_Line1'}) + 10));
+		$bblabel .= "    $frm{'Ecom_BillTo_Postal_Street_Line1'}";
+		$bblabel .= "\n";
+		}
+	if ($frm{'Ecom_BillTo_Postal_Street_Line2'}) {
+		$bbl = (67 - (length($frm{'Ecom_BillTo_Postal_Street_Line2'}) + 10));
+		$bblabel .= "    $frm{'Ecom_BillTo_Postal_Street_Line2'}";
+		$bblabel .= "\n";
+		}
+	$bbcsz .= "$frm{'Ecom_BillTo_Postal_City'}, " if ($frm{'Ecom_BillTo_Postal_City'});
+	$bbcsz .= "$frm{'Ecom_BillTo_Postal_Region'} " if ($frm{'Ecom_BillTo_Postal_Region'});
+	$bbcsz .= "$frm{'Ecom_BillTo_Postal_StateProv'}   " if ($frm{'Ecom_BillTo_Postal_StateProv'});
+	$bbcsz .= "$frm{'Ecom_BillTo_Postal_PostalCode'} " if ($frm{'Ecom_BillTo_Postal_PostalCode'});
+	if ($bbcsz) {
+		$bbl = (67 - (length($bbcsz) + 10));
+		$bblabel .= "    $bbcsz";
+		$bblabel .= "\n";
+		}
+	if ($frm{'Ecom_BillTo_Postal_CountryCode'}) {
+		$bbl = (67 - (length($frm{'Ecom_BillTo_Postal_CountryCode'}) + 10));
+		$bblabel .= "    $frm{'Ecom_BillTo_Postal_CountryCode'}";
+		$bblabel .= "\n";
+		}
+
+
+# (5) Set up the message using text, populated strings, {{VarReplacer}} & $frm{'RealVars'}
+# Tip: the qq~ message format ~; will preserve line endings, spacing, text and also allow you
+#        to use all value types: {{VarReplacer}}, $frm{'RealVars'}, $globalVars, $configVars, etc.
+
+$msg .= qq~{{global_MyDate}}
+
+Shipping Destination:
+{{Shipping_Message}}
+
+$label
+
+
+ORDER SUMMARY:
+
+Invoice Number : {{global_InvoiceNumber}}
+Number of Items : $frm{'Primary_Products'}
+Total Order Amount : $currency $frm{'Final_Amount'}
+Payment Type : {{global_PayType}}
+
+$bblabel
+
+Copy of Invoice on the Web: 
+{{global_save_url}}
+
+ORDER DETAILS:
+
+$mitm$totals
+
+Any Special Instructions:
+{{special_instructions}}
+
+$ENV{'REMOTE_ADDR'}
+{{global_ShortDate}} {{global_Time}}
+
+~;
+
+	# ==========================================
+	# CUSTOMIZE THE CONTENTS ABOVE FOR MESSAGE
+
+	$msg = &VarReplacer($msg);
+
+	# SEND MAIL --> MERCHANT	
+	if ($use_external_smtp_server) {
+        $smtp = Net::SMTP->new($use_external_smtp_server);
+        $smtp->mail($mail_customer_addr); 
+        $smtp->to($mailto);
+        $smtp->data();
+        $smtp->datasend("To: $mailto\n");
+        $smtp->datasend("From: $mail_customer_addr\n");
+        $smtp->datasend("Subject: $mail_subject_line\n");
+        $smtp->datasend("\n");
+        $smtp->datasend($msg);
+        $smtp->dataend();
+        $smtp->quit;
+
+	} elsif ($todisk) {
+	open (MERCHANT_MAIL, ">MERCMSG.txt");
+   	print MERCHANT_MAIL "To: $mailto\n";
+	print MERCHANT_MAIL "From: $mail_customer_addr\n";
+   	print MERCHANT_MAIL "Subject: $mail_subject_line\n\n";
+	print MERCHANT_MAIL "$msg";
+	close(MERCHANT_MAIL);
+
+	} else {
+	open (MERCHANT_MAIL, "|$mail_program");
+   	print MERCHANT_MAIL "To: $mailto\n";
+	print MERCHANT_MAIL "From: $mail_customer_addr\n";
+   	print MERCHANT_MAIL "Subject: $mail_subject_line\n\n";
+	print MERCHANT_MAIL "$msg";
+   	close (MERCHANT_MAIL);
+	}
+	}
+
+# Notes on how the &doSpace function works
+# The &doSpace function allows you to match a line length, spacing for string variations
+# var = &doSpace(nn,"text","chr",R);
+# nn   = length of whole string
+# text = string to mix with spacing (only use $frm{'RealVars'}
+# chr = what character is the fill ?
+# final flag is (R) = text is on Right Side of Fill
+# otherwise the default = text is on the Left Side of Fill
+	sub doSpace {
+	my($len,$txt,$chr,$side) = @_;
+	$str = length($txt);
+	$len = ($len - $str);
+	$len = "$chr" x $len;
+	$str = $txt . $len;
+	$str = $len . $txt if ($side =~ /R/i);
+	return $str;
+	}
+
+# END MERCHANT ORDERFORM Cart ver 2.5
+# Copyright by RGA 2000-2003
+
+1;

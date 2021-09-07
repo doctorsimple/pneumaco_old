@@ -1,0 +1,413 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<!-- Merchant Ordering Form v1.53  -->
+<!-- CGI script by RGA@IO.com -->
+<!-- http://www.io.com/~rga -->
+<!-- This is an example web page on how to set up OrderForm pages on your site -->
+<!-- MOF accepts input of many kinds, consult the documentation for assistance -->
+
+<html>
+
+<head>
+<title>Example OrderForm MOF v1.53</title>
+</head>
+
+<BODY BACKGROUND="mofback.jpg" TOPMARGIN="0" LEFTMARGIN="0" MARGINWIDTH="0" MARGINHEIGHT="0" BGCOLOR=FFFFFF>
+
+<a href="http://openingthedoorwest.com/"><img src="mofsplash_ex.gif" border=0 width=468 height=60></a>
+<br>
+
+<BLOCKQUOTE>
+
+<font face="Arial,Helvetica" size="3">
+<font color=navy>
+<h3>Merchant OrderForm v1.53 DropBox Examples
+<a href="http://openingthedoorwest.com/cgi-bin/mof.cgi?viewcart">
+<img align=top src="viewcartlink.gif" border=0 width=60 height=30 alt="View Cart Contents">
+</a>
+</h3>
+<font color=black>
+
+You can use Drop Boxes to Submit to MOF; however, you have to follow all the Rules for 
+ submitting quantity-order(s) for the particular <strong>postmode</strong> that you use.
+ Here are some examples.
+<p>
+
+
+<font face="Arial,Helvetica" size="3">
+
+<strong>
+1. Drop Box Input Using SinglePost Mode
+</strong><font color=black>
+<p>
+
+
+You can submit your main product from a drop box via postmode=
+<font size=2><strong>SINGLEPOST</strong><font size=3> 
+ where your options 
+ contain different products, and different order information for pricing, etc.
+ However, you must make the default selection in your Main Product DropBox a Null 
+ value so that MOF can detect if nothing was selected.  Without a Null for default 
+ selected value MOF will always add that item, because it looks like an order was
+ submitted.
+
+
+<ul>
+<li>postmode=<font size=2><strong>SINGLEPOST</strong><font size=3><br>
+</ul>
+
+
+<!-- THIS WILL POINT TO THE FIRST PROCESSING SCRIPT-->
+<!-- IT IS A RELATIVE OR FULL HTTP URL ONLY-->
+<!-- IT CANNOT BE AN ABSOLUTE ADDRESS-->
+
+<FORM method=POST action="http://openingthedoorwest.com/cgi-bin/mof.cgi">
+
+<!-- THE POSTMODE/QUANTITY IS REQUIRED HIDDEN INFO -->
+
+<INPUT type="hidden" name="postmode" value="SINGLEPOST">
+<INPUT type="hidden" name="quantity" value=1>
+
+<font face="Arial,Helvetica" size="2" color=black>
+
+<SELECT NAME=order>
+
+<OPTION VALUE="">Select A Hat for Your Shopping Cart
+
+<OPTION VALUE="Work Hat----The Industrial Work Hat----24.99----2----1">
+The Industrial Work Hat $ 24.99
+
+<OPTION VALUE="Caravan Hat----The Hardy Go-Anywhere Hat----32.50----2----1">
+The Hardy Go-Anywhere Caravan Hat $ 32.50
+
+<OPTION VALUE="Mountie Hat----The Canadian Mountie Hat----39.98----2----1">
+The Canadian Mountie Hat $ 39.98
+
+<OPTION VALUE="Saddle Hat----The Western Saddle Hat----45.00----2----1">
+The Western Saddle Hat $ 45.00
+
+
+</SELECT>
+
+<font face="Arial,Helvetica" size="2" color=black>
+
+<SELECT name=HatColor>
+ <OPTION selected value="">Select Color
+ <OPTION value="Red">Red
+ <OPTION value="Blue">Blue
+ <OPTION value="Yellow">Yellow
+ <OPTION value="Black">Black
+</SELECT>
+
+<font face="Arial,Helvetica" size="2" color=black>
+
+<SELECT name=HatSize>
+ <OPTION selected value="">Select Size
+ <OPTION value="Small">Small
+ <OPTION value="Medium">Medium
+ <OPTION value="Large">Large
+ <OPTION value="Extra Large">Extra Large
+</SELECT>
+
+<br><br>
+<font size=2>
+<input type=submit value="Add To Cart">
+
+</FORM>
+
+
+
+
+
+
+<!-- CHECKBOXES MODE for Drop Box Input -->
+<!-- CHECKBOXES MODE for Drop Box Input -->
+<!-- CHECKBOXES MODE for Drop Box Input -->
+
+
+<br>
+
+<font face="Arial,Helvetica" size="3">
+
+<strong>
+2. Drop Box Input Using CheckBoxes Mode
+</strong><font color=black>
+<p>
+
+
+You can submit your product from Drop Boxes via postmode=
+<font size=2><strong>CHECKBOXES</strong><font size=3>.  
+ With DropBoxes 
+ we don't need the checkboxes, but make sure to submit a Null as the 
+ default value selected for your DropBox so MOF can tell if nothing 
+ was selected.  Also, the same rules apply as checkboxes: 
+ you must submit 6 fields 
+ as your value for each option, and you cannot have any user input 
+ under this mode.  
+
+
+<ul>
+<li>postmode=<font size=2><strong>CHECKBOXES</strong><font size=3><br>
+</ul>
+
+<!-- THIS WILL POINT TO THE FIRST PROCESSING SCRIPT-->
+<!-- IT IS A RELATIVE OR FULL HTTP URL ONLY-->
+<!-- IT CANNOT BE AN ABSOLUTE ADDRESS-->
+
+<FORM method=POST action="http://openingthedoorwest.com/cgi-bin/mof.cgi">
+
+<!-- THE POSTMODE IS REQUIRED HIDDEN INFO -->
+
+<INPUT type="hidden" name="postmode" value="CHECKBOXES">
+
+<font face="Arial,Helvetica" size="2" color=black>
+
+<SELECT NAME=order>
+
+<OPTION VALUE="">Select The Product To Order
+
+<OPTION VALUE="1----Box Baseball Cards----24 Collectable Baseball Cards----10.00----1----1">
+Box Baseball Cards
+
+<OPTION VALUE="1----Second Nature Books----Collection of 10 Children books----65.00----1----1">
+Second Nature Books
+
+<OPTION VALUE="1----Each Day Poster # 1----Mountain scene inspiration poster----11.50----1----1">
+Each Day Poster # 1
+
+<OPTION VALUE="1----Each Day Poster # 34----Lake scene inspiration poster----11.50----1----1">
+Each Day Poster # 34
+
+<OPTION VALUE="1----Today In History v1.0----History archives web based software----21.65----1----1">
+Today In History v1.0
+
+<OPTION VALUE="1----New York Times----A monthly subscription to the NYT----19.25----2----1">
+New York Times
+
+<OPTION VALUE="1----Magic Box Gifts----A surprise gift box of potpourri----12.25----2----1">
+Magic Box Gifts
+
+<OPTION VALUE="2----The Finish Line----An autobiography by Bill Waters----31.99----2----1">
+The Finish Line
+
+<OPTION VALUE="3----The Naked Kingdom----Hidden confessions by Monica L.----50.95----2----1">
+The Naked Kingdom
+
+</SELECT>
+
+<font face="Arial,Helvetica" size="2" color=black>
+
+<input type=submit value="Add To Cart">
+
+</FORM>
+
+
+
+
+<!-- CHECKBOXES MODE for Multi List Box Input -->
+<!-- CHECKBOXES MODE for Multi List Box Input -->
+<!-- CHECKBOXES MODE for Multi List Box Input -->
+
+
+
+<br>
+
+<font face="Arial,Helvetica" size="3">
+
+<strong>
+3. List Box Input Using CheckBoxes Mode
+</strong><font color=black>
+<p>
+
+
+Okay, still using postmode=
+<font size=2><strong>CHECKBOXES</strong><font size=3> let's 
+ use a Multi Select List Box, same Rules apply for CheckBoxes--No user input, 
+ must submit all 6 fields.  Since the list box acts like actual checkboxes 
+ and doesn't submit any order information unless something is actually 
+ selected, then you don't need to set up a Null default selected option.
+
+<ul>
+<li>postmode=<font size=2><strong>CHECKBOXES</strong><font size=3><br>
+</ul>
+
+<!-- THIS WILL POINT TO THE FIRST PROCESSING SCRIPT-->
+<!-- IT IS A RELATIVE OR FULL HTTP URL ONLY-->
+<!-- IT CANNOT BE AN ABSOLUTE ADDRESS-->
+
+<FORM method=POST action="http://openingthedoorwest.com/cgi-bin/mof.cgi">
+
+<!-- THE POSTMODE IS REQUIRED HIDDEN INFO -->
+
+<INPUT type="hidden" name="postmode" value="CHECKBOXES">
+
+<font face="Arial,Helvetica" size="2" color=black>
+
+<SELECT MULTIPLE SIZE=9 NAME=order>
+
+<OPTION VALUE="1----Box Baseball Cards----24 Collectable Baseball Cards----10.00----0.11----1">
+Box Baseball Cards
+
+<OPTION VALUE="1----Second Nature Books----Collection of 10 Children books----65.00----0.22----0">
+Second Nature Books
+
+<OPTION VALUE="1----Each Day Poster # 1----Mountain scene inspiration poster----11.50----0.33----1">
+Each Day Poster # 1
+
+<OPTION VALUE="1----Each Day Poster # 34----Lake scene inspiration poster----11.50----0.44----1">
+Each Day Poster # 34
+
+<OPTION VALUE="1----Today In History v1.0----History archives web based software----21.65----0.55----1">
+Today In History v1.0
+
+<OPTION VALUE="1----New York Times----A monthly subscription to the NYT----19.25----0.66----1">
+New York Times
+
+<OPTION VALUE="1----Magic Box Gifts----A surprise gift box of potpourri----12.25----0.77----1">
+Magic Box Gifts
+
+<OPTION VALUE="2----The Finish Line----An autobiography by Bill Waters----31.99----0.88----1">
+The Finish Line
+
+<OPTION VALUE="3----The Naked Kingdom----Hidden confessions by Monica L.----50.95----0.99----1">
+The Naked Kingdom
+
+</SELECT>
+
+<br><br>
+<font face="Arial,Helvetica" size="2" color=black>
+<input type=submit value="Add To Cart">
+<input type=reset value="Reset Form">
+
+</FORM>
+
+
+
+
+
+<!-- QUANTITYBOXES MODE for Drop Box Input -->
+<!-- QUANTITYBOXES MODE for Drop Box Input -->
+<!-- QUANTITYBOXES MODE for Drop Box Input -->
+
+
+
+<br>
+
+<font face="Arial,Helvetica" size="3">
+
+<strong>
+4. Drop Box Input Using QuantityBoxes Mode
+</strong><font color=black>
+<p>
+
+Here's an example of DropBoxes using the postmode=
+<font size=2><strong>QUANTITYBOXES</strong><font size=3>.
+ Remember to follow all the Rules for QuantityBoxes:
+ Must submit matching numbers for quantityN, orderN, 
+ and any user_inputN for each group, the orderN is only 
+ 5 fields (because quantityN is user input).
+ Since quantityboxs mode requires the user to enter a 
+ valid number for quantity before MOF searches for the
+ order data, you don't have to make a Null value as the
+ default selection in your drop box; however, if you don't 
+ then MOF will use the default selected order information.
+ If you use a Null default value selected, then MOF will 
+ check to see that an order was selected.
+
+
+<ul>
+<li>postmode=<font size=2><strong>QUANTITYBOXES</strong><font size=3><br>
+</ul>
+
+
+<!-- THIS WILL POINT TO THE FIRST PROCESSING SCRIPT-->
+<!-- IT IS A RELATIVE OR FULL HTTP URL ONLY-->
+<!-- IT CANNOT BE AN ABSOLUTE ADDRESS-->
+
+<FORM method=POST action="http://openingthedoorwest.com/cgi-bin/mof.cgi">
+
+<!-- THE POSTMODE IS REQUIRED HIDDEN INFO -->
+
+<INPUT type="hidden" name="postmode" value="QUANTITYBOXES">
+
+<input type="text" name="quantity1" size=3 maxlength=3>
+
+
+<font face="Arial,Helvetica" size="2" color=black>
+<SELECT NAME="order1">
+
+<OPTION VALUE="">Select A Hat for Your Shopping Cart
+
+<OPTION VALUE="Work Hat----The Industrial Work Hat----24.99----2----1">
+The Industrial Work Hat $ 24.99
+
+<OPTION VALUE="Caravan Hat----The Hardy Go-Anywhere Hat----32.50----2----1">
+The Hardy Go-Anywhere Caravan Hat $ 32.50
+
+<OPTION VALUE="Mountie Hat----The Canadian Mountie Hat----39.98----2----1">
+The Canadian Mountie Hat $ 39.98
+
+<OPTION VALUE="Saddle Hat----The Western Saddle Hat----45.00----2----1">
+The Western Saddle Hat $ 45.00
+
+
+</SELECT>
+
+<font face="Arial,Helvetica" size="2" color=black>
+
+<SELECT name=HatColor1>
+ <OPTION selected value="">Select Color
+ <OPTION value="Red">Red
+ <OPTION value="Blue">Blue
+ <OPTION value="Yellow">Yellow
+ <OPTION value="Black">Black
+</SELECT>
+
+<font face="Arial,Helvetica" size="2" color=black>
+
+<SELECT name=HatSize1>
+ <OPTION selected value="">Select Size
+ <OPTION value="Small">Small
+ <OPTION value="Medium">Medium
+ <OPTION value="Large">Large
+ <OPTION value="Extra Large">Extra Large
+</SELECT>
+
+
+<br><br>
+<font face="Arial,Helvetica" size="2" color=black>
+<input type=submit value="Add To Cart">
+<input type=reset value="Reset Form">
+
+</FORM>
+
+
+
+
+
+
+
+
+
+<br><br><br>
+
+<font face="Arial,Helvetica" size="2">
+
+Happy Ordering<br>
+
+Copyright &copy; 
+<a href="http://www.io.com/~rga/scripts/">
+Merchant OrderForm </a> v1.53
+<br>
+All Rights Reserved, April 2000 by
+<a href="http://www.io.com/~rga/">RGA</a>
+<br>
+These programs may not be distributed without consent of owner.
+<br>
+
+<br><br><br>
+
+</BLOCKQUOTE>
+
+</body>
+</html>

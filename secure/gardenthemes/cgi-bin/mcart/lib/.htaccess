@@ -1,0 +1,6 @@
+AuthUserFile /.htpasswd
+AuthName "FORBIDDEN ACCESS"
+AuthType Basic
+<Limit GET POST>
+require valid-user
+</Limit>

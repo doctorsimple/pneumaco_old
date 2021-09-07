@@ -1,0 +1,895 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+
+<HEAD>
+   <TITLE>Order form</TITLE>
+ 
+<meta name="keywords" content="Chinese medicinal cultivation, Chinese herbs, chinese medicinal plants, seeds, rare plants, growing, propagation, cultivation, PlantItHerbs, chinese plants, chinese seeds, chinese medicinal plant grower, perennial, house plants, hardy perennials, hardy perennial, vines, bamboo, shrubs, succulents, gardening, seeds, mushrooms">
+<meta name="Description" content="Plant It Herbs specializes in growing Chinese medicinal plants.">
+<script><!--
+
+function cent(amount) {
+// returns the amount in the .99 format   
+     amount -= 0;
+    return (amount == Math.floor(amount)) ? amount + '.00' : (  (amount*10 == Math.floor(amount*10)) ? amount + '0' : amount);
+}
+var args=parent.control.document.catalogue.qstring.value;
+lines = args.split('--');
+var maxlines = lines.length+1;
+var currentline=13;
+function makeSpace(latinname)
+	{
+		 chopped=latinname.split('+');
+		 n=0;holder='';
+		 while (chopped[n])
+		 	{
+			holder+=(chopped[n]+' ');
+			n++;
+			}
+		 return holder;
+	} 
+function FillOutForm()
+	{
+	 for (x=0;(x<(maxlines-1));++x)
+	 {
+	  parts = lines[x].split('-');
+
+	  document.joe.elements[17+(x*5)].value=parts[0];
+	  document.joe.elements[18+(x*5)].value=makeSpace(parts[1]);
+	  document.joe.elements[20+(x*5)].value=cent(parts[2]);
+		  }
+		return true;  
+	 }
+
+function CalcTotal(quantity)
+	{
+	if(((document.joe[quantity].value / document.joe[quantity].value) == 1) || (document.joe[quantity].value == 0) )
+		{
+		 document.joe[quantity+2].value=cent((parseFloat(document.joe[quantity].value))*(parseFloat(document.joe[quantity+1].value)))
+		}
+
+		return true;
+
+	}
+
+ function doSum()
+ 	{
+	var grandtotal=0;
+			for (w=20;w<(maxlines*5+20);w+=5)
+			{
+			 if (document.joe[w].value && (!document.joe[w-1].value))
+			 {document.joe[w-1].value = 1;
+			  CalcTotal(w-1);
+			 }
+			}
+			
+			for (y=21;y<(maxlines*5+21);y+=5)
+
+			{
+
+				if (document.joe[y].value / document.joe[y].value==1)
+
+				{
+
+				grandtotal+=parseFloat(document.joe[y].value);
+
+				}
+
+			}
+
+			document.joe.ordertotal.value=cent(grandtotal);
+
+		return true;
+
+	}
+
+  function clearLine(here)
+
+  {
+
+  for (j=here;j<(here+5);j++)
+
+  	document.joe.elements[j].value=""
+
+  doSum();	
+
+  return false;
+
+	}
+
+
+
+
+
+//--></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></HEAD>
+<BODY TEXT="#003333" BGCOLOR="#999999" LINK="#660000" ALINK="#660000" VLINK="#003300" onLoad="FillOutForm()">
+<CENTER>
+  <img src="graphics_garden/PIH2.jpg" width="500" height="100"> &nbsp;<BR>
+  <table width="65%" border="0">
+    <tr> 
+      <td width="9%" height="20"><a href="index.htm"><font color="#66000"><b><font face="Arial, Helvetica, sans-serif"><em>Home</em></font></b></font></a></td>
+      <td width="23%"><em><font color="#660000"><font face="Arial, Helvetica, sans-serif"><b><strong><font color="#620816"><a href="https://secure32.elinuxservers.com/%7Eplantit/shoppingarea.htm?Introduction.htm">Ordering 
+        Information</a></font></strong></b></font></font></em></td>
+      <td width="24%"><em><font color="#660000"><font face="Arial, Helvetica, sans-serif"><b> 
+        <a href="mailto:plantit@plantitherbs.com">Contact Plant It Herbs</a></b></font></font></em></td>
+      <td width="14%"><em><font color="#660000"><font face="Arial, Helvetica, sans-serif"><b><a href="workshops.htm">Workshops</a></b></font></font></em></td>
+      <td width="16%"><em><font color="#660000"><font face="Arial, Helvetica, sans-serif"><b><a href="links.htm">Links</a><font color="#660000"></font></b></font></font></em></td>
+    </tr>
+  </table>
+  </CENTER>
+<P><FONT SIZE="+2"><I><FORM ACTION="https://secure32.elinuxservers.com/~plantit/cgi-bin/FormMail.pl" METHOD=POST name=joe target="_top">
+   <P>
+   <FONT SIZE="+2"><I>
+   <input type="hidden" name="recipient" value="plantit@frognet.net">
+   <INPUT TYPE="hidden" NAME="redirect" VALUE="https://secure32.elinuxservers.com/~plantit/success.htm">
+   </I></FONT> <TABLE BORDER=0 CELLSPACING=1 CELLPADDING=2 WIDTH=600 align=center>
+      <TR>
+         <TD COLSPAN=6>
+            <CENTER><FONT SIZE="+2" COLOR="#003300"><B><I>Secure On
+            Line Order Form</I></B></FONT></CENTER>
+        
+			
+			
+			
+            <P><FONT COLOR="#660000"><B><I>Guarantee :</I></B> Plant
+            will be strong, healthy, well rooted and correctly
+            labeled when shipped. Remember that they are live plants
+            and have gone through one to five days of travel to reach
+            you. Some plants may arrive showing signs of yellowing or
+            wilting, with proper care these symptoms should disappear
+            in a few weeks. If you not fully satisfied with the
+            quality of your plants, please contact me within 10 days
+            of receiving your order with your concerns.</FONT></P>
+            
+            
+        <P><FONT COLOR="#660000"><B><I>Gift Certificates :</I></B><I> </I>They 
+          are available in any denomination over $10.00. Please use the order 
+          form to indicate where it is to be sent and how you would like the card<i> 
+          </i>signed.</FONT></P>
+            
+            
+        <P><FONT COLOR="#003300">Please indicate on the order form if you would 
+          like </FONT><FONT COLOR="#660000">substitutions</FONT><FONT COLOR="#003300">, 
+          because it is difficult to estimate the popularity of some of the plants. 
+          A credit voucher or refund can also be issued, but please note that 
+          all refunds under $10<i></i>.00 will recieve a credit voucher.</FONT></P>
+            
+            <P><FONT COLOR="#003300"><B><I>Security Note:</I></B>
+            None of the information you supply below is ever stored
+            as plain text in any of our files. All information is
+            encrypted using PGP's encryption. We will not sell or
+            redistribute your information.</FONT></P>
+            
+            
+        <P align="center"><FONT COLOR="#003300"><B>Please enter your name<i><font size="2"> 
+          and </font></i> address. Be sure to include your shipping address. Remember 
+          that UPS does not ship to PO Boxes.</B></FONT></P>
+        <P align="center"><b><i><font color="#6F201E" size="4">Credit cards are 
+          no longer accepted. I will email the total and include shipping costs. 
+          Please send a check or money order to Plant It Herbs, 6846 Locust Lane, 
+          Athens, OH 45701</font></i></b></P>
+        <CENTER><FONT COLOR="#003300"><B>You will receive an
+            e-mail confirmation of your order including total price
+            with shipping costs and expected shipping date.
+            </B></FONT></CENTER>
+            
+            <P><FONT COLOR="#003300"><B><I>&nbsp;</I></B><I>Please
+            fill in all the blanks.</I></FONT></P>
+         </TD>
+      </TR>
+      <TR BGCOLOR="#003333">
+         <TD COLSPAN=6>
+            <P><FONT COLOR="#999999"><B>Billing
+            Information</B></FONT></P>
+         </TD>
+      </TR>
+      <TR>
+         <TD COLSPAN=2 BGCOLOR="#999999">
+            <P><FONT COLOR="#003300"><B><I>Name</I></B></FONT><B><I>:
+            </I></B></P>
+         </TD>
+         <TD COLSPAN=4 BGCOLOR="#CCCCCC">
+            <P><I><INPUT TYPE=text NAME="billing_name" VALUE="" SIZE=50>
+            </I></P>
+         </TD>
+      </TR>
+      <TR>
+         <TD COLSPAN=2 BGCOLOR="#999999">
+            <P><FONT COLOR="#003300"><B><I>e-mail address:
+            </I></B></FONT></P>
+         </TD>
+         <TD COLSPAN=4 BGCOLOR="#CCCCCC">
+            <P><FONT COLOR="#003300"><I><INPUT TYPE=text NAME="billing_email" VALUE="" SIZE=50 MAXLENGTH=50>
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR>
+         <TD COLSPAN=2 BGCOLOR="#999999">
+            <P><FONT COLOR="#003300"><B><I>Address:
+            </I></B></FONT></P>
+         </TD>
+         <TD COLSPAN=4 BGCOLOR="#CCCCCC">
+            <P><FONT COLOR="#003300"><I><INPUT TYPE=text NAME="billing_address" VALUE="" SIZE=50 MAXLENGTH=50>
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR>
+         <TD COLSPAN=2 BGCOLOR="#999999">
+            <P><FONT COLOR="#003300"><B><I>City: </I></B></FONT></P>
+         </TD>
+         <TD COLSPAN=4 BGCOLOR="#CCCCCC">
+            <P><FONT COLOR="#003300"><I><INPUT TYPE=text NAME="billing_city" VALUE="" SIZE=50 MAXLENGTH=50>
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR>
+         <TD COLSPAN=2 BGCOLOR="#999999">
+            <P><FONT COLOR="#003300"><B><I>State:</I></B></FONT><B>
+            </B></P>
+         </TD>
+         <TD COLSPAN=4 BGCOLOR="#CCCCCC">
+            <P><FONT COLOR="#003300"><I><INPUT TYPE=text NAME="billing_state" VALUE="" SIZE=30>
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR>
+         <TD COLSPAN=2 BGCOLOR="#999999">
+            <P><FONT COLOR="#003300"><B><I>Zip Code:
+            </I></B></FONT></P>
+         </TD>
+         <TD COLSPAN=4 BGCOLOR="#CCCCCC">
+            <P><FONT COLOR="#003300"><I><INPUT TYPE=text NAME="billing_zip" VALUE="" SIZE=10 MAXLENGTH=10>
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR>
+         <TD COLSPAN=2 BGCOLOR="#999999">
+            <P><FONT COLOR="#003300"><B><I>Fax number:
+            </I></B></FONT></P>
+         </TD>
+         <TD COLSPAN=4 BGCOLOR="#CCCCCC">
+            <P><FONT COLOR="#003300"><I><INPUT TYPE=text NAME="billing_fax" VALUE="" SIZE=30>
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR>
+         <TD COLSPAN=2 BGCOLOR="#999999">
+            <P><FONT COLOR="#003300"><B><I>Phone number:
+            </I></B></FONT></P>
+         </TD>
+         <TD COLSPAN=4 BGCOLOR="#CCCCCC">
+            <P><FONT COLOR="#003300"><I><INPUT TYPE=text NAME="billing_phone" VALUE="" SIZE=30>
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR BGCOLOR="#003333">
+         <TD COLSPAN=6>
+            <P><FONT COLOR="#999999"><B>Shipping
+            Information</B></FONT></P>
+         </TD>
+      </TR>
+      <TR>
+         <TD COLSPAN=2 BGCOLOR="#999999">
+            <P><FONT COLOR="#003300"><B><I>Name:</I></B></FONT><B>
+            </B></P>
+         </TD>
+         <TD COLSPAN=4 BGCOLOR="#CCCCCC">
+            <P><FONT COLOR="#003300"><I><INPUT TYPE=text NAME="shipping_name" VALUE="" SIZE=50 MAXLENGTH=50>
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR>
+         <TD COLSPAN=2 BGCOLOR="#999999">
+            <P><FONT COLOR="#003300"><B><I>Address:
+            </I></B></FONT></P>
+         </TD>
+         <TD COLSPAN=4 BGCOLOR="#CCCCCC">
+            <P><FONT COLOR="#003300"><I><INPUT TYPE=text NAME="shipping_address" VALUE="" SIZE=50 MAXLENGTH=50>
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR>
+         <TD COLSPAN=2 BGCOLOR="#999999">
+            <P><FONT COLOR="#003300"><B><I>City:</I></B></FONT><B>
+            </B></P>
+         </TD>
+         <TD COLSPAN=4 BGCOLOR="#CCCCCC">
+            <P><FONT COLOR="#003300"><I><INPUT TYPE=text NAME="shipping_city" VALUE="" SIZE=50 MAXLENGTH=50>
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR>
+         <TD COLSPAN=2 BGCOLOR="#999999">
+            <P><FONT COLOR="#003300"><B><I>State: </I></B></FONT></P>
+         </TD>
+         <TD COLSPAN=4 BGCOLOR="#CCCCCC">
+            <P><FONT COLOR="#003300"><I><INPUT TYPE=text NAME="shipping_state" VALUE="" SIZE=30 MAXLENGTH=30>
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR>
+         <TD COLSPAN=2 BGCOLOR="#999999">
+            <P><FONT COLOR="#003300"><B><I>Zip
+            Code:</I></B></FONT><B> </B></P>
+         </TD>
+         <TD COLSPAN=4 BGCOLOR="#CCCCCC">
+            <P><FONT COLOR="#003300"><I><INPUT TYPE=text NAME="shipping_zip" VALUE="" SIZE=10 MAXLENGTH=10>
+            </I></FONT></P>
+         </TD>
+      </TR>
+	
+      <TR BGCOLOR="#003333">
+         <TD COLSPAN=6>
+            <P><FONT COLOR="#999999"><B>Credit Card
+            Information</B></FONT></P>
+         </TD>
+      </TR>
+	  
+      <TR>
+         <TD COLSPAN=2 BGCOLOR="#999999">
+            <P><FONT COLOR="#003300"><B><I>Visa or MasterCard
+            No:</I></B></FONT><B> </B></P>
+         </TD>
+         <TD COLSPAN=4 BGCOLOR="#CCCCCC">
+            <P><FONT COLOR="#003300"><I><INPUT TYPE=text NAME=ccn VALUE="" SIZE=25 MAXLENGTH=25>
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR>
+         <TD COLSPAN=2 BGCOLOR="#999999">
+            <P><FONT COLOR="#003300"><B><I>Expiration
+            Date:</I></B></FONT><B> </B></P>
+         </TD>
+         <TD COLSPAN=4 BGCOLOR="#CCCCCC">
+            <P><FONT COLOR="#003300"><I><INPUT TYPE=text NAME=cce VALUE="" SIZE=7 MAXLENGTH=7>
+            </I></FONT></P>
+         </TD>
+      </TR>
+
+      <TR BGCOLOR="#003333">
+         <TD COLSPAN=6>
+
+            <P><FONT COLOR="#999999"><B>Order </B></FONT></P>
+         </TD>
+      </TR>
+      <TR BGCOLOR="#999999">
+         <TD COLSPAN=6>
+            <P><FONT COLOR="#003300">Enter the quantity desired of
+            each item, then click the "calculate total" button to see
+            your total cost, <U>not</U> including shipping. If you
+            have javascript disabled, you will need to note down the
+            plants you wish to order from the previous page and fill
+            out this form by hand. </FONT></P>
+         </TD>
+      </TR>
+      <TR>
+         <TD>
+            <P></P>
+         </TD>
+         <TD ALIGN=center BGCOLOR="#999999">
+            <P><FONT COLOR="#003300"><B><I>Item #</I></B></FONT></P>
+         </TD>
+         <TD BGCOLOR="#999999">
+            <P><FONT COLOR="#003300"><B><I>Plant Name (Genus and
+            Species)</I></B></FONT></P>
+         </TD>
+         <TD BGCOLOR="#999999">
+            <P><FONT COLOR="#003300"><B><I>Quantity</I></B></FONT></P>
+         </TD>
+         <TD BGCOLOR="#999999">
+            <P><FONT COLOR="#003300"><B><I>Price</I></B></FONT></P>
+         </TD>
+         <TD BGCOLOR="#999999">
+            <P><FONT COLOR="#003300"><B><I>Total</I></B></FONT></P>
+         </TD>
+      </TR>
+      <TR BGCOLOR="#CCCCCC">
+         <TD>
+            <P></P>
+         </TD>
+         <TD ALIGN=center>
+            <P><FONT SIZE="-1" COLOR="#003300"><I><INPUT TYPE=text NAME=num1 VALUE="" SIZE=5 MAXLENGTH=5>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1" COLOR="#003300"><I><INPUT TYPE=text NAME=name1 VALUE="" SIZE=50 MAXLENGTH=50>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1" COLOR="#003300"><I><INPUT TYPE=text NAME=q1 VALUE="" SIZE=5 MAXLENGTH=3 onchange="CalcTotal(19)">
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1" COLOR="#003300"><I><INPUT TYPE=text NAME=p1 VALUE="" SIZE=8 MAXLENGTH=8>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1" COLOR="#003300"><I><INPUT TYPE=text NAME=t1 VALUE="" SIZE=8>
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR BGCOLOR="#CCCCCC">
+         <TD>
+            <P></P>
+         </TD>
+         <TD ALIGN=center>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=num2 VALUE="" SIZE=5>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1" COLOR="#003300"><I><INPUT TYPE=text NAME=name2 VALUE="" SIZE=50>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1" COLOR="#003300"><I><INPUT TYPE=text NAME=q2 VALUE="" SIZE=5 MAXLENGTH=3 onchange="CalcTotal(24)">
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1" COLOR="#003300"><I><INPUT TYPE=text NAME=p2 VALUE="" SIZE=8>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1" COLOR="#003300"><I><INPUT TYPE=text NAME=t2 VALUE="" SIZE=8>
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR BGCOLOR="#CCCCCC">
+         <TD>
+            <P></P>
+         </TD>
+         <TD ALIGN=center>
+            <P><FONT SIZE="-1" COLOR="#003300"><I><INPUT TYPE=text NAME=num3 VALUE="" SIZE=5>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1" COLOR="#003300"><I><INPUT TYPE=text NAME=name3 VALUE="" SIZE=50>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1" COLOR="#003300"><I><INPUT TYPE=text NAME=q3 VALUE="" SIZE=5 onchange="CalcTotal(29)">
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1" COLOR="#003300"><I><INPUT TYPE=text NAME=p3 VALUE="" SIZE=8>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1" COLOR="#003300"><I><INPUT TYPE=text NAME=t3 VALUE="" SIZE=8>
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR BGCOLOR="#CCCCCC">
+         <TD>
+            <P></P>
+         </TD>
+         <TD ALIGN=center>
+            <P><FONT SIZE="-1" COLOR="#003300"><I><INPUT TYPE=text NAME=num4 VALUE="" SIZE=5>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1" COLOR="#003300"><I><INPUT TYPE=text NAME=name4 VALUE="" SIZE=50>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1" COLOR="#003300"><I><INPUT TYPE=text NAME=q4 VALUE="" SIZE=5 onchange="CalcTotal(34)">
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1" COLOR="#003300"><I><INPUT TYPE=text NAME=p4 VALUE="" SIZE=8>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1" COLOR="#003300"><I><INPUT TYPE=text NAME=t4 VALUE="" SIZE=8>
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR BGCOLOR="#CCCCCC">
+         <TD>
+            <P></P>
+         </TD>
+         <TD ALIGN=center>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=num5 VALUE="" SIZE=5>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=name5 VALUE="" SIZE=50>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=q5 VALUE="" SIZE=5 onchange="CalcTotal(39)">
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=p5 VALUE="" SIZE=8>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=t5 VALUE="" SIZE=8>
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR BGCOLOR="#CCCCCC">
+         <TD>
+            <P></P>
+         </TD>
+         <TD ALIGN=center>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=num6 VALUE="" SIZE=5>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=name6 VALUE="" SIZE=50>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=q6 VALUE="" SIZE=5 onchange="CalcTotal(44)">
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=p6 VALUE="" SIZE=8>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=t6 VALUE="" SIZE=8>
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR BGCOLOR="#CCCCCC">
+         <TD>
+            <P></P>
+         </TD>
+         <TD ALIGN=center>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=num7 VALUE="" SIZE=5>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=name7 VALUE="" SIZE=50>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=q7 VALUE="" SIZE=5 onchange="CalcTotal(49)">
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=p7 VALUE="" SIZE=8>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=t7 VALUE="" SIZE=8>
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR BGCOLOR="#CCCCCC">
+         <TD>
+            <P></P>
+         </TD>
+         <TD ALIGN=center>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=num8 VALUE="" SIZE=5>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=name8 VALUE="" SIZE=50>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=q8 VALUE="" SIZE=5 onchange="CalcTotal(54)">
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=p8 VALUE="" SIZE=8>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=t8 VALUE="" SIZE=8>
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR BGCOLOR="#CCCCCC">
+         <TD>
+            <P></P>
+         </TD>
+         <TD ALIGN=center>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=num9 VALUE="" SIZE=5>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=name9 VALUE="" SIZE=50>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=q9 VALUE="" SIZE=5 onchange="CalcTotal(59)">
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=p9 VALUE="" SIZE=8>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=t9 VALUE="" SIZE=8>
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR BGCOLOR="#CCCCCC">
+         <TD>
+            <P></P>
+         </TD>
+         <TD ALIGN=center>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=num10 VALUE="" SIZE=5>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=name10 VALUE="" SIZE=50>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=q10 VALUE="" SIZE=5 onchange="CalcTotal(64)">
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=p10 VALUE="" SIZE=8>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=t10 VALUE="" SIZE=8>
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR BGCOLOR="#CCCCCC">
+         <TD>
+            <P></P>
+         </TD>
+         <TD ALIGN=center>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=num11 VALUE="" SIZE=5>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=name11 VALUE="" SIZE=50>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=q11 VALUE="" SIZE=5 onchange="CalcTotal(69)">
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=p11 VALUE="" SIZE=8>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=t11 VALUE="" SIZE=8>
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR BGCOLOR="#CCCCCC">
+         <TD>
+            <P></P>
+         </TD>
+         <TD ALIGN=center>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=num12 VALUE="" SIZE=5>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=name12 VALUE="" SIZE=50>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=q12 VALUE="" SIZE=5 onchange="CalcTotal(74)">
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=p12 VALUE="" SIZE=8>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=t12 VALUE="" SIZE=8>
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR BGCOLOR="#CCCCCC">
+         <TD>
+            <P></P>
+         </TD>
+         <TD ALIGN=center>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=num13 VALUE="" SIZE=5>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=name13 VALUE="" SIZE=50>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=q13 VALUE="" SIZE=5 onchange="CalcTotal(79)">
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=p13 VALUE="" SIZE=8>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=t13 VALUE="" SIZE=8>
+            </I></FONT></P>
+         </TD>
+      </TR>
+	  
+	  <script>
+	  <!--Here is where extra lines go
+	  while (maxlines > currentline)
+	  {document.writeln('<tr bgcolor="#CCCCCC"><td><p></p></td>');
+	  	document.writeln('<td align=center> <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=num'+currentline+' VALUE="" SIZE=5></i></font></p></td>');
+		document.writeln('<td><P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=name'+currentline+' VALUE="" SIZE=50></i></font></p></td>');
+		document.writeln('<td> <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=q'+currentline+' VALUE="" SIZE=5 onchange="CalcTotal('+(currentline*5+19)+')"></i></font></p></td>');
+		document.writeln('<td><p><FONT SIZE="-1"><I><INPUT TYPE=text NAME=p'+currentline+' VALUE="" SIZE=8></i></font></p></td>');
+		document.writeln('<td><P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=t'+currentline+' VALUE="" SIZE=8></i></font></p></td></tr>');
+	   ++currentline;
+	   }
+	  
+	  //-->
+	  </script>
+      <TR>
+         <TD COLSPAN=3>
+            <P>&nbsp;</P>
+         </TD>
+         <TD COLSPAN=2>
+            <P><INPUT TYPE=button NAME=Button VALUE="Calculate Total" onclick="doSum()"></P>
+         </TD>
+         <TD>
+            <P><INPUT TYPE=text NAME=ordertotal VALUE="" SIZE=8></P>
+         </TD>
+      </TR>
+      <TR>
+         <TD COLSPAN=5>
+            <P>
+            
+            <HR>
+            
+            <p></P>
+         </TD>
+         <TD>
+            <P></P>
+         </TD>
+      </TR>
+      <TR BGCOLOR="#999999">
+         <TD COLSPAN=6>
+            <P><FONT COLOR="#003300">If you run out of spaces on the
+            order form, submit this form. Then, go back to the
+            catalog page and make the rest of your selections. On
+            your second order form, fill out your name (you can skip
+            the address), write the words "Page 2" in the address
+            blank, and continue filling in your order. Then, press
+            "Submit your order", when finished.</FONT></P>
+            
+            <P><FONT COLOR="#003300">Please indicate on the order
+            form if you would like
+            </FONT><FONT COLOR="#660000">substitutions</FONT><FONT COLOR="#003300">,
+            because it is difficult to estimate the popularity of
+            some of the plants. A credit voucher or refund can also
+            be issued, but please note that all refunds under $5.00
+            will receive a credit voucher.</FONT></P>
+         </TD>
+      </TR>
+      <TR BGCOLOR="#003333">
+         <TD COLSPAN=6>
+            <P><FONT COLOR="#999999"><B><I>Substitutions:</I></B></FONT></P>
+         </TD>
+      </TR>
+      <TR>
+         <TD COLSPAN=3 BGCOLOR="#CCCCCC">
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=sub1 VALUE="" SIZE=60>
+            </I></FONT></P>
+         </TD>
+         <TD COLSPAN=2 BGCOLOR="#999999">
+            <P><FONT COLOR="#660000"><B><I>Duplicate:</I></B></FONT></P>
+         </TD>
+         <TD BGCOLOR="#CCCCCC">
+            <P><FONT COLOR="#660000"><I><INPUT TYPE=text NAME=duplicate VALUE="" SIZE=8>
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR>
+         <TD COLSPAN=3 BGCOLOR="#CCCCCC">
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=sub2 VALUE="" SIZE=60>
+            </I></FONT></P>
+         </TD>
+         <TD COLSPAN=2 BGCOLOR="#999999">
+            <P><FONT COLOR="#660000"><B><I>Refund:</I></B></FONT></P>
+         </TD>
+         <TD BGCOLOR="#CCCCCC">
+            <P><FONT COLOR="#660000"><I><INPUT TYPE=text NAME=refund VALUE="" SIZE=8>
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR>
+         <TD COLSPAN=3 BGCOLOR="#CCCCCC">
+            <P><FONT SIZE="-1"><I><INPUT TYPE=text NAME=sub3 VALUE="" SIZE=60>
+            </I></FONT></P>
+         </TD>
+         <TD COLSPAN=2 BGCOLOR="#999999">
+            <P>&nbsp;</P>
+         </TD>
+         <TD BGCOLOR="#CCCCCC">
+            <P>&nbsp;</P>
+         </TD>
+      </TR>
+      <TR>
+         <TD COLSPAN=3>
+            <P>&nbsp;</P>
+         </TD>
+         <TD>
+            <P>&nbsp;</P>
+         </TD>
+         <TD>
+            <P>&nbsp;</P>
+         </TD>
+         <TD>
+            <P>&nbsp;</P>
+         </TD>
+      </TR>
+      <TR>
+         <TD ALIGN=right COLSPAN=2 BGCOLOR="#999999">
+            <P><FONT COLOR="#003300"><B><I>Check box for gift
+            certificate:</I></B></FONT></P>
+         </TD>
+         <TD>
+            <P><FONT COLOR="#003300"><I><INPUT TYPE=checkbox NAME=giftcertificate VALUE=yes>
+            </I></FONT></P>
+         </TD>
+         <TD>
+            <P></P>
+         </TD>
+         <TD>
+            <P></P>
+         </TD>
+         <TD>
+            <P></P>
+         </TD>
+      </TR>
+      <TR>
+         <TD ALIGN=right COLSPAN=2 BGCOLOR="#999999">
+            <P><FONT COLOR="#003300"><B><I>Amount of gift
+            cirtificate:</I></B></FONT></P>
+         </TD>
+         <TD COLSPAN=4 BGCOLOR="#CCCCCC">
+            <P><FONT COLOR="#003300"><I><INPUT TYPE=text NAME=giftcertificateamount VALUE="" SIZE=8>
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR BGCOLOR="#003333">
+         <TD COLSPAN=6>
+            <P><FONT COLOR="#999999"><B><I>Card is to be
+            signed:</I></B></FONT></P>
+         </TD>
+      </TR>
+      <TR BGCOLOR="#CCCCCC">
+         <TD COLSPAN=6>
+            <P><FONT SIZE="-1" COLOR="#660000"><I><INPUT TYPE=text NAME=cardsigned VALUE="" SIZE=50>
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR>
+         <TD COLSPAN=6>
+            <P><FONT COLOR="#003300"><I><INPUT TYPE=submit NAME=Submit VALUE="Click ONLY once to submit your order" onclick="doSum()">
+            </I></FONT></P>
+         </TD>
+      </TR>
+      <TR>
+         <TD COLSPAN=6>
+            <P>&nbsp;</P>
+         </TD>
+      </TR>
+   </TABLE>
+
+</FORM> </I></FONT>
+<p></P>
+<CENTER>
+  <table width="65%" border="0">
+    <tr> 
+      <td width="9%" height="20"><a href="index.htm"><font color="#66000"><b><font face="Arial, Helvetica, sans-serif"><em>Home</em></font></b></font></a></td>
+      <td width="23%"><em><font color="#660000"><font face="Arial, Helvetica, sans-serif"><b><strong><font color="#620816"><a href="https://secure32.elinuxservers.com/%7Eplantit/shoppingarea.htm?Introduction.htm">Ordering 
+        Information</a></font></strong></b></font></font></em></td>
+      <td width="24%"><em><font color="#660000"><font face="Arial, Helvetica, sans-serif"><b> 
+        <a href="mailto:plantit@plantitherbs.com">Contact Plant It Herbs</a></b></font></font></em></td>
+      <td width="14%"><em><font color="#660000"><font face="Arial, Helvetica, sans-serif"><b><a href="workshops.htm">Workshops</a></b></font></font></em></td>
+    </tr>
+  </table>
+</CENTER>
+</BODY>
+</HTML>

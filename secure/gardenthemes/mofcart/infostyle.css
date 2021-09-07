@@ -1,0 +1,72 @@
+/*   Example CSS styles for Merchant OrderForm cart v2.5 POPUP Templates   */
+/*  GENERAL */		
+
+BODY {
+	background: White;
+	margin-left: 0px;  	
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-right: 0px;
+
+}
+
+/******* hyperlink and anchor tag styles *******/
+
+.close {
+	font-weight: bolder;
+	font-style: normal;
+	font-variant: small-caps;
+	font-stretch: wider;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+
+a:link, a:visited{
+	color: #005FA9;
+	text-decoration: none;
+}
+
+a:hover{
+ 	color: #9F0024;
+	text-decoration: underline;  
+
+}
+
+FORM { margin-bottom:0; margin-top:0 }
+
+TABLE.body {	
+	width: 90%;	
+	margin: 10px 20px 10px 16px;	 
+
+}
+.FooterText {
+	color : #5D5D5D;
+	font-family : Arial,Helvetica,Sans-serif;
+	font-size : 10px;
+}
+
+
+.ButtonFormat {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 10px;
+	text-align : center;
+	visibility : visible;
+}
+
+/*  OUTPUT TEMPLATES */
+.SectionHeadings {
+	color : #346699;
+	font-family : arial, Helvetica, sans-serif;
+	font-weight : bold;
+	font-size : 12px;
+}
+
+.DefaultText {
+	color : Black;
+	font-family : arial, Helvetica, sans-serif;
+	font-size : 12px;
+}
+
+
+
+

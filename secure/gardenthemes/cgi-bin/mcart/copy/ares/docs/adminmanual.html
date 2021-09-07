@@ -1,0 +1,323 @@
+<html>
+<head>
+
+<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+<meta name="generator" content="Microsoft FrontPage 4.0">
+<title>ARES v2.5 Admin Manual</title>
+
+</head>
+
+<body bgcolor="white">
+
+<table border=0 width="640" cellpadding="6" cellspacing="0">
+
+<tr>
+
+<td width=10 bgcolor=#cece9c>
+<br><br><br><br>
+</td>
+
+
+
+    <td width=630 align=top>
+
+<font face="Verdana" color="#CECE9C" size="5">
+<b>
+</b></font>
+      <p>
+<a href="readme.html"><img src="areslogo.gif" width="262" height="48" align="absmiddle" border="0"></a>   <b><font size="5" color="#000066">Admin Manual</font></b></p>
+      <blockquote>
+        <p><font color="#000066" size="2" face="Verdana, Arial, Helvetica, sans-serif">Affiliate Referral Earnings System @ 2001 - 2004 <a href="license.html">See License</a><br>
+        </font> <font size="2" color="#000066" face="Verdana, Arial, Helvetica, sans-serif"><b> Packaged For use with Merchant OrderForm cart ver 2.5</b> </font></p>
+        <p><font color="#000066" size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="readme.html">Welcome</a> <strong><font color="#990000">|</font></strong> <a href="starting.html">Getting Started</a><b> <font color="#990000">|</font> </b><a href="documentation.html">Operating Documentation </a><b><font color="#990000">| </font></b><strong><a href="http://www.gardenthemes.com/ares/docs/readme.html"><img src="arrow.gif" width="12" height="7" border="0"></a>Admin Manual</strong></font></p>
+      </blockquote>
+      <p><font face="Verdana" size="2">
+</font><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">This contains what you need to know about administering the ACES v2.5 for your business.  Find what you need by the Major Topic headings below:</font></p>
+      <ul>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><a href="#Starting">How to start the admin utility</a></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><a href="#TwoRules">How to keep your data safe</a></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><a href="#DataBaseIntegrity">Can I manually delete stuff from the data?</a></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><a href="#LoggingIn">I can't Log In to the admin utility</a></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><a href="#ZeroOutFiles">How to empty out the data files to go live</a></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><a href="#UsingSearch">How to use the search boxes</a></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><a href="#HowToDelete">How to delete an Affiliate or Rep</a></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><a href="#HowToDelete">Tips for nullifying an Affiliate or Rep</a></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><a href="#BecomeARep">How to have ARES give you great order stats</a></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><a href="#RatesEffective">When do newly adjusted rates become effective</a></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><a href="#AddRep">How to add a New Representative to the database</a></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><a href="#FindReps">How to Find a Rep's record in the database</a></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><a href="#EditReps">Edit or change a Rep's information or earning rate</a></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><a href="#ViewAccountReps">How to create Earning Statements for Reps</a></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><a href="#ViewAccountReps">How to View a Rep's Account history</a></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><a href="#ViewAccountReps">How to get some great Affiliate Stats for Reps</a></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><a href="#ListRepsPending">How do I tell what Reps have pending earnings?</a></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><a href="#FindAffiliates">How to search for Affiliate Records in the database</a></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><a href="#FindNewAffiliates">How to tell what New Affiliates have signed up recently?</a></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><a href="#EditAffiliates">Edit an Affiliate's earning rate</a></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><a href="#EditAffiliates">Edit a Customer's discount rate for an Affiliate</a></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><a href="#ChangeRedirect">How to specify a special URL redirect for an Affiliate Link</a></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><a href="#ViewAffiliates">How to create Earning Statements for Affiliates</a></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><a href="#ViewAffiliates">How to View an Affiliates Account history</a></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><a href="#ListAffiliates">How to tell what Affiliate's have pending earnings?</a></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><a href="#VoidInvoice">How to Void an Invoice</a></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><a href="#MakeMail">How to make a mailing list</a></font></li>
+      </ul>
+      <p>&nbsp;</p>
+      <p><font size="2" color="#000080"><font size="4"><a name="Starting"></a>Using the Admin Script</font></font></p>
+      <ul>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Call the uadmin.cgi script up in your browser to log in and use it. <br>
+          You don't need a form for this script. The location and Login are in the &lt;settings.html) reference you saved at installation. <br>
+        </font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">You can also rename the script if you want, just make sure and change the setting for ProgramFile to reflect the new name.</font></li>
+      </ul>
+      <p>&nbsp;</p>
+      <p><font size="2" color="#000080"><font size="4"><a name="DataBaseIntegrity"></a>About Database Integrity?</font></font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">A word of <b><font color="#FF0000">caution</font></b> and advice about database integrity.  Once you go live with the ARES system, you should let ARES manage everything from that point on.  You should not attempt to manage any of the data by editing it by hand.  Always use the ARES interfaces: Either the Admin Utility or the Affiliate Sign Up and Management screens.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Data is related through all the datafiles, and you just can't go deleting an Affiliate in the infofile.dat unless you are real clear on how to delete all info related to that Affiliate in the other datafiles for passwords, coupon rates, etc.  Likewise with Representatives.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">If you delete or edit information by hand, then the system will not crash, you could risk getting some very unpredictable results.  ARES know how to handle things.  You should just let it do things.  I already knows how to account for information changes, updates, transaction deletions, etc.</font></p>
+      <p>&nbsp;</p>
+      <p><font size="2" color="#000080"><font size="4"><a name="TwoRules"></a>Two Important Rules</font></font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b>Rule Number One</b>: Do not turn off File Locking for  ARES &amp;  MOFcart scripts. By default, file locking is enabled. </font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Operating ARES with MOF requires that multiple files work with the same data in close range.  If you do not want to risk losing your data, then you should double and triple check that All File Locking settings are enabled throughout the ARES and MOF system. All File Locking is turned on in the distribution packages.</font></p>
+      <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b>Rule Number Two</b>: Backup, backup, backup.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Databases are like motorcycle riders:  There are two kinds: (1) Those that have been down, and (2) those that are going down.  Backup all your *.dat files.  If you observe Rule Number One above you can feel very confident that your data will be safe, barring any server crashes, etc.  However, you should still practice good backup habits. The rule is &quot;Backup Often, Backup Quick.&quot;</font></p>
+      <p>&nbsp;</p>
+      <p><font size="2" color="#000080"><font size="4">Email links everywhere?</font></font></p>
+      <p><font size="2" color="#000000" face="Verdana, Arial, Helvetica, sans-serif">The Admin Utility will attempt to hyperlink all email addresses that it finds.  This is so you can click and call up your email program on the fly to send instant email messages to various Affiliates, Customers, or Reps related to the task you are doing.  You'll see this at various places in the Admin Utility as you navigate through functions.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Example: You add a new Representative. On the confirmation message, click on the new Rep's email address to send an on the fly message to them. Or you change an Affiliate's earning rates (they are one of your top sellers).  The confirmation message will attempt to hyperlink their email contact to send messages.</font></p>
+      <p>&nbsp;</p>
+      <p><font size="2" color="#000080"><font size="4"><a name="LoggingIn"></a>If you have trouble logging in</font></font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Always make sure you &quot;Log Out&quot; of the Admin Utility.  If you close your browser without actually logging out, then you will not be able to log in under the old password any longer.  You'll have to create a  new password, log in and out successfully at least once.  Then you can change the password back to the old one.  Folks usually only forget the Log Out touchiness once.</font></p>
+      <p>&nbsp;</p>
+      <p><font size="4" color="#000080"><a name="ZeroOutFiles"></a>Zero out all datafiles before you go live</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">We recommend you get everything thoroughly tested to your satisfaction and then completely zero out the data files and start over with clean datafiles.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b><font color="#FF0000">Warning</font></b>: You should not attempt to manage the *.dat files manually, deleting individual records, because all 6 *.dat files have relational connections, and data is stored across all 6 files for a given Affiliate. The best way to preserve relational integrity among the data files is to let ARES manage everything. Once you are tested and ready to go live, simply zero out ALL the files and start over. </font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">The only file that you could safely remove data from is the transaction log - activitylog.dat.  You can remove individual lines in this file safely.  You are permanently removing a transaction when you do this.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b>Backup</b> all your datafiles regularly,  and Insure that all File Locking settings are enabled on completely in the ARES and MOF scripts.</font></p>
+      <p>&nbsp;</p>
+      <p><font size="4" color="#000080"><a name="UsingSearch"></a>Using the search boxes</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">The search boxes <b>str</b> will allow you to search for that pattern in all fields for a Rep or Affiliate record.    You can use a period for a wildcard.  The pattern is not case sensitive.  The search will search All fields for a Rep or Affiliate to match on. </font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Tip: If you enter one or two periods into the search <b>str</b> box, then ARES will list all available records.  You probably don't want to do this with more than 100 or 200 affiliates, since the request will return a very long list to your browser.  But if you have under a few hundred Affiliates in your database, then it's an easy way to list them all, see when you have new ones, etc.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Note: The setting below limits the number of records that a search will return.  To have the Admin Utility return all records or more records, you'll need to narrow your search or increase the Allowed number of recrods that can be returned in the following setting:</font></p>
+      <ul>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">$NarrowCouponSearch = nn;</font></li>
+      </ul>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Note: Your pattern or string must be found contained within a field.  In other words: A search for &quot;Belinda Williams&quot; will yield a No Records Found message because &quot;Belinda&quot; is in the First Name Field, and &quot;Williams&quot; is in the Last Name Field.  Hence, the pattern is not found contained in any field. The pattern really exists in two separate fields. </font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Just search for &quot;Belinda&quot; and you'll get where you need to go.</font></p>
+      <p>&nbsp;</p>
+      <p><font size="4" color="#000080"><a name="FindNewAffiliates"></a>How to List new Affiliates that signed up?</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">The Admin Utility doesn't have a specific function to do this, however, here's some search tips that can help you accomplish it.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Use a search pattern that will match on the Affiliate membership Start Date field.  The membership start date is always formatted with leading zeros this way <b>mm/dd/yyyy</b>.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Example:  match all records for Feb 2001:  <b>str</b>: &quot;02/../2001&quot;<br>
+        Example: match all new affiliates signued up  Feb 14, 2001: <b>str</b>: &quot;02/14/2001&quot;</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">We don't have date functions installed so you can't search by greater  or less than.  You're limited to searching for a specific day, or for the month.  You can search by the month, and send out personal greetings to each new affiliate from the search results page.</font></p>
+      <p>&nbsp;</p>
+      <p><font size="4" color="#000080"><a name="HowToDelete"></a>How do you delete Affiliate-Reps from the database</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">You don't. The Admin Utility can delete or void transactions only.  The only reason you would delete a transaction is if it was a charge back, or the payment was not fulfilled for some reason, and you don't want to pay out earnings on an invoice that you never collected on.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Once an Affiliate or Rep has been entered into the database, then you don't want to delete them because they could have associated transactions, or a Rep could have Affiliate associations. ARES still needs all this information to create reports and stats.  </font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b>To nullify a particular Affiliate</b>:  Find their record and set both customer discount rates, and their earning rate to zero.  Any further transactions logged under their Affiliate Number will be zero earning transactions.  When you go to list all &quot;unpaid earnings&quot; the nullified Affiliate may show transaction records, but with no earnings.  You can safely &quot;pay&quot; the zero based earnings and that will update the transaction log.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b>To nullify a particular Representative</b>: Find their record and set their earning rate to zero.  Also, conduct a search of Affiliate Records for that Rep Number, and edit each of the associated Affiliates to have a different Rep associated with them.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">So, instead of thinking in terms of deleting Reps or Affiliates, think in terms of nullifying their earnings to your system, or configuring their settings in such a way as to nullify their activity.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b>Another Trick </b>to limit or nullify a particular Affiliate or Representative's activity in your system is to assign a specific redirect URL to that Affiliate, redirecting anyone coming from their site (Affiliate Link) to a particular message on your site.  </font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b>Another Trick</b> is to set the Override Previous Cookie to ON in the ares.cgi script. Then assign  a different Full Affiliate Link as a redirect URL for the nullified Affiliate.  </font></p>
+      <ul>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">http://www.yousite.com/mcart/ares.cgi?ID=NEWNUMBER</font></li>
+      </ul>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"> This effectively assigns a new Affiliate Number to all click throughs from the nullified Affiliate Link, stopping transaction activity for that Affiliate, and redirecting it to someone else.  Be careful not to put the system into an endless loop.  If you accidentally assign the nullified Affiliate's redirect URL with their own Affiliate Number, then you could create an endless loop.</font></p>
+      <p>&nbsp;</p>
+      <p><font color="#000080" size="2"><font size="4"><a name="BecomeARep"></a>For Maximum Benefit Become A Representative</font></font></p>
+      <p><font face="Verdana" size="2">
+<font color="#000000" face="Verdana, Arial, Helvetica, sans-serif">We recommend you place yourself in the ARES system, both as a representative and as an Affiliate.&nbsp; You should be the first to register.&nbsp;&nbsp;</font></font><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">
+See more about this in the Operating Documentation.  You can have all Rates for Customer Discounts, Affiliate earnings, and Rep earnings set to zero if you want.  We suggest this because ARES can become a nice little way to analyze all your site's buying activity, but you need to have a default Rep and Affiliate for customers who don't arrive at your site from a real world Affiliate Link.  </font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Setting up a default Rep and Affiliate allows you to keep All transactions made on your site for mailing lists, etc.  If you do not plan on using Reps, or the first level commissions, then you will want to make yourself the sole Rep in the database.   By doing this, you'll be able to create a complete report on all buying activity on your site, with a nice analysis grid of all Affiliate Activity.  You can get a one page summary of Affiliate performance for all Affiliates in your system.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">If you use both tiers, and have real world Reps you are using in the system, then you'll only be able to create these reports per each Rep.  You can see how each Rep's set of Affiliates are performing.</font></p>
+      <p>&nbsp;</p>
+      <p><font size="3"><font color="#000080" size="4"><a name="RatesEffective"></a>When do newly adjusted rates become effective?</font></font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">The very next transaction following a rate adjustment from the Admin Utility will reflect the new rates. Rate adjustments are not retroactive.  If an Affiliate or Rep has pending transactions that were legitimately earned at an agreed upon rate, then their earnings remain.  </font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">You can adjust Customer Discount Rates, Affiliate Earning Rates, Representative Earning Rates as often as you want, but any transactions that are posted are posted under the rates existing at the time it posts.</font></p>
+      <p>&nbsp;</p>
+      <p><font size="3"><font color="#000080" size="4"><a name="AddRep"></a>Adding A New Representative to the Database</font></font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Representatives are not allowed to Sign Up online as Affiliates are. Only the Administrator can add new Reps to the database. You can only add new Reps via the Admin Utility.  The Admin Utility will assign the next available Rep Number based on what is already assigned in the database, incrementing the highest number found by the increment setting:</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">	$RepCodeIncrement = 100;</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">The Admin Utility also can be set to a default Rep Starting Earnings Rate.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">	$RepStartRate = 0;</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">If you have Require Reps enabled for New Affiliate Sign Ups (signup.cgi), then a Rep is required for Each Affiliate who signs up. You'll have to have at least one Rep entered into the system for this to work. You can find more info about this in the Operating Documentation: <b>Setting up the Sign Up process</b> </font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">The New Rep is immediately available to the Affiliate Sign Up process as soon as you add them via the Admin Utility.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">When you have successfully added a new Rep to the database, the screen will appear back at the <b>LOGGED IN: ADMIN MENU</b>. A confirmation message will appear top screen to tell you they were added successfully.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#990000">Added New Representative Successfully - Rep # xxx</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">From the <b>ADDING NEW REPRESENTATIVE</b> screen, you can Log Out or return to the main Menu and the record will not be saved.  The only way to save the record is to click on the &quot;Add New Rep&quot; button below the Rep information input.  That screen will prompt you if any information is incomplete.  You always have the choice of Logging Out or returning to the main Menu from an incomplete information screen and the New Rep record will not be saved.</font></p>
+      <p>&nbsp;</p>
+      <p><font size="3"><font color="000080"><font color="#000080" size="4"><a name="FindReps"></a>Find Reps to Edit-Update-View-Set Rep rates</font></font></font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Use this function to find Rep records in the database.  Enter a  search string.  The function will search the entire Rep info file and attempt to match on any field.  Example: search for a specific email address, a particular domain, a phone prefix, area code, Rep Number.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Once you enter your search string, you will get a listing of all Records matching what you are looking for on the <b>REPRESENTATIVE</b> <b>SEARCH</b> <b>RESULTS</b> screen.  The matched portion will be in bold.  </font><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Find the Rep Record that you are looking for and select your action:  <b>Edit</b> or <b>View</b>   to the right of their name. The two functions are explained in more detail below.</font></p>
+      <p>&nbsp;</p>
+      <p><font size="3"><font color="000080"><font color="#000080" size="4"><u><a name="EditReps"></a>Edit</u> or Change a Rep's Information</font></font></font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">From the <b>REPRESENTATIVE SEARCH</b> <b>RESULTS</b> screen, click on the <b>Edit</b> function right screen by the Rep's record you want to edit. </font><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">This takes you to the <b>EDITING REPRESENTATIVE</b> screen. There you can edit any of the following information:</font></p>
+      <ul>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Representative earning rate</font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Personal information</font></li>
+      </ul>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Note: rate changes become effective with the next transaction.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">When you change a Rep's  record, the information is not saved until you click the &quot;Update Rep&quot; button lower right of the <b>EDITING REPRESENTATIVE</b> screen.  W</font><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">hen you have successfully updated  a  Rep's record in the database, the screen will appear back at the <b>LOGGED IN: ADMIN MENU</b>. A confirmation message will appear top screen to tell you they were updated successfully.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#990000">Updated  Representative Successfully - Rep # xxx</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">You can Log Out or return to main Menu at any point on the <b>EDITING</b> <b>REPRESENTATIVE</b> screen, without clicking the &quot;Update Rep&quot; button, and nothing will be saved.  If you try to update a Rep record and leave off necessary information, the EDITING REPRESENTATIVE screen will prompt you with a missing information message.  Nothing is saved at this point.</font></p>
+      <p>&nbsp;</p>
+      <p><font size="3"><font color="000080"><font color="#000080" size="4"><u><a name="ViewAccountReps"></a>View</u>-Manage Account Activity for a Rep</font></font></font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">From the <b>REPRESENTATIVE SEARCH</b> <b>RESULTS</b> screen, click on the <b>View</b> function right screen by the Rep's record you want to Manage Account for. </font><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">This takes you to the <b>REPRESENTATIVE ACCOUNT HISTORY</b> screen. All transaction data is accessible from this screen, and you will be able to:</font></p>
+      <ul>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Get a </font><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">summary of all transaction activity - <b>Account Summary</b></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Get a quick count of Affiliates currently assigned to this Rep</font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">List all  Pending payments (earnings) for this Rep - <b>Payment Pending Detail</b></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">List a  History of all past payments to this Rep - <b>Previously Paid Detail</b></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Get an  analysis of all  Affiliate-Customer activity for this Rep  <b>Affiliate Stats</b></font></li>
+      </ul>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Tip: When Viewing  Rep transactions, you can filter what is displayed by the checkboxes for pending, history, affiliate stats (top screen).  The default info that is displayed can be set in the uadmin.cgi settings for:</font></p>
+      <ul>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">$view_rep_pending = 1;</font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">$view_rep_history = 0;</font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">$view_affiliate_stats = 1;</font></li>
+      </ul>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Here's detailed information on the what you can do  on the <b>REPRESENTATIVE ACCOUNT HISTORY</b> screen:</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b>Account Summary</b></font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">The Account Summary always displays.  It summarizes Paid and Not Yet Paid transactions for the Rep collected in the transaction data file. </font> </p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b>Payment Pending Detail</b></font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">This is where you can View Pending Earnings and/or generate a <b>Statement</b> of payment for a Rep.  Use this to select what transactions you want to pay the Rep for, and click the &quot;pay&quot; arrow at bottom right of the list.  The transaction log will be updated to reflect your selections and you will get a Statement detail which you can Print or SaveAs to mail the Rep along with your company check for that amount. In Internet Explorer you could even &gt; Select &gt; Copy  and &gt; Paste into an email message HTML format.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">All transactions in the database for that Rep  which you have not yet posted as paid will be listed here.  By default, all of these transactions are selected.    You can deselect any transactions that you do not want to include in this payment update. </font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b><font color="#FF0000">Very important</font></b>: If you use this list to pay Reps, then you should <b>Print</b> or <b>SaveAs</b> the <b>STATEMENT</b> presented.  This is the only chance you will get to print or save this statement. It is not a recorded statement, but a copy of the updated activity for that Rep that you just directed ARES to do. When you leave the statement page the nice little summary is gone, and the information becomes a part of the &quot;Previously Paid Detail.&quot;</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b>Previously Paid Detail</b></font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">This is a record of all previous activity you posted as paid for that Rep. Records are sorted by transaction date, most recent date to top of list.  If you want to print a historical record, then select only the &quot;history&quot; checkbox top, and submit by yellow arrow.  You can then Print or SaveAs a historical record for that Rep.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b>Affiliate Stats</b></font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">This will show you a summary grid of all Affiliate performance associated with that Rep.  The summary will list all preserved data in the transaction log.  So, even though you may have assigned a particular Affiliate to another Rep, if that Affiliate had transactions in the past while associated with the current Rep, their stats will show, but only for that Rep. The summary is only for buying activity that made it into the transaction logs.  If an Affiliate is not listed here, they have not been credited with any sales.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Note: If you are not using the Rep level for commissions, but have made yourself the only Rep, then this function will give you a  powerful one page listing of all Affiliate performance for your system.  If you have set a default Affiliate as yourself, then you will have an entire site summary of how your orders are progressing--what sales are from Affiliates, what sales aren't from Affiliates.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"> Records are sorted by top earners.  This is a fast way for you to see who is selling, click on that Affiliate's email address and send a quick Thank You note, or a note that you've upgraded their commission rates.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">You'll also see some quick Affiliate Stats upper right of the</font> <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b>REPRESENTATIVE ACCOUNT HISTORY</b></font> <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">screen.  Here's what the numbers and amounts mean.</font></p>
+      <ul>
+        <li><font color="#000080" face="Verdana, Arial, Helvetica, sans-serif" size="2">Assigned</font> <font color="#000080" face="Verdana, Arial, Helvetica, sans-serif" size="2">Affiliates</font><font color="#000000" face="Verdana, Arial, Helvetica, sans-serif" size="2"> = Number of currently assigned Affiliates</font></li>
+        <li><font color="000080" face="Verdana, Arial, Helvetica, sans-serif" size="2">Earning Affiliates</font><font color="#000000" face="Verdana, Arial, Helvetica, sans-serif" size="2"> = Number of any Affiliates with earnings under this Rep<br>
+          ( current or not current )<br>
+          <br>
+        </font></li>
+        <li><font color="000080" face="Verdana, Arial, Helvetica, sans-serif" size="2">Earnings</font> <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">&nbsp;  Total earnings in dB: Pending and Previously Paid</font></li>
+        <li><font color="000080" face="Verdana, Arial, Helvetica, sans-serif" size="2">Payments</font>  <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Total payments you posted to this Rep</font></li>
+        <li><font color="000080" face="Verdana, Arial, Helvetica, sans-serif" size="2">Pending</font> <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">&nbsp;   Total Pending earnings for this Rep</font></li>
+      </ul>
+      <p>&nbsp;</p>
+      <p><font size="4" color="#000080"><a name="ListRepsPending"></a>List Rep Earnings - Show Unpaid Rep Earnings</font>
+</p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">This function will list all Reps in the system who have Pending Earnings, i.e., commissions that you have not yet paid out or posted as paid out. Only those Reps with pending payments are listed.  It's a fast way for you to see who you owe earnings to.</font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">When you click this button you'll be take to the <b>LISTING REP EARNINGS</b> screen. All Reps with pending earnings are listed, with summary amounts for Pending Unpaid transactions, and Past Paid Transactions. </font>      
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">From the list click on the yellow arrow to the right of the Rep.  You'll be taken to the same screen described above, the <b>REPRESENTATIVE ACCOUNT HISTORY</b></font> <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">screen.  By default, if you go there from the List Rep Earnings list, then only the Payment Pending Detail list will show. Use the list to select what transactions you want to pay, then click on the &quot;pay&quot; arrow bottom right to generate a statement and update the transaction log.  See the previous  section to get more detail on this - <b>Payment Pending Detail.</b></font>
+      <p>
+      <p><font size="3"><font color="000080"><font color="#000080" size="4"><a name="FindAffiliates"></a>Find Affiliates to Edit-Update-View-Set rates</font></font></font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">You cannot Sign Up new Affiliates from the Admin Utility as you do Reps.  New Affiliates can only get into the system by completing the online Sign Up process.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Search for Affiliates with this function.  You can edit their personal information, change Customer Discount rates, change Affiliate Earning Rates, change Rep associations.  This function works very similar to the Find Rep function described above, except that you are searching the Affiliate listings instead of the Representative listings.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Enter a search string.  The function will search the entire Affiliate info file and attempt to match on any field.  Example: search for a specific email address, a phone prefix, area code, Affiliate Number, Rep Number. The quickest way to find an Affiliate in the database is to search for a piece of their Affiliate Number </font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Once you enter your search string, you will get a listing of all Records matching what you are looking for on the <b>AFFILIATE</b> <b>SEARCH</b> <b>RESULTS</b> screen.  The matched portion will be in bold.  Find the Affiliate Record that you are looking for and select your action:  <b>Edit</b>,  <b>View</b> or <b>URL</b> function to the right of their name. The three functions are explained in more detail below.</font></p>
+      <p>&nbsp;</p>
+      <p><font size="3"><font color="000080"><font color="#000080" size="4"><u><a name="EditAffiliates"></a>Edit</u> or Change an Affiliates Information</font></font></font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">From the <b>AFFILIATE</b> <b>SEARCH</b> <b>RESULTS</b> screen, click on the <b>Edit</b> function right screen by the Affiliate's record you want to edit. </font><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">This takes you to the <b>EDITING AFFILIATE</b> screen. There you can edit any of the following information:</font></p>
+      <ul>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Customer Discount Rates</font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Affiliate Earning Rates</font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Representative Association</font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Personal information</font></li>
+      </ul>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Note: Rate changes and Rep assignment become effective with the next transaction. Also note that you cannot change the Affiliates Email address or their password from Admin.  These can only be managed by the Affiliate Management screen.  Affiliates have access to the same personal information that you do from the Admin, and Affiliate's personal information can be changed by them from the User Management screen or by Admin from the Admin Utility. Affiliates do not have access to changing Customer Discount Rates, Affiliate Earning Rates, or Representative Assignment.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">When you change an Affiliate's  record, the information is not saved until you click the &quot;Update Affiliate&quot; button lower right of the <b>EDITING AFFILIATE</b> screen.  W</font><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">hen you have successfully updated  an Affiliate's record in the database, the screen will appear back at the <b>LOGGED IN: ADMIN MENU</b>. A confirmation message will appear top screen to tell you they were updated successfully.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#990000">Updated  Affiliate Successfully - Affiliate # xxx</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">You can Log Out or return to main Menu at any point on the <b>EDITING</b> <b>AFFILIATE</b> screen, without clicking the &quot;Update Affiliate&quot; button, and nothing will be saved.  If you try to update an Affiliate record and leave off necessary information, the <b>EDITING</b> <b>AFFILIATE</b> screen will prompt you with a missing information message.  Nothing is saved at this point.</font></p>
+      <p>&nbsp;</p>
+      <p><font size="3"><font color="000080"><font color="#000080" size="4"><a name="ChangeRedirect"></a>Assign or Change an  Affiliates  Redirect <u>URL</u></font></font></font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">From the <b>AFFILIATE</b> <b>SEARCH</b> <b>RESULTS</b> screen, click on the <b>URL</b> function right screen by the Affiliate's record you want to assign or change a redirect URL for. </font><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">This takes you to the <b>AFFILIATE</b> <b>REDIRECT</b> <b>URL</b> screen. The information on that screen will tell you the current status of the Affiliate: if they have a redirect URL or not, and what it is if they do.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"> Affiliates by default do not have a redirect URL associated with them. When Affiliates sign up this is not an option for them to select.  If you have a special reason for re directing a specific Affiliate's click throughs to a certain URL on your site, then you can set the URL using this function.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">ARES will direct you to either &quot;<b>Add</b>&quot; or &quot;<b>Change</b>&quot; an Affiliate's URL.  The URL is not added or changed until you click the &quot;Add&quot; or &quot;Change&quot; button lower center screen, and receive the confirmation message on the <b>LOGGED IN: ADMIN MENU</b> screen:</font></p>
+      <p><font color="#990000">Added Redirect URL Successfully for # Number</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">The URL will be hyperlinked so go ahead and <b>test</b> it to see that it  is leading to the correct place.   When a redirect URL is set for an Affiliate, then all visitors arriving at your site via the Affiliate's Link  will end up at the page on the ARES confirmation message.  They will go where you went when you click on the confirmation message URL.  So test it, then use your browser back button to return to ARES</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">If an Affiliate does not have a redirect URL listed for them, then the system will send all click throughs from that Affiliate to the Default URL defined in ares.cgi</font></p>
+      <ul>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">$defaulturl = 'http://www.yourplace.com/shop/';</font></li>
+      </ul>
+      <p><b>How it works</b>: <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">When a visitor clicks on the Affiliate Link, they are sent to ares.cgi, which sets the cookie, and then checks the URL redirect information to see if that particular Affiliate has a special redirect page. If one is found, then ares.cgi will redirect to that page, otherwise, ares.cgi will redirect to the default page.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">If you want to remove an Affiliate's redirect URL, then pull up their record, select URL, and delete the existing redirect URL listed for them in the text box. Click on  &quot;Change.&quot; The redirect URL for that Affiliate was deleted when you return to the <b>LOGGED IN: ADMIN MENU</b> screen and receive this message:</font></p>
+      <p><font color="#990000" face="Verdana, Arial, Helvetica, sans-serif" size="2">Deleted Redirect URL Successfully for # Number<br>
+        Affiliate does not have a current Redirect URL, defaults apply</font></p>
+      <p>&nbsp;</p>
+      <p><font size="3"><font color="000080"><font color="#000080" size="4"><u><a name="ViewAffiliates"></a>View</u>-Manage Account Activity for an Affiliate</font></font></font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">From the <b>AFFILIATE</b> <b>SEARCH</b> <b>RESULTS</b> screen, click on the <b>View</b> function right screen by the Affiliate's record you want to Manage Account for. This takes you to the <b>AFFILIATE ACCOUNT HISTORY</b> screen. All transaction data is accessible from this screen, and you will be able to:</font></p>
+      <ul>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Get a </font><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">summary of all transaction activity - <b>Account Summary</b></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">List all  Pending payments (earnings) for this Affiliate - <b>Payment Pending Detail</b></font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">List a  History of all past payments to this Affiliate - <b>Previously Paid Detail</b></font></li>
+      </ul>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Tip: When Viewing  Affiliate transactions, you can filter what is displayed by the checkboxes for pending and  history (top screen).  The default info that is displayed can be set in the uadmin.cgi settings for:</font></p>
+      <ul>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">$view_affiliate_pending = 1;</font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">$view_affiliate_history = 0;</font></li>
+      </ul>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Here's detailed information on the what you can do  on the <b>AFFILIATE ACCOUNT HISTORY</b> screen:</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b>Account Summary</b></font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">The Account Summary always displays.  It summarizes Paid and Not Yet Paid transactions for the Affiliate collected in the transaction data file. </font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b>Payment Pending Detail</b></font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">This is where you can View Pending Earnings and/or generate a <b>Statement</b> of payment for an Affiliate.  Use this to select what transactions you want to pay the Affiliate for, and click the &quot;<b>pay</b>&quot; arrow at bottom right of the list.  The transaction log will be updated to reflect your selections and you will get a Statement detail which you can Print or SaveAs to mail the Affiliate along with your company check for that amount. In Internet Explorer you could even &gt; Select &gt; Copy  and &gt; Paste into an email message HTML format.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">All transactions in the database for that Affiliate  which you have not yet posted as paid will be listed here.  By default, all of these transactions are selected.    You can deselect any transactions that you do not want to include in this payment update. </font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b><font color="#FF0000">Very important</font></b>: If you use this list to &quot;pay&quot; your Affiliates, then you should <b>Print</b> or <b>SaveAs</b> the <b>STATEMENT</b> presented.  This is the only chance you will get to print or save this statement. It is not a recorded statement, but a copy of the updated activity for that Affiliate that you just directed ARES to do. When you leave the statement page the nice little summary is gone, and the information becomes a part of the &quot;Previously Paid Detail.&quot;</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b>Note</b>: This &quot;Payment Pending Detail&quot; list for Affiliates  operates basically the same as the Rep Payment Pending Detail list.  But for Affiliates you have two ways to generate <b>STATEMENT</b>s and update transactions as Paid. (<b>1</b>) From this list, and (<b>2</b>) You have the option to &quot;<b>Pay All</b>&quot; pending transactions without ever viewing this list.   More detail on how option two works can be found in the next section below: <font color="#000080">List Affiliate Earnings - Show Unpaid Affiliate Earnings.</font></font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b>Previously Paid Detail</b></font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">This is a record of all previous activity you posted as paid for that Affiliate. Records are sorted by transaction date, most recent date to top of list.  If you want to print a historical record, then select only the &quot;history&quot; checkbox (top screen), and submit by yellow arrow.  You can then Print or SaveAs a historical record for that Affiliate.</font></p>
+      <p>&nbsp;</p>
+      <p><font size="4" color="#000080"><a name="ListAffiliates"></a>List Affiliate Earnings - Show Unpaid Affiliate Earnings</font>
+</p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">This function will list all Affiliates in the system who have Pending Earnings, i.e., commissions that you have not yet paid out or posted as paid out. Only those Affiliates with pending payments are listed.  It's a fast way for you to see who you owe earnings to.</font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">When you click this button you'll be taken to the <b>LISTING AFFILIATE EARNINGS</b> screen. All Affiliates with pending earnings are listed, with summary amounts for Pending Unpaid transactions, and Past Paid Transactions.   </font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Unlike the LISTING REP EARNINGS screen, you'll have two options for creating Affiliates payment <b>Statements</b></font>
+      <ol>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">The &quot;<b>Select</b>&quot; link</font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">The &quot;<b>Pay All</b>&quot; link</font></li>
+      </ol>
+      <p><b><u>Select</u></b>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">This function will take you to the same screen described above for listing <b>Payment Pending Detail</b>, the <b>AFFILIATE ACCOUNT HISTORY</b></font> <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">screen.  If you go there from the <b>LISTING AFFILIATE EARNINGS</b> screen, by default,  only the Payment Pending Detail list will show. Use the list to <b>select</b> what transactions you want to pay, then click on the &quot;<b>pay</b>&quot; arrow bottom right to generate a statement and update the transaction log.  See the previous  section on Affiliates to get more detail on this - <b>Payment Pending Detail.</b></font>
+      <p><b><u>Pay All</u></b>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">This function will bypass the Payment Pending Detail selection choices listed on the <b>AFFILIATE ACCOUNT HISTORY</b> screen, and you will not get a choice of what pending transactions to pay or not.  This function will update and post <b>ALL</b> pending transactions for the Affiliate, and then present you with the <b>STATEMENT</b> screen.</font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FF0000">Warning</font><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">: If you use this you should be sure there are no pending invoices that need to be voided for non payment.</font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">You should read the section above for Affiliates called: <b>Payment Pending Detail</b>.  This section has more detail on what to do with the STATEMENT and what the STATEMENT is all about.</font>
+      <p>
+      <p><font size="4" color="#000080"><a name="VoidInvoice"></a>How do I void an invoice?</font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">The &quot;Transaction Management&quot; section has this function. You'll need the exact Invoice Number to enter into the &quot;Find&quot; Box.  You can't enter a part of the Invoice Number and get search results.  You should know the exact Invoice Number or you wouldn't be trying to void it.</font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Enter the Invoice Number into the &quot;Find&quot; Box.  If the invoice is found, you'll be presented with a &quot;<b>Delete Invoice #####</b>&quot; button.  You'll also see a message to the right of the button about what you are getting ready to delete.  The message will confirm the Invoice Number, Date, Amount, and Affiliate Number associated to the transaction.  Check that it is correct, then click the &quot;Delete Invoice ######&quot; button. </font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Nothing will be deleted unless you click the &quot;Delete Invoice #####&quot; button.  It is safe to click on any other button on the page at this point and the screen will refresh without your &quot;Find&quot; Invoice Number to delete. </font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">If you click the &quot;Delete Invoice #####&quot; button, the Invoice will be deleted from the transaction log as if it never existed.  You will return to the LOGGED IN: ADMIN MENU and a confirmation message will appear stating:</font>
+      <p><font color="#990000">Successfully Deleted Invoice # Number</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000"><b><font color="#FF0000">Warning</font></b>: The invoice will be gone as if it had never existed.  So if you delete an invoice that has already been included in creating an Affiliate or Rep <b>STATEMENT</b>, then the information will be gone. It will not be listed any longer in the Rep's or Affiliates Account History.  Be careful to pay Rep or Affiliate earnings only on invoices where the customer's payment has cleared.</font>
+      <p>
+      <p><font size="4" color="#000080"><a name="MakeMail"></a>Make Mailing Lists</font>
+
+      
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">You can create an <b>ASCII</b> text file containing email addresses from the Make Mailing List function.  Sorry, we did not include automated sendmail abilities in this feature because if the lists are very long, then you wouldn't want to bulk mail from the browser this way.  So, we only created the ability to create the list.</font>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Give a name to the File that you want to create. The file will be created in the directory you have defined in uadmin.cgi settings for:</font>
+      <ul>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">$mail_file_path = '/ABSOLUTE_PATH_TO_DATAFILES/';
+      </font></li>
+      </ul>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Select the options you want from the right area, and click the &quot;List&quot; button.  A file will be created in the pathway above containing the email addresses that match your options selected.  If the file already exists you will get a &quot;File Already Exists&quot; message.  This is to prevent you from overwriting any important files on your server.</font>
+      <ul>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Email addresses for customers come from the entire transaction log</font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Email addresses for Affiliates come from the Affiliate database</font></li>
+        <li><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">Email addresses for Reps come from the Rep database</font></li>
+      </ul>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">If the email address file was created successfully you'll get <b>MAKE MAIL LIST </b>&nbsp;confirmation screen, which summarizes the mail list file, how many addresses, what options you selected, etc.  You can go to the location it says and download your file.   Use the file to import into another database for mailing, or to use for any bulk mailer program.</font></p>
+      <p>
+      <p><font face="Verdana" size="1">Th</font><font face="Verdana" size="1">ese programs are copyright @ <a href="http://www.merchantorderform.com">MerchantOrderForm.com</a>,
+ <a href="http://www.merchantpal.com">MerchantPal.com</a>
+ 2001 - 2004</font>
+
+
+    </td>
+
+</tr>
+
+</table>
+
+</body>
+
+</html>
+

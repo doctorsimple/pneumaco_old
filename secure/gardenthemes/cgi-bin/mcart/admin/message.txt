@@ -1,0 +1,91 @@
+
+I am pleased to inform you that your new shopping cart has been installed. Please Save and/or print this message. It contains information specific to your site installation.
+
+MOFcart v2.5 & ARES v2.5 have been installed for:
+  > www.gardenthemes.com
+
+Business Information used:
+  > gardenthemes.com
+  > Church Street, P.O. Box 97
+  >  Stewart, OH 45778-0097
+  > 740-662-2142
+  > 740-662-2120 
+
+The Merchant will receive an email notice each time an online order is completed. The notice is set to mail to the following address: orders@gardenthemes.com
+
+There are more details about the installation here:
+http://www.gardenthemes.com/mofcart/docs/mofinstallation.html
+
+ > user : docs
+ > pswd : lwftmb
+
+You will need the following User IDs & Passwords to access some areas:
+
+If the web copy Invoices are enabled and password protected, customers will receive User:Pswd in the auto-mail notice
+  > user : invoice
+  > pswd : lwftmb
+
+
+Full online documentation for MOFcart v2.5:
+http://www.merchantorderform.com/docs/
+
+To access the Secure Credit Card Retrieval Utility you will need two logins:
+
+Area Authentication : Login once if you have your browser "save pswd"
+  > user : gardener
+  > pswd : lwftmb
+
+Utility Password:
+https://secure32.elinuxservers.com/~gardenth/cgi-bin/mcart/admin/mofcc.cgi
+  > admin password : lwftmb
+
+Important Note: *ALWAYS* Log out of this utility when done. If you switch areas, or close your browser, without logging out, the utility may not let you back in, until you change the pswd. See docs if you need to change pswd.
+
+
+======== If ARES is being used
+
+Full online documentation for ARES v2.5:
+http://www.gardenthemes.com/ares/docs/
+ > user : docs
+ > pswd : lwftmb
+
+To access the "admin" utility use the same admin logins as for CC info:
+https://secure32.elinuxservers.com/~gardenth/cgi-bin/mcart/admin/uadmin.cgi
+
+Area Authentication : 
+  > user : gardener
+  > pswd : lwftmb
+
+Utility Password:
+  > admin password : lwftmb
+
+Utility Password:
+  > user management password : chosen at signup by affiliate
+
+
+========= Other important information
+
+
+========= Customized features
+
+
+
+
+
+- Thanks
+- RGA & MerchantPal.com
+- http://www.MerchantPal.com
+- http://www.MerchantOrderForm.com
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,280 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<!-- Merchant Ordering Form v1.53  -->
+<!-- CGI script by RGA@IO.com -->
+<!-- http://www.io.com/~rga -->
+<!-- This is an example web page on how to set up OrderForm pages on your site -->
+<!-- MOF accepts input of many kinds, consult Documentation.html for assistance -->
+
+<html>
+
+<head>
+<title>Example OrderForm MOF v1.53</title>
+</head>
+
+<BODY BACKGROUND="mofback.jpg" TOPMARGIN="0" LEFTMARGIN="0" MARGINWIDTH="0" MARGINHEIGHT="0" BGCOLOR=FFFFFF>
+
+<a href="http://bandbstudios.com/"><img src="mofsplash_ex.gif" border=0 width=468 height=60></a>
+<br>
+
+<BLOCKQUOTE>
+
+<font face="Arial,Helvetica" size="3">
+<font color=navy>
+<h3>Merchant OrderForm v1.53 Price Adjust Examples
+<a href="http://bandbstudios.com/cgi-bin/mof.cgi?viewcart">
+<img align=top src="viewcartlink.gif" border=0 width=60 height=30 alt="View Cart Contents">
+</a>
+</h3>
+<font color=black>
+
+This is an example of how to add price adjustments to a base product and price depending
+ on what product options are selected. <p>
+
+
+<font face="Arial,Helvetica" size="3">
+
+<strong>
+1. The Fantastic Drum Set Combo: Base Price $ 699.95
+</strong><font color=black>
+<p>
+
+
+
+<!-- THIS WILL POINT TO THE FIRST PROCESSING SCRIPT-->
+<!-- IT IS A RELATIVE OR FULL HTTP URL ONLY-->
+<!-- IT CANNOT BE AN ABSOLUTE ADDRESS-->
+
+<FORM method=POST action="http://bandbstudios.com/cgi-bin/mof.cgi">
+
+
+
+<!-- THE POSTMODE/QUANTITY/PRODUCT IS HIDDEN INFO -->
+
+<INPUT type="hidden" name="postmode" value="SINGLEPOST">
+<INPUT type="hidden" name="quantity" value=1>
+
+<INPUT type="hidden" name="order"
+ value="Fantastic Drum Set----Handmade custom drum set $ 699.95----699.95----13----1">
+
+</font>
+
+
+
+<blockquote>
+<font face="Arial,Helvetica" size="2" color=navy>
+
+<strong>
+What Type of Skins for your Set ?
+</strong>
+<br>
+
+
+<SELECT name=DrumSkin>
+ <OPTION selected value="">Select Skin Type
+ <OPTION value="Great Blue----15.99">Great Blue Skin Add $ 15.99
+ <OPTION value="Snake Skin----39.50">Snake Skin Add $ 39.50
+ <OPTION value="Basic Skin-----10.25">Basic Skin Subtract $ 10.25
+ <OPTION value="Black Diamond----0">Black Diamond Skin No Charge
+</SELECT>
+
+
+</blockquote>
+
+<p>
+
+
+<blockquote>
+<font face="Arial,Helvetica" size="2" color=navy>
+<strong>
+What type of Rim for your Set ?
+</strong>
+<br>
+
+</font>
+<font face="Arial,Helvetica" size="2" color=black>
+
+<input type=radio name="DrumRim" 
+  value="Standard Chrome Rim----0" checked="on"> Standard Chrome Rim no charge<br>
+
+<input type=radio name="DrumRim" 
+  value="Metalic Silver----99.00"> Metalic Silver Add $ 99.00<br>
+
+<input type=radio name="DrumRim" 
+  value="Purple Metalflake----22.55"> Purple Metalflake Add $ 22.55 <br>
+
+<input type=radio name="DrumRim" 
+  value="Rainbow Rims----19.98"> Rainbow Rims Add $ 19.98 <br>
+
+<input type=radio name="DrumRim" 
+  value="Green Gardenhose-----55.00"> Green Gardenhose Rims Subtract $ 55.00 <br>
+
+
+
+</blockquote>
+
+<p>
+
+<blockquote>
+
+<font face="Arial,Helvetica" size="2" color=navy>
+<strong>
+What Color for your Set ?
+</strong>
+<br>
+
+</font>
+<font face="Arial,Helvetica" size="2" color=black>
+
+
+<SELECT SIZE=6 NAME="DrumColor">
+
+<OPTION SELECTED VALUE="">
+
+<OPTION VALUE="Sparkle Yellow">Sparkle Yellow
+
+<OPTION VALUE="Sparkle Red">Sparkle Red
+
+<OPTION VALUE="Sparkle Green">Sparkle Green
+
+<OPTION VALUE="Sparkle Purple">Sparkle Purple
+
+<OPTION VALUE="Jet Black">Jet Black
+
+</SELECT>
+
+</blockquote>
+
+
+<blockquote>
+<font face="Arial,Helvetica" size="2" color=navy>
+<strong>
+What Name to put on the Set ?
+</strong>
+<br>
+
+
+</font>
+<INPUT type="text" name="DrumName" size=45>
+
+</blockquote>
+
+
+
+
+
+<blockquote>
+<font face="Arial,Helvetica" size="2" color=navy>
+<strong>
+What type of Printing for the Name ?
+</strong>
+<br>
+
+</font>
+<font face="Arial,Helvetica" size="2" color=black>
+
+<input type=radio name="DrumPrint" 
+  value="Plain Black Lettering----0" checked="on"> Plain Black Lettering<br>
+
+<input type=radio name="DrumPrint" 
+  value="24 karat Gold Engraving----249.00"> 24 karat Gold Engraving $ 249.00<br>
+
+
+</blockquote>
+
+
+
+
+
+<br>
+
+<blockquote>
+
+<font size=2>
+<input type=submit value="Add To Cart">
+
+</blockquote>
+
+
+</FORM>
+
+
+
+<font face="Arial,Helvetica" size="3">
+
+<strong>
+Notes on this form input
+</strong><font color=black>
+<p>
+
+
+ Each product option can be required input or not, 
+ and each product option selected will adjust the price according to an underlying value
+ for that particular option.  A product option may have a negative value, a zero value, or 
+ a positive value for adjusting the base price of the starting product.  Each product option
+ can be laid out as a drop box, list box, or radio button.  You probably don't want to use 
+ checkboxes, since checkboxes don't have a way to force only one selection per group.  
+
+<p>
+
+You must declare all field names throughout your Product Input pages that will be used
+ as Price Adjusting Fields.  Declare the Field Names in the Front End configuration file, 
+ under the <strong>@field_adjustments </strong> array.  Do not format any Field names in 
+ your forms as Price Adjusting Fields unless you declare them in the configuration file. 
+ If you do this, then product information will be distorted.  It's okay to use the same
+ Field Names for Regular fields and Price Adjusting fields, as long as you have it 
+ declared as a Price Adjusting Field.  If Mof sees a Field formatted for Price Adjustments,
+ but cannot locate it declared in the @field_adjustments array, then it does not treat 
+ it as a Price Adjusting field.  Mof treats product option input as containing price 
+ adjustment data only if it is declared in that array.
+
+<p>
+
+<ul>
+<li>A Price Adjusting Field value looks like this:
+<li>value=<font size=2><strong>Some Description----19.29</strong><font size=3>
+</ul>
+
+You must use the same default delimiter seperating Description----Price, as you used 
+ in your main products.  If a particular option does not effect price then designate the price as 
+ zero.  If a particular option subtracts from the item's base price then you must use
+ the delimiter (4 hyphens) and the minus sign, which means that your description-----price
+ will be seperated by 5 hyphens.  Use only 4 hyphens to seperate description and an added
+ expense to the itme's base price. Always use the 0.00 format, use two decimil spaces. 
+<p>
+
+You don't have to specify the price adjustment in the description.  Mof will add that 
+ as it processes the adjustment.  You do need to add the Base Price into the main 
+ item description as in the example below.
+ 
+
+<ul>
+<li>postmode=<font size=2><strong>SINGLEPOST</strong><font size=3><br>
+<li>quantity=<font size=2><strong>1</strong><font size=3><br>
+<li>order=<font size=2><strong>Fantastic Drum Set----Handmade custom drum set $ 699.95----699.95----13----1</strong><font size=3><br>
+
+</ul>
+
+
+<br><br>
+
+<font face="Arial,Helvetica" size="2">
+
+Happy Ordering<br>
+
+Copyright &copy; 
+<a href="http://www.io.com/~rga/scripts/">
+Merchant OrderForm </a> v1.53
+<br>
+All Rights Reserved, April 2000 by
+<a href="http://www.io.com/~rga/">RGA</a>
+<br>
+These programs may not be distributed without consent of owner.
+<br>
+
+<br><br><br>
+
+</BLOCKQUOTE>
+
+</body>
+</html>

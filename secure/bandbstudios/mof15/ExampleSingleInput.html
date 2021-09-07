@@ -1,0 +1,588 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<!-- Merchant Ordering Form v1.53  -->
+<!-- CGI script by RGA@IO.com -->
+<!-- http://www.io.com/~rga -->
+<!-- This is an example web page on how to submit to the MOF Cart Scripts -->
+<!-- MOF accepts input of many kinds, consult the documentation for assistance -->
+
+<html>
+
+<head>
+<title>Example Input MOF v1.53</title>
+</head>
+
+<BODY BACKGROUND="mofback.jpg" TOPMARGIN="0" LEFTMARGIN="0" MARGINWIDTH="0" MARGINHEIGHT="0" BGCOLOR=FFFFFF>
+
+<a href="http://bandbstudios.com/"><img src="mofsplash_ex.gif" border=0 width=468 height=60></a>
+<br>
+
+
+<blockquote>
+
+<font face="Arial,Helvetica" size="3">
+<font color=navy>
+<h3>Merchant OrderForm v1.53 Single Input Examples
+
+
+<FORM method=GET action="http://bandbstudios.com/cgi-bin/mof.cgi">
+<INPUT type=hidden name="viewcart" value="">
+<INPUT TYPE="submit" VALUE="ViewCart">
+</FORM>
+
+</h3>
+<font color=black>
+
+The examples on this page show you how to use <font color=navy><strong>
+ SINGLEPOST </strong><font color=black> mode in 
+ <font color=#800000><i><strong>
+ Merchant OrderForm v1.53</strong></i>.  
+ <font color=black> 
+ This mode is used for collecting products 
+ from around your Web Site and keeping a Shopping Cart of items. Usually 
+ products are submitted one at a time from various pages around your site 
+ that display products and product information.  Consult the page on 
+ <a href="ExampleOrderForm.html">
+ OrderForm Examples </a>
+ if you want to use the OrderForm modes for MOF.
+<p>
+
+
+Here are <font color=navy><strong>two basic ways</strong><font color=black>
+to have products put into the 
+<font color=#800000><i><strong>
+Merchant OrderForm v1.53 </strong></i> 
+<font color=black> 
+cart from various pages around your site using the Single Post method. 
+<br>
+
+<ol>
+<li>Submit via Hidden Input, using Anchor or Get
+<li>Submit via Form Post input
+</ol>
+
+<p>
+
+<font size=3>
+In order to adapt your Web Site pages to submit products to the Merchant OrderForm 
+ system, you should have some basic skill with constructing Forms in HTML. If you 
+ use a Web Page Editor like Front Page or Page Mill, then you should know how to 
+ use them to Construct Form Input.
+<p>
+
+This example page includes suggestions on how to use Links, Get, and Post 
+ directives to submit products from various pages around your Web Site. 
+ You can follow the examples in the underlying HTML syntax on this page 
+ to get you started. When you View the Source or HTML for this example 
+ page you will also see many Comments embedded around the input syntax. 
+ If you need help on the basics of building Forms in Web Pages, there are
+ many free tutorials around the internet.
+<p>
+
+
+<h4>1. How To Submit via Hidden Input</h4>
+
+<font face="Arial,Helvetica" size="3">
+This option sends <strong> predetermined information </strong> about a product to 
+ the MOF cart system. You can place these types of links to MOF from any page on 
+ your site, next to any products on your site. You cannot use this option if you want 
+ to allow customers to select types of information about the 
+ product, such as type, color, size, quantity, etc.  Read the documentation 
+ section on <font color=navy>Submitting Products via Hidden Input <font color=black> 
+ to review detailed instructions. You will be submitting 
+ <strong> 6 </strong> Fields of information under the name=<strong>order</strong> 
+ in these three examples.
+
+<ul>
+<li>order=Quantity----Product----Description----Price----ShipCode----Tax
+</ul>
+
+
+<p>
+
+<ol>
+
+<font face="Arial,Helvetica" size="3">
+<li>Send a product via a hyperlink anchor this way:<br>
+
+<!-- THIS IS THE ACTUAL QUERY ENVIRONMENT LINK -->
+
+<a href="http://bandbstudios.com/cgi-bin/mof.cgi?order=14----BaseBall+Cards----Description+Requires+Plus+Seperators----14.00----3----1">
+<strong>Order </strong> World Class BaseBall Cards</a> Set of 14
+<p>
+
+
+<!-- These types of single input require that 6 fields be sent -->
+<!-- [Quantity----Product----Description----Price----ShipCode----TaxY/N] -->
+
+
+
+<font face="Arial,Helvetica" size="3">
+<li>Use the same hyperlink method with a picture:<br>
+
+<!-- THIS IS THE ACTUAL QUERY ENVIRONMENT LINK -->
+
+<a href="http://bandbstudios.com/cgi-bin/mof.cgi?order=10----BaseBall+Cards----Description+Requires+Plus+Seperators----10.00----2----1">
+<img src="buyitem.gif" width=78 height=45 border=0></a>
+
+
+
+
+<!-- THIS WILL POINT TO THE FIRST PROCESSING SCRIPT-->
+<!-- IT IS A RELATIVE OR FULL HTTP URL ONLY-->
+<!-- IT CANNOT BE AN ABSOLUTE ADDRESS-->
+
+<FORM method=GET action="http://bandbstudios.com/cgi-bin/mof.cgi">
+
+<li>Use a Form Get directive with a button:<br>
+
+<input 
+ type="hidden" 
+ name="order" 
+ value="1----Birds and Flowers----Description----1425.00----2----1">
+
+<font face="Arial,Helvetica" size="2">
+<input type=submit value="Add To Cart">
+
+
+</FORM>
+
+
+</ol>
+<p>
+
+<font size=2>
+Tip: Hold your mouse pointer over the hyperlinks for example 1 or 2 above, and check 
+ out your browser's Status Bar at the bottom. You can see what's happening with this 
+ type of submission. Your product info is sent to the location of the MOF processing 
+ script as part of the line, and MOF processes anything past the <strong> ? </strong> 
+ mark.
+ <p>
+
+
+
+<h4>2. How To Submit via Form Post</h4>
+
+<font face="Arial,Helvetica" size="3">
+
+This option allows for various ways to accept user input on the product that 
+ will be sent to the MOF cart system. <font color=red>Important<font color=black>: 
+ Your configuration settings must match what you want to do with this kind of input. 
+ Make sure you understand the documentation on <font color=navy> 
+ Configuring Form Post User Input Options <font color=black> to populate your 
+ site pages with this kind of input.  That part of the documentation will tell 
+ you how your Form Input options must be identified in the MOF configuration file. 
+ If your Form Input is not identified exactly in the MOF configuration file then 
+ MOF will not know what kind of input and options it should be looking for.
+<p>
+
+This method also requires some "hidden" input.  Read the Documentation or the 
+ comments in this underlying HTML to understand what "hidden" input is required.
+<p>
+
+<font color=navy><strong>
+A Submission from The Web World Hat Store
+</strong><font color=black><p>
+
+This example is used to submit a product appearing on a page of 
+ your Web Site to the MOF cart processing system. You must enclose 
+ this Form Input between the FORM POST tags.  Two types of 
+ "hidden" input are required:
+
+<ol>
+<li>postmode=SINGLEPOST
+<li>order=Product----Description----Price----Ship----Tax
+</ol>
+
+Note in this example that only <strong> 5 </strong> Fields 
+ are submitted under the name=<strong>order</strong>. The 
+ <strong> quantity </strong> is seperate input. 
+ You can include a "quantity" input box, 
+ or send quantity as hidden input. If you do not send "quantity" then MOF 
+ will default to one for quantity input.
+<p>
+
+You can add an unlimited number of options for your Product Input 
+ using "SINGLEPOST" mode, as long as you declare all your settings 
+ in the MOF configuration file. <p>
+
+
+The User Input Options will be added to the Description section for 
+ that product, and you can tell MOF which of these Options are required 
+ input.  You can also tell MOF how to format your User Input when it 
+ appears in the Description Field of your product.
+<p>
+
+
+
+<!-- THIS WILL POINT TO THE FIRST PROCESSING SCRIPT-->
+<!-- IT IS A RELATIVE OR FULL HTTP URL ONLY-->
+<!-- IT CANNOT BE AN ABSOLUTE ADDRESS-->
+
+<FORM method=POST action="http://bandbstudios.com/cgi-bin/mof.cgi">
+
+<!-- YOU MUST IDENTIFY THE MODE BEING USED -->
+
+<input type="hidden" name="postmode" value="SINGLEPOST">
+
+<!-- YOU MUST IDENTIFY THE PRODUCT BEING SENT -->
+<!-- IMPORTANT: Form Post values contain only 5 fields-->
+<!-- [Product----Description----Price----ShipCode----TaxY/N] -->
+
+<input type="hidden" name="order" 
+value="Propeller Hat----World Famous Propeller Hat----19.99----2----1">
+
+<!-- You can also leave out a description if you only want your input to show there -->
+<!-- [Product--------Price----ShipCode----TaxY/N] -->
+<!-- If you do this make sure you keep all needed delimiters in place -->
+
+
+<!-- YOU CAN SUBMIT QUANTITY AS HIDDEN "1" IF WANTED -->
+<!-- Or you can Submit QUANTITY as text box -->
+<!-- If you don't submit quantity input then 1 will be used by the script -->
+<!-- Quantity input must be name="quantity" -- A reserved field -->
+
+<table border=0 cellpadding=2 cellspacing=0 width=500>
+
+<tr><td colspan=2 bgcolor=#DDFFDD>
+<font face="Arial,Helvetica" size="3" color=navy>
+<strong>The World Famous Propeller Hat</strong> 
+</td></tr>
+
+<tr bgcolor=#FFE8E8>
+
+<td width=60>
+<img src="propellerhat.gif" width=60 height=60 border=0>
+</td>
+
+<td width=440>
+<br>
+
+<table border=0 cellpadding=1 cellspacing=0>
+<tr>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Qty</strong><br>
+<font face="Arial,Helvetica" size="3" color=black>
+<input type="text" name="quantity" size=3 maxlength=3>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Hat Color</strong><br>
+<SELECT name=HatColor>
+ <OPTION selected value="">Select Color
+ <OPTION value="Rainbow">Rainbow
+ <OPTION value="Purple Stripe">Purple Stripes
+ <OPTION value="Yellow Solid">Yellow Solid
+ <OPTION value="Sunburst Red">Sunburst Red
+</SELECT>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Size</strong><br>
+<SELECT name=HatSize>
+ <OPTION selected value="">Select Size
+ <OPTION value="Small">Small
+ <OPTION value="Medium">Medium
+ <OPTION value="Large">Large
+ <OPTION value="Extra Large">Extra Large
+</SELECT>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Prop Color</strong><br>
+<SELECT name=PropellerColor>
+ <OPTION selected value="">Propeller Color
+ <OPTION value="Bright Red">Bright Red
+ <OPTION value="Dull Green">Dull Green
+ <OPTION value="Metallic Purple">Metallic Purple
+ <OPTION value="Shinny Yellow">Shinny Yellow
+</SELECT>
+</td>
+
+</tr></table>
+
+</td></tr>
+</table>
+
+<p>
+<font face="Arial,Helvetica" size="3" color=black>
+Use a button to send this to the cart 
+<font face="Arial,Helvetica" size="2">
+<input type=submit value="Add To Cart">
+<br>
+
+<font face="Arial,Helvetica" size="3" color=black>
+
+
+Or use a custom image to send it along to the cart  
+<input type="image" src="buyitem.gif" align=middle width=78 height=45 border=0 alt="Click Here to Add to Cart">
+
+
+</FORM>
+
+
+
+<!-- GROUPING SINGLEPOST PRODUCTS -->
+<!-- GROUPING SINGLEPOST PRODUCTS -->
+<!-- GROUPING SINGLEPOST PRODUCTS -->
+<!-- GROUPING SINGLEPOST PRODUCTS -->
+
+
+
+
+<font color=navy><strong>
+Grouping Submissions Together: The Web World Hat Store
+</strong><font color=black><p>
+
+This example follows the "SINGLEPOST" mode above for each item, 
+ but simply groups all the seperate POSTings together on one page. 
+ You probably don't want to go too far with this layout, before 
+ using one of the OrderForm Modes. The OrderForm layout may make 
+ more sense for grouping products.
+<p>
+
+
+
+<table border=0 cellpadding=2 cellspacing=0 width=500>
+
+
+
+
+
+<!-- Propeller Hat Example -->
+<!-- Propeller Hat Example -->
+
+<tr><td colspan=2 bgcolor=#DDFFDD>
+<font face="Arial,Helvetica" size="3" color=navy>
+<strong>The World Famous Propeller Hat</strong> 
+</td></tr>
+
+<tr bgcolor=#FFFFEE>
+
+<td width=60>
+<img src="propellerhat.gif" width=60 height=60 border=0>
+</td>
+
+<td width=440>
+
+<FORM method=POST action="http://bandbstudios.com/cgi-bin/mof.cgi">
+<input type="hidden" name="postmode" value="SINGLEPOST">
+<input type="hidden" name="order" value="Propeller Hat----World Famous Propeller Hat----19.99----2----1">
+
+<font face="Arial,Helvetica" size="3" color=black>
+
+
+<table border=0 cellpadding=1 cellspacing=0>
+<tr>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Qty</strong><br>
+<font face="Arial,Helvetica" size="3" color=black>
+<input type="text" name="quantity" size=3 maxlength=3>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Hat Color</strong><br>
+<SELECT name=HatColor>
+ <OPTION selected value="">Select Color
+ <OPTION value="Rainbow">Rainbow
+ <OPTION value="Purple Stripe">Purple Stripes
+ <OPTION value="Yellow Solid">Yellow Solid
+ <OPTION value="Sunburst Red">Sunburst Red
+</SELECT>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Size</strong><br>
+<SELECT name=HatSize>
+ <OPTION selected value="">Select Size
+ <OPTION value="Small">Small
+ <OPTION value="Medium">Medium
+ <OPTION value="Large">Large
+ <OPTION value="Extra Large">Extra Large
+</SELECT>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Prop Color</strong><br>
+<SELECT name=PropellerColor>
+ <OPTION selected value="">Propeller Color
+ <OPTION value="Bright Red">Bright Red
+ <OPTION value="Dull Green">Dull Green
+ <OPTION value="Metallic Purple">Metallic Purple
+ <OPTION value="Shinny Yellow">Shinny Yellow
+</SELECT>
+</td>
+
+<td>
+<input type="image" src="buyme.gif" width=40 height=40 border=0 alt="Click Here to Add to Cart">
+</td>
+
+</tr></table>
+
+</FORM>
+</td></tr>
+
+
+
+
+<!-- Work Hat Example -->
+<!-- Work Hat Example -->
+
+<tr><td colspan=2 bgcolor=#DDFFDD>
+<font face="Arial,Helvetica" size="3" color=navy>
+<strong>The Industrial Work Hat</strong> 
+</td></tr>
+
+<tr bgcolor=#FFE8E8>
+
+<td width=60>
+<img src="workhat.gif" width=60 height=60 border=0>
+</td>
+
+<td width=440>
+
+<FORM method=POST action="http://bandbstudios.com/cgi-bin/mof.cgi">
+<input type="hidden" name="postmode" value="SINGLEPOST">
+<input type="hidden" name="order" value="Work Hat----The Industrial Work Hat----24.99----2----1">
+
+<font face="Arial,Helvetica" size="3" color=black>
+
+<table border=0 cellpadding=1 cellspacing=0>
+<tr>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Qty</strong><br>
+<font face="Arial,Helvetica" size="3" color=black>
+<input type="text" name="quantity" size=3 maxlength=3>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Hat Color</strong><br>
+<SELECT name=HatColor>
+ <OPTION selected value="">Select Color
+ <OPTION value="Red">Red
+ <OPTION value="Blue">Blue
+ <OPTION value="Yellow">Yellow
+ <OPTION value="Black">Black
+</SELECT>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Size</strong><br>
+<SELECT name=HatSize>
+ <OPTION selected value="">Select Size
+ <OPTION value="Small">Small
+ <OPTION value="Medium">Medium
+ <OPTION value="Large">Large
+ <OPTION value="Extra Large">Extra Large
+</SELECT> 
+</td>
+
+<td>
+<input type="image" src="buyme.gif" width=40 height=40 border=0 alt="Click Here to Add to Cart">
+</td>
+
+</tr></table>
+
+</FORM>
+</td></tr>
+
+
+
+<!-- Caravan Hat Example -->
+<!-- Caravan Hat Example -->
+
+<tr><td colspan=2 bgcolor=#DDFFDD>
+<font face="Arial,Helvetica" size="3" color=navy>
+<strong>The Hardy Caravan Hat</strong> 
+</td></tr>
+
+<tr bgcolor=#FFFFEE>
+
+<td width=60>
+<img src="caravanhat.gif" width=60 height=60 border=0>
+</td>
+
+<td width=440>
+
+<FORM method=POST action="http://bandbstudios.com/cgi-bin/mof.cgi">
+<input type="hidden" name="postmode" value="SINGLEPOST">
+<input type="hidden" name="order" value="Caravan Hat----The Hardy Go-Anywhere Hat----32.50----2----1">
+<input type="hidden" name="quantity" value="3">
+
+<font face="Arial,Helvetica" size="3" color=black>
+
+<table border=0 cellpadding=1 cellspacing=0>
+<tr>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Hat Color</strong><br>
+<SELECT name=HatColor>
+ <OPTION selected value="">Select Color
+ <OPTION value="Red">Red
+ <OPTION value="Blue">Blue
+ <OPTION value="Yellow">Yellow
+ <OPTION value="Black">Black
+</SELECT>
+</td>
+
+<td>
+<font face="Arial,Helvetica" size="2" color=black>
+<strong>Size</strong><br>
+<SELECT name=HatSize>
+ <OPTION selected value="">Select Size
+ <OPTION value="Small">Small
+ <OPTION value="Medium">Medium
+ <OPTION value="Large">Large
+ <OPTION value="ExtraLarge">Extra Large
+</SELECT>
+</td>
+
+<td>
+<input type="image" src="buyme.gif" width=40 height=40 border=0 alt="Click Here to Add to Cart">
+</td>
+
+</tr></table>
+
+</td></tr></table>
+
+
+
+
+<br><br><br>
+
+<font face="Arial,Helvetica" size="2">
+
+Happy Ordering<br>
+
+Copyright &copy; 
+<a href="http://www.io.com/~rga/scripts/">
+Merchant OrderForm </a> v1.53
+<br>
+All Rights Reserved, April 2000 by
+<a href="http://www.io.com/~rga/">RGA</a>
+<br>
+These programs may not be distributed without consent of owner.
+<br>
+
+<br><br><br>
+
+</blockquote>
+
+
+</body>
+</html>
